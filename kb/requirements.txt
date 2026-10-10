@@ -1,0 +1,10 @@
+# 轻量检索、H5 服务和 Word/PDF 数据处理；Python 3.10+
+fastapi==0.136.3
+uvicorn==0.48.0
+jieba==0.42.1
+rank-bm25==0.2.2
+requests==2.34.2
+PyMuPDF==1.25.2
+Pillow==11.3.0
+python-docx==1.2.0
+python-dotenv==1.2.2

@@ -1,0 +1,37 @@
+层,模块,文件,行数,职责,状态,卡在哪
+L0 原料,台账扫描,kb/src/catalog.py,319,"扫描建筑规范/，判定扫描件、SHA256去重、正则抽编号，出 catalog.csv（329份）",已跑通,"status/superseded_by 两列待人工填"
+L0 原料,人工订正表,kb/data/overrides.tsv,-,"文件名→覆盖字段，不改源文件；匹配不上时大声报错",已跑通,
+L0 原料,引用提醒表,kb/data/clause_notes.tsv,-,"给已被新版修订但仍可检索的条文挂 caveat，已挂8条",已跑通,"第9条 3.1.3 是新增条文，无基条可挂，待人工录入"
+L1 解析,国标/行标路径,kb/src/chunker.py（内含）,-,"python-docx + 直读原始XML；OMML公式取值、w:tc/gridSpan还原表格",已跑通,
+L1 解析,企标路径,kb/src/depdoc.py,193,"DEP-* 按 GB/T 1.1 编写，编号在 w:numPr；以目次为准取章号+顺序单调判据",已跑通,
+L1 解析,本地OCR,kb/src/ocr.py,349,"去水印(绿印章)→magic-pdf/MinerU，MPS 10s/页，批大小32",进行中,"一档 16/26 本；跑十来本需重启（内存累积）"
+L1 解析,云端OCR,kb/tools/ocr_cloud.py,466,"MinerU 官方 API，产物同 schema；超200页切段并接回页码偏移",待条件,"缺 MinerU token"
+L1 解析,OCR块适配,kb/src/mdblocks.py,229,"content_list.json → (kind,obj,text)；行内多条文拆分",已跑通,
+L1 解析,OCR队列,kb/tools/queue.py,125,"从台账生成队列，--scope 限定 建筑规范/标准库/；档内顺序即优先级不许排序",已跑通,
+L1 解析,调度选路,kb/src/batch.py,235,"按有无 Word 源自动选 Word/企标/OCR 路径",已跑通,
+L2 切条,核心切条器,kb/src/chunker.py,893,"分区识别→三级条号切分→表格随条文→修订优先去重；游离率 0.0%",已跑通,"SH/T 3196 两级条号体例切出0条，已知不做"
+L2 切条,页码兜底,kb/src/pagefind.py,81,"PDF文本层按条文顺序单向前搜；751条精确命中0条错",已跑通,"全库仅 GB 50011 A.0.31 一条无页码"
+L2 切条,人工校对页,kb/tools/review.py,262,"左栏chunk+表格/右栏PDF原页图；列位存疑行标黄并排最前",工具就绪,"48 行表格列位待人核"
+L2 切条,增量补切,kb/tools/chunk_new.py,116,"只切已有OCR产物且未入库的书",已跑通,
+L3 存储,条文库,kb/data/chunks/*.jsonl,-,"56文件/55本/11174块；检索池7259/强条1400/条文说明3800",已跑通,
+L3 存储,页图缓存,kb/data/cache/pages/,-,"灰度JPEG ~191KB/页，删掉自愈",已跑通,
+L3 存储,向量库,kb/data/chroma/,-,"Chroma 本地持久化",未建立,"目录不存在；建索引需先调 embedding API"
+L4 检索,条号直达,kb/src/retrieve.py（内含）,-,"正则识别规范号/条文号→metadata精确过滤；命中即终止不掺语义",已跑通,
+L4 检索,规范名过滤,kb/src/retrieve.py（内含）,-,"支持「建筑抗震设计规范 5.1.4」写法；限定后本内重排名次；重名谁都不认",已跑通,
+L4 检索,BM25关键词,kb/src/retrieve.py（内含）,-,"jieba + rank_bm25 内存内约50MB",已跑通,"当前唯一可用检索通道"
+L4 检索,向量语义,kb/src/index.py,113,"bge-m3(1024维)→Chroma；送embed文本带规范名+章节路径前缀；按SHA1增量重建",待条件,"缺硅基流动 API key"
+L4 检索,RRF融合,kb/src/retrieve.py,416,"Reciprocal Rank Fusion；默认过滤 superseded/废止/条文说明",已跑通,
+L4 检索,重排,kb/src/retrieve.py（内含）,-,"bge-reranker-v2-m3 取top8",待条件,"缺硅基流动 API key"
+L5 生成,问答,kb/src/answer.py,122,"Prompt硬约束：只依据条文、必标[规范号 条文号 P页码]、不足则明说未检索到禁止推测",待条件,"缺 DeepSeek API key，代码从未真实调用过"
+L5 生成,出网收口,kb/src/providers.py,227,"全系统唯一出网口，三接口embed/rerank/stream；换内网模型只改环境变量",已跑通,"可切 KB_PROVIDER=local"
+L6 应用,后端,kb/app/main.py,286,"FastAPI 8个接口；/api/ask 走SSE，hits先出不等模型",本机跑通,"上线缺域名+服务器"
+L6 应用,鉴权,kb/app/auth.py,91,"HMAC签名票(非JWT)+httponly cookie；口令只从KB_PASSCODE读无默认值",本机跑通,
+L6 应用,前端,kb/app/static/index.html,-,"单文件H5，无构建无npm无CDN；出处可点跳转、幻觉出处报警、表格溢出提示",本机跑通,
+L6 应用,原件定位,kb/src/source_pdf.py,113,"条文页码→哪个PDF；判定顺序照抄batch.main()；35本全部对得上",已跑通,"最大单点风险：指错文件比没页码更糟"
+L6 应用,本机入口,kb/run_dev.py,16,"只绑127.0.0.1，KB_DEV=1 随机生成口令",已跑通,
+L6 应用,假后端,kb/tools/ui_mock.py,108,"前端联调用：无口令、不调模型、不出网，只绑回环",已跑通,"未给正式入口加演示模式（会跟着代码上线）"
+L6 应用,二维码,kb/tools/qr.py,67,"本机生成访问二维码，不经第三方网站",待条件,"需 pip install qrcode"
+横切,OCR基准工具,kb/tools/ocrbench.py,136,"分阶段测速：rec/det/版面/公式",已跑通,
+横切,OCR统计,kb/tools/ocrstat.py,150,"OCR产物统计",已跑通,
+横切,去水印回归测试,kb/tools/test_preclean.py,156,"造12页400dpi假扫描书，对照旧写法逐字节比对",已跑通,
+闸门,验收30题,-,-,"人工评分正确率<80%则回到切条逻辑；与上一版死掉的原型的根本区别",未开始,"待同事提供真实查询题库"

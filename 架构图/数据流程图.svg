@@ -1,0 +1,384 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="2140" viewBox="0 0 1480 2140">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0,10 4,0 8" fill="#555" />
+    </marker>
+    <marker id="arr-g" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0,10 4,0 8" fill="#27AE60" />
+    </marker>
+    <marker id="arr-b" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0,10 4,0 8" fill="#3A7BD5" />
+    </marker>
+    <marker id="arr-a" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0,10 4,0 8" fill="#E6A817" />
+    </marker>
+  </defs>
+  <rect width="1480" height="2140" fill="white" />
+
+  <text x="740" y="42" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" fill="#1A2742" text-anchor="middle">建筑规范 AI 知识库 — 数据流程图</text>
+  <text x="740" y="66" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" fill="#555" text-anchor="middle">左栏 = 系统在做什么　·　右栏 = 大白话解释　|　两条流水线：离线把规范原件变成条文库，在线把问题变成带出处的答案</text>
+
+  <!-- ==================== 分组 A：离线入库 ==================== -->
+  <rect x="30" y="92" width="940" height="856" rx="12" fill="#FCFAF4" stroke="#E6A817" stroke-width="1.5" />
+  <text x="52" y="118" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#C8901A">① 离线入库流水线 —— 本地跑，一次性，跑完就有库</text>
+
+  <rect x="370" y="140" width="260" height="40" rx="20" fill="#1A2742" stroke="#1A2742" stroke-width="2" />
+  <text x="500" y="165" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">建筑规范/ 原件 329 份</text>
+  <line x1="500" y1="180" x2="500" y2="220" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+
+  <!-- 1 台账 -->
+  <rect x="320" y="220" width="360" height="64" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="350" cy="246" r="13" fill="#27AE60" />
+  <text x="350" y="251" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">1</text>
+  <text x="500" y="248" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">台账扫描 · catalog.py</text>
+  <text x="500" y="270" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555" text-anchor="middle">判定扫描件 / SHA256 去重 / 正则抽编号</text>
+
+  <!-- 三路分叉 -->
+  <path d="M 500,284 L 500,308 L 178,308 L 178,332" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)" />
+  <line x1="500" y1="284" x2="500" y2="332" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 500,284 L 500,308 L 822,308 L 822,332" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)" />
+  <rect x="578" y="300" width="196" height="16" fill="#FCFAF4" />
+  <text x="676" y="312" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#999" text-anchor="middle">按有无 Word 源自动选路（batch.py）</text>
+
+  <!-- 2a -->
+  <rect x="52" y="332" width="252" height="104" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <rect x="62" y="341" width="34" height="17" rx="8.5" fill="#27AE60" />
+  <text x="79" y="353" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">2a</text>
+  <rect x="246" y="341" width="46" height="17" rx="8.5" fill="#27AE60" />
+  <text x="269" y="353" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">28 本</text>
+  <text x="178" y="377" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">Word 路径（国标 / 行标）</text>
+  <text x="178" y="396" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">python-docx + 直读原始 XML</text>
+  <text x="178" y="413" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">OMML 取数值 · gridSpan 还原表格</text>
+  <text x="178" y="430" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#999" text-anchor="middle">条文号印在正文里，读得到</text>
+
+  <!-- 2b -->
+  <rect x="374" y="332" width="252" height="104" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <rect x="384" y="341" width="34" height="17" rx="8.5" fill="#27AE60" />
+  <text x="401" y="353" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">2b</text>
+  <rect x="568" y="341" width="46" height="17" rx="8.5" fill="#27AE60" />
+  <text x="591" y="353" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">13 本</text>
+  <text x="500" y="377" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">企标路径 · depdoc.py</text>
+  <text x="500" y="396" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">DEP-* 按 GB/T 1.1 编写</text>
+  <text x="500" y="413" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">编号在 w:numPr，以目次为准取章号</text>
+  <text x="500" y="430" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#999" text-anchor="middle">正文文字里一个数字都没有</text>
+
+  <!-- 2c -->
+  <rect x="696" y="332" width="252" height="104" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <rect x="706" y="341" width="34" height="17" rx="8.5" fill="#27AE60" />
+  <text x="723" y="353" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">2c</text>
+  <rect x="884" y="341" width="56" height="17" rx="8.5" fill="#E6A817" />
+  <text x="912" y="353" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">待 token</text>
+  <text x="822" y="377" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">OCR 路径 · ocr.py（扫描件）</text>
+  <text x="822" y="396" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">去水印 → magic-pdf(MPS) 10 s/页</text>
+  <text x="822" y="413" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">二三档转云端 MinerU API</text>
+  <text x="822" y="430" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#999" text-anchor="middle">绿印章不去掉，整条条文会消失</text>
+
+  <!-- 三路汇合 -->
+  <path d="M 178,436 L 178,460 L 500,460 L 500,484" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)" />
+  <line x1="500" y1="436" x2="500" y2="484" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 822,436 L 822,460 L 500,460 L 500,484" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)" />
+  <rect x="580" y="452" width="220" height="16" fill="#FCFAF4" />
+  <text x="690" y="464" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#999" text-anchor="middle">三路汇成同一个块序列 (kind, obj, text)</text>
+
+  <!-- 3 切条 -->
+  <rect x="270" y="484" width="460" height="92" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2.5" />
+  <circle cx="298" cy="510" r="13" fill="#27AE60" />
+  <text x="298" y="515" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">3</text>
+  <rect x="640" y="494" width="78" height="18" rx="9" fill="#9B59B6" />
+  <text x="679" y="507" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">★ 胜负手</text>
+  <text x="500" y="518" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1A2742" text-anchor="middle">切条 · chunker.py（893 行，全系统最重）</text>
+  <text x="500" y="541" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555" text-anchor="middle">分区识别 → 只认三级条号 → 表格必须跟着条文走</text>
+  <text x="500" y="562" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#27AE60" text-anchor="middle">正文游离率 0.0% —— 这个数回升就说明漏了新排版</text>
+
+  <path d="M 500,576 L 500,599 L 320,599 L 320,622" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)" />
+  <path d="M 500,576 L 500,599 L 680,599 L 680,622" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)" />
+
+  <!-- 4 -->
+  <rect x="170" y="622" width="300" height="78" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="198" cy="648" r="13" fill="#27AE60" />
+  <text x="198" y="653" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">4</text>
+  <text x="326" y="651" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">页码兜底 · pagefind.py</text>
+  <text x="320" y="673" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">PDF 文本层按条文顺序单向前搜</text>
+  <text x="320" y="690" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#999" text-anchor="middle">751 条精确命中 0 条错 · 全库仅 1 条无页码</text>
+
+  <!-- 5 -->
+  <rect x="530" y="622" width="300" height="78" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="558" cy="648" r="13" fill="#27AE60" />
+  <text x="558" y="653" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">5</text>
+  <text x="688" y="651" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">强条标注（黑体已丢）</text>
+  <text x="680" y="673" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">改取：发布公告清单 ∪ 条文说明声明</text>
+  <text x="680" y="690" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#999" text-anchor="middle">1,400 条 · 每条带 mandatory_basis 审计字段</text>
+
+  <path d="M 320,700 L 320,723 L 500,723 L 500,746" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)" />
+  <path d="M 680,700 L 680,723 L 500,723 L 500,746" stroke="#555" stroke-width="2" fill="none" marker-end="url(#arr)" />
+
+  <!-- 6 -->
+  <rect x="300" y="746" width="400" height="76" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="328" cy="772" r="13" fill="#27AE60" />
+  <text x="328" y="777" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">6</text>
+  <rect x="596" y="756" width="92" height="18" rx="9" fill="#9B59B6" />
+  <text x="642" y="769" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">★ 防引作废条文</text>
+  <text x="498" y="778" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">修订优先去重 → superseded</text>
+  <text x="500" y="800" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">同条号有修订版就把旧正文踢出检索池</text>
+
+  <line x1="500" y1="822" x2="500" y2="862" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+
+  <rect x="290" y="862" width="420" height="72" rx="7" fill="#F4F6FA" stroke="#1A2742" stroke-width="2" />
+  <text x="500" y="890" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">data/chunks/*.jsonl — 55 本 / 11,174 块</text>
+  <text x="500" y="913" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555" text-anchor="middle">检索池 7,259 · 强条 1,400 · 条文说明 3,800（另池）</text>
+
+  <!-- 跨组 -->
+  <line x1="500" y1="948" x2="500" y2="998" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+  <text x="712" y="978" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#888" text-anchor="middle">库建成后，以下是每次有人提问时发生的事</text>
+
+  <!-- ==================== 分组 B：在线问答 ==================== -->
+  <rect x="30" y="998" width="940" height="1044" rx="12" fill="#F7FAFD" stroke="#3A7BD5" stroke-width="1.5" />
+  <text x="52" y="1024" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#2E6DB4">② 在线问答 —— 每次提问走一遍</text>
+
+  <rect x="360" y="1046" width="280" height="40" rx="20" fill="#1A2742" stroke="#1A2742" stroke-width="2" />
+  <text x="500" y="1071" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">同事微信扫码 → H5 提问</text>
+  <line x1="500" y1="1086" x2="500" y2="1126" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+
+  <!-- 7 -->
+  <rect x="290" y="1126" width="420" height="72" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="318" cy="1152" r="13" fill="#27AE60" />
+  <text x="318" y="1157" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">7</text>
+  <text x="500" y="1155" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">查询预处理 · parse_query()</text>
+  <text x="500" y="1178" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">正则先认 规范号 / 条文号 / 规范名，认出来就走精确过滤</text>
+
+  <!-- 三路检索分叉 -->
+  <path d="M 500,1198 L 500,1230 L 230,1230 L 230,1250" stroke="#27AE60" stroke-width="2" fill="none" marker-end="url(#arr-g)" />
+  <path d="M 500,1198 L 500,1230 L 661,1230 L 661,1250" stroke="#3A7BD5" stroke-width="2" fill="none" marker-end="url(#arr-b)" />
+  <path d="M 500,1198 L 500,1230 L 821,1230 L 821,1250" stroke="#E6A817" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-a)" />
+  <text x="350" y="1218" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#27AE60" text-anchor="middle">识别出条号</text>
+  <text x="600" y="1218" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#3A7BD5" text-anchor="middle">没有条号 → 混合检索</text>
+
+  <!-- 8 条号直达 -->
+  <rect x="70" y="1250" width="320" height="90" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="98" cy="1276" r="13" fill="#27AE60" />
+  <text x="98" y="1281" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">8</text>
+  <text x="236" y="1280" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">条号直达</text>
+  <text x="230" y="1303" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">metadata 精确过滤，不依赖语义检索</text>
+  <text x="230" y="1324" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#9B59B6" text-anchor="middle">★ 命中即终止，不掺语义结果进来</text>
+
+  <!-- BM25 -->
+  <rect x="588" y="1250" width="146" height="78" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <text x="661" y="1282" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2742" text-anchor="middle">BM25 关键词</text>
+  <text x="661" y="1302" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#555" text-anchor="middle">jieba + rank_bm25</text>
+  <text x="661" y="1319" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#27AE60" text-anchor="middle">现在唯一在跑的通道</text>
+
+  <!-- 向量 -->
+  <rect x="748" y="1250" width="146" height="78" rx="10" fill="#FFF8E6" stroke="#E6A817" stroke-width="2" />
+  <rect x="840" y="1256" width="46" height="16" rx="8" fill="#E6A817" />
+  <text x="863" y="1268" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="9.5" fill="white" text-anchor="middle">待 key</text>
+  <text x="805" y="1282" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2742" text-anchor="middle">向量语义</text>
+  <text x="821" y="1302" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#555" text-anchor="middle">bge-m3 → Chroma</text>
+  <text x="821" y="1319" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="#999" text-anchor="middle">索引目录尚未生成</text>
+
+  <path d="M 661,1328 L 661,1352 L 741,1352 L 741,1376" stroke="#3A7BD5" stroke-width="2" fill="none" marker-end="url(#arr-b)" />
+  <path d="M 821,1328 L 821,1352 L 741,1352 L 741,1376" stroke="#E6A817" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-a)" />
+
+  <!-- 9 -->
+  <rect x="608" y="1376" width="266" height="62" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="634" cy="1407" r="13" fill="#27AE60" />
+  <text x="634" y="1412" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">9</text>
+  <text x="762" y="1400" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2742" text-anchor="middle">RRF 融合</text>
+  <text x="765" y="1422" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#555" text-anchor="middle">滤掉 superseded / 废止 / 条文说明</text>
+
+  <line x1="741" y1="1438" x2="741" y2="1478" stroke="#3A7BD5" stroke-width="2" marker-end="url(#arr-b)" />
+
+  <!-- 10 -->
+  <rect x="608" y="1478" width="266" height="62" rx="10" fill="#FFF8E6" stroke="#E6A817" stroke-width="2" />
+  <circle cx="634" cy="1509" r="13" fill="#E6A817" />
+  <text x="634" y="1514" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">10</text>
+  <rect x="820" y="1484" width="46" height="16" rx="8" fill="#E6A817" />
+  <text x="843" y="1496" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="9.5" fill="white" text-anchor="middle">待 key</text>
+  <text x="746" y="1502" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2742" text-anchor="middle">重排 → top 8</text>
+  <text x="752" y="1524" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#555" text-anchor="middle">bge-reranker-v2-m3</text>
+
+  <!-- 两支汇合 -->
+  <path d="M 230,1340 L 230,1580 L 500,1580 L 500,1610" stroke="#27AE60" stroke-width="2" fill="none" marker-end="url(#arr-g)" />
+  <path d="M 741,1540 L 741,1580 L 500,1580 L 500,1610" stroke="#3A7BD5" stroke-width="2" fill="none" marker-end="url(#arr-b)" />
+  <rect x="546" y="1560" width="62" height="15" fill="#F7FAFD" />
+  <text x="577" y="1572" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#999" text-anchor="middle">top 8 条文</text>
+
+  <!-- 11 -->
+  <rect x="290" y="1610" width="420" height="78" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="318" cy="1636" r="13" fill="#27AE60" />
+  <text x="318" y="1641" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">11</text>
+  <rect x="614" y="1620" width="80" height="18" rx="9" fill="#9B59B6" />
+  <text x="654" y="1633" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">★ 降级不崩</text>
+  <text x="496" y="1642" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">SSE 先发 hits —— 不等模型</text>
+  <text x="500" y="1665" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">模型挂了 / 没 key / 网断，至少还拿到条文原文和页码</text>
+
+  <line x1="710" y1="1649" x2="758" y2="1649" stroke="#27AE60" stroke-width="2" marker-end="url(#arr-g)" />
+  <rect x="762" y="1620" width="194" height="58" rx="7" fill="#F4F6FA" stroke="#1A2742" stroke-width="2" />
+  <text x="859" y="1646" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#1A2742" text-anchor="middle">条文卡片立即显示</text>
+  <text x="859" y="1665" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10.5" fill="#555" text-anchor="middle">页码 · 强条角标 · 原文</text>
+
+  <line x1="500" y1="1688" x2="500" y2="1728" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+
+  <!-- 12 -->
+  <rect x="290" y="1728" width="420" height="92" rx="10" fill="#FFF8E6" stroke="#E6A817" stroke-width="2" />
+  <circle cx="318" cy="1754" r="13" fill="#E6A817" />
+  <text x="318" y="1759" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">12</text>
+  <rect x="592" y="1738" width="106" height="18" rx="9" fill="#E6A817" />
+  <text x="645" y="1751" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">待 DeepSeek key</text>
+  <text x="488" y="1760" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">LLM 生成 · answer.py</text>
+  <text x="500" y="1783" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">只依据给定条文 · 结论后必标 [规范号 条号 P页码]</text>
+  <text x="500" y="1803" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">答不了就明说「未检索到相关条文」，禁止推测</text>
+
+  <line x1="500" y1="1820" x2="500" y2="1860" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+
+  <!-- 13 -->
+  <rect x="290" y="1860" width="420" height="92" rx="10" fill="#EDFAF1" stroke="#27AE60" stroke-width="2" />
+  <circle cx="318" cy="1886" r="13" fill="#27AE60" />
+  <text x="318" y="1891" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">13</text>
+  <text x="496" y="1892" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="13.5" font-weight="bold" fill="#1A2742" text-anchor="middle">SSE delta 流式输出到 H5</text>
+  <text x="500" y="1915" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#555" text-anchor="middle">回答里的出处渲染成可点链接 → 滚到对应条文卡并闪一下</text>
+  <text x="500" y="1935" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#9B59B6" text-anchor="middle">★ 模型引了检索结果里没有的条号 → 当场报警</text>
+
+  <line x1="500" y1="1952" x2="500" y2="1992" stroke="#555" stroke-width="2" marker-end="url(#arr)" />
+
+  <rect x="360" y="1992" width="280" height="40" rx="20" fill="#1A2742" stroke="#1A2742" stroke-width="2" />
+  <text x="500" y="2017" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">同事拿到带出处的答案</text>
+
+  <!-- ==================== 右栏：大白话解释 ==================== -->
+  <text x="1010" y="118" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1A2742">大白话解释</text>
+  <line x1="1010" y1="126" x2="1450" y2="126" stroke="#DDD" stroke-width="1" />
+
+  <!-- A intro -->
+  <rect x="1010" y="138" width="4" height="76" rx="2" fill="#C8901A" />
+  <text x="1026" y="150" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#C8901A">① 先把书拆成卡片（一次性的苦活）</text>
+  <text x="1026" y="172" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">目标是把一柜子纸质规范，变成一条一条</text>
+  <text x="1026" y="190" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">能被搜索的电子条文。这一段跑完就有库，</text>
+  <text x="1026" y="208" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">平时不用再跑。</text>
+
+  <!-- C1 -->
+  <rect x="1010" y="218" width="4" height="76" rx="2" fill="#27AE60" />
+  <text x="1026" y="230" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#27AE60">1　先点数</text>
+  <text x="1026" y="252" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">像图书管理员登记藏书：329 份文件里哪些</text>
+  <text x="1026" y="270" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">是扫描的图片、哪些重复了、编号是多少。</text>
+  <text x="1026" y="288" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">不先点清楚，后面全是糊涂账。</text>
+
+  <!-- C2 -->
+  <rect x="1010" y="330" width="4" height="130" rx="2" fill="#27AE60" />
+  <text x="1026" y="342" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#27AE60">2　三种书，三种拆法</text>
+  <text x="1026" y="364" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">· Word 版最省事，文字是现成的（28 本）</text>
+  <text x="1026" y="382" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">· 中石化企标得另开一条路——它的条文号是</text>
+  <text x="1026" y="400" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">　Word 自动编号，正文里一个数字都没有，</text>
+  <text x="1026" y="418" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">　只能拿目录去对（13 本）</text>
+  <text x="1026" y="436" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">· 扫描件要让机器认字。先擦掉出版社的绿</text>
+  <text x="1026" y="454" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">　印章：印章盖住的地方会整条认丢</text>
+
+  <!-- C3 -->
+  <rect x="1010" y="482" width="4" height="130" rx="2" fill="#9B59B6" />
+  <text x="1026" y="494" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#9B59B6">3　把整本书剪成一条一条 ← 最难的一步</text>
+  <text x="1026" y="516" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">要认出「第 5.5.17 条」从哪儿开始、到哪儿</text>
+  <text x="1026" y="534" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">结束，表格必须跟着它所属的那一条走。</text>
+  <text x="1026" y="552" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">剪错了后面全错——这一步占了全系统三分</text>
+  <text x="1026" y="570" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">之二的代码量。</text>
+  <text x="1026" y="588" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">「游离率 0.0%」是说：没有一个字被漏在条</text>
+  <text x="1026" y="606" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">文之外。</text>
+
+  <!-- C4 -->
+  <rect x="1010" y="620" width="4" height="94" rx="2" fill="#27AE60" />
+  <text x="1026" y="632" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#27AE60">4·5　记住页码，标出强条</text>
+  <text x="1026" y="654" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">每条都记住自己印在第几页，同事才能翻回</text>
+  <text x="1026" y="672" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">原书核对——没页码的答案等于不能核对。</text>
+  <text x="1026" y="690" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">「强制性条文」原书印成黑体，扫描后字体</text>
+  <text x="1026" y="708" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">信息丢了，改从发布公告的名单里找。</text>
+
+  <!-- C5 -->
+  <rect x="1010" y="744" width="4" height="76" rx="2" fill="#9B59B6" />
+  <text x="1026" y="756" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#9B59B6">6　同一条有新旧两版，扔掉旧的</text>
+  <text x="1026" y="778" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">规范会局部修订，同一个条号在书里出现两</text>
+  <text x="1026" y="796" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">次：前面是现行版，后面是已作废的旧版。</text>
+  <text x="1026" y="814" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">不做这步，AI 有一半概率引用作废条文。</text>
+
+  <!-- C6 -->
+  <rect x="1010" y="860" width="4" height="94" rx="2" fill="#1A2742" />
+  <text x="1026" y="872" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#1A2742">成果：11,174 张卡片</text>
+  <text x="1026" y="894" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">其中 7,259 张是能被搜到的正式条文，</text>
+  <text x="1026" y="912" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">1,400 张是必须执行的强制性条文。</text>
+  <text x="1026" y="930" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">另外 3,800 张「条文说明」单独放一边——</text>
+  <text x="1026" y="948" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">它解释为什么这么定，但不具强制力。</text>
+
+  <!-- B intro -->
+  <rect x="1010" y="1044" width="4" height="58" rx="2" fill="#2E6DB4" />
+  <text x="1026" y="1056" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#2E6DB4">② 每次有人提问，走一遍这个</text>
+  <text x="1026" y="1078" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">库已经建好了。下面是同事扫码提问后，</text>
+  <text x="1026" y="1096" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">系统在两三秒里做的事。</text>
+
+  <!-- C7 -->
+  <rect x="1010" y="1124" width="4" height="94" rx="2" fill="#27AE60" />
+  <text x="1026" y="1136" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#27AE60">7　先看是哪类问题</text>
+  <text x="1026" y="1158" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">问题里带了「GB 50016 5.5.17」这种编号，</text>
+  <text x="1026" y="1176" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">答案就是确定的，直接翻出那一条，不用猜。</text>
+  <text x="1026" y="1194" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">也认「建筑设计防火规范 5.5.17」——同事</text>
+  <text x="1026" y="1212" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">平时就是这么说话的。</text>
+
+  <!-- C8 -->
+  <rect x="1010" y="1248" width="4" height="130" rx="2" fill="#E6A817" />
+  <text x="1026" y="1260" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#B8860B">8　三条找法，各管一摊</text>
+  <text x="1026" y="1282" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">· 问编号 → 直接翻出那一条，找到就停</text>
+  <text x="1026" y="1300" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">· 按关键词找 → 像用搜索引擎。现在只有</text>
+  <text x="1026" y="1318" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">　这条在跑</text>
+  <text x="1026" y="1336" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">· 按意思找 → 问「疏散楼梯多宽」也能找到</text>
+  <text x="1026" y="1354" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">　写着「净宽不应小于 1.1m」的条文。这条</text>
+  <text x="1026" y="1372" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">　要买 API，还没开</text>
+
+  <!-- C9 -->
+  <rect x="1010" y="1388" width="4" height="94" rx="2" fill="#E6A817" />
+  <text x="1026" y="1400" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#B8860B">9·10　合并、排队、精挑</text>
+  <text x="1026" y="1422" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">几条路找回来的结果合到一起排个队，再精</text>
+  <text x="1026" y="1440" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">挑一遍，留下最相关的 8 条。</text>
+  <text x="1026" y="1458" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">精挑也要买 API，现在跳过了——跳过还能</text>
+  <text x="1026" y="1476" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">用，只是排序没那么准。</text>
+
+  <!-- C10 -->
+  <rect x="1010" y="1608" width="4" height="94" rx="2" fill="#9B59B6" />
+  <text x="1026" y="1620" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#9B59B6">11　条文先给，AI 慢慢说</text>
+  <text x="1026" y="1642" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">这是整套系统最实在的一个设计：条文原文</text>
+  <text x="1026" y="1660" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">先推到手机上，AI 那段话再慢慢生成。</text>
+  <text x="1026" y="1678" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">所以就算 AI 挂了、没网、没配钥匙，同事</text>
+  <text x="1026" y="1696" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">至少还拿得到条文和页码，页面不会白屏。</text>
+
+  <!-- C11 -->
+  <rect x="1010" y="1726" width="4" height="112" rx="2" fill="#E6A817" />
+  <text x="1026" y="1738" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#B8860B">12　让 AI 照着这 8 条写答案</text>
+  <text x="1026" y="1760" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">规矩定得很死：只能用给它的这 8 条，每句</text>
+  <text x="1026" y="1778" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">话后面必须标出处，答不了就说「未检索到</text>
+  <text x="1026" y="1796" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">相关条文」，不许自己编。</text>
+  <text x="1026" y="1814" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">这一步要 DeepSeek 的钥匙，现在还没配，</text>
+  <text x="1026" y="1832" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">所以从来没真跑过。</text>
+
+  <!-- C12 -->
+  <rect x="1010" y="1858" width="4" height="130" rx="2" fill="#9B59B6" />
+  <text x="1026" y="1870" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#9B59B6">13　每句话都能翻回原书</text>
+  <text x="1026" y="1892" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">答案里的「[GB 50016 第5.5.17条 P38]」是</text>
+  <text x="1026" y="1910" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">可以点的，点一下就跳到那条原文。</text>
+  <text x="1026" y="1928" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">如果 AI 引了一条不在检索结果里的条号，</text>
+  <text x="1026" y="1946" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">页面会当场提示——那多半是它编的。</text>
+  <text x="1026" y="1964" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">这种句子看起来跟真的一模一样，只有跟检</text>
+  <text x="1026" y="1982" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">索结果比对才发现得了。</text>
+
+  <!-- ==================== 图例 ==================== -->
+  <rect x="60" y="2074" width="18" height="14" rx="3" fill="#EDFAF1" stroke="#27AE60" stroke-width="1.5" />
+  <text x="86" y="2086" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">已跑通，有实测数据</text>
+
+  <rect x="232" y="2074" width="18" height="14" rx="3" fill="#FFF8E6" stroke="#E6A817" stroke-width="1.5" />
+  <text x="258" y="2086" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">代码就绪，待 API key / token（还没通）</text>
+
+  <rect x="500" y="2074" width="18" height="14" rx="3" fill="#F4F6FA" stroke="#1A2742" stroke-width="1.5" />
+  <text x="526" y="2086" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">起止 / 存储</text>
+
+  <rect x="632" y="2073" width="68" height="16" rx="8" fill="#9B59B6" />
+  <text x="666" y="2085" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="9.5" fill="white" text-anchor="middle">★ 关键控制点</text>
+  <text x="708" y="2086" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">错在这里最危险</text>
+
+  <line x1="850" y1="2081" x2="888" y2="2081" stroke="#E6A817" stroke-width="2" stroke-dasharray="6,4" />
+  <text x="896" y="2086" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11.5" fill="#555">当前断开的通路</text>
+
+  <text x="740" y="2118" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="11" fill="#999" text-anchor="middle">数据为 2026-09-22 对 kb/data/chunks/ 的直接实测 · 完整设计与踩坑记录见 PLAN.md</text>
+</svg>

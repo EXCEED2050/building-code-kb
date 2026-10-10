@@ -1,0 +1,7 @@
+# 可选：本地向量检索/重排。重型依赖，未包含在轻量演示验证中。
+# 根据运行平台选择 PyTorch；升级后应重新验证模型和 Chroma 索引。
+chromadb>=0.5,<2
+torch>=2.6,<3
+transformers>=4.44,<5
+modelscope>=1.20,<2
+sentencepiece>=0.2,<1

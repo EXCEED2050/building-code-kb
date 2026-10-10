@@ -1,0 +1,31 @@
+# 凭据与本机配置
+.env
+.env.*
+!.env.example
+kb/conf/magic-pdf.json
+*.pem
+*.key
+
+# Python、编辑器与系统缓存
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+.pytest_cache/
+*.log
+
+# 原始资料、模型、生成结果；仅保留手工维护的规则表
+/建筑规范/
+/MinerU/
+/knowledge-base/
+/kb/models/
+/kb/review/
+/kb/data/*
+!/kb/data/overrides.tsv
+!/kb/data/tiers.tsv
+!/kb/data/clause_notes.tsv
+
+# 本地规划与进度记录
+/PLAN.md
+/进度.html

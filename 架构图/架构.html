@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>建筑规范 AI 知识库 — 系统架构</title>
+<style>
+:root{
+  --ink:#1a1a1a; --sub:#5f6368; --line:#e0e0e0; --bg:#fafafa; --card:#fff;
+  --ok:#2e7d32; --okbg:#e8f5e9; --wait:#b26a00; --waitbg:#fff4e0;
+  --off:#757575; --offbg:#f1f3f4; --acc:#1a5490; --accbg:#e8f0f7;
+  --risk:#c62828; --riskbg:#fdecea;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; padding:32px 20px 80px; background:var(--bg); color:var(--ink);
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:26px;margin:0 0 6px;letter-spacing:-.3px}
+.lede{color:var(--sub);font-size:14px;margin:0 0 4px}
+h2{font-size:19px;margin:44px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+h3{font-size:15px;margin:26px 0 10px;color:var(--acc)}
+p{margin:10px 0}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:#f1f3f4;padding:1px 5px;border-radius:3px}
+
+/* 一句话定性 */
+.thesis{
+  background:var(--card);border-left:4px solid var(--acc);padding:18px 22px;
+  margin:22px 0 8px;border-radius:0 6px 6px 0;box-shadow:0 1px 3px rgba(0,0,0,.06);
+}
+.thesis b{color:var(--acc)}
+
+/* 分层图 */
+.stack{margin:18px 0}
+.layer{
+  display:grid;grid-template-columns:82px 1fr;gap:0;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+.rail{
+  background:var(--acc);color:#fff;padding:14px 8px;text-align:center;
+  display:flex;flex-direction:column;justify-content:center;gap:3px;
+}
+.rail .n{font:700 17px/1 ui-monospace,monospace}
+.rail .t{font-size:11px;opacity:.9;line-height:1.35}
+.body{padding:14px 16px}
+.caption{font-size:12px;color:var(--sub);margin:0 0 10px}
+.cols{display:grid;gap:10px}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c2{grid-template-columns:repeat(2,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+
+.box{border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:#fff}
+.box .hd{font-weight:600;font-size:13.5px;margin-bottom:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.box .fn{font:11.5px/1.5 ui-monospace,monospace;color:var(--acc);word-break:break-all}
+.box .ds{font-size:12px;color:var(--sub);margin-top:5px;line-height:1.6}
+.box.ok{background:var(--okbg);border-color:#a5d6a7}
+.box.wait{background:var(--waitbg);border-color:#ffd699}
+.box.off{background:var(--offbg);border-color:#dadce0}
+.box.risk{background:var(--riskbg);border-color:#f5b7b1}
+
+.pill{font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:9px;white-space:nowrap}
+.p-ok{background:var(--ok);color:#fff}
+.p-wait{background:var(--wait);color:#fff}
+.p-off{background:var(--off);color:#fff}
+
+.arrow{text-align:center;color:var(--acc);font-size:16px;line-height:1;margin:7px 0;letter-spacing:6px}
+.merge{text-align:center;font-size:12px;color:var(--sub);margin:8px 0 2px}
+
+/* 表格 */
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f1f3f4;font-weight:600;font-size:12.5px}
+td.num{text-align:right;font-family:ui-monospace,monospace}
+tr:nth-child(even) td{background:#fcfcfc}
+
+/* 状态灯 */
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--sub);margin:10px 0 18px}
+.legend span{display:flex;align-items:center;gap:5px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.d-ok{background:var(--ok)} .d-wait{background:var(--wait)} .d-off{background:var(--off)}
+
+/* 要点块 */
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--wait);
+  padding:12px 16px;margin:14px 0;border-radius:0 6px 6px 0;font-size:13.5px}
+.note b{color:var(--wait)}
+.note.acc{border-left-color:var(--acc)} .note.acc b{color:var(--acc)}
+.note.risk{border-left-color:var(--risk)} .note.risk b{color:var(--risk)}
+
+ul{margin:8px 0;padding-left:22px} li{margin:5px 0}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.kv .item{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 14px;text-align:center}
+.kv .v{font:700 22px/1.2 ui-monospace,monospace;color:var(--acc)}
+.kv .k{font-size:11.5px;color:var(--sub);margin-top:3px}
+footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--sub)}
+@media(max-width:820px){.c3,.c4{grid-template-columns:1fr}.c2{grid-template-columns:1fr}}
+@media print{body{background:#fff;padding:0}.layer{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>建筑规范 AI 知识库 — 系统架构</h1>
+<p class="lede">制图依据：<code>kb/</code> 源码 5,269 行 + <code>data/chunks/</code> 实测产物 · 数据截至 2026-09-22</p>
+
+<div class="thesis">
+<p style="margin-top:0"><b>一句话：这不是一个 RAG 系统，这是一个「文档理解流水线」，后面挂了一个很薄的 RAG。</b></p>
+<p style="margin-bottom:0">通常的 RAG 项目，重心在检索与生成，切块是 <code>split(text, 500)</code> 一行代码。你这套反过来了：<b>5,269 行代码里约 3,400 行（65%）在解决「怎么把一本规范正确地拆成条文」</b>，检索 416 行、生成 122 行。原因是领域约束——答案要当设计依据用，引错一条比答不出来危害大得多。所以架构的全部重量压在了入库前，而不是查询时。</p>
+</div>
+
+<h2>一、分层架构</h2>
+
+<div class="legend">
+  <span><i class="dot d-ok"></i>已跑通，有实测数据</span>
+  <span><i class="dot d-wait"></i>代码就绪，待外部条件（API key / token）</span>
+  <span><i class="dot d-off"></i>未建立</span>
+</div>
+
+<div class="stack">
+
+<!-- L0 -->
+<div class="layer">
+  <div class="rail"><div class="n">L0</div><div class="t">原料<br>Source</div></div>
+  <div class="body">
+    <p class="caption">全部为只读。<b>原则：永不修改用户源文件</b>——文件名错了也不改，订正另记一张表。</p>
+    <div class="cols c4">
+      <div class="box ok"><div class="hd">台账 <span class="pill p-ok">329 份</span></div><div class="fn">src/catalog.py → data/catalog.csv</div><div class="ds">扫 <code>建筑规范/</code>，自动判定扫描件（全书 1/4、1/2、3/4 三处抽样）、SHA256 去重、编号正则抽取</div></div>
+      <div class="box ok"><div class="hd">Word 源 <span class="pill p-ok">28 本</span></div><div class="fn">建筑规范/word/*.docx</div><div class="ds">正文的<b>首选来源</b>：条文号无错、表格数值可精确还原、强条有明文声明</div></div>
+      <div class="box ok"><div class="hd">PDF 扫描件 <span class="pill p-ok">250 份</span></div><div class="fn">建筑规范/标准库/</div><div class="ds">核心国标 17 本中 13 本为纯图片，OCR 是必经路径</div></div>
+      <div class="box ok"><div class="hd">MinerU 历史产物 <span class="pill p-ok">32 份</span></div><div class="fn">MinerU/*/*_content_list.json</div><div class="ds">只取 <code>page_idx</code> 供页码，不取正文</div></div>
+    </div>
+    <div class="note acc" style="margin-bottom:0"><b>关键设计：正文与页码分离取源。</b> Word 有正文没页码，MinerU 有页码但 OCR 会错字。实测两边条文号对齐率 <b>100%（473/473）</b>，于是用条号当连接键——<b>文本取 Word，页码从 MinerU 查回来</b>。这一条决定了后面整条流水线的形状。</div>
+  </div>
+</div>
+
+<div class="arrow">▼ ▼ ▼</div>
+
+<!-- L1 -->
+<div class="layer">
+  <div class="rail"><div class="n">L1</div><div class="t">解析<br>Parse</div></div>
+  <div class="body">
+    <p class="caption">三条独立路径，<b>因为标准的编写规则本身就有三套</b>，不是排版差异。三路汇入同一个块序列接口 <code>(kind, obj, text)</code>。</p>
+    <div class="cols c3">
+      <div class="box ok"><div class="hd">① 国标 / 行标路径 <span class="pill p-ok">已通</span></div><div class="fn">python-docx + 直读原始 XML</div><div class="ds">工程建设标准写法，<b>条文号印在正文里</b>。两个必须直读 XML 的原因：<br>· 46% 条文的数值写在 OMML 公式里（<code>&lt;m:t&gt;</code>），<code>.text</code> 读不到<br>· 表格合并列要 <code>&lt;w:tc&gt;</code> + gridSpan 才能还原</div></div>
+      <div class="box ok"><div class="hd">② 企标路径 <span class="pill p-ok">13 本</span></div><div class="fn">src/depdoc.py</div><div class="ds">中石化 DEP-* 按 <b>GB/T 1.1</b> 编写，编号是 Word 自动编号（<code>w:numPr</code>），<b>正文文字里一个数字都没有</b>。改为<b>以目次为准</b>取章号 + 顺序单调判据；不可信则整本清空条号</div></div>
+      <div class="box ok"><div class="hd">③ OCR 路径 <span class="pill p-ok">24 本已跑</span></div><div class="fn">src/ocr.py · tools/ocr_cloud.py</div><div class="ds"><b>去水印是成败关键</b>（绿印章会让整条条文消失、4.3 认成 1.3）<br>本地 magic-pdf/MPS：10 s/页（批大小 6→32 提速 1.2×）<br>云端 MinerU API：<span class="pill p-wait">待 token</span> 产物同 schema，切条器一行不改</div></div>
+    </div>
+    <div class="merge">三路汇合 ↓ <code>src/mdblocks.py</code>（OCR 路径额外做行内多条文拆分）· <code>src/batch.py</code> 调度选路</div>
+  </div>
+</div>
+
+<div class="arrow">▼</div>
+
+<!-- L2 -->
+<div class="layer" style="border:2px solid var(--acc)">
+  <div class="rail"><div class="n">L2</div><div class="t">切条<br>Chunk</div></div>
+  <div class="body">
+    <p class="caption"><b>项目胜负手。<code>chunker.py</code> 893 行，是全系统最重的一个文件</b>——每条规则都是被真实数据逼出来的，不是设计出来的。</p>
+    <div class="cols c2">
+      <div class="box ok"><div class="hd">分区识别 <span class="pill p-ok">先于切条</span></div><div class="ds">把文档切成 <b>前置 / 局部修订 / 正文 / 条文说明</b> 四段。判据必须与排版无关：正文起点取<b>条文最密集的区间</b>，不取「最后一个第 1 章」；条文说明锚点取<b>最后一个</b>标题（GB 50011 有两个）</div></div>
+      <div class="box ok"><div class="hd">条文切分 <span class="pill p-ok">游离率 0.0%</span></div><div class="ds">只认<b>三级条号</b>（二级全是目次行和公式残片，放行会注入 242 条假条文）；款行与章标题靠<b>编号序列</b>区分（章号递增、款号每条重数）；一个 chunk = 条文 + 款项 + <b>随附表格</b> + 注</div></div>
+      <div class="box ok"><div class="hd">页码兜底 <span class="pill p-ok">751 条 0 错</span></div><div class="fn">src/pagefind.py</div><div class="ds">企标在 MinerU 里零覆盖，改从 PDF 文本层按条文顺序<b>单向前搜</b>（单向是关键，否则「本标准适用于…」必然命中前言）。全库现仅 1 条无页码</div></div>
+      <div class="box ok"><div class="hd">强条标注 <span class="pill p-ok">1,400 条</span></div><div class="ds">黑体信息 OCR 后不可恢复，改用三级规则：<b>通用规范全文强制</b>（GB 55xxx）/ <b>推荐性标准无强条</b>（GB/T、SH/T）/ <b>发布公告清单 ∪ 条文说明明文声明</b>。已废弃关键词启发式——<b>猜错比不猜危害大</b>。每条带 <code>mandatory_basis</code> 审计字段</div></div>
+    </div>
+    <div class="cols c3" style="margin-top:10px">
+      <div class="box risk"><div class="hd">修订优先去重</div><div class="ds">同条号存在「修订」版，则旧「正文」版标 <code>superseded</code> <b>踢出检索池</b>。不做这步，AI 约有一半概率引用<b>作废条文</b></div></div>
+      <div class="box risk"><div class="hd">引用提醒 caveat</div><div class="fn">data/clause_notes.tsv</div><div class="ds">第三种状态：条文抄得没错，但已被新版修订。仍可检索，但<b>强制随条文一起显示</b> ⚠，已挂 8 条</div></div>
+      <div class="box ok"><div class="hd">人工订正</div><div class="fn">data/overrides.tsv</div><div class="ds">文件名推断出的编号/名称会错，订正单独记表，<b>不改源文件</b>；条目匹配不上时大声报错</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow">▼</div>
+
+<!-- L3 -->
+<div class="layer">
+  <div class="rail"><div class="n">L3</div><div class="t">存储<br>Store</div></div>
+  <div class="body">
+    <p class="caption">全部为<b>本地文件</b>，没有数据库。这是有意的——2 万 chunks 量级不需要，且整个系统可以打包带走。</p>
+    <div class="cols c4">
+      <div class="box ok"><div class="hd">条文库 <span class="pill p-ok">主存储</span></div><div class="fn">data/chunks/*.jsonl</div><div class="ds">56 个文件 / 55 本规范 / <b>11,174 块</b><br>检索池 7,259（= 总块 − 条文说明 3,800 − 被修订取代）</div></div>
+      <div class="box ok"><div class="hd">台账 <span class="pill p-ok">329 行</span></div><div class="fn">data/catalog.csv</div><div class="ds">status / superseded_by 两列<b>待人工填</b></div></div>
+      <div class="box ok"><div class="hd">页图缓存 <span class="pill p-ok">自愈</span></div><div class="fn">data/cache/pages/</div><div class="ds">灰度 JPEG ~191 KB/页，删掉会自己重建</div></div>
+      <div class="box off"><div class="hd">向量库 <span class="pill p-off">未建立</span></div><div class="fn">data/chroma/（目录不存在）</div><div class="ds">Chroma 持久化目录尚未生成，因为建索引要先调 embedding API</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow">▼</div>
+
+<!-- L4 -->
+<div class="layer">
+  <div class="rail"><div class="n">L4</div><div class="t">检索<br>Retrieve</div></div>
+  <div class="body">
+    <p class="caption"><code>src/retrieve.py</code> 416 行。<b>四路并行，RRF 融合</b>。当前只有其中两路在跑。</p>
+    <div class="cols c4">
+      <div class="box ok"><div class="hd">条号直达 <span class="pill p-ok">运行中</span></div><div class="ds">正则识别查询里的 <code>GB\s*\d{5}</code> 与 <code>\d+\.\d+\.\d+</code>，走 metadata 精确过滤。<b>命中即终止</b>，不掺语义结果——答案是确定的，掺进来只是噪音</div></div>
+      <div class="box ok"><div class="hd">规范名过滤 <span class="pill p-ok">运行中</span></div><div class="ds">同事说的是「建筑抗震设计规范 5.1.4」不是「GB 50011 5.1.4」。限定后<b>必须在那本里重新排名次</b>，不能取全库前 30 再过滤。两本重名则谁都不认</div></div>
+      <div class="box ok"><div class="hd">BM25 关键词 <span class="pill p-ok">运行中</span></div><div class="fn">jieba + rank_bm25（内存内）</div><div class="ds">当前系统的<b>唯一可用检索通道</b>。实测已可用：「厂房内疏散楼梯最小净宽度」→ GB 50016 3.7.5 排第一</div></div>
+      <div class="box wait"><div class="hd">向量语义 <span class="pill p-wait">待 key</span></div><div class="fn">bge-m3 (1024维) → Chroma</div><div class="ds">送 embedding 的文本必须带<b>规范名 + 章节路径</b>前缀，否则「不应小于表 5.2.2 的规定」在语义空间里几乎没有信息</div></div>
+    </div>
+    <div class="cols c2" style="margin-top:10px">
+      <div class="box ok"><div class="hd">RRF 融合 <span class="pill p-ok">运行中</span></div><div class="ds">Reciprocal Rank Fusion，回避各路分数不可比的问题。默认过滤：<code>superseded</code> / <code>status=废止</code> / <code>section_type=条文说明</code></div></div>
+      <div class="box wait"><div class="hd">重排 <span class="pill p-wait">待 key</span></div><div class="fn">bge-reranker-v2-m3 → top 8</div><div class="ds">¥0.07/M tokens</div></div>
+    </div>
+    <div class="note" style="margin-bottom:0"><b>优雅降级：无 API key 时自动退回纯 BM25，功能不中断，界面上明示「当前是关键词检索」。</b>这是系统现在能用的原因。</div>
+  </div>
+</div>
+
+<div class="arrow">▼</div>
+
+<!-- L5 -->
+<div class="layer">
+  <div class="rail"><div class="n">L5</div><div class="t">生成<br>Answer</div></div>
+  <div class="body">
+    <div class="cols c2">
+      <div class="box wait"><div class="hd">问答 <span class="pill p-wait">待 key 实测</span></div><div class="fn">src/answer.py</div><div class="ds">Prompt 硬约束：只依据给定条文作答 · 每条结论后必须标 <code>[规范号 条文号 P页码]</code> · 不足以回答时明说「未检索到相关条文」，<b>禁止推测</b> · caveat 须原样转达</div></div>
+      <div class="box ok"><div class="hd">出网收口 <span class="pill p-ok">架构资产</span></div><div class="fn">src/providers.py（227 行）</div><div class="ds"><b>全系统唯一出网口</b>，三个接口：embed / rerank / stream。业务代码一律不得直接调模型服务。换内网私有化模型只需加一个实现 + 改一个环境变量，<code>index / retrieve / answer / main</code> 四个文件一行不动</div></div>
+    </div>
+    <div class="note acc" style="margin-bottom:0"><b>出网的文件全系统只有两个：</b><code>src/providers.py</code>（向量/重排/作答）与 <code>tools/ocr_cloud.py</code>（云端 OCR）。两个文件头都写明了为什么出网、出什么。<b>要审就审这两个。</b></div>
+  </div>
+</div>
+
+<div class="arrow">▼</div>
+
+<!-- L6 -->
+<div class="layer">
+  <div class="rail"><div class="n">L6</div><div class="t">应用<br>App</div></div>
+  <div class="body">
+    <p class="caption">FastAPI + 单文件 H5。<b>无构建、无 npm、无 CDN</b>——这东西要活很多年，维护它的人不一定会 <code>npm install</code>；公司网络也未必出得去。</p>
+    <div class="cols c3">
+      <div class="box ok"><div class="hd">后端 <span class="pill p-ok">本机跑通</span></div><div class="fn">app/main.py（286 行）</div><div class="ds">8 个接口。<code>/api/ask</code> 走 <b>SSE 流式</b>，四种事件：<code>hits</code>（检索结果，<b>先出，不等模型</b>）→ <code>delta</code>（生成的字）→ <code>nollm</code> / <code>error</code></div></div>
+      <div class="box ok"><div class="hd">鉴权 <span class="pill p-ok">本机跑通</span></div><div class="fn">app/auth.py（91 行）</div><div class="ds"><b>HMAC 签名票</b>（非 JWT，没有用户和声明，省一个依赖）+ <b>httponly cookie</b>（XSS 拿不到票）。口令只从 <code>KB_PASSCODE</code> 读，<b>代码里没有也不会有默认值</b></div></div>
+      <div class="box ok"><div class="hd">前端 <span class="pill p-ok">本机跑通</span></div><div class="fn">app/static/index.html</div><div class="ds">条文卡带<b>页码 + 强条角标 + 章节路径</b>；AI 回答里的出处<b>可点击跳转并闪烁</b>；表格窄屏溢出才提示滑动（最后一列往往正是限值）</div></div>
+    </div>
+    <div class="cols c2" style="margin-top:10px">
+      <div class="box ok"><div class="hd">看原文 <span class="pill p-ok">35 本全对</span></div><div class="fn">src/source_pdf.py</div><div class="ds">条文页码 → 哪个 PDF 文件 → 渲成<b>灰度 JPEG</b> 发过去（不是 PDF：微信内置浏览器要先下完 35 MB 整本）。<b>这是最容易出大错的地方</b>——指错文件，「第 38 页」就是另一本的第 38 页，比没有页码更糟，因为它看起来是对的。故判定顺序直接照抄 <code>batch.main()</code>，索引函数从 batch import</div></div>
+      <div class="box ok"><div class="hd">不落库 <span class="pill p-ok">有意为之</span></div><div class="ds">问答日志<b>一律不存</b>。「谁在什么时候查了什么」是个人信息，一旦开始存就要隐私政策、告知同意、留存期限那一整套。「最近查过」只存在用户自己手机的 localStorage</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<h2>二、当前实测规模</h2>
+<div class="kv">
+  <div class="item"><div class="v">55</div><div class="k">本规范已入库</div></div>
+  <div class="item"><div class="v">11,174</div><div class="k">切出总块数</div></div>
+  <div class="item"><div class="v">7,259</div><div class="k">检索池条文</div></div>
+  <div class="item"><div class="v">1,400</div><div class="k">强制性条文</div></div>
+  <div class="item"><div class="v">3,800</div><div class="k">条文说明（独立池）</div></div>
+  <div class="item"><div class="v">0.0%</div><div class="k">正文游离率</div></div>
+</div>
+<p style="font-size:13px;color:var(--sub)">注：<code>PLAN.md</code> 最后记录的是 50 本 / 检索池 6,597。上表是 2026-09-22 对 <code>data/chunks/</code> 的<b>直接实测</b>，已比文档更新——中间又补进了 5 本。</p>
+
+<h2>三、这个架构现在到底通到哪一步</h2>
+
+<table>
+<thead><tr><th style="width:11%">层</th><th style="width:27%">能力</th><th style="width:13%">状态</th><th>卡在什么地方</th></tr></thead>
+<tbody>
+<tr><td>L0–L3</td><td>原料 → 解析 → 切条 → 存储</td><td><b style="color:var(--ok)">完整跑通</b></td><td>无。55 本规范已是可检索的结构化条文</td></tr>
+<tr><td>L4</td><td>条号直达 + 规范名过滤 + BM25 + RRF</td><td><b style="color:var(--ok)">跑通</b></td><td>无</td></tr>
+<tr><td>L4</td><td>向量语义检索 + 重排</td><td><b style="color:var(--wait)">待条件</b></td><td><b>缺硅基流动 API key</b>（<code>kb/.env</code> 文件尚未创建），因而 <code>data/chroma/</code> 也未生成</td></tr>
+<tr><td>L5</td><td>AI 问答</td><td><b style="color:var(--wait)">待条件</b></td><td><b>缺 DeepSeek API key</b>。代码就绪但从未真实调用过</td></tr>
+<tr><td>L6</td><td>H5 + 口令 + 看原文</td><td><b style="color:var(--ok)">本机跑通</b></td><td>上线还缺：已备案域名、服务器</td></tr>
+<tr><td>—</td><td>OCR 二三档（98 本 / 约 1 万页）</td><td><b style="color:var(--wait)">待条件</b></td><td><b>缺 MinerU token</b>。本地一档在跑，16/26 本</td></tr>
+<tr><td>—</td><td>验收闸门（30 题 ≥ 80%）</td><td><b style="color:var(--off)">未开始</b></td><td>待同事提供真实查询题库</td></tr>
+</tbody>
+</table>
+
+<div class="note risk"><b>一句话概括现状：骨架完整，血液没通。</b> 最重最难的 L0–L3 已经做完并且质量可验证（游离率 0%、页码 0 错、条号零重复）；L4 有一半在跑，L5 完全没跑过。<b>而堵住后两层的不是技术问题，是三个 API key 和一个域名。</b></div>
+
+<h2>四、这个架构的性格 —— 四条贯穿始终的原则</h2>
+
+<h3>1. 错误答案比没有答案危害大</h3>
+<p>这条是全系统的第一性原理，几乎每个设计决策都能回溯到它：</p>
+<ul>
+<li>强条判定<b>废弃关键词启发式</b>（必须/严禁/不得）——猜错比不猜危害大</li>
+<li>企标章号不可信时<b>整本清空 <code>clause_no</code></b>——引用里写错条号，比不写条号危害大</li>
+<li>章节路径修复时没有自洽样本就<b>留空、拒绝猜</b></li>
+<li>两本规范重名则<b>谁都不认</b>——引错规范比认不出规范危害大</li>
+<li>强条判定取「公告 ∪ 条文说明」并集——<b>漏标一条同事照普通条文处置；多标一条最坏是按更严的做。两种错不对称</b></li>
+<li>GB 50011 的 2024 修订件 OCR 后新旧文字混杂，<b>宁可不入库</b>——塞一段读不通的文本进库比不入库更坏</li>
+</ul>
+
+<h3>2. 一切都要能回到原文核对</h3>
+<p>页码不是锦上添花，是<b>可核对性的唯一入口</b>。所以企标没页码时专门写了 <code>pagefind.py</code> 反查，所以 <code>source_pdf.py</code> 的判定顺序要照抄 <code>batch.py</code>，所以前端要把出处渲成可点链接，所以<b>模型引用了检索结果里没有的条号要当场报出来</b>——那是它编的，而这种句子看起来和真的一模一样。</p>
+
+<h3>3. 降级而不是崩溃</h3>
+<p>无 API key → 退回纯 BM25；模型挂了 → SSE 先发 <code>hits</code> 后发 <code>delta</code>，用户至少拿到条文原文和页码；没带原件目录 → 返回「无可用 PDF」，页面照常能用。<b>系统在任何一个外部依赖失效时都不会白屏。</b>这也是它现在没有 key 却仍然能用的原因。</p>
+
+<h3>4. 人工闸门不能省</h3>
+<p><code>tools/review.py</code> 生成左右对照校对页（左栏 chunk 文本 + 还原的表格，右栏 PDF 原页图），自动<b>把「列位存疑」的行标黄并排到最前</b>。48 行待人核。以及 1.8 那道「30 题正确率 &lt; 80% 就回去改切条逻辑」的验收闸门——<b>PLAN 里明确写了，这道闸门是本方案和上一版死掉的原型的根本区别</b>。</p>
+
+<h2>五、和通常 RAG 项目的差异</h2>
+<table>
+<thead><tr><th style="width:18%">维度</th><th style="width:34%">通常做法</th><th>你这套</th></tr></thead>
+<tbody>
+<tr><td>切块</td><td>按字数机械切，<code>chunk_size=500</code></td><td><b>893 行领域切条器</b>。分区识别 + 三级条号 + 表格随条文 + 修订优先去重</td></tr>
+<tr><td>正文来源</td><td>PDF 直接抽文本</td><td><b>Word 取正文、MinerU 取页码</b>，条号做连接键（对齐率 100%）</td></tr>
+<tr><td>框架</td><td>LangChain / RAGFlow / Dify</td><td><b>全自研</b>。曾评估 RAGFlow 后收回——镜像 19 GB、内存 16 G 起步，而它<b>恰好不解决本项目的两个核心风险</b>（切条质量、作废条文）</td></tr>
+<tr><td>元数据</td><td>source、page</td><td>11 个字段，含 <code>is_mandatory</code> / <code>mandatory_basis</code>（审计）/ <code>superseded</code> / <code>caveat</code> / <code>section_type</code></td></tr>
+<tr><td>检索</td><td>纯向量 top-k</td><td>四路并行 + RRF。且<b>条号命中即终止</b>，不掺语义</td></tr>
+<tr><td>质量指标</td><td>召回率</td><td><b>正文游离率</b>（不属于任何条文的正文字数占比），28 本全 0.0%。这个数一旦回升就说明切条规则漏了新排版</td></tr>
+<tr><td>依赖数量</td><td>几十个 npm + 十几个 pip</td><td>后端 6 个 pip；<b>前端 0 个</b></td></tr>
+</tbody>
+</table>
+
+<h2>六、架构上值得注意的三个点</h2>
+
+<div class="note acc"><b>① <code>providers.py</code> 是这套架构里最划算的一层。</b> 227 行换来的是：合规口径变了（信息中心哪天收紧），换内网私有化模型只要加一个实现类 + 改一个环境变量，四个核心文件一行不动。它当初是按「合规闸门」设计的，2026-09-21 信息中心放行公有云后理由变成了「只有一个地方出网，出事只查一个文件」——<b>理由变了但价值没变，这是好抽象的特征</b>。</div>
+
+<div class="note"><b>② 最大的单点风险是 <code>source_pdf.py</code> 的文件定位。</b> 同一本规范在台账里常有好几个 PDF（整本一个、分卷五个），<code>page_idx</code> 是切条时按某个特定文件数出来的。指错文件，「第 38 页」就是另一本的第 38 页——<b>比没有页码更糟，因为它看起来是对的</b>。现在靠「判定顺序照抄 <code>batch.main()</code> + 索引函数从 batch import」保证两边不可能算出不同结果，35 本全部对得上。<b>但这是靠纪律维持的一致性，不是靠类型系统</b>。以后改 <code>batch.py</code> 的选路逻辑时，这里必须同步。</div>
+
+<div class="note"><b>③ 已入库的 55 本里，有 9 本只靠「范围外」的文件。</b> 09-22 把解析范围收窄到 <code>建筑规范/标准库/</code> 之后，DEP-T-AR1001/2001/2101/2103/2105 五本企标、GB 50011-2010、GB/T 50378、GB/T 51366、SH/T 3006-2024 这 9 本的源文件已不在新范围内。它们<b>没有被删</b>（用户说的是「不要再解析」，不是「删掉已有的」），现在仍可检索，<code>status</code> 标「待核」。<b>要不要清出去，是个待定的架构决策。</b></div>
+
+<footer>
+生成于 2026-09-22 · 依据 <code>kb/</code> 源码与 <code>data/chunks/</code> 实测数据 · 详细设计与全部踩坑记录见 <code>PLAN.md</code>（1,112 行）<br>
+本页无外部依赖，可单独发送与离线打开。
+</footer>
+
+</div>
+</body>
+</html>

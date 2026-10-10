@@ -1,0 +1,6 @@
+# 可选：旧版 MinerU 本地 OCR。请使用独立环境，勿与演示环境混装。
+# src.ocr 使用 magic_pdf 1.3.12 的内部接口，不能直接替换成 MinerU 2.x。
+magic-pdf[full]==1.3.12
+numpy<2
+torch>=2.6,<3
+doclayout-yolo
