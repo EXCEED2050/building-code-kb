@@ -72,7 +72,8 @@ def export() -> dict:
                 "chunks": 0, "latest_status_verified": False, "files": []}
     catalog = io.StringIO(newline="")
     writer = csv.DictWriter(catalog, fieldnames=["file_path", "std_code", "std_name",
-                                                "version_year", "status", "source_url"])
+                                                "version_year", "status", "source_url"],
+                            lineterminator="\n")
     writer.writeheader()
     for source in doc["standards"]:
         rows = []
