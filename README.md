@@ -2,7 +2,9 @@
 
 按规范号、条文号或关键词检索建筑规范，以 H5 页面展示条文及出处；配置模型后可流式生成带引用的回答。
 
-本仓库包含应用代码、架构图、人工维护的规则表和虚构演示数据。规范原件、完整条文库、OCR 结果、向量库、模型权重与真实密钥由使用者另行准备。
+本仓库包含应用代码、架构图、协作开发文档、人工维护的规则表，以及 16 本全文强制性工程建设规范的 2,033 个正文条文块。公开数据位于 `kb/public-data/`，附官方来源与内容校验清单。
+
+企业标准、未核实再分发条件的其他规范正文、完整 OCR 结果、出版物扫描版、向量库、模型权重与真实密钥不在公开仓库中。
 
 两人共同开发时，可配合单独分发的真实数据包使用，具体接手步骤和资料分工见 [协作开发](docs/协作开发.md)。代码仓库的大小不等于项目全部资料的大小。
 
@@ -17,14 +19,16 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r kb/requirements.txt
 cd kb
-KB_CHUNKS=examples/chunks python run_dev.py
+KB_CHUNKS=public-data/chunks KB_CATALOG=public-data/catalog.csv python run_dev.py
 ```
 
 如果系统 `python3` 版本低于 3.10，请将第一行替换为已安装的新版 Python，例如 `python3.12 -m venv .venv`。
 
 要复现已验证的完整轻量依赖，请使用 Python 3.12，将安装命令替换为 `python -m pip install -r kb/requirements-tested-py312.txt`。该文件包含间接依赖的实测版本；常规 `requirements.txt` 固定直接依赖，允许安装器选择兼容的间接依赖。
 
-打开 <http://127.0.0.1:8000>，输入启动日志中的随机访问口令。查询 `GB 00000 第1.0.1条` 或 `演示数据如何校对`。示例只有三条虚构内容，不是实际规范，不可用于工程设计；不包含原件预览或 AI 作答。
+打开 <http://127.0.0.1:8000>，输入启动日志中的随机访问口令。查询 `GB 55037 第1.0.1条` 或 `安全疏散`。可直接开发和验证条号、关键词、书目和引用展示；默认没有模型作答，也没有 PDF 原件预览。公开条文为 OCR/切条开发快照，未逐条验收，也不表示所收版本已完成最新有效性核验。
+
+只想使用三条虚构数据演示时，可改为 `KB_CHUNKS=examples/chunks python run_dev.py`。公开数据的筛选范围、来源和限制见 [公开数据说明](kb/public-data/README.md)。
 
 运行真实数据时，从 `kb/` 运行 `python run_dev.py`，默认读取 `data/chunks/*.jsonl`。
 
@@ -37,9 +41,12 @@ KB_CHUNKS=examples/chunks python run_dev.py
 | `kb/tools/` | OCR 队列、云端 OCR、模型下载、校对等辅助工具 |
 | `kb/data/*.tsv` | 人工订正、优先级和引用提醒规则 |
 | `kb/examples/` | 不含真实规范的演示条文 |
+| `kb/public-data/` | 16 本规范的公开正文开发快照、来源、台账和 SHA256 清单 |
 | `kb/conf/magic-pdf.example.json` | 本地 OCR 配置模板 |
 | `架构图/` | 架构 HTML、数据流程 SVG、模块清单 |
 | `docs/认证与请求流程.md` | 代码组件、请求流程、凭据与 Cookie 处理 |
+| `docs/开发计划.md` | 两人分工建议、待办和验收标准 |
+| `docs/数据格式.md` | 条文数据字段、页码和状态含义 |
 
 架构 HTML 下载后用浏览器打开，SVG 可直接查看。图中数量、进度和依赖缺口为历史快照；模型默认值和运行方式以当前代码及本说明为准。
 
@@ -98,4 +105,4 @@ python -m uvicorn app.main:app --env-file .env --host 127.0.0.1 --port 8000
 
 `--env-file` 确保认证配置在应用导入前加载；仅把口令写进 `.env` 后直接运行普通 uvicorn 不会自动加载它。认证采用共用口令加 12 小时 HMAC 签名 Cookie，详见 [认证与请求流程](docs/认证与请求流程.md)。
 
-`.gitignore` 排除凭据、原件、模型和生成结果。提交时只选择代码、说明、示例及人工规则；不要把整个本地工作目录打包上传。
+`.gitignore` 排除凭据、原件、模型、完整语料和本地协作包。公开快照单独保存在 `kb/public-data/`，可运行 `python -m tools.export_public --check` 核验。扩充公开数据时，应先逐本核对来源并更新白名单；不要把整个本地工作目录打包上传。

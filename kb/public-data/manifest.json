@@ -1,0 +1,120 @@
+{
+  "snapshot_date": "2026-10-19",
+  "books": 16,
+  "chunks": 2033,
+  "latest_status_verified": false,
+  "files": [
+    {
+      "file": "GB_55001-2021.jsonl",
+      "std_code": "GB 55001-2021",
+      "chunks": 124,
+      "bytes": 111523,
+      "sha256": "fa8583f4e75213c4ba09e42aa15ca89f38bfe4245e62a77ef69160c209ce909e"
+    },
+    {
+      "file": "GB_55002-2021.jsonl",
+      "std_code": "GB 55002-2021",
+      "chunks": 106,
+      "bytes": 127919,
+      "sha256": "1e9b4d8f6946b4cbf3066aba3e5b35e6ed289ecaf49051aa3c75e49dd2070c01"
+    },
+    {
+      "file": "GB_55006-2021.jsonl",
+      "std_code": "GB 55006-2021",
+      "chunks": 107,
+      "bytes": 88636,
+      "sha256": "28574eb4a9f5a9a4f347803dc33b2c4c0dd164b55d49789148457633e93495c2"
+    },
+    {
+      "file": "GB_55008-2021.jsonl",
+      "std_code": "GB 55008-2021",
+      "chunks": 99,
+      "bytes": 90063,
+      "sha256": "b5206c52a2e8cb4ae72f7c4dbeae402f0d3b108552fd8a73cbb972fa9bd3d1d7"
+    },
+    {
+      "file": "GB_55015-2021.jsonl",
+      "std_code": "GB 55015-2021",
+      "chunks": 192,
+      "bytes": 250700,
+      "sha256": "75c60f3781934064534703ae0cb63fc6b85707d55c0523f0e960286aa4c4a6eb"
+    },
+    {
+      "file": "GB_55016-2021.jsonl",
+      "std_code": "GB 55016-2021",
+      "chunks": 84,
+      "bytes": 91792,
+      "sha256": "45e2296d5e3a9e5a1066769ebf819693915e654231585dd9d34e837d1b741443"
+    },
+    {
+      "file": "GB_55019-2021.jsonl",
+      "std_code": "GB 55019-2021",
+      "chunks": 86,
+      "bytes": 74536,
+      "sha256": "b497a49ffec7027c53ec6e4659acdacb3e3d4edb11fba830df8ac551b4a8b7eb"
+    },
+    {
+      "file": "GB_55020-2021.jsonl",
+      "std_code": "GB 55020-2021",
+      "chunks": 173,
+      "bytes": 136567,
+      "sha256": "3216ffe3c266ccfebf18e3994e1abde9f26a5331191afa10c14febe490e490af"
+    },
+    {
+      "file": "GB_55021-2021.jsonl",
+      "std_code": "GB 55021-2021",
+      "chunks": 122,
+      "bytes": 130656,
+      "sha256": "48b439f98761ec487873a810b53658045d5687714c3f423d854a9be0f2c12b70"
+    },
+    {
+      "file": "GB_55022-2021.jsonl",
+      "std_code": "GB 55022-2021",
+      "chunks": 98,
+      "bytes": 83770,
+      "sha256": "038e6a76ab90186a8b80a1c8cce43022c690b9b789c74b7876f63c5f279882f8"
+    },
+    {
+      "file": "GB_55024-2022.jsonl",
+      "std_code": "GB 55024-2022",
+      "chunks": 207,
+      "bytes": 179159,
+      "sha256": "896d39d3b53fcb0c5c9d3742789664d371f628a66f068733b5fe17456451599b"
+    },
+    {
+      "file": "GB_55025-2022.jsonl",
+      "std_code": "GB 55025-2022",
+      "chunks": 60,
+      "bytes": 46333,
+      "sha256": "37f19f2538f82520273cf7f3aefce2e7bc04d8c935596bb8ca3df8270874cdb2"
+    },
+    {
+      "file": "GB_55030-2022.jsonl",
+      "std_code": "GB 55030-2022",
+      "chunks": 161,
+      "bytes": 143377,
+      "sha256": "0cb03d83368d7526201ce4bd794a811ec73228229108399b5447d143805d90f5"
+    },
+    {
+      "file": "GB_55031-2022.jsonl",
+      "std_code": "GB 55031-2022",
+      "chunks": 86,
+      "bytes": 77924,
+      "sha256": "461be380eab9f7cffce114cce61974b2d5c7b1a31b12ac2bb00a0e4d2c2e8715"
+    },
+    {
+      "file": "GB_55036-2022.jsonl",
+      "std_code": "GB 55036-2022",
+      "chunks": 90,
+      "bytes": 86652,
+      "sha256": "cae7ea7567c5195508909ae508d691a351228e184efad4f8e297803e6ca06763"
+    },
+    {
+      "file": "GB_55037-2022.jsonl",
+      "std_code": "GB 55037-2022",
+      "chunks": 238,
+      "bytes": 235633,
+      "sha256": "54eb7cb461cc58cb2e32d01f290b117be5af95c8c14034cb37e640f59c7469df"
+    }
+  ]
+}

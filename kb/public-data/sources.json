@@ -1,0 +1,136 @@
+{
+  "snapshot_date": "2026-10-19",
+  "scope": "仅白名单内全文强制性工程建设规范的正文；不含条文说明、出版物扫描版和内部资料。",
+  "rights_basis_url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/xwxcs/art/2023/art_41f9e74ec1184f799186a77bfb768031.html",
+  "latest_status_verified": false,
+  "standards": [
+    {
+      "std_code": "GB 55001-2021",
+      "std_name": "工程结构通用规范",
+      "file": "GB_55001-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_761192.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55002-2021",
+      "std_name": "建筑与市政工程抗震通用规范",
+      "file": "GB_55002-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_761174.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55006-2021",
+      "std_name": "钢结构通用规范",
+      "file": "GB_55006-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_761191.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55008-2021",
+      "std_name": "混凝土结构通用规范",
+      "file": "GB_55008-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_762454.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55015-2021",
+      "std_name": "建筑节能与可再生能源利用通用规范",
+      "file": "GB_55015-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_762460.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55016-2021",
+      "std_name": "建筑环境通用规范",
+      "file": "GB_55016-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_762459.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55019-2021",
+      "std_name": "建筑与市政工程无障碍通用规范",
+      "file": "GB_55019-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_762461.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55020-2021",
+      "std_name": "建筑给水排水与节水通用规范",
+      "file": "GB_55020-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_762458.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55021-2021",
+      "std_name": "既有建筑鉴定与加固通用规范",
+      "file": "GB_55021-2021.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2021/art_17339_762453.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55022-2021",
+      "std_name": "既有建筑维护与改造通用规范",
+      "file": "GB_55022-2021.jsonl",
+      "official_source_url": "https://snamr.shaanxi.gov.cn/sy/ztzl/sbgxhxfpyjhx/bzcx/gjbz/202410/P020250320616344252383.pdf",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55024-2022",
+      "std_name": "建筑电气与智能化通用规范",
+      "file": "GB_55024-2022.jsonl",
+      "official_source_url": "https://szwb.sz.gov.cn/gwszwfw/zsk/hybz/content/post_9913357.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55025-2022",
+      "std_name": "宿舍、旅馆建筑项目规范",
+      "file": "GB_55025-2022.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2024/art_17339_765629.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55030-2022",
+      "std_name": "建筑与市政工程防水通用规范",
+      "file": "GB_55030-2022.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2024/art_17339_768499.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55031-2022",
+      "std_name": "民用建筑通用规范",
+      "file": "GB_55031-2022.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2024/art_17339_767703.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55036-2022",
+      "std_name": "消防设施通用规范",
+      "file": "GB_55036-2022.jsonl",
+      "official_source_url": "https://zjw.wuhu.gov.cn/xwzx/tzgg/8392314.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    },
+    {
+      "std_code": "GB 55037-2022",
+      "std_name": "建筑防火通用规范",
+      "file": "GB_55037-2022.jsonl",
+      "official_source_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2023/art_17339_770016.html",
+      "full_text_mandatory": true,
+      "reviewed_at": "2026-10-19"
+    }
+  ]
+}
