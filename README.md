@@ -2,11 +2,11 @@
 
 按规范号、条文号或关键词检索建筑规范，以 H5 页面展示条文及出处；配置模型后可流式生成带引用的回答。
 
-本仓库包含应用代码、架构图、协作开发文档、人工维护的规则表，以及 16 本全文强制性工程建设规范的 2,033 个正文条文块。公开数据位于 `kb/public-data/`，附官方来源与内容校验清单。
+本仓库为两人协作的私有项目，包含应用代码、架构图、开发文档、完整台账和 159 本规范的 43,813 个条文块。过滤后检索池为 28,440 块，默认读取 `kb/data/chunks/`。
 
-企业标准、未核实再分发条件的其他规范正文、完整 OCR 结果、出版物扫描版、向量库、模型权重与真实密钥不在公开仓库中。
+规范 PDF/Word 原件和 OCR/MinerU 资料作为同一私有仓库的下载附件共享，见 [私有资料恢复](docs/私有资料恢复.md)。真实密钥、模型、索引及页图缓存不共享。请保持仓库及完整资料为私有。
 
-两人共同开发时，可配合单独分发的真实数据包使用，具体接手步骤和资料分工见 [协作开发](docs/协作开发.md)。代码仓库的大小不等于项目全部资料的大小。
+两人共同开发的接手步骤和资料分工见 [协作开发](docs/协作开发.md)。大文件附件约 4.11 GB，单独下载不会增加每次克隆代码的体积。
 
 ## 快速试运行
 
@@ -19,18 +19,18 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r kb/requirements.txt
 cd kb
-KB_CHUNKS=public-data/chunks KB_CATALOG=public-data/catalog.csv python run_dev.py
+python run_dev.py
 ```
 
 如果系统 `python3` 版本低于 3.10，请将第一行替换为已安装的新版 Python，例如 `python3.12 -m venv .venv`。
 
 要复现已验证的完整轻量依赖，请使用 Python 3.12，将安装命令替换为 `python -m pip install -r kb/requirements-tested-py312.txt`。该文件包含间接依赖的实测版本；常规 `requirements.txt` 固定直接依赖，允许安装器选择兼容的间接依赖。
 
-打开 <http://127.0.0.1:8000>，输入启动日志中的随机访问口令。查询 `GB 55037 第1.0.1条` 或 `安全疏散`。可直接开发和验证条号、关键词、书目和引用展示；默认没有模型作答，也没有 PDF 原件预览。公开条文为 OCR/切条开发快照，未逐条验收，也不表示所收版本已完成最新有效性核验。
+打开 <http://127.0.0.1:8000>，输入启动日志中的随机访问口令。查询 `GB 50016 第5.5.17条` 或 `安全疏散`。可直接开发和验证条号、关键词、书目和引用展示；未配置模型时只检索；PDF 原件预览需要先恢复下载附件。当前条文是 OCR/切条开发快照，未逐条验收，也不表示所收版本已完成最新有效性核验。
 
 只想使用三条虚构数据演示时，可改为 `KB_CHUNKS=examples/chunks python run_dev.py`。公开数据的筛选范围、来源和限制见 [公开数据说明](kb/public-data/README.md)。
 
-运行真实数据时，从 `kb/` 运行 `python run_dev.py`，默认读取 `data/chunks/*.jsonl`。
+核验完整数据请从 `kb/` 运行 `python -m tools.check_snapshot`。原先的 16 本公开子集仍保留在 `public-data/`，需要切换时可显式设置 `KB_CHUNKS=public-data/chunks`。
 
 ## 项目结构
 
@@ -39,7 +39,9 @@ KB_CHUNKS=public-data/chunks KB_CATALOG=public-data/catalog.csv python run_dev.p
 | `kb/app/` | FastAPI 后端、口令认证与 H5 页面 |
 | `kb/src/` | 台账、解析、切条、检索、模型适配和原件定位 |
 | `kb/tools/` | OCR 队列、云端 OCR、模型下载、校对等辅助工具 |
+| `kb/data/chunks/`、`catalog.csv` | 完整私有条文快照及台账 |
 | `kb/data/*.tsv` | 人工订正、优先级和引用提醒规则 |
+| `kb/data/*-manifest.json` | 完整条文和大文件附件的 SHA256 清单 |
 | `kb/examples/` | 不含真实规范的演示条文 |
 | `kb/public-data/` | 16 本规范的公开正文开发快照、来源、台账和 SHA256 清单 |
 | `kb/conf/magic-pdf.example.json` | 本地 OCR 配置模板 |
@@ -105,4 +107,4 @@ python -m uvicorn app.main:app --env-file .env --host 127.0.0.1 --port 8000
 
 `--env-file` 确保认证配置在应用导入前加载；仅把口令写进 `.env` 后直接运行普通 uvicorn 不会自动加载它。认证采用共用口令加 12 小时 HMAC 签名 Cookie，详见 [认证与请求流程](docs/认证与请求流程.md)。
 
-`.gitignore` 排除凭据、原件、模型、完整语料和本地协作包。公开快照单独保存在 `kb/public-data/`，可运行 `python -m tools.export_public --check` 核验。扩充公开数据时，应先逐本核对来源并更新白名单；不要把整个本地工作目录打包上传。
+`.gitignore` 排除凭据、原件、模型、缓存和本地 ZIP。完整条文与台账在私有主分支中追踪。16 本公开子集单独保存在 `kb/public-data/`，仍可运行 `python -m tools.export_public --check` 核验；它的筛选规则不代表完整私有资料可以公开。

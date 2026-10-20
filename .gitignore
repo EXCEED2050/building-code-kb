@@ -26,6 +26,14 @@ venv/
 !/kb/data/tiers.tsv
 !/kb/data/clause_notes.tsv
 
+# 私有协作仓库保留完整切条数据与台账
+!/kb/data/catalog.csv
+!/kb/data/chunks/
+/kb/data/chunks/*
+!/kb/data/chunks/*.jsonl
+!/kb/data/runtime-manifest.json
+!/kb/data/asset-manifest.json
+
 # 本地规划与进度记录
 /PLAN.md
 /进度.html
