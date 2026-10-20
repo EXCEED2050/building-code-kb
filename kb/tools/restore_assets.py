@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
 import hashlib
 import json
 import os
@@ -38,7 +39,64 @@ def destination(root: Path, relative: str) -> Path:
     return target
 
 
+@contextmanager
+def assembled_downloads(folder: Path):
+    """将网络传输片段校验并临时合并；不修改下载目录或现有资料卷。"""
+    manifest_path = folder / "asset-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    mapping = json.loads((folder / "upload-parts.json").read_text(encoding="utf-8"))
+    assets = {a["file"]: a for a in manifest["assets"]}
+
+    def safe_name(name):
+        if not isinstance(name, str) or not name or Path(name).name != name or "\\" in name or name in {".", ".."}:
+            raise ValueError("传输片段名称不能包含目录")
+        return name
+
+    with tempfile.TemporaryDirectory(prefix="kb-assembled-") as temporary:
+        combined = Path(temporary)
+        (combined / "asset-manifest.json").write_bytes(manifest_path.read_bytes())
+        for name, asset in assets.items():
+            safe_name(name)
+            original = folder / name
+            if original.is_file():
+                (combined / name).symlink_to(original.resolve())
+                continue
+            parts = mapping.get("archives", {}).get(name, [])
+            names = [safe_name(p["file"]) for p in parts]
+            if len(set(names)) != len(names):
+                raise ValueError("发现重复传输片段")
+            present = [(folder / n).is_file() for n in names]
+            if not any(present):
+                continue
+            if not all(present):
+                missing = [n for n, found in zip(names, present) if not found]
+                raise FileNotFoundError(f"{name} 尚缺 {len(missing)} 个片段：{missing[0]}")
+            total = hashlib.sha256()
+            size = 0
+            with (combined / name).open("xb") as output:
+                for row in parts:
+                    part = folder / row["file"]
+                    if part.stat().st_size != row["bytes"]:
+                        raise ValueError(f"片段大小不符：{part.name}")
+                    h = hashlib.sha256()
+                    with part.open("rb") as source:
+                        for data in iter(lambda: source.read(4 * 1024 * 1024), b""):
+                            output.write(data)
+                            h.update(data)
+                            total.update(data)
+                            size += len(data)
+                    if h.hexdigest() != row["sha256"]:
+                        raise ValueError(f"片段校验失败：{part.name}")
+            if size != asset["bytes"] or total.hexdigest() != asset["sha256"]:
+                raise ValueError(f"合并后的 ZIP 校验失败：{name}")
+            print(f"已合并并核验 {name}（{len(parts)} 个片段）", flush=True)
+        yield combined
+
+
 def restore(folder: Path, root: Path, check_only: bool = False) -> dict:
+    if (folder / "upload-parts.json").is_file():
+        with assembled_downloads(folder) as combined:
+            return restore(combined, root, check_only)
     manifest = json.loads((folder / "asset-manifest.json").read_text(encoding="utf-8"))
     expected = {r["path"]: r for r in manifest["files"]}
     result = {"checked_archives": 0, "checked_files": 0, "restored": 0, "unchanged": 0,
