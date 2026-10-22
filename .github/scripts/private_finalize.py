@@ -10,8 +10,6 @@ from private_complete import api
 ROOT = Path(__file__).resolve().parents[2]
 FOLDER = ROOT / '协作交付/full-20261022'
 BASE = 'repos/EXCEED2050/building-code-kb'
-os.environ['GODEBUG'] = 'http2client=0'
-os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
 
 def request(endpoint, payload):
     path = FOLDER / 'git-request.json'
