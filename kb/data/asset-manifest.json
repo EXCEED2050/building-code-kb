@@ -5,22 +5,22 @@
   "assets": [
     {
       "file": "originals-part01.zip",
-      "bytes": 728216056,
-      "sha256": "3ebe64db457bdeeae1c4d1e0bdf6ff539e85c453b158259738fc6f13dcacd875",
+      "bytes": 726737571,
+      "sha256": "2a6b09fc762295e0804b46e26592a758b439f5eb8e90851d6f5d4eed4dde0f91",
       "files": 123,
       "uncompressed_bytes": 795224361
     },
     {
       "file": "originals-part02.zip",
-      "bytes": 755628706,
-      "sha256": "dad94e22e6644ba5168d19915d26e118fcbe1b5e03c38e20073c74a0aa1e113c",
+      "bytes": 754325397,
+      "sha256": "22ec4f15b6d2c5db117153c3a21894e27e6ef0ea4f94d28d9ff0c949f6dfe86c",
       "files": 105,
       "uncompressed_bytes": 805094875
     },
     {
       "file": "originals-part03.zip",
-      "bytes": 747886073,
-      "sha256": "a87ac8fd139f5ca6f937c34a8095ee565f17ef6e7e6845d88d1ba3f64bd2d3be",
+      "bytes": 746953731,
+      "sha256": "b81baf3d7a6465bd413c1d3f100e4955c6ca0a5d72740df611d06a4a1c989c3b",
       "files": 103,
       "uncompressed_bytes": 802943200
     },
@@ -40,15 +40,15 @@
     },
     {
       "file": "ocr-part01.zip",
-      "bytes": 712282728,
-      "sha256": "a77f8861b6f231c0ac5e04bf32cf014ce357a2e06cbe54dcc945ce5fbb5e3eec",
+      "bytes": 707746384,
+      "sha256": "3f25c648ce650f40c22e415fac4bca8fd3c5816957c07d0ef47a659194da5727",
       "files": 1440,
       "uncompressed_bytes": 793628754
     },
     {
       "file": "ocr-part02.zip",
-      "bytes": 505601142,
-      "sha256": "3d0d01460864770a6eb615bb9cf5597ee6f827771d5a41a0015d51bde9b1b510",
+      "bytes": 504298760,
+      "sha256": "cdfc26a9bb96c9687915e3c1ab42de44eb86ce61a64fa902a863a3f06594bb76",
       "files": 23,
       "uncompressed_bytes": 550612538
     }
