@@ -1,114 +1,91 @@
-> 附件上传状态（2026-10-22）：完整原件、MinerU 与 OCR 资料已上传到私有 Release，共 7 个独立 ZIP，约 4.10 GB、4,220 个文件。完整条文、台账、代码和文档在主分支；恢复方法见下文。
-
 # 建筑法规知识库
 
-按规范号、条文号或关键词检索建筑规范，以 H5 页面展示条文及出处；配置模型后可流式生成带引用的回答。
+在手机、微信或电脑浏览器里按规范号、条文号及关键词查建筑规范，查看条文与 PDF 原页；配置模型后可进行带出处的 AI 解读和追问。
 
-本仓库为两人协作的私有项目，包含应用代码、架构图、开发文档、完整台账和 159 本规范的 43,813 个条文块。过滤后检索池为 28,440 块，默认读取 `kb/data/chunks/`。
+这是两人协作的私有项目。主分支包含 **159 本规范、43,813 个原始条文块**，其中 **28,440 块进入检索池**；这些是开发快照，版本效力、转录与工程适用性仍需核对。原件和解析资料保存在私有 Release，真实密钥与运行缓存保存在各自电脑上。
 
-**逐份 PDF 下载：[打开 PDF 目录](docs/PDF目录.md)**，无需解压。ZIP 完整备份仍保留。
+[逐份 PDF 下载](docs/data/PDF目录.md) · [完整资料恢复](docs/data/私有资料恢复.md) · [项目架构](docs/architecture/项目结构.md) · [协作开发](docs/development/协作开发.md)
 
-规范 PDF/Word 原件和 OCR/MinerU 资料作为同一私有仓库的下载附件共享，见 [私有资料恢复](docs/私有资料恢复.md)。真实密钥、模型、索引及页图缓存不共享。请保持仓库及完整资料为私有。
+## 启动
 
-两人共同开发的接手步骤和资料分工见 [协作开发](docs/协作开发.md)。大文件附件约 4.10 GB，以 7 个完整、独立 ZIP 提供；单独下载不会增加每次克隆代码的体积，无需传输片段或合并。详见资料恢复说明。
-
-## 快速试运行
-
-需要 Python 3.10 或以上，已验证的演示环境为 Python 3.12。前端为单文件页面，无需 Node.js 或前端构建。
-
-在项目根目录打开终端：
+使用 Python 3.12，在项目根目录执行，无需切换到子目录：
 
 ```sh
-python3 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r kb/requirements.txt
-cd kb
+python -m pip install -e .
 python run_dev.py
 ```
 
-如果系统 `python3` 版本低于 3.10，请将第一行替换为已安装的新版 Python，例如 `python3.12 -m venv .venv`。
+Windows 激活命令为 `.venv\Scripts\activate`。打开 <http://127.0.0.1:8000>，输入启动日志里的随机口令，试查 `GB 50016 第5.5.17条`。条号与关键词检索无需模型或 API 密钥；PDF 预览需先恢复资料。
 
-要复现已验证的完整轻量依赖，请使用 Python 3.12，将安装命令替换为 `python -m pip install -r kb/requirements-tested-py312.txt`。该文件包含间接依赖的实测版本；常规 `requirements.txt` 固定直接依赖，允许安装器选择兼容的间接依赖。
+AI 解读后可继续追问，每轮重新检索并显示本轮依据。当前一组问答保存在本浏览器，可导出；新查询会替换当前记录，不跨设备同步。
 
-打开 <http://127.0.0.1:8000>，输入启动日志中的随机访问口令。查询 `GB 50016 第5.5.17条` 或 `安全疏散`。可直接开发和验证条号、关键词、书目和引用展示；未配置模型时只检索；PDF 原件预览需要先恢复下载附件。当前条文是 OCR/切条开发快照，未逐条验收，也不表示所收版本已完成最新有效性核验。
+## 目录
 
-只想使用三条虚构数据演示时，可改为 `KB_CHUNKS=examples/chunks python run_dev.py`。公开数据的筛选范围、来源和限制见 [公开数据说明](kb/public-data/README.md)。
+```text
+src/building_kb/       应用代码，按职责分包
+  web/                FastAPI、登录认证、H5 页面
+  ingest/             扫描台账、Word/OCR 解析、切条与页码定位
+  search/             条号、BM25、向量检索与索引
+  qa/                 问答上下文与引用
+  commands/           资料恢复、核验、OCR 队列和校对等命令
+  providers.py        模型适配
+  paths.py            统一配置和路径
+  source_pdf.py       原件与完整阅读本定位
+  verification.py     带内容指纹的人工校订
 
-核验完整数据请从 `kb/` 运行 `python -m tools.check_snapshot`。原先的 16 本公开子集仍保留在 `public-data/`，需要切换时可显式设置 `KB_CHUNKS=public-data/chunks`。
+data/
+  catalog/            台账、人工规则、校订记录、PDF 索引和验收题
+  chunks/             159 本原始条文 JSONL
+  manifests/          条文快照与资料附件的校验清单
+  sources/            PDF/Word 原件，恢复后生成，本地保留
+  processed/          MinerU、OCR 结果和完整阅读本，本地保留
 
-## 项目结构
-
-| 路径 | 内容 |
-| --- | --- |
-| `kb/app/` | FastAPI 后端、口令认证与 H5 页面 |
-| `kb/src/` | 台账、解析、切条、检索、模型适配和原件定位 |
-| `kb/tools/` | OCR 队列、云端 OCR、模型下载、校对等辅助工具 |
-| `kb/data/chunks/`、`catalog.csv` | 完整私有条文快照及台账 |
-| `kb/data/*.tsv` | 人工订正、优先级和引用提醒规则 |
-| `kb/data/*-manifest.json` | 完整条文和大文件附件的 SHA256 清单 |
-| `kb/examples/` | 不含真实规范的演示条文 |
-| `kb/public-data/` | 16 本规范的公开正文开发快照、来源、台账和 SHA256 清单 |
-| `kb/conf/magic-pdf.example.json` | 本地 OCR 配置模板 |
-| `架构图/` | 架构 HTML、数据流程 SVG、模块清单 |
-| `docs/认证与请求流程.md` | 代码组件、请求流程、凭据与 Cookie 处理 |
-| `docs/开发计划.md` | 两人分工建议、待办和验收标准 |
-| `docs/数据格式.md` | 条文数据字段、页码和状态含义 |
-
-架构 HTML 下载后用浏览器打开，SVG 可直接查看。图中数量、进度和依赖缺口为历史快照；模型默认值和运行方式以当前代码及本说明为准。
-
-## 数据处理
-
-完整数据流程：规范 PDF/Word → 台账 → 文本解析或 OCR → 条文 JSONL → 检索 → 可选问答 → 原件页码核对。
-
-下面命令均从 `kb/` 执行，先把原件放在项目根目录 `建筑规范/`，Word 放在其 `word/` 子目录，MinerU 解析结果放在项目根目录 `MinerU/`：
-
-```sh
-python -m src.catalog --roots ../建筑规范 --out data/catalog.csv
-# 核对台账状态、被代替关系，再切条
-python -m src.batch --catalog data/catalog.csv \
-  --word-dir ../建筑规范/word --mineru-dir ../MinerU --out data/chunks
-python -m src.retrieve "规范编号或关键词"
-python -m src.source_pdf
+docs/                 architecture、development、data、acceptance、history
+examples/             demo 虚构样例、public 公开开发子集
+config/               OCR 配置模板
+scripts/              项目维护与共同检查入口
+tests/                检索、追问、校订、PDF、恢复与界面回归
+var/                  模型、索引、缓存、日志、队列、生成的校对页；不提交
+archive/              本机旧工程和迁移备份；不提交
+.github/workflows/    自动运行共同检查
 ```
 
-自动扫描不能确认规范是否现行；台账状态、修订关系、强条与页码必须经过核对。`overrides.tsv` 为台账订正，`tiers.tsv` 为 OCR 优先级，`clause_notes.tsv` 为特定条文的引用提醒；这些表也需要随资料更新。
+本地与 GitHub 使用同一套代码和资料路径。克隆后通过恢复工具补齐 `data/sources/` 和 `data/processed/`；大文件不随每次代码克隆重复下载。旧架构图和实施记录放在 `docs/history/`，当前架构以 [项目结构](docs/architecture/项目结构.md) 为准。
 
-条文 JSONL 每行一个对象，主要字段包括 `chunk_id`、`std_code`、`std_name`、`version`、`clause_no`、`chapter_path`、`section_type`、`text`、`tables`、`page_idx`、`is_mandatory`、`mandatory_basis`、`superseded`、`status`、`caveat`。`page_idx` 从 0 开始，没有可靠页码时为 `null`，完整样例见 `kb/examples/chunks/DEMO.jsonl`。
+## 获取资料
 
-数据源路径可通过 `KB_CATALOG`、`KB_WORD_DIR`、`KB_MINERU_DIR`、`KB_OCR_DIR` 改写；`KB_CHUNKS` 控制 Web 应用条文目录。台账中的相对 `file_path` 按项目根目录解析。
-
-## 可选模型与 OCR
-
-轻量安装支持条号直达和 BM25，无需模型密钥。以下重型功能不属于演示验证范围，需结合硬件与资料单独验证。
-
-本机向量与重排：
+- [PDF 目录](docs/data/PDF目录.md)：375 个独立 PDF，点击即可下载，无需解压。
+- [完整资料 Release](https://github.com/EXCEED2050/building-code-kb/releases/tag/data-2026-10-20)：7 个独立资料卷，约 4.10 GB，包含 4,220 个原件与解析文件。恢复工具兼容旧压缩包里的路径，并放入新目录。
+- [数据格式](docs/data/数据格式.md)：条号、页码、效力状态、强条和校订记录的含义。
 
 ```sh
-python -m pip install -r requirements-models.txt
-python -m tools.get_models
-python -m src.index
+building-kb check-snapshot
+building-kb restore /下载附件的文件夹
+building-kb build-pdfs
+building-kb check-reviews
 ```
 
-模型为 `bge-m3` 和 `bge-reranker-v2-m3`，下载到 `kb/models/`。`src.index` 按内容哈希增量建库；`--rebuild` 会清空并重建当前集合。
+完整阅读本由登记分卷重建；例如 GB 55037 为 136 页。JSONL 的页码仍指向原定位副本，通过映射打开完整阅读本。仅想演示页面可运行 `KB_CHUNKS=examples/demo/chunks python run_dev.py`；16 本公开子集的使用方法见 [公开开发数据](examples/public/README.md)。
 
-作答配置：复制 `.env.example` 为 `.env`，在本机填入自己的密钥。默认作答使用 DeepSeek；未配置时仍可检索。提供方由 `KB_EMBED_PROVIDER`、`KB_RERANK_PROVIDER`、`KB_LLM_PROVIDER` 分别指定，也可用 `KB_PROVIDER` 统一指定。`local` 代表内网/本地 API；`native` 代表直接运行本机 embedding/rerank 模型。
-
-本地 OCR 使用旧版 `magic-pdf 1.3.12` 的内部接口，需建立独立环境安装 `requirements-ocr.txt`，下载对应模型，再复制 `conf/magic-pdf.example.json` 为 `conf/magic-pdf.json`，填写实际模型绝对路径与设备。支持 `MINERU_TOOLS_CONFIG_JSON` 指定其他配置文件。不要直接换装 MinerU 2.x。
-
-云端 OCR 工具为 `python -m tools.ocr_cloud --list data/ocr_queue.txt`，需 `MINERU_TOKEN`，会向 MinerU 上传 PDF。二维码工具另外需要 `python -m pip install 'qrcode[pil]'`。
-
-## 服务器启动与凭据
-
-从 `kb/` 执行：
+## 开发与配置
 
 ```sh
-cp .env.example .env
-# 在本机编辑 .env，设置 KB_PASSCODE、KB_SECRET 和需要的模型配置
-python -m uvicorn app.main:app --env-file .env --host 127.0.0.1 --port 8000
+python -m pip install -r requirements-dev.txt
+python scripts/check.py
 ```
 
-正式服务建议放在 HTTPS 反向代理后，并设置 `KB_HTTPS=1`。本机 HTTP 测试时留空，否则浏览器不会正常发送 Secure Cookie。多进程部署必须共享同一 `KB_SECRET`；无固定密钥时重启会使旧会话失效。
+共同检查覆盖 Python 回归、完整快照、公开子集、30 题检索预检和页面引用/表格处理；GitHub 每次推送和 PR 自动执行。人工验收题与核对结论见 [试用验收](docs/acceptance/广州试用验收题-20261022.md)。检索预检不替代真实模型与工程人员验收。
 
-`--env-file` 确保认证配置在应用导入前加载；仅把口令写进 `.env` 后直接运行普通 uvicorn 不会自动加载它。认证采用共用口令加 12 小时 HMAC 签名 Cookie，详见 [认证与请求流程](docs/认证与请求流程.md)。
+复制 `.env.example` 为根目录 `.env`，填写需要的模型密钥。程序会先读取根目录 `.env`，已有环境变量优先。默认本机向量与重排、DeepSeek 作答；模型未配置时可只检索。
 
-`.gitignore` 排除凭据、原件、模型、缓存和本地 ZIP。完整条文与台账在私有主分支中追踪。16 本公开子集单独保存在 `kb/public-data/`，仍可运行 `python -m tools.export_public --check` 核验；它的筛选规则不代表完整私有资料可以公开。
+正式服务在 `.env` 设置 `KB_PASSCODE`、`KB_SECRET`，然后运行：
+
+```sh
+python -m uvicorn building_kb.web.main:app --host 127.0.0.1 --port 8000
+```
+
+HTTPS 反向代理部署时设置 `KB_HTTPS=1`；HTTP 本机测试留空。认证是共用口令与 12 小时签名 Cookie，详见 [认证与请求流程](docs/architecture/认证与请求流程.md)。密钥只放本机，不提交、不交给前端。
+
+[运行与维护工具](docs/development/运行与工具.md)包含模型下载、索引、OCR、资料处理和二维码命令。[迁移说明](docs/development/目录迁移.md)列出旧路径与新路径。

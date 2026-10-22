@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<!--
+  手机优先。同事是在工地、在会上、在别人工位旁边掏出手机查的，
+  不是坐在双屏前。所以：单栏、大字号、条文原文永远比 AI 那段话更显眼。
+
+  页面做的事：收口令、发问题、把条文和出处摆清楚、让 AI 那段话里的每个出处
+  都能一点就跳到对应条文。此外只有三件辅助的：在库清单（「有没有 GB 50016」）、
+  本机最近查过的几条（只存在这台手机上，不上传）、复制引用。
+
+  没有框架、没有构建步骤、不挂 CDN——一个 HTML 文件，出问题时谁都能打开看，
+  公司网络出不去也照常能用。
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<title>建筑规范查询</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --fg:#1a1d21; --dim:#6b7280; --line:#e5e7eb;
+    --accent:#1558b0; --accentbg:#eaf1fb;
+    --warn:#b45309; --warnbg:#fffbeb; --mand:#b91c1c; --mandbg:#fef2f2;
+    --rev:#6d28d9; --revbg:#f3eefe; --flash:#fff3c4;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#15171a; --card:#1e2126; --fg:#e8eaed; --dim:#9aa0a6; --line:#2e3238;
+           --accent:#7aa7e8; --accentbg:#1c2a40;
+           --warn:#fbbf24; --warnbg:#2a2415; --mand:#f87171; --mandbg:#2a1717;
+           --rev:#c4b5fd; --revbg:#241c33; --flash:#3a3520; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    -webkit-text-size-adjust:100%;}
+  .wrap{max-width:1680px;margin:0 auto;padding:0 14px env(safe-area-inset-bottom)}
+  [hidden]{display:none !important}
+
+  header{position:sticky;top:0;z-index:5;background:var(--bg);
+    padding:calc(12px + env(safe-area-inset-top)) 0 10px;border-bottom:1px solid var(--line)}
+  .hrow{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  h1{margin:0;font-size:17px;font-weight:600;letter-spacing:.3px}
+  .meta{color:var(--dim);font-size:12px;margin-top:3px}
+  .hbtns{display:flex;gap:6px;flex:0 0 auto;padding-top:2px}
+  .ib{padding:5px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);
+    font-size:12.5px;cursor:pointer;color:var(--fg);white-space:nowrap}
+  .ib:active{background:var(--accentbg)}
+
+  /* 口令 */
+  #gate{max-width:340px;margin:18vh auto;text-align:center;padding:0 14px}
+  #gate p{color:var(--dim);font-size:13px;line-height:1.7}
+  input,textarea,button{font:inherit;color:inherit}
+  .field{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;
+    background:var(--card);outline:none}
+  .field:focus{border-color:var(--accent)}
+  .btn{width:100%;margin-top:10px;padding:13px;border:0;border-radius:10px;
+    background:var(--accent);color:#fff;font-weight:600;cursor:pointer}
+  .btn:disabled{opacity:.5;cursor:default}
+  .err{color:var(--mand);font-size:13px;min-height:20px;margin-top:8px}
+
+  /* 提问 */
+  .askbar{display:flex;gap:8px;align-items:flex-end;padding:12px 0 8px}
+  textarea.field{resize:none;max-height:120px;line-height:1.5}
+  .send{flex:0 0 auto;width:56px;padding:13px 0;border:0;border-radius:10px;
+    background:var(--accent);color:#fff;font-weight:600;cursor:pointer}
+  .send.stop{background:var(--mand)}
+  .optrow{display:flex;align-items:center;gap:12px;padding:0 2px 10px;font-size:12.5px;color:var(--dim)}
+  .sw{display:flex;align-items:center;gap:5px;cursor:pointer;color:var(--fg);flex:0 0 auto;user-select:none}
+  .sw input{margin:0;width:16px;height:16px;accent-color:var(--accent)}
+  .tips b{color:var(--fg);font-weight:500}
+
+  /* 首页：示例与最近 */
+  .sec{font-size:12.5px;color:var(--dim);margin:14px 0 6px;display:flex;justify-content:space-between}
+  .sec a{color:var(--accent);cursor:pointer}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;
+    font-size:13.5px;cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .chip:active{background:var(--accentbg)}
+  .empty{color:var(--dim);text-align:center;padding:36px 10px;font-size:14px;line-height:1.8}
+
+  /* 结果 */
+  .banner{border:1px solid var(--line);background:var(--warnbg);color:var(--warn);
+    border-radius:10px;padding:11px 13px;font-size:13px;margin:4px 0 12px;display:none}
+  .banner.on{display:block}
+  .routeline{font-size:12.5px;color:var(--dim);padding:2px 2px 8px}
+
+  #answer{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:12px;padding:12px 15px;margin:2px 0 14px}
+  .ahead{display:flex;gap:8px;align-items:baseline;font-size:12.5px;color:var(--dim);margin-bottom:6px;flex-wrap:wrap}
+  .ahead b{color:var(--accent);font-size:13px}
+  .ahead .st{margin-left:auto}
+  .abody{font-size:15px}
+  .abody p{margin:4px 0}
+  .abody ul,.abody ol{margin:4px 0 4px 20px;padding:0}
+  .abody li{margin:3px 0}
+  .abody .h{font-weight:600;margin:8px 0 2px}
+  .abody code{background:rgba(127,127,127,.12);padding:0 4px;border-radius:4px;font-size:.92em}
+  .followturn{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+  .round{margin:10px 0 18px}
+  .roundhead{font-size:13px;font-weight:600;color:var(--dim);margin:0 0 8px}
+  .roundanswer{min-width:0}
+  .roundsources{min-width:0}
+  .roundsources .sourcehead{font-size:12.5px;color:var(--dim);margin-bottom:7px}
+  @media (min-width:850px){
+    .wrap{padding-left:24px;padding-right:24px}
+    .round{display:grid;grid-template-columns:minmax(0,43fr) minmax(0,57fr);gap:24px;align-items:start}
+    .roundhead{grid-column:1/-1;margin-bottom:-10px}
+    .roundanswer{position:sticky;top:78px;max-height:calc(100vh - 95px);overflow:auto}
+    .round.noanswer .roundsources{grid-column:1/-1}
+  }
+  .followquestion{font-size:14px;font-weight:600;margin-bottom:6px;white-space:pre-wrap}
+  .followbox{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+  .followhint{font-size:12.5px;color:var(--dim);margin-bottom:7px}
+  .followbar{display:flex;gap:8px;align-items:flex-end}
+  .followbar .field{min-width:0;flex:1;padding:9px 11px;font-size:14px}
+  .followbar .send{width:58px;padding:9px 0;font-size:14px}
+  .followbox .err{min-height:0}
+  .ref{color:var(--accent);cursor:pointer;font-variant-numeric:tabular-nums;
+    border-bottom:1px dotted var(--accent);white-space:nowrap}
+  .cursor::after{content:"▍";color:var(--accent);animation:blink 1s infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  /* 条文卡 */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:13px 15px;margin-bottom:10px;scroll-margin-top:96px}
+  .card.flash{animation:flash 1.8s}
+  @keyframes flash{0%,40%{background:var(--flash)}100%{background:var(--card)}}
+  .card.cited{border-left:3px solid var(--accent)}
+  #hits.onlycited .card:not(.cited){display:none}
+  .citedbar{display:none;align-items:center;gap:10px;font-size:12.5px;color:var(--dim);
+    padding:2px 2px 10px}
+  .citedbar.on{display:flex}
+  .citedbar b{color:var(--accent)}
+  .cite{font-size:13px;font-weight:600;color:var(--accent);
+    font-variant-numeric:tabular-nums;word-break:break-all}
+  .name{font-size:12.5px;color:var(--dim);margin-top:1px}
+  .path{font-size:12px;color:var(--dim);margin-top:5px}
+  .body{margin-top:8px;font-size:15.5px;white-space:pre-wrap;word-wrap:break-word}
+  .body.clip{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .acts{display:flex;gap:16px;margin-top:6px;font-size:13px}
+  .acts span{color:var(--accent);cursor:pointer;user-select:none}
+  .tag{display:inline-block;font-size:11px;padding:1.5px 7px;border-radius:5px;
+    margin-left:6px;vertical-align:1.5px;font-weight:600;cursor:default}
+  .tag.m{background:var(--mandbg);color:var(--mand);cursor:pointer}
+  .tag.r{background:var(--revbg);color:var(--rev)}
+  .tag.u{background:var(--warnbg);color:var(--warn)}
+  mark{background:#fff0a5;color:#26210a;border-radius:2px}
+  .basis{margin-top:5px;font-size:12.5px;color:var(--mand)}
+  .cav{margin-top:9px;padding:9px 11px;border-radius:8px;
+    background:var(--warnbg);color:var(--warn);font-size:13px;line-height:1.6}
+  .explanation .look{display:inline-block;color:var(--accent);cursor:pointer;margin-top:6px;font-size:13px}
+  table{border-collapse:collapse;margin-top:10px;font-size:13px;width:100%;display:block;
+    overflow-x:auto;white-space:nowrap}
+  th,td{border:1px solid var(--line);padding:5px 9px;text-align:left}
+  th{background:rgba(127,127,127,.09);font-weight:600}
+  .wide{margin-top:4px;font-size:11.5px;color:var(--dim)}
+  .morerow{text-align:center;padding:4px 0 10px}
+  footer{color:var(--dim);font-size:11.5px;text-align:center;padding:20px 10px 28px;line-height:1.8}
+
+  /* 在库清单 */
+  .sheet{position:fixed;inset:0;z-index:20}
+  .sheetbg{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+  .sheetbox{position:absolute;left:0;right:0;bottom:0;max-height:82vh;background:var(--bg);
+    border-radius:16px 16px 0 0;padding:14px 14px calc(14px + env(safe-area-inset-bottom));
+    display:flex;flex-direction:column}
+  @media (min-width:720px){
+    .sheetbox{left:50%;right:auto;top:8vh;bottom:auto;width:560px;transform:translateX(-50%);
+      border-radius:14px;max-height:84vh}
+  }
+  .sheethead{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+  .sheethead b{font-size:15px}
+  .sheethead span{color:var(--dim);font-size:12.5px;flex:1}
+  #booklist{overflow:auto;margin-top:8px;-webkit-overflow-scrolling:touch}
+  .grp{font-size:12px;color:var(--dim);margin:12px 0 4px;font-weight:600}
+  .bk{display:flex;justify-content:space-between;gap:10px;padding:9px 10px;border-radius:8px;cursor:pointer}
+  .bk:active{background:var(--accentbg)}
+  .bk b{font-weight:600;font-size:14px;font-variant-numeric:tabular-nums}
+  .bk small{display:block;color:var(--dim);font-size:12.5px;font-weight:400}
+  .bk span{color:var(--dim);font-size:12.5px;text-align:right;flex:0 0 auto;white-space:nowrap}
+  .sheetnote{font-size:12px;color:var(--dim);margin-top:8px}
+
+  .toast{position:fixed;left:50%;bottom:calc(30px + env(safe-area-inset-bottom));transform:translateX(-50%);
+    background:#1a1d21;color:#fff;padding:8px 14px;border-radius:8px;font-size:13px;
+    opacity:0;transition:opacity .2s;pointer-events:none;z-index:30;white-space:nowrap}
+  .toast.on{opacity:.92}
+
+  /* 原文页 */
+  #viewer{position:fixed;inset:0;z-index:25;background:var(--bg);display:flex;flex-direction:column}
+  .vhead{display:flex;align-items:center;gap:8px;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;
+    border-bottom:1px solid var(--line);background:var(--bg)}
+  .vhead .vt{flex:1;min-width:0;font-size:13px;line-height:1.35}
+  .vhead .vt small{display:block;color:var(--dim);font-size:11.5px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .vbody{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;text-align:center;
+    background:rgba(127,127,127,.12);padding:10px 0}
+  .vbody img{max-width:100%;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.25);vertical-align:top}
+  .vbody img.zoom{max-width:none;width:190%}
+  .vnote{color:var(--dim);font-size:13px;padding:30px 20px;line-height:1.8}
+  .vfoot{display:flex;align-items:center;gap:10px;justify-content:center;
+    padding:9px 12px calc(9px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+  .vfoot .pg{font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums;min-width:96px;text-align:center}
+  .vfoot .ib:disabled{opacity:.4}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h1 style="font-size:19px">建筑规范查询</h1>
+  <p style="margin:10px 0 18px">内部使用，请输入访问口令</p>
+  <input id="pass" class="field" type="password" inputmode="text" autocapitalize="off"
+         autocomplete="off" placeholder="访问口令" enterkeyhint="go">
+  <button id="go" class="btn">进入</button>
+  <div class="err" id="gerr"></div>
+  <p style="margin-top:22px">条文内容以正式出版物为准。<br>本库仅供检索定位，不作为设计依据。</p>
+</div>
+
+<div class="wrap" id="app" hidden>
+  <header>
+    <div class="hrow">
+      <div>
+        <h1>建筑规范查询</h1>
+        <div class="meta" id="meta"></div>
+      </div>
+      <div class="hbtns">
+        <button class="ib" id="booksBtn">在库规范</button>
+        <button class="ib" id="logout">退出</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="askbar">
+    <textarea id="q" class="field" rows="1" enterkeyhint="send"
+      placeholder="例：GB 50016 第5.5.17条"></textarea>
+    <button id="send" class="send">查</button>
+  </div>
+  <div class="optrow">
+    <label class="sw" id="llmSw" hidden><input type="checkbox" id="llmOn">AI 解读</label>
+    <span class="tips">可写<b>规范号 + 条号</b>精确定位，也可以用大白话问</span>
+  </div>
+
+  <div class="banner" id="banner"></div>
+
+  <div id="home">
+    <div class="sec">试试这样问</div>
+    <div class="chips" id="examples"></div>
+    <div class="sec" id="recentSec" hidden><span>最近查过（只存在这台手机上）</span><a id="clearRecent">清除</a></div>
+    <div class="chips" id="recent"></div>
+    <div class="empty">结果会标出规范号、条号和页码，可翻原书核对。</div>
+  </div>
+
+  <div id="result" hidden>
+    <div class="optrow"><span class="tips">本次问答保存在本浏览器；新查询会替换本次记录。</span><button class="ib" id="exportChat">导出本次问答</button><button class="ib" id="clearChat">清除记录</button></div>
+    <div class="routeline" id="routeline"></div>
+    <div class="round" id="firstRound">
+    <section id="answer" class="roundanswer" hidden>
+      <div class="ahead"><b>AI 解读</b><span>仅供参考，以下方条文原文为准</span><span class="st" id="astate"></span></div>
+      <div class="abody" id="abody"></div>
+    </section>
+    <div class="roundsources">
+    <div class="citedbar" id="citedbar">
+      <span id="citedtxt"></span>
+      <label class="sw"><input type="checkbox" id="onlycited">只看被引用的</label>
+    </div>
+    <div id="hits"></div>
+    <div class="morerow" id="morerow" hidden><button class="ib" id="more">多显示几条</button></div>
+    </div></div>
+    <div id="followups"></div>
+    <div class="followbox" id="followbox" hidden>
+      <div class="followhint">继续追问；每轮会重新检索，并在回答旁显示本轮依据。</div>
+      <div class="followbar">
+        <textarea id="fq" class="field" rows="1" maxlength="500" enterkeyhint="send"
+          placeholder="继续追问，例如：设置喷淋后距离怎么算？"></textarea>
+        <button id="fsend" class="send">发送</button>
+      </div>
+      <div class="err" id="ferr"></div>
+    </div>
+  </div>
+
+  <footer>
+    条文内容以正式出版物为准，本库仅供检索定位。<br>
+    引用前请按标注页码核对原文，强制性条文尤须核对黑体标示。
+  </footer>
+</div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheetbg" id="sheetbg"></div>
+  <div class="sheetbox">
+    <div class="sheethead"><b>在库规范</b><span id="bookcount"></span><button class="ib" id="sheetClose">关闭</button></div>
+    <input id="bookq" class="field" placeholder="筛选：规范号或名称" autocomplete="off">
+    <div id="booklist"></div>
+    <div class="sheetnote">点一本会把规范号填进问题框——问题里带上规范号，就只在这本里查。</div>
+  </div>
+</div>
+
+<div id="viewer" hidden>
+  <div class="vhead">
+    <button class="ib" id="vclose">返回</button>
+    <div class="vt"><b id="vcite"></b><small id="vname"></small></div>
+    <button class="ib" id="vzoom">放大</button>
+    <a class="ib" id="vpdf" target="_blank" rel="noopener">整本</a>
+  </div>
+  <div class="vbody" id="vbody"></div>
+  <div class="vfoot">
+    <button class="ib" id="vprev">← 上一页</button>
+    <span class="pg" id="vpg"></span>
+    <button class="ib" id="vnext">下一页 →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const EXAMPLES = ['GB 50016 第5.5.17条', '厂房泄压设施怎么选', 'GB 55037 疏散 强制性条文', '民用建筑分类 表'];
+const K0 = 8, KMAX = 20;
+
+/* Markdown 管道表格 -> HTML。
+   规范里的表就是数据本身（「不应小于 1.10m」），错一格就是事故，
+   所以老老实实按单元格转，并且每一格都转义——OCR 出来的文字里
+   什么字符都可能有。 */
+function mdTable(md, terms){
+  const rows = String(md).trim().split('\n').filter(l => l.includes('|'));
+  if (!rows.length) return '<pre>' + esc(md) + '</pre>';
+  const cells = r => r.replace(/^\s*\|/,'').replace(/\|\s*$/,'').split('|').map(c => c.trim());
+  const isSep = r => /^[\s|:-]+$/.test(r);
+  let out = '<table>', head = true;
+  for (const r of rows){
+    if (isSep(r)) { head = false; continue; }
+    const tag = head ? 'th' : 'td';
+    out += '<tr>' + cells(r).map(c => `<${tag}>${terms ? markedText(c, terms) : esc(c)}</${tag}>`).join('') + '</tr>';
+    head = false;
+  }
+  return out + '</table>';
+}
+
+/* 手机上宽表会被裁掉右边几列。表格本身能横向滑，但屏幕上看不出来——
+   规范里的表最后一列往往正是限值，用户以为自己看到了全部，其实没有。
+   所以渲染完量一下，真的溢出了才提示。 */
+function hintWide(root){
+  for (const t of root.querySelectorAll('table')){
+    if (t.scrollWidth <= t.clientWidth + 2) continue;
+    if (t.nextElementSibling?.classList.contains('wide')) continue;
+    const tip = document.createElement('div');
+    tip.className = 'wide';
+    tip.textContent = '← 表格可左右滑动，右侧还有内容';
+    t.after(tip);
+  }
+}
+
+/* 模型的话按最小一套 Markdown 渲染：加粗、列表、小标题、行内代码。
+   先整体转义再套标签，模型输出里的任何尖括号都到不了 DOM。
+   出处 [规范号 第X条 PN] 变成可点的链接，点了跳到下面对应的条文卡——
+   AI 说的每一句都能立刻对到原文，这是这段话能放在页面上的前提。 */
+function renderMd(src){
+  const inline = s => s
+    .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\[([^\[\]]+?)\s+第([0-9A-Za-z.]+)条(?:\s*P(\d+))?\]|((?:Q\s*\/\s*SH|GB|JGJ|CJJ|SH|HG|SY|TSG|DL|NB|CECS)(?:\s*\/\s*T)?\s*\d{3,5}(?:-\d{4})?)\s*第([0-9A-Za-z.]+)条(?:\s*P(\d+))?/gi,
+      (m, s1, c1, p1, s2, c2, p2) => {
+        const std = s1 || s2, cl = c1 || c2, pg = p1 || p2;
+        return `<a class="ref" href="#" data-std="${std}" data-cl="${cl}">${m}</a>`;
+      });
+  let out = '', list = '';
+  const close = () => { if (list){ out += `</${list}>`; list = ''; } };
+  for (const l of esc(src).split('\n')){
+    const li = l.match(/^\s*(?:([-*•])|(\d+)[.、)])\s+(.*)$/);
+    if (li){
+      const want = li[2] ? 'ol' : 'ul';
+      if (list !== want){ close(); out += `<${want}>`; list = want; }
+      out += `<li>${inline(li[3])}</li>`;
+      continue;
+    }
+    close();
+    const h = l.match(/^\s*#{1,6}\s+(.*)$/);
+    if (h){ out += `<div class="h">${inline(h[1])}</div>`; continue; }
+    if (l.trim()) out += `<p>${inline(l)}</p>`;
+  }
+  close();
+  return out;
+}
+
+function markedText(raw, query){
+  const terms = [...new Set(Array.isArray(query) ? query : (String(query).match(/[\u4e00-\u9fff]{2,}|[A-Za-z]{3,}|\d+(?:\.\d+)+/g) || []))]
+    .filter(t => !['规范号','条文号','什么','怎么','多少','是否'].includes(t)).sort((a,b) => b.length-a.length);
+  if (!terms.length) return esc(raw);
+  const pattern = new RegExp('(' + terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'gi');
+  return String(raw ?? '').split(pattern).map((part, i) => i % 2 ? `<mark>${esc(part)}</mark>` : esc(part)).join('');
+}
+function card(h, query){
+  const page = h.page ? ` P${h.page}` : '';
+  const cite = `${h.std_code} 第${h.clause_no}条${page}`;
+  const tags = [];
+  if (h.is_mandatory) tags.push(`<span class="tag m" data-basis="${esc(h.mandatory_basis)}">${h.mandatory_historical ? '原出版物强条标记' : '强制性条文'}</span>`);
+  if (h.section_type === '修订') tags.push('<span class="tag r">修订条文</span>');
+  if (h.status === '待核') tags.push('<span class="tag u">数据待核</span>');
+  if (h.source_review) tags.push(`<span class="tag u">${esc(h.source_review)}</span>`);
+  const cav = h.caveat ? `<div class="cav">⚠ ${esc(h.caveat)}</div>` : '';
+  const path = h.chapter_path ? `<div class="path">${esc(h.chapter_path)}</div>` : '';
+  const tables = (h.tables || []).map(t => mdTable(t, query)).join('');
+  const long = (h.text || '').length > 150;
+  // 没有页码就没有「看原文」：宁可没有这个入口，也不能翻到错的一页
+  const look = h.page ? `<span class="look">看原文 P${h.page}</span>` : '';
+  return `<div class="card" data-id="${esc(h.id)}" data-std="${esc(h.std_code)}" data-cl="${esc(h.clause_no)}"
+      data-page="${h.page || ''}" data-name="${esc(h.std_name)}">
+    <div class="cite">${esc(cite)}${tags.join('')}</div>
+    <div class="name">${esc(h.std_name)}</div>
+    ${path}
+    <div class="body${long ? ' clip' : ''}">${markedText(h.text, query)}</div>
+    <div class="acts">${long ? '<span class="more">展开全文</span>' : ''}${look}<span class="explain">条文说明</span><span class="pdf">整本 PDF</span><span class="copy" data-cite="${esc(cite)}">复制引用</span></div>
+    ${cav}${tables}
+    <div class="explanation" hidden></div>
+  </div>`;
+}
+
+/* ---------- 口令 ---------- */
+function showGate(msg){
+  $('#gate').hidden = false; $('#app').hidden = true;
+  $('#gerr').textContent = msg || '';
+  if (ctrl) ctrl.abort();
+  if (followCtrl) followCtrl.abort();
+  convo = null;
+}
+async function login(){
+  const v = $('#pass').value.trim();
+  if (!v) return;
+  $('#go').disabled = true; $('#gerr').textContent = '';
+  try{
+    const r = await fetch('/api/login', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({passcode:v})
+    });
+    if (!r.ok) throw new Error('口令不对');
+    $('#pass').value = '';
+    await boot();
+  }catch(e){ $('#gerr').textContent = e.message; }
+  finally{ $('#go').disabled = false; }
+}
+$('#go').onclick = login;
+$('#pass').onkeydown = e => { if (e.key === 'Enter') login(); };
+$('#logout').onclick = async () => {
+  try { await fetch('/api/logout', {method:'POST'}); } catch(_){}
+  showGate('');
+};
+
+/* ---------- 启动 ---------- */
+let status = {};
+async function boot(){
+  let s;
+  try { s = await (await fetch('/api/status')).json(); }
+  catch(_){ showGate('连不上服务器，请稍后再试'); return; }
+  status = s;
+  if (!s.authed) { showGate(''); return; }
+  $('#gate').hidden = true; $('#app').hidden = false;
+  $('#meta').textContent = `在库 ${s.books} 本 · 条文 ${s.pool} 条`
+    + (s.vector ? ' · 语义检索' : ' · 关键词检索')
+    + (s.rerank ? ' · 重排' : '');
+  $('#llmSw').hidden = !s.llm;
+  if (!s.llm){
+    banner('未配置模型 API key，<b>AI 解读暂不可用</b>；检索照常——'
+      + '直接写规范号和条号可精确定位，写大白话也能按关键词找。');
+  }
+  renderHome();
+  restoreConversation();
+  $('#q').focus();
+}
+function banner(html){ const b = $('#banner'); b.innerHTML = html; b.classList.add('on'); }
+function hideBanner(){ $('#banner').classList.remove('on'); }
+
+/* ---------- 首页：示例与最近查过 ---------- */
+const RECENT = 'kb.recent';
+function recent(){ try { return JSON.parse(localStorage.getItem(RECENT) || '[]'); } catch(_){ return []; } }
+function remember(text){
+  const list = [text, ...recent().filter(t => t !== text)].slice(0, 8);
+  try { localStorage.setItem(RECENT, JSON.stringify(list)); } catch(_){}
+}
+function chips(el, items){
+  el.innerHTML = items.map(t => `<span class="chip" title="${esc(t)}">${esc(t)}</span>`).join('');
+}
+function renderHome(){
+  chips($('#examples'), EXAMPLES);
+  const r = recent();
+  $('#recentSec').hidden = !r.length;
+  chips($('#recent'), r);
+}
+$('#home').addEventListener('click', e => {
+  const c = e.target.closest('.chip');
+  if (!c) return;
+  q.value = c.textContent; autosize(); ask();
+});
+$('#clearRecent').onclick = () => { try { localStorage.removeItem(RECENT); } catch(_){} renderHome(); };
+
+/* AI 解读的开关记在本机。查条号的人本来就不需要模型开口 */
+const LLM = 'kb.llm';
+const llmOn = $('#llmOn');
+llmOn.checked = (localStorage.getItem(LLM) ?? '1') === '1';
+llmOn.onchange = () => {
+  try { localStorage.setItem(LLM, llmOn.checked ? '1' : '0'); } catch(_){}
+  $('#followbox').hidden = !wantLLM() || !convo;
+};
+const wantLLM = () => status.llm && llmOn.checked;
+
+/* ---------- 提问 ---------- */
+const q = $('#q');
+function autosize(){ q.style.height = 'auto'; q.style.height = q.scrollHeight + 'px'; }
+q.addEventListener('input', autosize);
+q.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); ask(); }
+});
+$('#send').onclick = () => ctrl ? ctrl.abort() : ask();
+$('#more').onclick = () => ask({more:true});
+const fq = $('#fq');
+fq.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); askFollowup(); }
+});
+$('#fsend').onclick = () => followCtrl ? followCtrl.abort() : askFollowup();
+
+/* 用 fetch 读 SSE 而不是 EventSource：能看到 401（口令过期要回登录页，
+   而不是报一句「出错了」）、能中途停、能加参数。协议本身没变。 */
+async function readSSE(resp, on){
+  const rd = resp.body.getReader(), dec = new TextDecoder();
+  let buf = '';
+  for (;;){
+    const {value, done} = await rd.read();
+    if (done) break;
+    buf += dec.decode(value, {stream:true});
+    let i;
+    while ((i = buf.indexOf('\n\n')) >= 0){
+      const block = buf.slice(0, i); buf = buf.slice(i + 2);
+      let ev = 'message', data = '';
+      for (const line of block.split('\n')){
+        if (line.startsWith('event:')) ev = line.slice(6).trim();
+        else if (line.startsWith('data:')) data += line.slice(5).trim();
+      }
+      if (data) on(ev, JSON.parse(data));
+    }
+  }
+}
+
+let ctrl = null, followCtrl = null, convo = null, lastQ = '', savedSession = null;
+const CHAT_KEY = 'kb.conversation.v1';
+function saveConversation(){
+  if (!savedSession) return;
+  savedSession.updated_at = new Date().toISOString();
+  try { localStorage.setItem(CHAT_KEY, JSON.stringify(savedSession)); }
+  catch(_) { banner('本浏览器无法保存本次问答，请使用“导出本次问答”留存。'); }
+}
+function savedRound(round, index){
+  const el = document.createElement('div'); el.className = 'round followturn';
+  const hits = round.evidence.hits || [];
+  el.innerHTML = `<div class="roundhead">第 ${index + 1} 轮 · ${esc(round.question)}</div>`
+    + `<section class="roundanswer"><div class="followquestion">追问：${esc(round.question)}</div><div class="abody">${renderMd(round.answer)}</div></section>`
+    + '<div class="roundsources"><div class="sourcehead">本轮检索依据 · ' + hits.length + ' 条</div>'
+    + (round.evidence.search_query && round.evidence.search_query !== round.question ? '<div class="cav">本轮检索：' + esc(round.evidence.search_query) + '</div>' : '')
+    + (hits.length ? hits.map(h => card(h, round.evidence.keywords || [])).join('') : '<div class="empty">本轮没有可用依据。</div>') + '</div>';
+  return el;
+}
+function restoreConversation(){
+  if (ctrl || followCtrl) return;
+  try {
+    const data = JSON.parse(localStorage.getItem(CHAT_KEY) || 'null');
+    if (!data || data.version !== 1 || !Array.isArray(data.rounds) || !data.rounds.length
+        || data.rounds.some(r => typeof r.question !== 'string' || typeof r.answer !== 'string' || !Array.isArray(r.evidence?.hits))) return;
+    savedSession = data;
+    const first = data.rounds[0]; lastQ = first.question; q.value = lastQ; autosize();
+    $('#home').hidden = true; $('#result').hidden = false;
+    renderHits(first.evidence, K0, first.question);
+    $('#answer').hidden = !first.answer; $('#abody').innerHTML = renderMd(first.answer);
+    $('#firstRound').classList.toggle('noanswer', !first.answer); setAState('已恢复浏览器记录');
+    $('#followups').replaceChildren(...data.rounds.slice(1).map((r, i) => savedRound(r, i + 1)));
+    const last = data.rounds.at(-1);
+    convo = first.completed ? {ids:last.evidence.hits.map(h => h.id), history:data.rounds.slice(-6).map(r => ({question:r.question, answer:r.answer || '未生成回答'}))} : null;
+    $('#followbox').hidden = !convo || !wantLLM();
+    hintWide($('#result')); markCited();
+  } catch(_) { /* 损坏的本机记录不阻碍继续查询。 */ }
+}
+$('#exportChat').onclick = () => {
+  if (!savedSession) { toast('还没有完整问答可导出'); return; }
+  const url = URL.createObjectURL(new Blob([JSON.stringify(savedSession, null, 2)], {type:'application/json'}));
+  const a = document.createElement('a'); a.href = url; a.download = '规范问答-' + new Date().toISOString().slice(0,10) + '.json';
+  document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+};
+$('#clearChat').onclick = () => {
+  if (ctrl || followCtrl) { toast('请先停止当前回答'); return; }
+  try { localStorage.removeItem(CHAT_KEY); } catch(_) {}
+  savedSession = null; convo = null; $('#followups').replaceChildren();
+  $('#result').hidden = true; $('#home').hidden = false; renderHome();
+};
+function setBusy(on){
+  const b = $('#send');
+  b.textContent = on ? '停' : '查';
+  b.classList.toggle('stop', on);
+}
+function setAState(t, streaming){
+  $('#astate').textContent = t;
+  $('#abody').classList.toggle('cursor', !!streaming);
+}
+
+async function ask(opts = {}){
+  const text = opts.more ? lastQ : q.value.trim();
+  if (!text) return;
+  if (ctrl) ctrl.abort();
+  if (!opts.more && followCtrl) followCtrl.abort();
+  const mine = ctrl = new AbortController();
+  lastQ = text;
+  const k = opts.more ? KMAX : K0;
+  const useLLM = !opts.more && wantLLM();
+
+  q.blur();
+  hideBanner();
+  $('#home').hidden = true; $('#result').hidden = false;
+  if (!opts.more){
+    savedSession = null;
+    convo = null;
+    $('#firstRound').classList.add('noanswer');
+    $('#answer').hidden = true; $('#abody').innerHTML = ''; setAState('');
+    $('#followups').innerHTML = ''; $('#followbox').hidden = true;
+    fq.value = ''; $('#ferr').textContent = '';
+  }
+  $('#hits').innerHTML = '<div class="empty">检索中…</div>';
+  $('#morerow').hidden = true;
+  setBusy(true);
+  remember(text);
+
+  let answered = '', sourceIds = [], evidence = null;
+  try{
+    const resp = await fetch(`/api/ask?q=${encodeURIComponent(text)}&k=${k}&llm=${useLLM ? 1 : 0}`,
+                             {signal: mine.signal});
+    if (resp.status === 401){ showGate('口令已过期，请重新输入'); return; }
+    if (!resp.ok) throw new Error('服务返回 ' + resp.status);
+    await readSSE(resp, (ev, d) => {
+      if (ctrl !== mine) return;
+      if (ev === 'hits'){
+        evidence = d;
+        sourceIds = (d.hits || []).map(h => h.id);
+        renderHits(d, k, text);
+      }
+      else if (ev === 'delta'){
+        if (!answered){ $('#answer').hidden = false; $('#firstRound').classList.remove('noanswer'); setAState('生成中…', true); }
+        answered += d;
+        $('#abody').innerHTML = renderMd(answered);
+      }
+      else if (ev === 'nollm') banner('未配置模型 API key，<b>AI 解读暂不可用</b>；下面是检索到的条文原文。');
+      else if (ev === 'error') banner('查询出错：' + esc(d.msg));
+      else if (ev === 'done'){
+        if (!opts.more && evidence){
+          savedSession = {version:1, rounds:[{question:text, answer:answered || d.message || '', evidence, completed:!!d.answered}]};
+          saveConversation();
+        }
+        if (d.reason === 'unreliable_sources') banner(esc(d.message));
+        setAState('', false);
+        if (d.answered && useLLM && sourceIds.length){
+          convo = {ids:sourceIds, history: [{question:text, answer:answered}]};
+          $('#followbox').hidden = !wantLLM();
+        }
+      }
+      if (ev === 'delta' || ev === 'done') markCited();
+    });
+  }catch(e){
+    if (e.name === 'AbortError'){ if (ctrl === mine && answered) setAState('已停止', false); }
+    else banner('网络出错，请重试：' + esc(e.message));
+  }finally{
+    if (ctrl === mine){ ctrl = null; setBusy(false); markCited(); }
+  }
+}
+
+async function askFollowup(){
+  const text = fq.value.trim();
+  if (!text || !convo || !wantLLM() || ctrl || followCtrl) return;
+  const mine = followCtrl = new AbortController();
+  const current = convo;
+  const turn = document.createElement('div');
+  turn.className = 'round followturn';
+  const head = document.createElement('div');
+  head.className = 'roundhead'; head.textContent = `第 ${$('#followups').children.length + 2} 轮 · ${text}`;
+  const left = document.createElement('section'); left.className = 'roundanswer';
+  const question = document.createElement('div');
+  question.className = 'followquestion'; question.textContent = '追问：' + text;
+  const body = document.createElement('div');
+  body.className = 'abody cursor';
+  left.append(question, body);
+  const right = document.createElement('div'); right.className = 'roundsources';
+  right.innerHTML = '<div class="sourcehead">本轮检索依据</div><div class="empty">检索中…</div>';
+  turn.append(head, left, right);
+  $('#followups').append(turn);
+  turn.scrollIntoView({behavior:'smooth', block:'nearest'});
+  fq.value = ''; $('#ferr').textContent = '';
+  $('#fsend').textContent = '停止'; $('#fsend').classList.add('stop');
+
+  let answered = '', completed = false, noHits = false, noEvidenceMessage = '', sourceIds = [], evidence = null;
+  try{
+    const resp = await fetch('/api/followup', {
+      method:'POST', headers:{'Content-Type':'application/json'}, signal:mine.signal,
+      body:JSON.stringify({question:text, chunk_ids:current.ids,
+        history:current.history.slice(-6).map(t => ({question:t.question, answer:t.answer.slice(0,2000)}))})
+    });
+    if (resp.status === 401){ showGate('口令已过期，请重新输入'); return; }
+    if (!resp.ok) throw new Error('服务返回 ' + resp.status);
+    await readSSE(resp, (ev, d) => {
+      if (followCtrl !== mine || convo !== current) return;
+      if (ev === 'hits'){
+        evidence = d;
+        sourceIds = (d.hits || []).map(h => h.id);
+        right.innerHTML = '<div class="sourcehead">本轮检索依据 · ' + sourceIds.length + ' 条'
+          + (d.search_query !== text ? ' · 结合对话重新检索' : '') + '</div>'
+          + (d.search_query !== text ? '<div class="caveat">本轮检索：' + esc(d.search_query) + '</div>' : '')
+          + (sourceIds.length ? d.hits.map(h => card(h, d.keywords || text)).join('')
+            : '<div class="empty">本轮未检索到相关条文，无法据此作答。请换个说法或指定规范号、条号。</div>');
+        hintWide(right);
+      } else if (ev === 'delta'){
+        answered += d;
+        body.innerHTML = renderMd(answered);
+        markCited();
+      } else if (ev === 'error') throw new Error(d.msg);
+      else if (ev === 'nollm') throw new Error('AI 解读暂不可用');
+      else if (ev === 'done'){
+        completed = !!d.answered;
+        noHits = ['no_hits','unreliable_sources','needs_scope'].includes(d.reason);
+        noEvidenceMessage = d.message || '本轮没有可用依据。';
+      }
+    });
+    if (noHits){
+      body.textContent = noEvidenceMessage; body.classList.remove('cursor');
+      if (convo === current){
+        current.history.push({question:text, answer:noEvidenceMessage, chunk_ids:sourceIds});
+        current.ids = sourceIds; current.history = current.history.slice(-6);
+        if (savedSession && evidence){ savedSession.rounds.push({question:text, answer:noEvidenceMessage, evidence, completed:false}); saveConversation(); }
+      }
+      return;
+    }
+    if (!completed || !answered) throw new Error('未收到完整回答，请重试');
+    if (convo === current){
+      if (savedSession && evidence){ savedSession.rounds.push({question:text, answer:answered, evidence, completed:true}); saveConversation(); }
+      current.history.push({question:text, answer:answered, chunk_ids:sourceIds});
+      current.ids = sourceIds;
+      current.history = current.history.slice(-6);
+    }
+  }catch(e){
+    turn.remove();
+    if (convo === current){
+      if (e.name !== 'AbortError') $('#ferr').textContent = '追问失败：' + e.message;
+      else $('#ferr').textContent = '已停止，刚才的回答未保留。';
+      fq.value = text;
+    }
+  }finally{
+    body.classList.remove('cursor');
+    if (followCtrl === mine){
+      followCtrl = null;
+      $('#fsend').textContent = '发送'; $('#fsend').classList.remove('stop');
+    }
+    markCited();
+  }
+}
+
+/* AI 说的每一条都要能对到原文。把回答里的出处和下面的条文卡配起来：
+   被引用的卡片左边加一道竖线，并给一个「只看被引用的」开关——
+   检索给了 8 条，模型实际用上的可能只有 3 条，其余 5 条是干扰。
+   反过来，如果模型引的条号在检索结果里根本不存在，那是它编的，见 unknown。 */
+function markCited(){
+  const cards = [...document.querySelectorAll('#hits .card')];
+  cards.forEach(c => c.classList.remove('cited'));
+  const refs = [...document.querySelectorAll('#answer .ref')];
+  let n = 0, unknown = 0;
+  const seen = new Set();
+  for (const a of refs){
+    const el = findCard(a.dataset.std, a.dataset.cl, $('#firstRound'));
+    if (!el){ unknown++; continue; }
+    el.classList.add('cited');
+    if (!seen.has(el)){ seen.add(el); n++; }
+  }
+  const bar = $('#citedbar');
+  bar.classList.toggle('on', n > 0 || unknown > 0);
+  if (!n){ $('#hits').classList.remove('onlycited'); $('#onlycited').checked = false; }
+  $('#onlycited').disabled = !n;
+  if (n || unknown) $('#citedtxt').innerHTML = `检索到 ${cards.length} 条，AI 引用了其中 <b>${n}</b> 条`
+    + (unknown ? ` · <b style="color:var(--mand)">另有 ${unknown} 处出处不在结果里，需核对</b>` : '');
+  for (const round of document.querySelectorAll('#followups .round')){
+    round.querySelectorAll('.card').forEach(c => c.classList.remove('cited'));
+    let missing = 0;
+    for (const a of round.querySelectorAll('.ref')){
+      const el = findCard(a.dataset.std, a.dataset.cl, round);
+      if (el) el.classList.add('cited'); else missing++;
+    }
+    const note = round.querySelector('.sourcehead');
+    if (note){
+      if (!note.dataset.base) note.dataset.base = note.textContent;
+      note.textContent = note.dataset.base + (missing ? ` · ${missing} 处引用未在本轮依据中找到，请核对` : '');
+    }
+  }
+}
+$('#onlycited').onchange = e => $('#hits').classList.toggle('onlycited', e.target.checked);
+
+function renderHits(d, k, query){
+  const hits = d.hits || [];
+  routeLine(hits, d.parsed || {});
+  $('#hits').classList.remove('onlycited');
+  $('#onlycited').checked = false;
+  $('#citedbar').classList.remove('on');
+  if (!hits.length){
+    $('#hits').innerHTML = '<div class="empty">没有检索到相关条文。<br>'
+      + '换个说法试试，或直接给出规范号和条号。</div>';
+    return;
+  }
+  $('#hits').innerHTML = hits.map(h => card(h, d.keywords || query)).join('');
+  hintWide($('#hits'));
+  $('#morerow').hidden = !(hits.length >= k && k < KMAX);
+}
+
+/* 告诉用户这批结果是怎么来的：条号直达是确定的，关键词检索是「像」。
+   两者可信度不同，不该长得一样。 */
+function routeLine(hits, p){
+  if (!hits.length){ $('#routeline').textContent = ''; return; }
+  const r = hits.map(h => h.route || '').join('|');
+  let how = r.includes('条号直达') ? '按条号直达'
+          : r.includes('向量') ? '关键词 + 语义检索' : '关键词检索';
+  if (r.includes('重排')) how += '，已重排';
+  const lim = (p.std_codes || []).length ? ` · 限定 ${p.std_codes.map(esc).join('、')}` : '';
+  const mo = p.mandatory_only ? ' · 只看强条' : '';
+  $('#routeline').innerHTML = `检索到 ${hits.length} 条 · ${how}${lim}${mo}`;
+}
+
+/* ---------- 结果区的点击：展开、复制、强条依据、出处跳转 ---------- */
+$('#result').addEventListener('click', async e => {
+  const t = e.target, cardEl = t.closest('.card');
+  if (!cardEl) return;
+  if (t.classList.contains('more')){
+    const body = cardEl.querySelector('.body');
+    const clipped = body.classList.toggle('clip');
+    t.textContent = clipped ? '展开全文' : '收起';
+  } else if (t.classList.contains('look')){
+    openViewer(cardEl.dataset.std, +(t.dataset.page || cardEl.dataset.page), cardEl.dataset.name);
+  } else if (t.classList.contains('copy')){
+    const ok = await copyText(t.dataset.cite + '\n' + cardEl.querySelector('.body').textContent);
+    toast(ok ? '已复制条文和出处' : '复制失败，请长按选择');
+  } else if (t.classList.contains('pdf')){
+    window.open(`/api/pdf?code=${encodeURIComponent(cardEl.dataset.std)}`
+      + (cardEl.dataset.page ? `&source_page=${cardEl.dataset.page}` : ''), '_blank', 'noopener');
+  } else if (t.classList.contains('explain')){
+    const box = cardEl.querySelector('.explanation');
+    if (box.dataset.loaded){ box.hidden = !box.hidden; return; }
+    t.textContent = '载入中…';
+    try {
+      const r = await fetch(`/api/explanation/${encodeURIComponent(cardEl.dataset.id)}`);
+      if (r.status === 401){ showGate('口令已过期，请重新输入'); return; }
+      if (r.status === 404){ box.textContent = '没有唯一可配对的同编号条文说明。'; }
+      else if (!r.ok) throw new Error(`服务返回 ${r.status}`);
+      else {
+        const d = await r.json();
+        box.innerHTML = `<div class="cav">同一规范及条号的说明候选；${esc(d.status || '状态未记录')}，请与原件核对。条文说明不是规范正文。</div>`
+          + `<div class="body">${esc(d.text)}</div>`
+          + (d.page ? `<span class="look" data-page="${d.page}">看说明原文 P${d.page}</span>` : '')
+          + (d.tables || []).map(t => mdTable(t)).join('');
+        hintWide(box);
+      }
+      box.dataset.loaded = '1'; box.hidden = false;
+    } catch(err){ toast('条文说明载入失败：' + err.message); }
+    finally { t.textContent = '条文说明'; }
+  } else if (t.classList.contains('m')){
+    let b = cardEl.querySelector('.basis');
+    if (b) b.remove();
+    else {
+      b = document.createElement('div'); b.className = 'basis';
+      b.textContent = '强条判定依据：' + (t.dataset.basis || '未记录');
+      cardEl.querySelector('.cite').after(b);
+    }
+  }
+});
+
+$('#result').addEventListener('click', e => {
+  const a = e.target.closest('.ref');
+  if (!a) return;
+  e.preventDefault();
+  const el = findCard(a.dataset.std, a.dataset.cl, a.closest('.round'));
+  if (!el){ toast('这条不在本轮检索依据里'); return; }
+  el.scrollIntoView({behavior:'smooth', block:'center'});
+  el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+});
+/* 模型引用时常省掉年份（GB 50016 vs GB 50016-2014），按前缀对 */
+function findCard(std, cl, round){
+  const norm = s => String(s).toUpperCase().replace(/\s+/g, '');
+  const s = norm(std);
+  const cards = [...(round || $('#firstRound')).querySelectorAll('.card')];
+  const exact = cards.find(c => c.dataset.cl === cl && norm(c.dataset.std) === s);
+  if (exact) return exact;
+  const possible = cards.filter(c => c.dataset.cl === cl &&
+    (norm(c.dataset.std).startsWith(s + '-') || s.startsWith(norm(c.dataset.std) + '-')));
+  return possible.length === 1 ? possible[0] : null;
+}
+
+async function copyText(t){
+  try { await navigator.clipboard.writeText(t); return true; }
+  catch(_){
+    // http 下没有 clipboard API（微信内置浏览器打本机测试页时就是），退回老办法
+    const ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch(_){}
+    ta.remove();
+    return ok;
+  }
+}
+let toastTimer = null;
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('on');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('on'), 1600);
+}
+
+/* ---------- 看原文 ----------
+   点「看原文 P38」把扫描件那一页渲成图片给过来。为什么不是直接开 PDF：
+   手机上的 PDF 阅读器不认 #page=38，微信内置浏览器更是要先把整本几十兆下下来，
+   而同事只想看这一页长什么样。图片是哪儿都能开的，一页一百多 KB。
+   「整本」按钮留给电脑——浏览器自带的阅读器认 #page=，能直接翻过去。 */
+const V = {code:'', page:1, n:0, name:''};
+function openViewer(code, page, name){
+  Object.assign(V, {code, page, name});
+  $('#viewer').hidden = false;
+  document.body.style.overflow = 'hidden';
+  showPage(page);
+}
+function closeViewer(){
+  $('#viewer').hidden = true;
+  document.body.style.overflow = '';
+}
+function showPage(p){
+  V.page = p;
+  $('#vcite').textContent = `${V.code} P${p}`;
+  $('#vname').textContent = V.name || '';
+  $('#vpg').textContent = V.n ? `第 ${p} / ${V.n} 页` : `第 ${p} 页`;
+  $('#vpdf').href = `/api/pdf?code=${encodeURIComponent(V.code)}&source_page=${p}`;
+  $('#vprev').disabled = p <= 1;
+  $('#vnext').disabled = !!V.n && p >= V.n;
+  $('#vbody').innerHTML = '<div class="vnote">载入中…</div>';
+  const url = `/api/page?code=${encodeURIComponent(V.code)}&page=${p}`;
+  // 用 fetch 而不是直接 <img src>：这样才能分清「没这一页」「口令过期」和「真出错」
+  fetch(url).then(async r => {
+    if (r.status === 401){ closeViewer(); showGate('口令已过期，请重新输入'); return; }
+    if (!r.ok){
+      // 「这本没有 PDF 原件」和「没有这一页」是两回事，后端分得清，就别在这儿含糊成一句
+      let why = `服务返回 ${r.status}`;
+      try { why = (await r.json()).detail || why; } catch(_){}
+      const noPdf = r.status === 404 && why.includes('原件');
+      $('#vpdf').hidden = noPdf;
+      $('#vbody').innerHTML = `<div class="vnote">${esc(why)}`
+        + (noPdf ? '<br>条文原文仍在上一页的卡片里，按条号翻原书核对即可。'
+                 : '<br>可以点右上角「整本」下载原件自己翻。') + '</div>';
+      return;
+    }
+    $('#vpdf').hidden = false;
+    V.n = +(r.headers.get('X-Page-Count') || 0);
+    $('#vpg').textContent = V.n ? `第 ${p} / ${V.n} 页` : `第 ${p} 页`;
+    $('#vnext').disabled = !!V.n && p >= V.n;
+    const mb = r.headers.get('X-Pdf-Mb');
+    $('#vpdf').textContent = mb ? `整本 ${mb}M` : '整本';
+    const img = new Image();
+    img.src = URL.createObjectURL(await r.blob());
+    img.alt = `${V.code} 第 ${p} 页`;
+    img.onload = () => URL.revokeObjectURL(img.src);
+    if (zoomed) img.classList.add('zoom');
+    $('#vbody').innerHTML = '';
+    $('#vbody').append(img);
+    $('#vbody').scrollTop = 0;
+  }).catch(() => {
+    $('#vbody').innerHTML = '<div class="vnote">载入失败，请重试。</div>';
+  });
+}
+let zoomed = false;
+$('#vzoom').onclick = () => {
+  zoomed = !zoomed;
+  $('#vzoom').textContent = zoomed ? '缩小' : '放大';
+  const img = $('#vbody').querySelector('img');
+  if (img) img.classList.toggle('zoom', zoomed);
+};
+$('#vclose').onclick = closeViewer;
+$('#vprev').onclick = () => { if (V.page > 1) showPage(V.page - 1); };
+$('#vnext').onclick = () => { if (!V.n || V.page < V.n) showPage(V.page + 1); };
+document.addEventListener('keydown', e => {
+  if ($('#viewer').hidden) return;
+  if (e.key === 'Escape') closeViewer();
+  else if (e.key === 'ArrowLeft') $('#vprev').click();
+  else if (e.key === 'ArrowRight') $('#vnext').click();
+});
+
+/* ---------- 在库清单 ---------- */
+let books = null;
+$('#booksBtn').onclick = async () => {
+  $('#sheet').hidden = false;
+  if (!books){
+    $('#booklist').innerHTML = '<div class="empty">载入中…</div>';
+    try{
+      const r = await fetch('/api/books');
+      if (r.status === 401){ $('#sheet').hidden = true; showGate('口令已过期，请重新输入'); return; }
+      books = (await r.json()).books;
+    }catch(_){ $('#booklist').innerHTML = '<div class="empty">载入失败</div>'; return; }
+  }
+  renderBooks('');
+  $('#bookq').value = '';
+};
+const closeSheet = () => { $('#sheet').hidden = true; };
+$('#sheetClose').onclick = closeSheet;
+$('#sheetbg').onclick = closeSheet;
+$('#bookq').addEventListener('input', () => renderBooks($('#bookq').value.trim()));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#sheet').hidden) closeSheet(); });
+
+/* 按标准类别分组：国标、推荐性国标、行标、企标各看各的 */
+function bookGroup(code){
+  if (/^GB\/T/i.test(code)) return 'GB/T 推荐性国家标准';
+  if (/^GB/i.test(code)) return 'GB 国家标准';
+  if (/^JGJ/i.test(code)) return 'JGJ 行业标准';
+  if (/^SH/i.test(code)) return 'SH 石化行业标准';
+  if (/^(DEP|Q\/)/i.test(code)) return '企业标准';
+  return '其他';
+}
+function renderBooks(filter){
+  const f = filter.toUpperCase().replace(/\s+/g, '');
+  const list = books.filter(b => !f
+    || (b.std_code + b.std_name).toUpperCase().replace(/\s+/g, '').includes(f));
+  $('#bookcount').textContent = filter ? `${list.length} / ${books.length} 本` : `${books.length} 本`;
+  const groups = new Map();
+  for (const b of list) (groups.get(bookGroup(b.std_code)) || groups.set(bookGroup(b.std_code), []).get(bookGroup(b.std_code))).push(b);
+  let out = '';
+  for (const [g, items] of groups){
+    out += `<div class="grp">${esc(g)} · ${items.length}</div>`;
+    for (const b of items){
+      const m = b.mandatory ? `强条 ${b.mandatory}` : '';
+      out += `<div class="bk" data-code="${esc(b.std_code)}"><b>${esc(b.std_code)}<small>${esc(b.std_name)}</small></b>
+        <span>${b.n} 条${m ? '<br>' + m : ''}</span></div>`;
+    }
+  }
+  $('#booklist').innerHTML = out || '<div class="empty">没有匹配的规范</div>';
+}
+$('#booklist').addEventListener('click', e => {
+  const b = e.target.closest('.bk');
+  if (!b) return;
+  closeSheet();
+  q.value = b.dataset.code.replace(/-\d{4}$/, '') + ' ';
+  autosize(); q.focus();
+  q.setSelectionRange(q.value.length, q.value.length);
+});
+
+boot();
+</script>
+</body>
+</html>

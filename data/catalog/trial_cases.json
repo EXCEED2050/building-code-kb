@@ -1,0 +1,394 @@
+{
+  "date": "2026-10-22",
+  "scope": "检索和数据预检；预期答案为机器对照PDF草案，工程人员签认待完成。",
+  "cases": [
+    {
+      "id": "E01",
+      "kind": "条号",
+      "question": "GB 50016 第5.1.8条写了什么？",
+      "expected_text": [
+        "0.25h"
+      ],
+      "expected_answer": "保留二级、三级吊顶条件及0.25h；显示历史强条和待核提示。",
+      "human_review": "待签",
+      "expected_id": "GB_50016-2014#修订#5.1.8"
+    },
+    {
+      "id": "E03",
+      "kind": "条号",
+      "question": "GB 51251 第1.0.2条的适用范围？",
+      "expected_text": [
+        "新建",
+        "扩建",
+        "改建"
+      ],
+      "expected_answer": "包括工业与民用建筑及设计、施工、验收、维护管理；保留专业标准特别规定。",
+      "human_review": "待签",
+      "expected_id": "GB_51251-2017#正文#1.0.2"
+    },
+    {
+      "id": "E04",
+      "kind": "条号",
+      "question": "GB 51251 第3.4.2条是什么？",
+      "expected_text": [
+        "较大值",
+        "24<h≤50",
+        "50<h≤100"
+      ],
+      "expected_answer": "表值与计算值取较大值，不省略系统高度、门及开启层数等条件。",
+      "human_review": "待签",
+      "expected_id": "GB_51251-2017#正文#3.4.2"
+    },
+    {
+      "id": "E05",
+      "kind": "条号",
+      "question": "GB 55037 第7.3.1条？",
+      "expected_text": [
+        "650",
+        "54",
+        "27"
+      ],
+      "expected_answer": "按原文四项条件列出住宅每层至少2个安全出口；完整PDF应定位P51。",
+      "human_review": "待签",
+      "expected_id": "GB_55037-2022#正文#7.3.1"
+    },
+    {
+      "id": "E06",
+      "kind": "条号",
+      "question": "GB 55037 第7.4.1条？",
+      "expected_text": [
+        "200",
+        "50",
+        "25",
+        "15"
+      ],
+      "expected_answer": "列出例外用途和安全出口条件；表在定位副本P44、完整本P52。",
+      "human_review": "待签",
+      "expected_id": "GB_55037-2022#正文#7.4.1"
+    },
+    {
+      "id": "E07",
+      "kind": "条号",
+      "question": "GB 50011 第3.4.4条？",
+      "expected_text": [
+        "1.5",
+        "1.15",
+        "1.25～2.0",
+        "65%"
+      ],
+      "expected_answer": "2016修订文字：删除新旧混接，保留1.5适当放宽条件；不能称2024合并版。",
+      "human_review": "待签",
+      "expected_id": "GB_50011-2010#修订#3.4.4",
+      "forbidden_text": [
+        "1.5分别",
+        "或和",
+        "最大的弹性水平位移"
+      ]
+    },
+    {
+      "id": "E08",
+      "kind": "条号",
+      "question": "GB 50011 第7.1.7条？",
+      "expected_text": [
+        "立面面积",
+        "55%",
+        "50%",
+        "60%"
+      ],
+      "expected_answer": "应含P5～6续页；保留第7.1.6条前提及各条件，标2016来源。",
+      "human_review": "待签",
+      "expected_id": "GB_50011-2010#修订#7.1.7"
+    },
+    {
+      "id": "E10",
+      "kind": "条号",
+      "question": "SH/T 3186 第5.2.4条？",
+      "expected_text": [
+        "甲B",
+        "—"
+      ],
+      "expected_answer": "表在P9；类别、罐容区间及脚注均保留，不称已确认现行。",
+      "human_review": "待签",
+      "expected_id": "SH/T_3186-2017#正文#5.2.4"
+    },
+    {
+      "id": "K01",
+      "kind": "关键词",
+      "question": "GB 50016 二级耐火等级建筑不燃材料吊顶",
+      "expected_text": [
+        "0.25h"
+      ],
+      "expected_answer": "不扩展成所有吊顶耐火极限均不限。",
+      "human_review": "待签",
+      "expected_id": "GB_50016-2014#修订#5.1.8"
+    },
+    {
+      "id": "K02",
+      "kind": "关键词",
+      "question": "GB 50016 幼儿园儿童用房设置位置",
+      "expected_text": [
+        "托儿所",
+        "半地下"
+      ],
+      "expected_answer": "儿童用房与已删除的老年人活动场所分开；第1～4款废止提醒必须显示。",
+      "human_review": "待签",
+      "expected_id": "GB_50016-2014#修订#5.4.4"
+    },
+    {
+      "id": "K04",
+      "kind": "关键词",
+      "question": "GB 51251 机械加压送风计算风量",
+      "expected_text": [
+        "35400～36900",
+        "37100～40200"
+      ],
+      "expected_answer": "核对四表及条件，不能只报一个风量。",
+      "human_review": "待签",
+      "expected_id": "GB_51251-2017#正文#3.4.2"
+    },
+    {
+      "id": "K05",
+      "kind": "关键词",
+      "question": "GB 55037 住宅单元安全出口数量",
+      "expected_text": [
+        "650"
+      ],
+      "expected_answer": "四项条件与比较符号完整。",
+      "human_review": "待签",
+      "expected_id": "GB_55037-2022#正文#7.3.1"
+    },
+    {
+      "id": "K07",
+      "kind": "关键词",
+      "question": "GB 50011 平面不规则地震作用计算",
+      "expected_text": [
+        "1.5",
+        "1.15"
+      ],
+      "expected_answer": "选定2016条文可回溯，不等于整本现行版已合并。",
+      "human_review": "待签",
+      "expected_id": "GB_50011-2010#修订#3.4.4"
+    },
+    {
+      "id": "K10",
+      "kind": "关键词",
+      "question": "SH/T 3186 仓库合并设计减少占地",
+      "expected_text": [
+        "减少仓库占地面积"
+      ],
+      "expected_answer": "不扩写为无条件必须合并。",
+      "human_review": "待签",
+      "expected_id": "SH/T_3186-2017#正文#5.2.1"
+    },
+    {
+      "id": "T01",
+      "kind": "表格",
+      "question": "GB 50016 民用建筑分类表",
+      "expected_text": [
+        "54m",
+        "27m"
+      ],
+      "expected_answer": "删除公共建筑表方框中的老年人照料设施；两页对照。",
+      "human_review": "待签",
+      "expected_id": "GB_50016-2014#修订#5.1.1"
+    },
+    {
+      "id": "T02",
+      "kind": "表格",
+      "question": "GB 51251 防烟分区最大允许面积和长边长度表",
+      "expected_text": [
+        "H≤3.0",
+        "3.0<H≤6.0",
+        "1000",
+        "36",
+        "75m"
+      ],
+      "expected_answer": "三行500/24、1000/36、2000/60；自然对流75m条件完整。",
+      "human_review": "待签",
+      "expected_id": "GB_51251-2017#正文#4.2.4"
+    },
+    {
+      "id": "T03",
+      "kind": "表格",
+      "question": "GB 55037 公共建筑每百人最小疏散净宽度表",
+      "expected_text": [
+        "埋深",
+        "0.65",
+        "0.75",
+        "1.00"
+      ],
+      "expected_answer": "地下埋深≤10m为0.75、>10m为1.00，人员密集房间1.00；完整PDF表在P54。",
+      "human_review": "待签",
+      "expected_id": "GB_55037-2022#正文#7.4.7"
+    },
+    {
+      "id": "T04",
+      "kind": "表格",
+      "question": "GB 50011 建筑形体平面竖向不规则性表",
+      "expected_text": [
+        "大于1.2",
+        "70%",
+        "80%"
+      ],
+      "expected_answer": "扭转比值大于1.2；不得同时展示被删除旧句或箭头。",
+      "human_review": "待签",
+      "expected_id": "GB_50011-2010#修订#3.4.3",
+      "forbidden_text": [
+        "→",
+        "构件的最大弹性水平位移",
+        "规定的水平力"
+      ]
+    },
+    {
+      "id": "T05",
+      "kind": "表格",
+      "question": "SH/T 3186 自动化立体仓库与居民区防火间距表",
+      "expected_text": [
+        "50.0",
+        "25.0",
+        "并不小于 15.0",
+        "二、三级公路"
+      ],
+      "expected_answer": "居民区50.0/25.0；电力线路丙类为1.0倍塔杆高度且≥15.0，原18.0错误不能出现。",
+      "human_review": "待签",
+      "expected_id": "SH/T_3186-2017#正文#5.1.4"
+    },
+    {
+      "id": "M01",
+      "kind": "多轮",
+      "question": "GB 55037 第7.3.1条？",
+      "expected_text": [
+        "650"
+      ],
+      "expected_answer": "换规范后只用新一轮依据；引用定位属于本轮。",
+      "human_review": "待签",
+      "expected_id": "GB_55037-2022#正文#7.3.1",
+      "previous_question": "GB 50016 第5.1.8条？",
+      "previous_ids": [
+        "GB_50016-2014#修订#5.1.8"
+      ]
+    },
+    {
+      "id": "M02",
+      "kind": "多轮",
+      "question": "第5.2.4条呢？",
+      "expected_text": [
+        "甲B"
+      ],
+      "expected_answer": "省略规范时继承SH/T 3186，但重新检索5.2.4；本轮不能沿用5.1.4表。",
+      "human_review": "待签",
+      "expected_id": "SH/T_3186-2017#正文#5.2.4",
+      "previous_question": "SH/T 3186 第5.1.4条？",
+      "previous_ids": [
+        "SH/T_3186-2017#正文#5.1.4"
+      ],
+      "query_contains": [
+        "SH/T 3186-2017",
+        "5.2.4"
+      ]
+    },
+    {
+      "id": "M03",
+      "kind": "多轮",
+      "question": "那地下呢？",
+      "expected_text": [
+        "埋深"
+      ],
+      "expected_answer": "检索保留疏散净宽度主题，并重新找地下条件；非上一轮答案续写。",
+      "human_review": "待签",
+      "expected_id": "GB_55037-2022#正文#7.4.7",
+      "previous_question": "GB 55037 公共建筑每百人最小疏散净宽度表",
+      "previous_ids": [
+        "GB_55037-2022#正文#7.4.7"
+      ],
+      "query_contains": [
+        "疏散净宽度",
+        "地下"
+      ]
+    },
+    {
+      "id": "M04",
+      "kind": "多轮",
+      "question": "那地下呢？",
+      "expected_text": [],
+      "expected_answer": "上一轮涉及多规范，提示补充规范号，不调用模型。",
+      "human_review": "待签",
+      "previous_question": "疏散宽度有哪些规定？",
+      "previous_ids": [
+        "GB_50016-2014#修订#5.1.8",
+        "GB_55037-2022#正文#7.3.1"
+      ],
+      "expected_reason": "needs_scope"
+    },
+    {
+      "id": "S01",
+      "kind": "适用范围",
+      "question": "GB 51251 是否只适用于新建民用建筑？",
+      "expected_text": [
+        "扩建",
+        "改建",
+        "工业"
+      ],
+      "expected_answer": "不是只限新建民用；包括新建、扩建、改建的工业与民用建筑，并完整引用范围。",
+      "human_review": "待签",
+      "expected_id": "GB_51251-2017#正文#1.0.2"
+    },
+    {
+      "id": "S02",
+      "kind": "适用范围",
+      "question": "GB 51251 特殊用途的工业与民用建筑有专业标准特别规定时怎么办？",
+      "expected_text": [
+        "特殊",
+        "特别规定"
+      ],
+      "expected_answer": "保留“可从其规定”的原文语气，不能推出全部无条件豁免。",
+      "human_review": "待签",
+      "expected_id": "GB_51251-2017#正文#1.0.2"
+    },
+    {
+      "id": "N01",
+      "kind": "查不到",
+      "question": "GB 50016 第99.99.99条？",
+      "expected_text": [],
+      "expected_answer": "本轮未找到，不拿近似条号硬答。",
+      "human_review": "待签",
+      "expect_empty": true
+    },
+    {
+      "id": "N02",
+      "kind": "查不到",
+      "question": "GB 99999 第9.9.999条？",
+      "expected_text": [],
+      "expected_answer": "规范不存在，不生成模型结论。",
+      "human_review": "待签",
+      "expect_empty": true
+    },
+    {
+      "id": "N03",
+      "kind": "查不到",
+      "question": "GB 50016-2025 第5.1.8条？",
+      "expected_text": [],
+      "expected_answer": "指定版本不在库中，不返回2014版。",
+      "human_review": "待签",
+      "expect_empty": true
+    },
+    {
+      "id": "N04",
+      "kind": "查不到",
+      "question": "GB/T 50011-2010 第3.4.4条？",
+      "expected_text": [],
+      "expected_answer": "尚无2024合并版，不以GB 50011旧稿冒充推荐标准。",
+      "human_review": "待签",
+      "expect_empty": true
+    },
+    {
+      "id": "N05",
+      "kind": "缺资料",
+      "question": "模拟原件缺失后点击看原文",
+      "expected_text": [],
+      "expected_answer": "返回404并明确不可用，不迁移或删除真实原件。",
+      "human_review": "待签",
+      "check": "missing_pdf_test"
+    }
+  ]
+}

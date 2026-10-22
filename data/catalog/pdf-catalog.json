@@ -1,0 +1,3542 @@
+{
+  "pdf_count": 375,
+  "source_count": 386,
+  "files": [
+    {
+      "path": "data/sources/pdf/DEP-D-AR1102-2021 建筑抗爆门窗标准图选用规定.pdf",
+      "bytes": 2635298,
+      "sha256": "218bdfe0ece0f65f56947fb0b1bb7e3619436b1e41b1b779d0ba5b20e0affbae",
+      "title": "DEP-D-AR1102-2021 建筑抗爆门窗标准图选用规定.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-001-DEP-D-AR1102-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-001-DEP-D-AR1102-2021.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR1001-2015建筑设计技术规定.pdf",
+      "bytes": 1688241,
+      "sha256": "9ffa95e8809891501156583dc5d2bd738c0fda3d3edad49bdf4e1b8201acbeea",
+      "title": "DEP-T-AR1001-2015建筑设计技术规定.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-002-DEP-T-AR1001-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-002-DEP-T-AR1001-2015.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2001-2015生产建筑防火防爆抗爆设计规定.pdf",
+      "bytes": 1086571,
+      "sha256": "741e6f4a0eb94d8f1e7d95e76edcb058a340bc6e70d1434ca01e5439e2498949",
+      "title": "DEP-T-AR2001-2015生产建筑防火防爆抗爆设计规定.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-003-DEP-T-AR2001-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-003-DEP-T-AR2001-2015.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2101-2015控制类建筑物建筑设计导则.pdf",
+      "bytes": 1976216,
+      "sha256": "0caa4e95343d055256b976f1c2a122a9274408c494a6765ddae3caf7f1d34eb3",
+      "title": "DEP-T-AR2101-2015控制类建筑物建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-004-DEP-T-AR2101-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-004-DEP-T-AR2101-2015.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2102-2016 大型石化项目厂前区规划设计导则.pdf",
+      "bytes": 299012,
+      "sha256": "41cd45767f6fde48e9b7c361774de0f5f6d01cf66a0d03c810c762474013d27b",
+      "title": "DEP-T-AR2102-2016 大型石化项目厂前区规划设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-005-DEP-T-AR2102-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-005-DEP-T-AR2102-2016.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2103-2016 工业企业办公楼建筑设计导则.pdf",
+      "bytes": 1837589,
+      "sha256": "366305e82d2052b7b46081a9c7f5037ca716c343f3c93ac0c6d050fcb4f41eb2",
+      "title": "DEP-T-AR2103-2016 工业企业办公楼建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-006-DEP-T-AR2103-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-006-DEP-T-AR2103-2016.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2104-2016 变配电类建筑设计导则.pdf",
+      "bytes": 385989,
+      "sha256": "1cb4d2caa9e2120e6915ef6df60af4e6c3243f04951b8bd7428c90304a72bd39",
+      "title": "DEP-T-AR2104-2016 变配电类建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-007-DEP-T-AR2104-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-007-DEP-T-AR2104-2016.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2105-2016 医药工业洁净厂房建筑设计导则.pdf",
+      "bytes": 412820,
+      "sha256": "42016e019b902626b415fa575c3402f45aaa2662f63497dae8061e109739215f",
+      "title": "DEP-T-AR2105-2016 医药工业洁净厂房建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-008-DEP-T-AR2105-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-008-DEP-T-AR2105-2016.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2106-2016 分析化验建筑设计导则.pdf",
+      "bytes": 360781,
+      "sha256": "00872b28c6a91de3fa9cfddd7e7a261cef908cacd506014c8582d27dbc094a7f",
+      "title": "DEP-T-AR2106-2016 分析化验建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-009-DEP-T-AR2106-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-009-DEP-T-AR2106-2016.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2107-2019 倒班宿舍建筑设计导则.pdf",
+      "bytes": 1531919,
+      "sha256": "1848bc2766a19757665bedcb4c30d9df35ef6ece7e15758bf2d60e48e51b75d6",
+      "title": "DEP-T-AR2107-2019 倒班宿舍建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-010-DEP-T-AR2107-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-010-DEP-T-AR2107-2019.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2108-2019 职工食堂建筑设计导则.pdf",
+      "bytes": 1085377,
+      "sha256": "d0cf5ef0ca1e0625b638fba7e39f21137fc86c73c9e648c65d36c280081e6d15",
+      "title": "DEP-T-AR2108-2019 职工食堂建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-011-DEP-T-AR2108-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-011-DEP-T-AR2108-2019.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR2113-2021 架空防静电地板建筑设计导则.pdf",
+      "bytes": 727500,
+      "sha256": "deaf4362b0a38fd9e23eac70c11feb4e892e7ae72d9fab4426bae2d560f715d4",
+      "title": "DEP-T-AR2113-2021 架空防静电地板建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-012-DEP-T-AR2113-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-012-DEP-T-AR2113-2021.pdf"
+    },
+    {
+      "path": "data/sources/pdf/DEP-T-AR5002-2019 英汉对照建筑专业常用词组.pdf",
+      "bytes": 1899704,
+      "sha256": "5c7062d1f7dbbef8802d2120060b5e7c7a6ead94e044a0f2b8c87317ede2676d",
+      "title": "DEP-T-AR5002-2019 英汉对照建筑专业常用词组.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-013-DEP-T-AR5002-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-013-DEP-T-AR5002-2019.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 50011-2010 建筑抗震设计规范 (附2016年局部修订).pdf",
+      "bytes": 20185503,
+      "sha256": "f723bc75c0146625ab13fe6f7530d6b7a254dfc0452b98d7a771d9454893dbe8",
+      "title": "GB 50011-2010 建筑抗震设计规范 (附2016年局部修订).pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-014-GB_50011-2010_2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-014-GB_50011-2010_2016.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 50016-2014 建筑设计防火规范(2018版).pdf",
+      "bytes": 36986927,
+      "sha256": "ce2715bf66cb81f4f4120bd348663b9d6cd5b59796b83b5ba1b0d57553e0353a",
+      "title": "GB 50016-2014 建筑设计防火规范(2018版).pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-015-GB_50016-2014_2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-015-GB_50016-2014_2018.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 50160-2008 石油化工企业设计防火标准（2018年版）.pdf",
+      "bytes": 13749830,
+      "sha256": "22948cc918c7fb4ae4a2d0c69d2737247992875e09429e0abacf7328db455222",
+      "title": "GB 50160-2008 石油化工企业设计防火标准（2018年版）.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-016-GB_50160-2008_2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-016-GB_50160-2008_2018.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 50223-2008 建筑工程抗震设防分类标准.pdf",
+      "bytes": 1405303,
+      "sha256": "b582ecfe566153658e5762336cf1d76fec15acfdee48174861291d6c959781d1",
+      "title": "GB 50223-2008 建筑工程抗震设防分类标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-017-GB_50223-2008.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-017-GB_50223-2008.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 50453-2008 石油化工建（构）筑物抗震设防分类标准.pdf",
+      "bytes": 1513719,
+      "sha256": "8a72bbe23cf61d0f7689ece4f3872a7bbf1f5b5cdad5cc352f6037902e34123f",
+      "title": "GB 50453-2008 石油化工建（构）筑物抗震设防分类标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-018-GB_50453-2008.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-018-GB_50453-2008.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 51251-2017 建筑防烟排烟系统技术标准.pdf",
+      "bytes": 23335903,
+      "sha256": "a5d37fee5e21593fa8928aeb4e303ab0ec8b16653e6e1d987ff07e7793317152",
+      "title": "GB 51251-2017 建筑防烟排烟系统技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-019-GB_51251-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-019-GB_51251-2017.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 55015-2021 建筑节能与可再生能源利用通用规范.pdf",
+      "bytes": 14743285,
+      "sha256": "2f6915a32cdafc000917469d45704956ace7c9ba3412e6d170a85406ca52f71a",
+      "title": "GB 55015-2021 建筑节能与可再生能源利用通用规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-020-GB_55015-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-020-GB_55015-2021.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 55030-2022 建筑与市政工程防水通用规范.pdf",
+      "bytes": 5659379,
+      "sha256": "aabd71d70809673a4009fcdbcfc0c759f3a22b1c3566f8022dfea9a7a529dc80",
+      "title": "GB 55030-2022 建筑与市政工程防水通用规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-021-GB_55030-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-021-GB_55030-2022.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB 55037-2022 建筑防火通用规范.pdf",
+      "bytes": 66260920,
+      "sha256": "90b92701fe6988a1c1c7659cd96a68fef92523ae3a2b04168aed937f03c247d0",
+      "title": "GB 55037-2022 建筑防火通用规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-022-GB_55037-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-022-GB_55037-2022.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GBT 50378-2019 绿色建筑评价标准（含条文说明）.pdf",
+      "bytes": 10463269,
+      "sha256": "3c09bbfcb9da27687bca6070d6d75a6102f4df4b8b773d30a6af3b8d8eff7cfb",
+      "title": "GBT 50378-2019 绿色建筑评价标准（含条文说明）.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-023-GBT_50378-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-023-GBT_50378-2019.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GBT51366-2019：建筑碳排放计算标准.pdf",
+      "bytes": 15948113,
+      "sha256": "7f1b326450833aff0907b2f25c23c254e190df82e240dc1371d6e93d253f7635",
+      "title": "GBT51366-2019：建筑碳排放计算标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-024-GBT51366-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-024-GBT51366-2019.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB_T 50046-2018 工业建筑防腐蚀设计标准.pdf",
+      "bytes": 29303603,
+      "sha256": "58ec8085dfd692efd52c05d80f3d19bf3d453276d1cc1ae9bfd8747d2c01137d",
+      "title": "GB_T 50046-2018 工业建筑防腐蚀设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-025-GB_T_50046-2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-025-GB_T_50046-2018.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB_T 50779-2022 石油化工建筑物抗爆设计标准.pdf",
+      "bytes": 19858431,
+      "sha256": "2a550a3c7bafdc5f29c467518cc47b10cc08fb8067bc4c3ce2ca219c05485c17",
+      "title": "GB_T 50779-2022 石油化工建筑物抗爆设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-026-GB_T_50779-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-026-GB_T_50779-2022.pdf"
+    },
+    {
+      "path": "data/sources/pdf/GB_T 50934-2013 石油化工工程防渗技术规范.pdf",
+      "bytes": 1514232,
+      "sha256": "07708e8f0a8c0c225e890e1cf771d8355b487cb381bc3039fbb50e7af134f627",
+      "title": "GB_T 50934-2013 石油化工工程防渗技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-027-GB_T_50934-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-027-GB_T_50934-2013.pdf"
+    },
+    {
+      "path": "data/sources/pdf/JGJ_T 473-2019 建筑金属围护系统工程技术标准.pdf",
+      "bytes": 31336397,
+      "sha256": "cfdc3fe351f82fb445138774c38363850a5dfa100d39523df752dbe911abc7d4",
+      "title": "JGJ_T 473-2019 建筑金属围护系统工程技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-028-JGJ_T_473-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-028-JGJ_T_473-2019.pdf"
+    },
+    {
+      "path": "data/sources/pdf/SHT 3006-2024石油化工控制室设计规范.pdf",
+      "bytes": 2522705,
+      "sha256": "e73d23d74a41de0585f45f3c5497f185bda18ec56e309b93b3d8ef7e6782ad45",
+      "title": "SHT 3006-2024石油化工控制室设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-029-SHT_3006-2024.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-029-SHT_3006-2024.pdf"
+    },
+    {
+      "path": "data/sources/pdf/SHT 3186-2017石油化工自动化立体仓库设计规范.pdf",
+      "bytes": 18527867,
+      "sha256": "3c42f4e33493aef700249ca3e5196f74482592c6e8db448b3f78248a0ac72507",
+      "title": "SHT 3186-2017石油化工自动化立体仓库设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-030-SHT_3186-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-030-SHT_3186-2017.pdf"
+    },
+    {
+      "path": "data/sources/pdf/国际建筑规范/IBC 1.pdf",
+      "bytes": 2581086,
+      "sha256": "a417d9f7e4377c11246934f1c6d0d58942b74324b508919c04006d5a26c1f1c5",
+      "title": "IBC 1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-031-IBC_1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-031-IBC_1.pdf"
+    },
+    {
+      "path": "data/sources/pdf/国际建筑规范/IBC 2.pdf",
+      "bytes": 3498039,
+      "sha256": "f9c7c5bd9b4304308ddd88b1482c3a2d240fc03e3cdb19e6eb0d5dfa58347536",
+      "title": "IBC 2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-032-IBC_2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-032-IBC_2.pdf"
+    },
+    {
+      "path": "data/sources/pdf/国际建筑规范/IBC 3.pdf",
+      "bytes": 14867022,
+      "sha256": "194a8ec28e62546df6e1b9a0b08f0ad17ebf8f79104c9d8b0b04a6de2a37c037",
+      "title": "IBC 3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-033-IBC_3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-033-IBC_3.pdf"
+    },
+    {
+      "path": "data/sources/pdf/国际建筑规范/IBC 4.pdf",
+      "bytes": 1921155,
+      "sha256": "3067df1b22248f8aeeee66dc707d93180aaf2f10f2902a701a2d151bc573bb90",
+      "title": "IBC 4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-034-IBC_4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-034-IBC_4.pdf"
+    },
+    {
+      "path": "data/sources/pdf/国际建筑规范/International Building Code 2018.pdf",
+      "bytes": 33668051,
+      "sha256": "b8301de6f2785a25ca21f34d87836108c90ce6e1fc8bbe37db1bce4dd40783e1",
+      "title": "International Building Code 2018.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-035-International_Building_Code_2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-035-International_Building_Code_2018.pdf"
+    },
+    {
+      "path": "data/sources/pdf/国际建筑规范/NFPA 5000 - Building Construction and Safety Code 2021.pdf",
+      "bytes": 39723421,
+      "sha256": "67e34d891a2da5171d749aba038ea3029c23e6ccd67a32ff88c46965b1d8cf72",
+      "title": "NFPA 5000 - Building Construction and Safety Code 2021.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-036-NFPA_5000_-_Building_Construction_and_Safety_Code_2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-036-NFPA_5000_-_Building_Construction_and_Safety_Code_2021.pdf"
+    },
+    {
+      "path": "data/sources/pdf/工业建筑节能设计统一标准.pdf",
+      "bytes": 7499229,
+      "sha256": "7a8a80676fcae057fdfbdf2f5a9cd2177a75be9032b57310fb63faa479c13701",
+      "title": "工业建筑节能设计统一标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-037-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-037-document.pdf"
+    },
+    {
+      "path": "data/sources/pdf/建筑模数协调标准.pdf",
+      "bytes": 1306007,
+      "sha256": "89bba28cae54baacfcbf7927aa9120848529e303b44deae5880b83c16a2fe50a",
+      "title": "建筑模数协调标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-038-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-038-document.pdf"
+    },
+    {
+      "path": "data/sources/pdf/建筑设计防火规范.pdf",
+      "bytes": 930716,
+      "sha256": "72d56c831b89881a244fa417c0ce9733c871c1e0893360a8088d11709d3abf0e",
+      "title": "建筑设计防火规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-039-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-039-document.pdf"
+    },
+    {
+      "path": "data/sources/pdf/民用建筑设计统一标准.pdf",
+      "bytes": 666921,
+      "sha256": "debb24758ced952d90f7b0483ebe9004f4636e2907dea7ca8903149872d652b8",
+      "title": "民用建筑设计统一标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-040-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-040-document.pdf"
+    },
+    {
+      "path": "data/sources/pdf/石油化工工程抗台风导则(试行).pdf",
+      "bytes": 13936209,
+      "sha256": "67cdb0740019635ea8096118d763988cbdccb0e16f700bb181303c5cc3553206",
+      "title": "石油化工工程抗台风导则(试行).pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-041-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-041-document.pdf"
+    },
+    {
+      "path": "data/sources/pdf/石油化工生产建筑设计规范.pdf",
+      "bytes": 5537970,
+      "sha256": "effbec9aa56ea130577c7c2b84267032f3cf8717e6dadb645caf3467a6fc520b",
+      "title": "石油化工生产建筑设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-042-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-042-document.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/22HM001-1：海绵城市建设设计示例（一）.pdf",
+      "bytes": 74994374,
+      "sha256": "d403fa12e4e1d28b1b0a6cd73dc7454b7b786fe96a7c9956a09a2cf61c6f0c42",
+      "title": "22HM001-1：海绵城市建设设计示例（一）.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-043-22HM001-1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-043-22HM001-1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/DEP-D-AR1102-2021 建筑抗爆门窗标准图选用规定.pdf",
+      "bytes": 2635298,
+      "sha256": "218bdfe0ece0f65f56947fb0b1bb7e3619436b1e41b1b779d0ba5b20e0affbae",
+      "title": "DEP-D-AR1102-2021 建筑抗爆门窗标准图选用规定.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-001-DEP-D-AR1102-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-001-DEP-D-AR1102-2021.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/DEP-T-AR2102-2016 大型石化项目厂前区规划设计导则.pdf",
+      "bytes": 299012,
+      "sha256": "41cd45767f6fde48e9b7c361774de0f5f6d01cf66a0d03c810c762474013d27b",
+      "title": "DEP-T-AR2102-2016 大型石化项目厂前区规划设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-005-DEP-T-AR2102-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-005-DEP-T-AR2102-2016.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/DEP-T-AR2104-2016 变配电类建筑设计导则.pdf",
+      "bytes": 385989,
+      "sha256": "1cb4d2caa9e2120e6915ef6df60af4e6c3243f04951b8bd7428c90304a72bd39",
+      "title": "DEP-T-AR2104-2016 变配电类建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-007-DEP-T-AR2104-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-007-DEP-T-AR2104-2016.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/DEP-T-AR2106-2016 分析化验建筑设计导则.pdf",
+      "bytes": 360781,
+      "sha256": "00872b28c6a91de3fa9cfddd7e7a261cef908cacd506014c8582d27dbc094a7f",
+      "title": "DEP-T-AR2106-2016 分析化验建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-009-DEP-T-AR2106-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-009-DEP-T-AR2106-2016.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/DEP-T-AR2107-2019 倒班宿舍建筑设计导则.pdf",
+      "bytes": 1531919,
+      "sha256": "1848bc2766a19757665bedcb4c30d9df35ef6ece7e15758bf2d60e48e51b75d6",
+      "title": "DEP-T-AR2107-2019 倒班宿舍建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-010-DEP-T-AR2107-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-010-DEP-T-AR2107-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/DEP-T-AR2108-2019 职工食堂建筑设计导则.pdf",
+      "bytes": 1085377,
+      "sha256": "d0cf5ef0ca1e0625b638fba7e39f21137fc86c73c9e648c65d36c280081e6d15",
+      "title": "DEP-T-AR2108-2019 职工食堂建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-011-DEP-T-AR2108-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-011-DEP-T-AR2108-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/DEP-T-AR2113-2021 架空防静电地板建筑设计导则.pdf",
+      "bytes": 727500,
+      "sha256": "deaf4362b0a38fd9e23eac70c11feb4e892e7ae72d9fab4426bae2d560f715d4",
+      "title": "DEP-T-AR2113-2021 架空防静电地板建筑设计导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-012-DEP-T-AR2113-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-012-DEP-T-AR2113-2021.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/DEP-T-AR5002-2019 英汉对照建筑专业常用词组.pdf",
+      "bytes": 1899704,
+      "sha256": "5c7062d1f7dbbef8802d2120060b5e7c7a6ead94e044a0f2b8c87317ede2676d",
+      "title": "DEP-T-AR5002-2019 英汉对照建筑专业常用词组.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-013-DEP-T-AR5002-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-013-DEP-T-AR5002-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/Q_SH 0705-2016 石油化工工程抗台风导则（试行）.pdf",
+      "bytes": 565388,
+      "sha256": "bacd11070301fd3c6662df16684f5dcf12a60654b5469c1f25cbc230544e1317",
+      "title": "Q_SH 0705-2016 石油化工工程抗台风导则（试行）.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-044-Q_SH_0705-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-044-Q_SH_0705-2016.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/Q_SH 0833-2022 石油化工企业氢气纯化装置和供氢中心工程技术规范.pdf",
+      "bytes": 695630,
+      "sha256": "35a4d2d3d16016432f7707df3647a95d2a890c7f1883e8cb99d9b30b2f42e9db",
+      "title": "Q_SH 0833-2022 石油化工企业氢气纯化装置和供氢中心工程技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-045-Q_SH_0833-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-045-Q_SH_0833-2022.pdf"
+    },
+    {
+      "path": "data/sources/标准库/公司标准/Q_SH 0841-2022 建筑抗台风设计规定.pdf",
+      "bytes": 347639,
+      "sha256": "dd59c52b87076ce0b372d77f46d7a9664fbc50a7bc82a99bced3c76b99619c56",
+      "title": "Q_SH 0841-2022 建筑抗台风设计规定.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-046-Q_SH_0841-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-046-Q_SH_0841-2022.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 15603-2022 危险化学品仓库储存通则.pdf",
+      "bytes": 785291,
+      "sha256": "fe2ca98ca1de2e30fa2533ffebbda3cd4da870d0013cc7dc11ce670a43aeca05",
+      "title": "GB 15603-2022 危险化学品仓库储存通则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-047-GB_15603-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-047-GB_15603-2022.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 15763.1-2009 建筑用安全玻璃 第1部分：防火玻璃.pdf",
+      "bytes": 401466,
+      "sha256": "ee0ad13ce772924c2d970fc5fc27eb9e3b1e1556706a7993459776d44addb813",
+      "title": "GB 15763.1-2009 建筑用安全玻璃 第1部分：防火玻璃.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-048-GB_15763.1-2009_1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-048-GB_15763.1-2009_1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 15763.2-2005 建筑用安全玻璃 第2部分：钢化玻璃.pdf",
+      "bytes": 508364,
+      "sha256": "09cacd9d47705da0da6ec69f04f119cb431c5adcd195290964611d3d6fe10a3b",
+      "title": "GB 15763.2-2005 建筑用安全玻璃 第2部分：钢化玻璃.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-049-GB_15763.2-2005_2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-049-GB_15763.2-2005_2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 15763.3-2009 建筑用安全玻璃 第3部分夹层玻璃.pdf",
+      "bytes": 953277,
+      "sha256": "753561a98c0f209babb7023fc7602542078d75867c131fb2abd52331e07a1c41",
+      "title": "GB 15763.3-2009 建筑用安全玻璃 第3部分夹层玻璃.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-050-GB_15763.3-2009_3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-050-GB_15763.3-2009_3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50003-2011 砌体结构设计规范.pdf",
+      "bytes": 7102789,
+      "sha256": "8284c7b91e197c0d3c57fa28e60bfd1e16503c6185c1d8cea50dc712c20ab4e5",
+      "title": "GB 50003-2011 砌体结构设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-051-GB_50003-2011.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-051-GB_50003-2011.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50009-2012 建筑结构荷载规范.pdf",
+      "bytes": 7577410,
+      "sha256": "df5203b26fe7fb1d1b793cc44de5dcdc72e989580b74faefed0c46f38a1c63bf",
+      "title": "GB 50009-2012 建筑结构荷载规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-052-GB_50009-2012.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-052-GB_50009-2012.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50015-2019 建筑给水排水设计标准.pdf",
+      "bytes": 8022963,
+      "sha256": "a3f3790fae949f369180508bd039d6d06e996665d6c6d2b4375e8d84e0fcc9a5",
+      "title": "GB 50015-2019 建筑给水排水设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-053-GB_50015-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-053-GB_50015-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50016-2014 建筑设计防火规范(2018版)_部分1.pdf",
+      "bytes": 9736276,
+      "sha256": "45eb5fb71667177bc7ce63335b2d37c4189692abbf3380c03b6941bd9a49fff5",
+      "title": "GB 50016-2014 建筑设计防火规范(2018版)_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-054-GB_50016-2014_2018___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-054-GB_50016-2014_2018___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50016-2014 建筑设计防火规范(2018版)_部分2.pdf",
+      "bytes": 10462292,
+      "sha256": "c289309f29ff2814292f06918dab8340aa773c3a9df1263730c4b9a90e3e9e79",
+      "title": "GB 50016-2014 建筑设计防火规范(2018版)_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-055-GB_50016-2014_2018___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-055-GB_50016-2014_2018___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50016-2014 建筑设计防火规范(2018版)_部分3.pdf",
+      "bytes": 10473094,
+      "sha256": "55bd35c550cd7480593055f3fcebe61f2360c6bea8b25b7b591fb21cb76ff848",
+      "title": "GB 50016-2014 建筑设计防火规范(2018版)_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-056-GB_50016-2014_2018___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-056-GB_50016-2014_2018___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50016-2014 建筑设计防火规范(2018版)_部分4.pdf",
+      "bytes": 10483883,
+      "sha256": "ff00bcad784096536ec09f2d40788c7d41c88dd41fc84b4fd6d8311b1fa344fa",
+      "title": "GB 50016-2014 建筑设计防火规范(2018版)_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-057-GB_50016-2014_2018___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-057-GB_50016-2014_2018___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50016-2014 建筑设计防火规范(2018版)_部分5.pdf",
+      "bytes": 3427717,
+      "sha256": "db318d1b1db6b60a1b4aaf0dd2a630fb1ddb9e9fa8e663fd08b1648dcb6a8527",
+      "title": "GB 50016-2014 建筑设计防火规范(2018版)_部分5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-058-GB_50016-2014_2018___5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-058-GB_50016-2014_2018___5.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分1.pdf",
+      "bytes": 10116866,
+      "sha256": "dcaf796423b2124074abab1db4117ee8f116392b135c1b2fca5f0ec55af9e97f",
+      "title": "GB 50017-2017 钢结构设计标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-059-GB_50017-2017___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-059-GB_50017-2017___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分10.pdf",
+      "bytes": 10222019,
+      "sha256": "188c4eb55464c19fe7779a5287d4faeea5b2f1406f729e8bcaae9c0c2028dee7",
+      "title": "GB 50017-2017 钢结构设计标准_部分10.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-060-GB_50017-2017___10.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-060-GB_50017-2017___10.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分11.pdf",
+      "bytes": 10392446,
+      "sha256": "d8654d16bc413b8e4c621f8eab6eaa65803cf30aa6fd1bfb4901ca5e1ee35cba",
+      "title": "GB 50017-2017 钢结构设计标准_部分11.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-061-GB_50017-2017___11.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-061-GB_50017-2017___11.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分12.pdf",
+      "bytes": 10383412,
+      "sha256": "2f88301c6c660b384a69a2cb9b407228a4bbd7f21005d1b082cd27e2efef91dd",
+      "title": "GB 50017-2017 钢结构设计标准_部分12.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-062-GB_50017-2017___12.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-062-GB_50017-2017___12.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分13.pdf",
+      "bytes": 10339461,
+      "sha256": "0ae2722d6e3cee0a4453159bc8af82564ed76978fdddaef4f8cf2463cebdd932",
+      "title": "GB 50017-2017 钢结构设计标准_部分13.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-063-GB_50017-2017___13.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-063-GB_50017-2017___13.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分14.pdf",
+      "bytes": 10206588,
+      "sha256": "6057db94f55b79c921b3e35f1370393e6ca33f12d8ce91a618cfe346a554d8ba",
+      "title": "GB 50017-2017 钢结构设计标准_部分14.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-064-GB_50017-2017___14.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-064-GB_50017-2017___14.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分15.pdf",
+      "bytes": 10480729,
+      "sha256": "553bb8c4a4477a446346f1a19c15dd6badc7e298776a38f907102371cf6a0dd0",
+      "title": "GB 50017-2017 钢结构设计标准_部分15.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-065-GB_50017-2017___15.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-065-GB_50017-2017___15.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分16.pdf",
+      "bytes": 10262668,
+      "sha256": "89aedab8800c3e826a5522db3d149bd98ada30b609c56ba7c6f27f07fe9983f7",
+      "title": "GB 50017-2017 钢结构设计标准_部分16.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-066-GB_50017-2017___16.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-066-GB_50017-2017___16.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分17.pdf",
+      "bytes": 10468200,
+      "sha256": "afda0767d2027ae0a0c3c8b9cd1d813dc6f9669542e544373dfb83af4f8432b1",
+      "title": "GB 50017-2017 钢结构设计标准_部分17.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-067-GB_50017-2017___17.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-067-GB_50017-2017___17.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分18.pdf",
+      "bytes": 10190429,
+      "sha256": "83bd9056504563a429970f3aab7856ce1bd75cf7b934f3eaaf9cbc5ed012f2eb",
+      "title": "GB 50017-2017 钢结构设计标准_部分18.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-068-GB_50017-2017___18.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-068-GB_50017-2017___18.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分19.pdf",
+      "bytes": 3537606,
+      "sha256": "6d0a7beb89647e3080197b084ddcc157252780edd9b180c818c87dae31704d2a",
+      "title": "GB 50017-2017 钢结构设计标准_部分19.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-069-GB_50017-2017___19.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-069-GB_50017-2017___19.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分2.pdf",
+      "bytes": 10392441,
+      "sha256": "143d46308fca22c4e61efd462b781c8df989247a0f893484cba5e8d9915571df",
+      "title": "GB 50017-2017 钢结构设计标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-070-GB_50017-2017___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-070-GB_50017-2017___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分3.pdf",
+      "bytes": 10433291,
+      "sha256": "a8eb7dc0e31643dace2158032c7ec3445fd26a4fdbf654413aff5f17ae22861c",
+      "title": "GB 50017-2017 钢结构设计标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-071-GB_50017-2017___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-071-GB_50017-2017___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分4.pdf",
+      "bytes": 10457019,
+      "sha256": "9258af06fb8b9436c6e3a2bf037074e3bcac9f3a37891b90886304912b8bedd8",
+      "title": "GB 50017-2017 钢结构设计标准_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-072-GB_50017-2017___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-072-GB_50017-2017___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分5.pdf",
+      "bytes": 10316272,
+      "sha256": "365096b3e6a27a41a0cb1cb5f286fb5d9be78be2783c3be507d8bd3af701e3a5",
+      "title": "GB 50017-2017 钢结构设计标准_部分5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-073-GB_50017-2017___5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-073-GB_50017-2017___5.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分6.pdf",
+      "bytes": 10284965,
+      "sha256": "fe601634dcd563fd6c38c7254f6cb3c32edf35d88c77390c2e53d636cdcd41df",
+      "title": "GB 50017-2017 钢结构设计标准_部分6.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-074-GB_50017-2017___6.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-074-GB_50017-2017___6.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分7.pdf",
+      "bytes": 10407042,
+      "sha256": "0fc8df06d0a9dbdbdf25090e6599665b48d69c35aa62ee4842fe73ff14f720a5",
+      "title": "GB 50017-2017 钢结构设计标准_部分7.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-075-GB_50017-2017___7.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-075-GB_50017-2017___7.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分8.pdf",
+      "bytes": 10467891,
+      "sha256": "9885551465b41fb70b4373b3799cb6269ccd7ccf450bdc2a4fb2a7d3ae1e90d6",
+      "title": "GB 50017-2017 钢结构设计标准_部分8.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-076-GB_50017-2017___8.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-076-GB_50017-2017___8.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50017-2017 钢结构设计标准_部分9.pdf",
+      "bytes": 10390135,
+      "sha256": "84d1494f4eab7e38c72e7b73e12458242ca67db4d66e541e2869f58583f96390",
+      "title": "GB 50017-2017 钢结构设计标准_部分9.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-077-GB_50017-2017___9.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-077-GB_50017-2017___9.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50025-2018 湿陷性黄土地区建筑标准_部分1.pdf",
+      "bytes": 10341788,
+      "sha256": "40f2d611d9bfdaf447f1ef2c700a01c1df90f1a2ea9a776b2cc7d635e4159e96",
+      "title": "GB 50025-2018 湿陷性黄土地区建筑标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-078-GB_50025-2018___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-078-GB_50025-2018___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50025-2018 湿陷性黄土地区建筑标准_部分2.pdf",
+      "bytes": 10324036,
+      "sha256": "c99cd4b61408bf248f91edcfc0e3b5739f4b7adb9d7a62629faa1effeec92649",
+      "title": "GB 50025-2018 湿陷性黄土地区建筑标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-079-GB_50025-2018___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-079-GB_50025-2018___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50025-2018 湿陷性黄土地区建筑标准_部分3.pdf",
+      "bytes": 10483131,
+      "sha256": "1e64222002bc50262eea9b6d0475f7c3b1c4ec826914de68540deaf1c4f39c5a",
+      "title": "GB 50025-2018 湿陷性黄土地区建筑标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-080-GB_50025-2018___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-080-GB_50025-2018___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50025-2018 湿陷性黄土地区建筑标准_部分4.pdf",
+      "bytes": 10465313,
+      "sha256": "fa64320b494510604524a0a7ea11e42c761a01f95bf4b2608478ee3ac289cf11",
+      "title": "GB 50025-2018 湿陷性黄土地区建筑标准_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-081-GB_50025-2018___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-081-GB_50025-2018___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50025-2018 湿陷性黄土地区建筑标准_部分5.pdf",
+      "bytes": 8127863,
+      "sha256": "9b75ea3272362949ff3975ce4912e64b3b0883545dd6c3d50c287b6c502cebc6",
+      "title": "GB 50025-2018 湿陷性黄土地区建筑标准_部分5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-082-GB_50025-2018___5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-082-GB_50025-2018___5.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50029-2014 压缩空气站设计规范.pdf",
+      "bytes": 3724807,
+      "sha256": "88f1dfa424d8919cfe0cbafac0e0403a398dc16a0d949f8546376c66db40e3bc",
+      "title": "GB 50029-2014 压缩空气站设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-083-GB_50029-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-083-GB_50029-2014.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50030-2013 氧气站设计规范.pdf",
+      "bytes": 2938775,
+      "sha256": "092e971b0480ec810c5692da2bba9346a7aa19a6f93a11298a5310dc5c6cfa0e",
+      "title": "GB 50030-2013 氧气站设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-084-GB_50030-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-084-GB_50030-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50033-2013 建筑地面设计规范.pdf",
+      "bytes": 3874481,
+      "sha256": "c8534e5fc1568df5bea6727af35c8360c43d95e1d7d5761194cea0d2c2b08e00",
+      "title": "GB 50033-2013 建筑地面设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-085-GB_50033-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-085-GB_50033-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50037-2013 建筑地面设计规范.pdf",
+      "bytes": 2663263,
+      "sha256": "6661222e9d76cec83881f692f742f164465daa0c3660f503460d0f22803db3ae",
+      "title": "GB 50037-2013 建筑地面设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-086-GB_50037-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-086-GB_50037-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50041-2020 锅炉房设计标准_部分1.pdf",
+      "bytes": 10462271,
+      "sha256": "320969e153c31bb44addb623d9e6a3916a6fac7dd20a4d0eb3d8efcdd091547a",
+      "title": "GB 50041-2020 锅炉房设计标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-087-GB_50041-2020___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-087-GB_50041-2020___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50041-2020 锅炉房设计标准_部分2.pdf",
+      "bytes": 10372427,
+      "sha256": "e68cbd53c246007214f1b6e61b6a9a63a0f6de3a26b696dba6ccc0e48011cd51",
+      "title": "GB 50041-2020 锅炉房设计标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-088-GB_50041-2020___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-088-GB_50041-2020___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50041-2020 锅炉房设计标准_部分3.pdf",
+      "bytes": 10280443,
+      "sha256": "c06b0f14db094eec7cd9f1fb3f627e4f6faf0a751488e52b4808c7dc061519bc",
+      "title": "GB 50041-2020 锅炉房设计标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-089-GB_50041-2020___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-089-GB_50041-2020___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50041-2020 锅炉房设计标准_部分4.pdf",
+      "bytes": 9763297,
+      "sha256": "1dafb41787f13048d44876172018e519bfdc919dd286ab76683015d00d759201",
+      "title": "GB 50041-2020 锅炉房设计标准_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-090-GB_50041-2020___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-090-GB_50041-2020___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50057-2010 建筑物防雷设计规范.pdf",
+      "bytes": 5743813,
+      "sha256": "c5edb63a456f794c3ee25b0a00cc42fb45dc314622f4b0f016e11bb7f3ed46dc",
+      "title": "GB 50057-2010 建筑物防雷设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-091-GB_50057-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-091-GB_50057-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50067-2014 汽车库、修车库、停车场设计防火规范.pdf",
+      "bytes": 5844969,
+      "sha256": "963426c160fc37363b001fc510bb621c50c44048b10d38ab507392e45c704d76",
+      "title": "GB 50067-2014 汽车库、修车库、停车场设计防火规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-092-GB_50067-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-092-GB_50067-2014.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50072-2021 冷库设计标准_部分1.pdf",
+      "bytes": 10429743,
+      "sha256": "c50e3e19b4b47e217cf4a010f1caf3d52f6e18d6e7a7e1a621b787fe42ce1696",
+      "title": "GB 50072-2021 冷库设计标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-093-GB_50072-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-093-GB_50072-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50072-2021 冷库设计标准_部分2.pdf",
+      "bytes": 10336851,
+      "sha256": "3d0fd33c39affa0434c7341ee5c3eddd1b78e8e9a5036dac40419dbf90f489db",
+      "title": "GB 50072-2021 冷库设计标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-094-GB_50072-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-094-GB_50072-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50072-2021 冷库设计标准_部分3.pdf",
+      "bytes": 7957237,
+      "sha256": "33b557298581faaa4cc4f0ab09f1f7e008fa572f62f875932cc3231780693742",
+      "title": "GB 50072-2021 冷库设计标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-095-GB_50072-2021___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-095-GB_50072-2021___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50074-2014 石油库设计规范.pdf",
+      "bytes": 11945874,
+      "sha256": "18d9cc0191b7780546bf2114f851568d5617c1509497a77b0b6251bcc5b3b1db",
+      "title": "GB 50074-2014 石油库设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-096-GB_50074-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-096-GB_50074-2014.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50074-2014 石油库设计规范_部分1.pdf",
+      "bytes": 10459869,
+      "sha256": "e0467544c22c3b03000e5029c24b55d4f5373d9f538b2c93dd90d35c82383aea",
+      "title": "GB 50074-2014 石油库设计规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-097-GB_50074-2014___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-097-GB_50074-2014___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50074-2014 石油库设计规范_部分2.pdf",
+      "bytes": 1466244,
+      "sha256": "456dd1914053806877ffc6fa2fc39a92da687cdf92801eb167ad98d6e55e3d05",
+      "title": "GB 50074-2014 石油库设计规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-098-GB_50074-2014___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-098-GB_50074-2014___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50096-2011 住宅设计规范.pdf",
+      "bytes": 3530712,
+      "sha256": "a034d2d3827fa1558b5d0627a9c414c74e0b640fd91982f8aebde3dd42b8052c",
+      "title": "GB 50096-2011 住宅设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-099-GB_50096-2011.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-099-GB_50096-2011.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50098-2009 人民防空工程设计防火规范.pdf",
+      "bytes": 3309675,
+      "sha256": "e6c6807c4de515fc9ed1153a3827a69aa5034c0c49938412d4d0111152fbc5af",
+      "title": "GB 50098-2009 人民防空工程设计防火规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-100-GB_50098-2009.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-100-GB_50098-2009.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50108-2008 地下工程防水技术规范.pdf",
+      "bytes": 6746538,
+      "sha256": "49b6407d5ab85df517c30d02cf36e1800ed161c22fec51d7fcde6c0068d47cd4",
+      "title": "GB 50108-2008 地下工程防水技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-101-GB_50108-2008.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-101-GB_50108-2008.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50112-2013 膨胀土地区建筑技术规范.pdf",
+      "bytes": 4157913,
+      "sha256": "a93578bb847065f6d84ea7b3368a3a77389264dc80c4eab92d8995490ed1ef04",
+      "title": "GB 50112-2013 膨胀土地区建筑技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-102-GB_50112-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-102-GB_50112-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50118-2010 民用建筑隔声设计规范.pdf",
+      "bytes": 2952407,
+      "sha256": "8ed52abee335c81f63d76856cc85acd650f52806a80ac287f6d9647e3c2c8ffe",
+      "title": "GB 50118-2010 民用建筑隔声设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-103-GB_50118-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-103-GB_50118-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50156-2021 汽车加油加气加氢站技术标准_部分1.pdf",
+      "bytes": 10448237,
+      "sha256": "67a986b4ebe6bbb91370becbff1e4151477ea0812920d76eb0c3dfa73f91d8b2",
+      "title": "GB 50156-2021 汽车加油加气加氢站技术标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-104-GB_50156-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-104-GB_50156-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50156-2021 汽车加油加气加氢站技术标准_部分2.pdf",
+      "bytes": 10349457,
+      "sha256": "fee3b86beb89b240c51377768d752b6ec6a5146aa5569cd2a940453872906c7b",
+      "title": "GB 50156-2021 汽车加油加气加氢站技术标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-105-GB_50156-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-105-GB_50156-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50156-2021 汽车加油加气加氢站技术标准_部分3.pdf",
+      "bytes": 10424577,
+      "sha256": "a7fabe8c1e132ce555d40f788c5bcdb0e3c7773458549af45efd8097588b7259",
+      "title": "GB 50156-2021 汽车加油加气加氢站技术标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-106-GB_50156-2021___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-106-GB_50156-2021___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50156-2021 汽车加油加气加氢站技术标准_部分4.pdf",
+      "bytes": 10270838,
+      "sha256": "b63a58492b3bb04f3f413306a334bd9567df3c69de0596e124c02afdbae2685b",
+      "title": "GB 50156-2021 汽车加油加气加氢站技术标准_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-107-GB_50156-2021___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-107-GB_50156-2021___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50156-2021 汽车加油加气加氢站技术标准_部分5.pdf",
+      "bytes": 10330162,
+      "sha256": "b0fd76f113993e5796bf1b9c7531fb200fb8dc8b89ee7e7182630128a09c9cac",
+      "title": "GB 50156-2021 汽车加油加气加氢站技术标准_部分5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-108-GB_50156-2021___5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-108-GB_50156-2021___5.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50156-2021 汽车加油加气加氢站技术标准_部分6.pdf",
+      "bytes": 1120385,
+      "sha256": "e2dbeeb95319bff5b461b1e812d84515e3a1528e3c38ae48b4428570884dd2bf",
+      "title": "GB 50156-2021 汽车加油加气加氢站技术标准_部分6.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-109-GB_50156-2021___6.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-109-GB_50156-2021___6.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分1.pdf",
+      "bytes": 10459825,
+      "sha256": "a614248faed65876e1f2a4be316d7668858900e392e9660520cf35dfe31f7b7d",
+      "title": "GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-110-GB_50160-2008_2018___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-110-GB_50160-2008_2018___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分2.pdf",
+      "bytes": 10454249,
+      "sha256": "05fcdca3a06688e0b7996b7e1cf2c0b6e4d827b39d80719b4dde948afba425ed",
+      "title": "GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-111-GB_50160-2008_2018___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-111-GB_50160-2008_2018___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分3.pdf",
+      "bytes": 10224257,
+      "sha256": "84ceb985f20a0f9b331533bfc8a597cb2a3825bc176d61be65b5221b0b110bdd",
+      "title": "GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-112-GB_50160-2008_2018___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-112-GB_50160-2008_2018___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分4.pdf",
+      "bytes": 10429305,
+      "sha256": "17615ffd74b3c6c7299cc9c81b32c6c8910fdb624544c408894884da9f249c01",
+      "title": "GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-113-GB_50160-2008_2018___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-113-GB_50160-2008_2018___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分5.pdf",
+      "bytes": 8616660,
+      "sha256": "598659cd8a1272e7f17be964e513e211bfc0827a28bc4b26bba4407a3416fd2c",
+      "title": "GB 50160-2008 石油化工企业设计防火标准（2018年版）_部分5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-114-GB_50160-2008_2018___5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-114-GB_50160-2008_2018___5.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50174-2017 数据中心设计规范.pdf",
+      "bytes": 6299826,
+      "sha256": "c0b774d7dbff3eccaf7086a3873ab62bd21c58acd7cdf4855a2bcac4946d7ffb",
+      "title": "GB 50174-2017 数据中心设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-115-GB_50174-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-115-GB_50174-2017.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50176-2016 民用建筑热工设计规范_部分1.pdf",
+      "bytes": 7323196,
+      "sha256": "979d59856e269a1b506217a028d105b58c549b1f77b108f298589ca364ca24c3",
+      "title": "GB 50176-2016 民用建筑热工设计规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-116-GB_50176-2016___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-116-GB_50176-2016___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50176-2016 民用建筑热工设计规范_部分2.pdf",
+      "bytes": 3622847,
+      "sha256": "b95e8bbc8327402ce24d536df6d4d62863db394b388456518ce335bfc6b4d647",
+      "title": "GB 50176-2016 民用建筑热工设计规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-117-GB_50176-2016___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-117-GB_50176-2016___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50177-2005 氢气站设计规范.pdf",
+      "bytes": 2249665,
+      "sha256": "4e32b666ede3ed344f53d322332dd66cca364b229e9ae7f9d7fe7262cad6e7a9",
+      "title": "GB 50177-2005 氢气站设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-118-GB_50177-2005.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-118-GB_50177-2005.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50183-2004 石油天然气工程设计防火规范.pdf",
+      "bytes": 5303321,
+      "sha256": "37985fcbbe494135d32113f971ec2b8d765085f66c267a2134a0cadace972019",
+      "title": "GB 50183-2004 石油天然气工程设计防火规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-119-GB_50183-2004.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-119-GB_50183-2004.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50189-2015 公共建筑节能设计标准_部分1.pdf",
+      "bytes": 10423917,
+      "sha256": "e30adcb04487dcac7ad631f8ad48df6207e9a4d27d7350cb83f596e877a0be62",
+      "title": "GB 50189-2015 公共建筑节能设计标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-120-GB_50189-2015___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-120-GB_50189-2015___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50189-2015 公共建筑节能设计标准_部分2.pdf",
+      "bytes": 2651060,
+      "sha256": "da989b5a60a67fa1a5bae023733f9477647c325d530e81ca669470ffa2f01e44",
+      "title": "GB 50189-2015 公共建筑节能设计标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-121-GB_50189-2015___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-121-GB_50189-2015___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50207-2012 屋面工程质量验收规范.pdf",
+      "bytes": 4486223,
+      "sha256": "532abf5c5a0621ce617838e4fe100d63ec08cefcad287441cb296d9e0903e195",
+      "title": "GB 50207-2012 屋面工程质量验收规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-122-GB_50207-2012.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-122-GB_50207-2012.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50208-2011 地下防水工程质量验收规范.pdf",
+      "bytes": 6492951,
+      "sha256": "996dbaf21ca80685ce53f549f756884b957e1566c0e33d8e5a980da983559bb5",
+      "title": "GB 50208-2011 地下防水工程质量验收规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-123-GB_50208-2011.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-123-GB_50208-2011.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50209-2010 建筑地面工程施工质量验收规范.pdf",
+      "bytes": 4098003,
+      "sha256": "200e210aaf5525103f549c245f7666522791534a468cc5ed180fc9263d805091",
+      "title": "GB 50209-2010 建筑地面工程施工质量验收规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-124-GB_50209-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-124-GB_50209-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50210-2018 建筑装饰装修工程质量验收标准_部分1.pdf",
+      "bytes": 10435066,
+      "sha256": "03a4214e787e3edf032fa03f6aed5b8d7c642dac7086f221a18317b250d97464",
+      "title": "GB 50210-2018 建筑装饰装修工程质量验收标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-125-GB_50210-2018___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-125-GB_50210-2018___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50210-2018 建筑装饰装修工程质量验收标准_部分2.pdf",
+      "bytes": 10614819,
+      "sha256": "0d8fb00a9895022392dc8245fd7fc5416bcb75f9d4edc95bea169f6cf1a0b77f",
+      "title": "GB 50210-2018 建筑装饰装修工程质量验收标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-126-GB_50210-2018___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-126-GB_50210-2018___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50212-2014 建筑防腐蚀工程施工规范.pdf",
+      "bytes": 10252864,
+      "sha256": "fc4372755767fb042931a8d546e38fda21c8698f66b47256040e337d52d6d2c3",
+      "title": "GB 50212-2014 建筑防腐蚀工程施工规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-127-GB_50212-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-127-GB_50212-2014.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50222-2017 建筑内部装修设计防火规范.pdf",
+      "bytes": 7426824,
+      "sha256": "49ea5fb63bd7a6f6a6e08558e1f267241451a123405c7d0b6a75225b6221e1c1",
+      "title": "GB 50222-2017 建筑内部装修设计防火规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-128-GB_50222-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-128-GB_50222-2017.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50223-2008 建筑工程抗震设防分类标准.pdf",
+      "bytes": 1405303,
+      "sha256": "b582ecfe566153658e5762336cf1d76fec15acfdee48174861291d6c959781d1",
+      "title": "GB 50223-2008 建筑工程抗震设防分类标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-017-GB_50223-2008.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-017-GB_50223-2008.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50229-2019 火力发电厂与变电站设计防火标准_部分1.pdf",
+      "bytes": 10485304,
+      "sha256": "7bfa62210daa046d71a0d93dd4e48968bf9c2f230eea3a3bc3286dcb86f83620",
+      "title": "GB 50229-2019 火力发电厂与变电站设计防火标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-129-GB_50229-2019___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-129-GB_50229-2019___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50229-2019 火力发电厂与变电站设计防火标准_部分2.pdf",
+      "bytes": 10354754,
+      "sha256": "263d8a1f8cd1c3c560698d62ac2a0a093737e5e16b3fd95dde87cf30c2d7a5f8",
+      "title": "GB 50229-2019 火力发电厂与变电站设计防火标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-130-GB_50229-2019___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-130-GB_50229-2019___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50229-2019 火力发电厂与变电站设计防火标准_部分3.pdf",
+      "bytes": 10266767,
+      "sha256": "47ee2e327124c627e369b24194d90130614517697723be29c13691350d9eea52",
+      "title": "GB 50229-2019 火力发电厂与变电站设计防火标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-131-GB_50229-2019___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-131-GB_50229-2019___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50229-2019 火力发电厂与变电站设计防火标准_部分4.pdf",
+      "bytes": 10452481,
+      "sha256": "7f0281388f66228295715237c815cbfcc0e5f01c9aeebd01b9ab31f3d094b2a2",
+      "title": "GB 50229-2019 火力发电厂与变电站设计防火标准_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-132-GB_50229-2019___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-132-GB_50229-2019___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50229-2019 火力发电厂与变电站设计防火标准_部分5.pdf",
+      "bytes": 3648838,
+      "sha256": "1a939d86ba37a6b4a6d5b11fd663154be7e9862c8e81c5fdea2bc66ae6398b9a",
+      "title": "GB 50229-2019 火力发电厂与变电站设计防火标准_部分5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-133-GB_50229-2019___5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-133-GB_50229-2019___5.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50300-2013 建筑工程施工质量验收统一标准.pdf",
+      "bytes": 1693947,
+      "sha256": "f903fc80af0dc142ea11e054fb01e8f3f2c1b6061acedb00adb32fbebd7e8284",
+      "title": "GB 50300-2013 建筑工程施工质量验收统一标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-134-GB_50300-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-134-GB_50300-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50314-2015 智能建筑设计标准.pdf",
+      "bytes": 9439358,
+      "sha256": "8986fd17547c59f2eb0180af32905194e8a0f17ca2aeab2aa41fca53ef5ed702",
+      "title": "GB 50314-2015 智能建筑设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-135-GB_50314-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-135-GB_50314-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50325-2020 民用建筑工程室内环境污染控制标准_部分1.pdf",
+      "bytes": 10343502,
+      "sha256": "dc42160fb8e03c877143f6fcc0e5913a97c6eb53c8f00ee6933e94ef026b03b0",
+      "title": "GB 50325-2020 民用建筑工程室内环境污染控制标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-136-GB_50325-2020___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-136-GB_50325-2020___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50325-2020 民用建筑工程室内环境污染控制标准_部分2.pdf",
+      "bytes": 6116183,
+      "sha256": "84b7556c5f75bc7045eb2ad6a3b30bc3cbf98926bccad7074c8fe17792e48c6c",
+      "title": "GB 50325-2020 民用建筑工程室内环境污染控制标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-137-GB_50325-2020___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-137-GB_50325-2020___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50453-2008 石油化工建（构）筑物抗震设防分类标准.pdf",
+      "bytes": 1513719,
+      "sha256": "8a72bbe23cf61d0f7689ece4f3872a7bbf1f5b5cdad5cc352f6037902e34123f",
+      "title": "GB 50453-2008 石油化工建（构）筑物抗震设防分类标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-018-GB_50453-2008.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-018-GB_50453-2008.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50475-2008 石油化工全厂性仓库及堆场设计规范.pdf",
+      "bytes": 2930668,
+      "sha256": "295d1cd806bb3924139aab46f229e0fa3beef7bb38056cc187770d882a590f85",
+      "title": "GB 50475-2008 石油化工全厂性仓库及堆场设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-138-GB_50475-2008.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-138-GB_50475-2008.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50516-2010 加氢站技术规范（2021年版）_部分1.pdf",
+      "bytes": 10254423,
+      "sha256": "c4079f551aa622e47421dda5e7d9f6734e81ce0e127fada76e94efcd491c80fd",
+      "title": "GB 50516-2010 加氢站技术规范（2021年版）_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-139-GB_50516-2010_2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-139-GB_50516-2010_2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50516-2010 加氢站技术规范（2021年版）_部分2.pdf",
+      "bytes": 10326364,
+      "sha256": "fa59074a3c4fce242f1d25b53ac3fdf296f91ebdd3ae6e8e05cc5045dd3bac34",
+      "title": "GB 50516-2010 加氢站技术规范（2021年版）_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-140-GB_50516-2010_2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-140-GB_50516-2010_2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50516-2010 加氢站技术规范（2021年版）_部分3.pdf",
+      "bytes": 9670133,
+      "sha256": "bec2737ba7bd6b1425350e18b2975c24f9c8ab82fdb96e0d3688832a22d891c0",
+      "title": "GB 50516-2010 加氢站技术规范（2021年版）_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-141-GB_50516-2010_2021___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-141-GB_50516-2010_2021___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50516-2010 加氢站技术规范（2021年版）_部分4.pdf",
+      "bytes": 10056090,
+      "sha256": "651a60ec55928dda402ef3d14525cf6bb9a62813f44f14ba7ec86f65ddbf1b80",
+      "title": "GB 50516-2010 加氢站技术规范（2021年版）_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-142-GB_50516-2010_2021___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-142-GB_50516-2010_2021___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50516-2010 加氢站技术规范（2021年版）_部分5.pdf",
+      "bytes": 4093555,
+      "sha256": "f69337249b8d917f20f5898597e1b347a3b0fe6100a5e82ddf0a1056e1361379",
+      "title": "GB 50516-2010 加氢站技术规范（2021年版）_部分5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-143-GB_50516-2010_2021___5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-143-GB_50516-2010_2021___5.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50574-2010 墙体材料应用统一技术规范.pdf",
+      "bytes": 2321299,
+      "sha256": "e90486df09393b9359b57e343cf8316d9d5875265adc206a192f519828dc5fa8",
+      "title": "GB 50574-2010 墙体材料应用统一技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-144-GB_50574-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-144-GB_50574-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50737-2011 石油储备库设计规范.pdf",
+      "bytes": 3079027,
+      "sha256": "fe5f27238c85344710b2460f73ea5d850490e71edefd6afa7805aeb4478e5375",
+      "title": "GB 50737-2011 石油储备库设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-145-GB_50737-2011.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-145-GB_50737-2011.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50763-2012 无障碍设计规范.pdf",
+      "bytes": 3077451,
+      "sha256": "033c925ad67ef9e05d5c8c4a1d5b7b3fdb2b52e851c41727bffd7804ec42c0bd",
+      "title": "GB 50763-2012 无障碍设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-146-GB_50763-2012.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-146-GB_50763-2012.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50896-2013 压型金属板工程应用技术规范.pdf",
+      "bytes": 3632163,
+      "sha256": "c3c49a484ebefccdcfc47f2370278fb647e522eefb9e5061bb4ff5f0794a4452",
+      "title": "GB 50896-2013 压型金属板工程应用技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-147-GB_50896-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-147-GB_50896-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 50984-2014 石油化工工厂布置设计规范.pdf",
+      "bytes": 10269117,
+      "sha256": "3d2bea3aac2b8152467cee5eb2f6a071298259e0c7adf02ee3f626c9d6587191",
+      "title": "GB 50984-2014 石油化工工厂布置设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-148-GB_50984-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-148-GB_50984-2014.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51054-2014 城市消防站设计规范.pdf",
+      "bytes": 3863727,
+      "sha256": "66c92ec1cdf3ffde2721d4f5585ea35453d1fa32b9312984dfd4b1b56a335c43",
+      "title": "GB 51054-2014 城市消防站设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-149-GB_51054-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-149-GB_51054-2014.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51156-2015 液化天然气接收站工程设计规范.pdf",
+      "bytes": 8565953,
+      "sha256": "4109d2e24d1c88090ef6896449a5ad307c3bd18ab1839b03c5cdca12ed72b28e",
+      "title": "GB 51156-2015 液化天然气接收站工程设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-150-GB_51156-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-150-GB_51156-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51245-2017 工业建筑节能设计统一标准_部分1.pdf",
+      "bytes": 10382983,
+      "sha256": "1426e0781cb298b55cba6d168f3b2ea54675fe0436032d184c58199e7c06325a",
+      "title": "GB 51245-2017 工业建筑节能设计统一标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-151-GB_51245-2017___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-151-GB_51245-2017___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51245-2017 工业建筑节能设计统一标准_部分2.pdf",
+      "bytes": 10421322,
+      "sha256": "df900ba678d17b1774d97358046cfd9b93b1e30a5e94d19906f96ea9ac0919a0",
+      "title": "GB 51245-2017 工业建筑节能设计统一标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-152-GB_51245-2017___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-152-GB_51245-2017___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51245-2017 工业建筑节能设计统一标准_部分3.pdf",
+      "bytes": 7467557,
+      "sha256": "bfe443be518a58c5cb923585459e730af8a5d0500b07f1a48a2c0cddc2a757ed",
+      "title": "GB 51245-2017 工业建筑节能设计统一标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-153-GB_51245-2017___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-153-GB_51245-2017___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51251-2017 建筑防烟排烟系统技术标准_部分1.pdf",
+      "bytes": 10351947,
+      "sha256": "e608b27723023c3a8426305d400ad330b66f11dcb9c658f45b8390328d7c1add",
+      "title": "GB 51251-2017 建筑防烟排烟系统技术标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-154-GB_51251-2017___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-154-GB_51251-2017___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51251-2017 建筑防烟排烟系统技术标准_部分2.pdf",
+      "bytes": 10465768,
+      "sha256": "52b7b0dc31093485a141161ddaf3023c31316f687145eef04bd265465466bd30",
+      "title": "GB 51251-2017 建筑防烟排烟系统技术标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-155-GB_51251-2017___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-155-GB_51251-2017___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51251-2017 建筑防烟排烟系统技术标准_部分3.pdf",
+      "bytes": 2529544,
+      "sha256": "b8b5cc9d031ac04e623d6400e49cde054aef48aa0cf541cde895af48d4b6863f",
+      "title": "GB 51251-2017 建筑防烟排烟系统技术标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-156-GB_51251-2017___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-156-GB_51251-2017___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51261-2019 天然气液化工厂设计标准_部分1.pdf",
+      "bytes": 10285527,
+      "sha256": "2912f76e60973070b69c72c03ce1d99cd7781320c273b45a7523f1f7f5336f9a",
+      "title": "GB 51261-2019 天然气液化工厂设计标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-157-GB_51261-2019___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-157-GB_51261-2019___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51261-2019 天然气液化工厂设计标准_部分2.pdf",
+      "bytes": 10354556,
+      "sha256": "b1aa823c2d4b77ac7c966f346b37f8458ac82bfbff066b88b07370b1b1ab7388",
+      "title": "GB 51261-2019 天然气液化工厂设计标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-158-GB_51261-2019___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-158-GB_51261-2019___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51261-2019 天然气液化工厂设计标准_部分3.pdf",
+      "bytes": 5682066,
+      "sha256": "30f32c6ac28926391087e2d46da0c9ffb73272907712d8b3b92cce3e8b2867aa",
+      "title": "GB 51261-2019 天然气液化工厂设计标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-159-GB_51261-2019___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-159-GB_51261-2019___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51283-2020 精细化工企业工程设计防火标准_部分1.pdf",
+      "bytes": 10461447,
+      "sha256": "5528a3c7ad881a6a891658c0cc6210fa89f5e0b3645dd17ddb4daf33251c9857",
+      "title": "GB 51283-2020 精细化工企业工程设计防火标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-160-GB_51283-2020___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-160-GB_51283-2020___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51283-2020 精细化工企业工程设计防火标准_部分2.pdf",
+      "bytes": 10483227,
+      "sha256": "962f7179918f3c0ddca4657fc4d46c1b33ddc1c62a939b953d8ccf5d375c2f4a",
+      "title": "GB 51283-2020 精细化工企业工程设计防火标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-161-GB_51283-2020___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-161-GB_51283-2020___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51283-2020 精细化工企业工程设计防火标准_部分3.pdf",
+      "bytes": 11469525,
+      "sha256": "5a832af157fbe3502220b8d7313ddcbfb3a6c3f247ec5f3ec0867f657156e4a9",
+      "title": "GB 51283-2020 精细化工企业工程设计防火标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-162-GB_51283-2020___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-162-GB_51283-2020___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51428-2021 煤化工工程设计防火标准_部分1.pdf",
+      "bytes": 10292232,
+      "sha256": "89832e25cd52f397df65cabd17d3f55dcf72d31aa55a3f28bd5ac31524cba5e6",
+      "title": "GB 51428-2021 煤化工工程设计防火标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-163-GB_51428-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-163-GB_51428-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51428-2021 煤化工工程设计防火标准_部分2.pdf",
+      "bytes": 10444678,
+      "sha256": "92bb00d14874b33062d454d486e5496b2d980e45f303797815edf759f738e802",
+      "title": "GB 51428-2021 煤化工工程设计防火标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-164-GB_51428-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-164-GB_51428-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51428-2021 煤化工工程设计防火标准_部分3.pdf",
+      "bytes": 10380946,
+      "sha256": "baf4d9e1a1d020bb1d276cc595533980332db4f68aa07ef45016edd34c29d11a",
+      "title": "GB 51428-2021 煤化工工程设计防火标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-165-GB_51428-2021___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-165-GB_51428-2021___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 51428-2021 煤化工工程设计防火标准_部分4.pdf",
+      "bytes": 2959980,
+      "sha256": "c4342b7ec5a630aed83b7206426062c615c45903c6ef394fb8aa264fe2c59b6a",
+      "title": "GB 51428-2021 煤化工工程设计防火标准_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-166-GB_51428-2021___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-166-GB_51428-2021___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55001-2021 工程结构通用规范_部分1.pdf",
+      "bytes": 10329532,
+      "sha256": "c60d1ab05685e571565745b328576efcb699f3dbdefb568cd50c349b9f28d1b4",
+      "title": "GB 55001-2021 工程结构通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-167-GB_55001-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-167-GB_55001-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55001-2021 工程结构通用规范_部分2.pdf",
+      "bytes": 5473474,
+      "sha256": "13917d7704d09018213d59332e2c72456843c85432abfa8291a70817787450d5",
+      "title": "GB 55001-2021 工程结构通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-168-GB_55001-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-168-GB_55001-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55002-2021 建筑与市政工程抗震通用规范_部分1.pdf",
+      "bytes": 10261058,
+      "sha256": "94b7da628cef7db38f17f3390123fd2513f2b10d38a95e5902cb325992136f69",
+      "title": "GB 55002-2021 建筑与市政工程抗震通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-169-GB_55002-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-169-GB_55002-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55002-2021 建筑与市政工程抗震通用规范_部分2.pdf",
+      "bytes": 10462912,
+      "sha256": "0148a02983aabf2683dd0b7b094261dc73309217273afbb23619da5833cb626f",
+      "title": "GB 55002-2021 建筑与市政工程抗震通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-170-GB_55002-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-170-GB_55002-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55002-2021 建筑与市政工程抗震通用规范_部分3.pdf",
+      "bytes": 7360038,
+      "sha256": "9b7c036168fe54260122663fed268cad6df104bde42f32665012f49001da7928",
+      "title": "GB 55002-2021 建筑与市政工程抗震通用规范_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-171-GB_55002-2021___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-171-GB_55002-2021___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55006-2021 钢结构通用规范_部分1.pdf",
+      "bytes": 10197213,
+      "sha256": "d1ad2bef55b7704788a10cd6c14a4c66d2c5d1da31967a126d23a69fde3c46e7",
+      "title": "GB 55006-2021 钢结构通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-172-GB_55006-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-172-GB_55006-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55006-2021 钢结构通用规范_部分2.pdf",
+      "bytes": 5298209,
+      "sha256": "23707bda992627e388e22ec6bc1c9a66d3316ce8da68a11e2571d9c8f9b71816",
+      "title": "GB 55006-2021 钢结构通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-173-GB_55006-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-173-GB_55006-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55007-2021 砌体结构通用规范_部分1.pdf",
+      "bytes": 10252020,
+      "sha256": "a2eead8143f174f9f9f62982a828621d0e5d7d84978222593ee999986c709810",
+      "title": "GB 55007-2021 砌体结构通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-174-GB_55007-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-174-GB_55007-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55007-2021 砌体结构通用规范_部分2.pdf",
+      "bytes": 2467663,
+      "sha256": "df27b88b9d016a0f1c5812270377f75fff098f7a6b2600e4b56b949b97fe3f56",
+      "title": "GB 55007-2021 砌体结构通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-175-GB_55007-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-175-GB_55007-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55008-2021 混凝土结构通用规范.pdf",
+      "bytes": 5637018,
+      "sha256": "3900e9f4f23a2a64fb53b73868bd3ab50c81079ab416fdba818602693379f559",
+      "title": "GB 55008-2021 混凝土结构通用规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-176-GB_55008-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-176-GB_55008-2021.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55015-2021 建筑节能与可再生能源利用通用规范_部分1.pdf",
+      "bytes": 10446615,
+      "sha256": "ab5bfdd05269cc5d095da612b7c43639065271e6a2c3ceab6720a63ab50c90f6",
+      "title": "GB 55015-2021 建筑节能与可再生能源利用通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-177-GB_55015-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-177-GB_55015-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55015-2021 建筑节能与可再生能源利用通用规范_部分2.pdf",
+      "bytes": 4295199,
+      "sha256": "5b53c8d864d8b31a2b1a5fe6a1ef96c8e7ae3a16fe27b6ed85b185a474ca4daf",
+      "title": "GB 55015-2021 建筑节能与可再生能源利用通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-178-GB_55015-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-178-GB_55015-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55016-2021 建筑环境通用规范.pdf",
+      "bytes": 6700254,
+      "sha256": "6a800a6217c34e3585a1a516e07ed80f2116165087fb2a04b0444bffb83c9e37",
+      "title": "GB 55016-2021 建筑环境通用规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-179-GB_55016-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-179-GB_55016-2021.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55019-2021 建筑与市政工程无障碍通用规范_部分1.pdf",
+      "bytes": 10423139,
+      "sha256": "cbe3e22a93232ca851e66822c374f29dcd087a7e32f36c5eddaadcb3b96242ae",
+      "title": "GB 55019-2021 建筑与市政工程无障碍通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-180-GB_55019-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-180-GB_55019-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55019-2021 建筑与市政工程无障碍通用规范_部分2.pdf",
+      "bytes": 4522400,
+      "sha256": "d119711122dba7771dde5ca0c67a9733f352b969fc5854a718023e0f2fc55ede",
+      "title": "GB 55019-2021 建筑与市政工程无障碍通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-181-GB_55019-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-181-GB_55019-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55020-2021 建筑给水排水与节水通用规范_部分1.pdf",
+      "bytes": 10254143,
+      "sha256": "91119cc94639caccccb6a0166bfba7c5ef8cbb9e74018c098d2510ea17a6bf58",
+      "title": "GB 55020-2021 建筑给水排水与节水通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-182-GB_55020-2021___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-182-GB_55020-2021___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55020-2021 建筑给水排水与节水通用规范_部分2.pdf",
+      "bytes": 10284908,
+      "sha256": "3e6d600504693a3e4742cd7bebe9dda0b8749f766e7886cbb2f62e9f528a97ef",
+      "title": "GB 55020-2021 建筑给水排水与节水通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-183-GB_55020-2021___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-183-GB_55020-2021___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55020-2021 建筑给水排水与节水通用规范_部分3.pdf",
+      "bytes": 4186630,
+      "sha256": "b9c8fe92b35f6524763f0d49ccd075f38b7cad0cc70b4e0bb682f16ba983007d",
+      "title": "GB 55020-2021 建筑给水排水与节水通用规范_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-184-GB_55020-2021___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-184-GB_55020-2021___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55021-2021 既有建筑鉴定与加固通用规范.pdf",
+      "bytes": 5099289,
+      "sha256": "eea8603927795094a95e9bc38898fe7fa9056a7e07a9981f3e64185c49024db3",
+      "title": "GB 55021-2021 既有建筑鉴定与加固通用规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-185-GB_55021-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-185-GB_55021-2021.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55022-2021 既有建筑维护与改造通用规范.pdf",
+      "bytes": 3542538,
+      "sha256": "719bc4b72d86828088e7946988ffe56caf62403d0cadc1211f334bed88819c3e",
+      "title": "GB 55022-2021 既有建筑维护与改造通用规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-186-GB_55022-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-186-GB_55022-2021.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55024-2022 建筑电气与智能化通用规范_部分1.pdf",
+      "bytes": 10342767,
+      "sha256": "f6b0531bb974429d9a186054f0363c05e07125d7171488cb0ff48a2fcd25df44",
+      "title": "GB 55024-2022 建筑电气与智能化通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-187-GB_55024-2022___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-187-GB_55024-2022___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55024-2022 建筑电气与智能化通用规范_部分2.pdf",
+      "bytes": 10323800,
+      "sha256": "2f13efe7ac66149a6e3f1d600c73ffce8747a71973fd1df909233468e0a6343e",
+      "title": "GB 55024-2022 建筑电气与智能化通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-188-GB_55024-2022___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-188-GB_55024-2022___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55024-2022 建筑电气与智能化通用规范_部分3.pdf",
+      "bytes": 10296111,
+      "sha256": "611f16535a5be31207068f0667fe108bdda72bea2d2f932fefaae4576623f8e5",
+      "title": "GB 55024-2022 建筑电气与智能化通用规范_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-189-GB_55024-2022___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-189-GB_55024-2022___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55024-2022 建筑电气与智能化通用规范_部分4.pdf",
+      "bytes": 10233056,
+      "sha256": "10643b3795f4efba4eb1456bed2305c8d968d2381ab6dd10522a62f7a6e3dfd2",
+      "title": "GB 55024-2022 建筑电气与智能化通用规范_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-190-GB_55024-2022___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-190-GB_55024-2022___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55024-2022 建筑电气与智能化通用规范_部分5.pdf",
+      "bytes": 3816472,
+      "sha256": "0f3b991702f6644a1b73d6d339dd31c61ca7f6873434cb908a3f83aaf588ccf5",
+      "title": "GB 55024-2022 建筑电气与智能化通用规范_部分5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-191-GB_55024-2022___5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-191-GB_55024-2022___5.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55025-2022 宿舍、旅馆建筑项目规范.pdf",
+      "bytes": 6222958,
+      "sha256": "8180f331db44bee3b4c3db68fa6e6ed78197086340ae5790a60943507b44e150",
+      "title": "GB 55025-2022 宿舍、旅馆建筑项目规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-192-GB_55025-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-192-GB_55025-2022.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55030-2022 建筑与市政工程防水通用规范_部分1.pdf",
+      "bytes": 10343541,
+      "sha256": "ad33e1255ac38a64531d55e49cf29744043ac10bad4a05bb5b5b8be3e1077e88",
+      "title": "GB 55030-2022 建筑与市政工程防水通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-193-GB_55030-2022___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-193-GB_55030-2022___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55030-2022 建筑与市政工程防水通用规范_部分2.pdf",
+      "bytes": 10406141,
+      "sha256": "f6c499ac870e03ff7e902a53c546f87c86dec8f03616171e0669b7c0a318cec9",
+      "title": "GB 55030-2022 建筑与市政工程防水通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-194-GB_55030-2022___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-194-GB_55030-2022___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55030-2022 建筑与市政工程防水通用规范_部分3.pdf",
+      "bytes": 527577,
+      "sha256": "5be37ac969ef6de65b2211bffc837e1c288b32524a6c48616fa8086f9c27e416",
+      "title": "GB 55030-2022 建筑与市政工程防水通用规范_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-195-GB_55030-2022___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-195-GB_55030-2022___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55031-2022 民用建筑通用规范_部分1.pdf",
+      "bytes": 10381916,
+      "sha256": "48bb880142171e026060ca2a58ac7ba43d66cba0ebeaa9d808cec55b38c36fad",
+      "title": "GB 55031-2022 民用建筑通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-196-GB_55031-2022___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-196-GB_55031-2022___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55031-2022 民用建筑通用规范_部分2.pdf",
+      "bytes": 6247293,
+      "sha256": "fffd24a1bf9616ef307eb32bc63ca0470faa204035fe8e0938e38ea41a1895a3",
+      "title": "GB 55031-2022 民用建筑通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-197-GB_55031-2022___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-197-GB_55031-2022___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55036-2022 消防设施通用规范_部分1.pdf",
+      "bytes": 10331107,
+      "sha256": "26e289680e05d4932a7cbcd4bc4df65f866bbccbe8d8b7816d36911ab5a262ee",
+      "title": "GB 55036-2022 消防设施通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-198-GB_55036-2022___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-198-GB_55036-2022___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55036-2022 消防设施通用规范_部分2.pdf",
+      "bytes": 10171577,
+      "sha256": "f8761a09af7647826f8f9b22387a6e6645887b626b9a4ed7688ac8b04c60f13b",
+      "title": "GB 55036-2022 消防设施通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-199-GB_55036-2022___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-199-GB_55036-2022___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55036-2022 消防设施通用规范_部分3.pdf",
+      "bytes": 2807839,
+      "sha256": "17d4f3e9d891c19b647144a50521947a3c569800a22d67f21608fbd0c42e7e20",
+      "title": "GB 55036-2022 消防设施通用规范_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-200-GB_55036-2022___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-200-GB_55036-2022___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55037-2022 建筑防火通用规范_部分1.pdf",
+      "bytes": 10343345,
+      "sha256": "c12f1771795b03a5904bb00613973d28a70bd1fdf5ca074078767dbda518fc99",
+      "title": "GB 55037-2022 建筑防火通用规范_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-201-GB_55037-2022___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-201-GB_55037-2022___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55037-2022 建筑防火通用规范_部分2.pdf",
+      "bytes": 10479127,
+      "sha256": "cad22cf51cc4c08a5c26afd10cdc1a3121fcd8c230f5d2afac3d02de4b254ca2",
+      "title": "GB 55037-2022 建筑防火通用规范_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-202-GB_55037-2022___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-202-GB_55037-2022___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 55037-2022 建筑防火通用规范_部分3.pdf",
+      "bytes": 10672399,
+      "sha256": "89d1fd5bd0caabb16652662b145a2c3d90b36e951c820175585aab6f69a09f9c",
+      "title": "GB 55037-2022 建筑防火通用规范_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-203-GB_55037-2022___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-203-GB_55037-2022___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB 8624-2012 建筑材料及制品燃烧性能分级.pdf",
+      "bytes": 880608,
+      "sha256": "b88db4253a13cc7b0a28f70f34947324ffb5540cffd45024cc487e6abd935de1",
+      "title": "GB 8624-2012 建筑材料及制品燃烧性能分级.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-204-GB_8624-2012.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-204-GB_8624-2012.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GBT 50011-2010 建筑抗震设计标准.pdf",
+      "bytes": 3490016,
+      "sha256": "4f0bdd5b9f51c61969984ced98ad688f2b365a1ccd36cfb9cbc1890d758091bc",
+      "title": "GBT 50011-2010 建筑抗震设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-205-GBT_50011-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-205-GBT_50011-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GBZ 1-2010 工业企业设计卫生标准.pdf",
+      "bytes": 3995194,
+      "sha256": "02d997610dd488f67b258433a1e7be27c4779d95a02ebe4050cc9402e972c98d",
+      "title": "GBZ 1-2010 工业企业设计卫生标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-206-GBZ_1-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-206-GBZ_1-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50001-2017 房屋建筑制图统一标准.pdf",
+      "bytes": 10072643,
+      "sha256": "2206d91ac423132101500adc7e0da758a8152893e36dd0ca3192aeb891c463d7",
+      "title": "GB_T 50001-2017 房屋建筑制图统一标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-207-GB_T_50001-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-207-GB_T_50001-2017.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50002-2013 建筑模数协调标准.pdf",
+      "bytes": 1176818,
+      "sha256": "49a42048ef25a22c8dc27a5d85502a886efcc75a7a35fb44a49d14f85a7ca958",
+      "title": "GB_T 50002-2013 建筑模数协调标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-208-GB_T_50002-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-208-GB_T_50002-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50006-2010 厂房建筑模数协调标准.pdf",
+      "bytes": 1292008,
+      "sha256": "3c8b917809b9073d5c746df26cf2e0213a98b02bccc6d245ba2ada7e7283487e",
+      "title": "GB_T 50006-2010 厂房建筑模数协调标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-209-GB_T_50006-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-209-GB_T_50006-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50034-2024 建筑照明设计标准_部分1.pdf",
+      "bytes": 10342795,
+      "sha256": "5535af967b4fd0410db06d8769cb386c9e42727e293f520eac8f1f8aae4ec208",
+      "title": "GB_T 50034-2024 建筑照明设计标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-210-GB_T_50034-2024___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-210-GB_T_50034-2024___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50034-2024 建筑照明设计标准_部分2.pdf",
+      "bytes": 10437496,
+      "sha256": "fe317a3c40ce370ceeeac2df5f1987454a622b58a6dcedab64afe3917726da4e",
+      "title": "GB_T 50034-2024 建筑照明设计标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-211-GB_T_50034-2024___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-211-GB_T_50034-2024___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50034-2024 建筑照明设计标准_部分3.pdf",
+      "bytes": 10451687,
+      "sha256": "87de4c3a2f54d96d8d360669fd67b7f11f448a9af24106e79ccc1168f16328da",
+      "title": "GB_T 50034-2024 建筑照明设计标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-212-GB_T_50034-2024___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-212-GB_T_50034-2024___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50034-2024 建筑照明设计标准_部分4.pdf",
+      "bytes": 1986154,
+      "sha256": "df7c5d296407cd07f50d83c5e763230df7e5eee0276c22ff2f80ea26ce4250e7",
+      "title": "GB_T 50034-2024 建筑照明设计标准_部分4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-213-GB_T_50034-2024___4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-213-GB_T_50034-2024___4.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50046-2018 工业建筑防腐蚀设计标准_部分1.pdf",
+      "bytes": 10409785,
+      "sha256": "10e526f7eaa7f2d84522da948aa6652764586ef1aaafff45405eed42ec3168b0",
+      "title": "GB_T 50046-2018 工业建筑防腐蚀设计标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-214-GB_T_50046-2018___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-214-GB_T_50046-2018___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50046-2018 工业建筑防腐蚀设计标准_部分2.pdf",
+      "bytes": 10353482,
+      "sha256": "d1112a0fbbb135af13561d5de4d0e5c6832fb95ef8dcea249c8765d8b795ef9c",
+      "title": "GB_T 50046-2018 工业建筑防腐蚀设计标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-215-GB_T_50046-2018___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-215-GB_T_50046-2018___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50046-2018 工业建筑防腐蚀设计标准_部分3.pdf",
+      "bytes": 8534604,
+      "sha256": "1270a5e431f3b15d8abdd6812ea5279823fc920b5bae2e29e0840aab9adef470",
+      "title": "GB_T 50046-2018 工业建筑防腐蚀设计标准_部分3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-216-GB_T_50046-2018___3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-216-GB_T_50046-2018___3.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50087-2013 工业企业噪声控制设计规范.pdf",
+      "bytes": 1588234,
+      "sha256": "cc7dd1056369ad28059caa87f7ce2f7dbd1e4f4f807f27a8bb3bf7e20c4c7d6f",
+      "title": "GB_T 50087-2013 工业企业噪声控制设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-217-GB_T_50087-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-217-GB_T_50087-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50103-2010 总图制图标准.pdf",
+      "bytes": 665890,
+      "sha256": "8900df31cc14f8f931f596a619f98a73b2c7f4423dfb03c7ea81f75d605d3300",
+      "title": "GB_T 50103-2010 总图制图标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-218-GB_T_50103-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-218-GB_T_50103-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50104-2010 建筑制图标准.pdf",
+      "bytes": 990726,
+      "sha256": "2841ad9583e416f9f73af97e2144f6d5778f6730613c022edeadd5576a582cbd",
+      "title": "GB_T 50104-2010 建筑制图标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-219-GB_T_50104-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-219-GB_T_50104-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50353-2013 建筑工程建筑面积计算规范.pdf",
+      "bytes": 671983,
+      "sha256": "b8794dc2196df95a91d8e102453a7d6526f1d239bda1323e544e3910207108f2",
+      "title": "GB_T 50353-2013 建筑工程建筑面积计算规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-220-GB_T_50353-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-220-GB_T_50353-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50504-2009 民用建筑设计术语标准.pdf",
+      "bytes": 2115764,
+      "sha256": "f2de110416d59147b335075dffd1f39be94e89ccbc1dfe9bf928f269124f9123",
+      "title": "GB_T 50504-2009 民用建筑设计术语标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-221-GB_T_50504-2009.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-221-GB_T_50504-2009.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50731-2019 建材工程术语标准_部分1.pdf",
+      "bytes": 10447943,
+      "sha256": "8b840e62c66541df9b9d383576c87dc95d7034dfae3f634b81eb2f1f202318cd",
+      "title": "GB_T 50731-2019 建材工程术语标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-222-GB_T_50731-2019___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-222-GB_T_50731-2019___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50731-2019 建材工程术语标准_部分2.pdf",
+      "bytes": 4251163,
+      "sha256": "3c06b5a7366a3e256ddb60f9929fc13b999a60301bb3a556c79ae200fedf6aeb",
+      "title": "GB_T 50731-2019 建材工程术语标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-223-GB_T_50731-2019___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-223-GB_T_50731-2019___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50779-2022 石油化工建筑物抗爆设计标准_部分1.pdf",
+      "bytes": 10392727,
+      "sha256": "8decd805dc1d94bb3abf46c54258bee6e205005a4ce01adf3cf8a3a4174b7124",
+      "title": "GB_T 50779-2022 石油化工建筑物抗爆设计标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-224-GB_T_50779-2022___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-224-GB_T_50779-2022___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50779-2022 石油化工建筑物抗爆设计标准_部分2.pdf",
+      "bytes": 9753519,
+      "sha256": "54f86533cc3f6a5c171d33a5afb4a6a6e5aebc56a7777340e46623846eccab0e",
+      "title": "GB_T 50779-2022 石油化工建筑物抗爆设计标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-225-GB_T_50779-2022___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-225-GB_T_50779-2022___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50933-2013 石油化工装置设计文件编制标准.pdf",
+      "bytes": 3180346,
+      "sha256": "4bd84cfaebd56e7fac224cf8d304a2b8d1238a0757260b58e8b84cdbcf8b4636",
+      "title": "GB_T 50933-2013 石油化工装置设计文件编制标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-226-GB_T_50933-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-226-GB_T_50933-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 50934-2013 石油化工工程防渗技术规范.pdf",
+      "bytes": 1516799,
+      "sha256": "3871db10b65431bb4c10c5c4ff7dbc691cab03874be8e24bdf7553f298b639ec",
+      "title": "GB_T 50934-2013 石油化工工程防渗技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-227-GB_T_50934-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-227-GB_T_50934-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51026-2014 石油库设计文件编制标准.pdf",
+      "bytes": 6248582,
+      "sha256": "c8c3f766bdefc1c4d906d4f2d46310a6c2c3041d0d924df5c539fd6f7027dc3b",
+      "title": "GB_T 51026-2014 石油库设计文件编制标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-228-GB_T_51026-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-228-GB_T_51026-2014.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51082-2015 工业建筑涂装设计规范.pdf",
+      "bytes": 3806087,
+      "sha256": "4a25e0a3b546d8f00292db310c6d56c1609db8eb2223c2febfdd487905a5eb2b",
+      "title": "GB_T 51082-2015 工业建筑涂装设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-229-GB_T_51082-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-229-GB_T_51082-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51140-2015 建筑节能基本术语标准.pdf",
+      "bytes": 2999184,
+      "sha256": "3d5495d190865feeb4436e2c1d63e1fa1b200a79b63f37965d4d204c1626ac39",
+      "title": "GB_T 51140-2015 建筑节能基本术语标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-230-GB_T_51140-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-230-GB_T_51140-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51212-2016 建筑信息模型应用统一标准.pdf",
+      "bytes": 2634355,
+      "sha256": "fc1a921036d6d623412c5ba2dc841218d7f77bf79bb90e41a8e1bcf015fdaed0",
+      "title": "GB_T 51212-2016 建筑信息模型应用统一标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-231-GB_T_51212-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-231-GB_T_51212-2016.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51301-2018 建筑信息模型设计交付标准_部分1.pdf",
+      "bytes": 10306084,
+      "sha256": "29c0aa9ee8ca26eb959ab163f1c5cce57813dcc92d861e94e3b05d2ba1b80c1e",
+      "title": "GB_T 51301-2018 建筑信息模型设计交付标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-232-GB_T_51301-2018___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-232-GB_T_51301-2018___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51301-2018 建筑信息模型设计交付标准_部分2.pdf",
+      "bytes": 5934024,
+      "sha256": "39c28bc0f453579a04b6a67f8ad7509db57c34bd2e6e16505d179d1e78de621d",
+      "title": "GB_T 51301-2018 建筑信息模型设计交付标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-233-GB_T_51301-2018___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-233-GB_T_51301-2018___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51368-2019 建筑光伏系统应用技术标准_部分1.pdf",
+      "bytes": 10365333,
+      "sha256": "d92e863ee3353c8d29050f56c4b7b6755e49845f1f69358b418eece1b38cb3cb",
+      "title": "GB_T 51368-2019 建筑光伏系统应用技术标准_部分1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-234-GB_T_51368-2019___1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-234-GB_T_51368-2019___1.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51368-2019 建筑光伏系统应用技术标准_部分2.pdf",
+      "bytes": 8435562,
+      "sha256": "0eabba9bbf2f0a5268cd6b95ae330f1606da463fb773aba13d6c0a1e2da62846",
+      "title": "GB_T 51368-2019 建筑光伏系统应用技术标准_部分2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-235-GB_T_51368-2019___2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-235-GB_T_51368-2019___2.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 51410-2020 建筑防火封堵应用技术标准.pdf",
+      "bytes": 10224343,
+      "sha256": "0998f8c2ed5d325068442c9ff6b2516e9821b88ca90c8f1e55029d38d8857ef3",
+      "title": "GB_T 51410-2020 建筑防火封堵应用技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-236-GB_T_51410-2020.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-236-GB_T_51410-2020.pdf"
+    },
+    {
+      "path": "data/sources/标准库/国家标准/GB_T 8478-2020 铝合金门窗.pdf",
+      "bytes": 2632264,
+      "sha256": "a6927e05eff3404aed82c195800fbdff52513c10f9f4d510c0e0190c983cbf2f",
+      "title": "GB_T 8478-2020 铝合金门窗.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-237-GB_T_8478-2020.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-237-GB_T_8478-2020.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/AQ_T 3046-2013 化工企业定量风险评价导则.pdf",
+      "bytes": 1953211,
+      "sha256": "5bcf74696ed0af129d804cc02ea5acd94484832e87c5287c83c0b030bd5fcc4e",
+      "title": "AQ_T 3046-2013 化工企业定量风险评价导则.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-238-AQ_T_3046-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-238-AQ_T_3046-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 100-2015 车库建筑设计规范.pdf",
+      "bytes": 4011018,
+      "sha256": "f8c48e92f9e5f7d8d09399bf08229081469674714dbb5b85322b5a88c511a80b",
+      "title": "JGJ 100-2015 车库建筑设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-239-JGJ_100-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-239-JGJ_100-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 102-2003 玻璃幕墙工程技术规范.pdf",
+      "bytes": 7366953,
+      "sha256": "227b0b3fe5cf75dd0b26697c47fe227c8e2b96fdf32f7ba671c055a07b46c949",
+      "title": "JGJ 102-2003 玻璃幕墙工程技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-240-JGJ_102-2003.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-240-JGJ_102-2003.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 113-2015 建筑玻璃应用技术规程.pdf",
+      "bytes": 3506892,
+      "sha256": "db4f1b3ee3a299a9aa24ca3a3a787a6b2783d745431f4aa8044aca81b0792bbd",
+      "title": "JGJ 113-2015 建筑玻璃应用技术规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-241-JGJ_113-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-241-JGJ_113-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 126-2015 外墙饰面砖工程施工及验收规程.pdf",
+      "bytes": 2507495,
+      "sha256": "f1114053e4756751d1e4a80bd2d0a749f89cb44c07e7e00ae9d9db496d36b7e2",
+      "title": "JGJ 126-2015 外墙饰面砖工程施工及验收规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-242-JGJ_126-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-242-JGJ_126-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 133-2001 金属与石材幕墙工程技术规范.pdf",
+      "bytes": 2496348,
+      "sha256": "0fba85761ff73def5c0977105ab623e7ba6b435397c9b1fc7707b2eeb01db490",
+      "title": "JGJ 133-2001 金属与石材幕墙工程技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-243-JGJ_133-2001.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-243-JGJ_133-2001.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 134-2010 夏热冬冷地区居住建筑节能设计标准.pdf",
+      "bytes": 1615229,
+      "sha256": "7e2bc9421d00543dafc102b038a0789f7fdb35eda2f36c206ad2cece15fb06b9",
+      "title": "JGJ 134-2010 夏热冬冷地区居住建筑节能设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-244-JGJ_134-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-244-JGJ_134-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 144-2019 外墙外保温工程技术标准.pdf",
+      "bytes": 16544086,
+      "sha256": "49bc204080fd85fffcdfdd4bef8dc36f3d3100931f33eb940ffad8bd92ec733e",
+      "title": "JGJ 144-2019 外墙外保温工程技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-245-JGJ_144-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-245-JGJ_144-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 214-2010 铝合金门窗工程技术规范.pdf",
+      "bytes": 2546268,
+      "sha256": "d5e41624a5185425e794277a1e4653b65d322a2964b1a72e64bc51944d4a75d8",
+      "title": "JGJ 214-2010 铝合金门窗工程技术规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-246-JGJ_214-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-246-JGJ_214-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 230-2010 倒置式屋面工程技术规程.pdf",
+      "bytes": 2649759,
+      "sha256": "3f758c5899a5cd9f660d8b21af16fed2cc7fedf2d83cbb3c47ab0f3c4c5ca69c",
+      "title": "JGJ 230-2010 倒置式屋面工程技术规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-247-JGJ_230-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-247-JGJ_230-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 25-2010 档案馆建筑设计规范.pdf",
+      "bytes": 1325582,
+      "sha256": "ceac525a8a6869f04af4bc9751212d1a73b7ea84e0be2df5cdf2d79edaeb11e7",
+      "title": "JGJ 25-2010 档案馆建筑设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-248-JGJ_25-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-248-JGJ_25-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 26-2018 严寒和寒冷地区居住建筑节能设计标准.pdf",
+      "bytes": 34280903,
+      "sha256": "ea2a1bab9e8eedc9e11db7153f8891c81f75a45a5967002260833f28e789cefc",
+      "title": "JGJ 26-2018 严寒和寒冷地区居住建筑节能设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-249-JGJ_26-2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-249-JGJ_26-2018.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 289-2012 建筑外墙外保温防火隔离带技术规程.pdf",
+      "bytes": 866301,
+      "sha256": "cddd7f527336287d695ad9d1a7b87754e0979fd93751ea3b34b391ee7043b0cf",
+      "title": "JGJ 289-2012 建筑外墙外保温防火隔离带技术规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-250-JGJ_289-2012.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-250-JGJ_289-2012.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 36-2016 宿舍建筑设计规范.pdf",
+      "bytes": 3146079,
+      "sha256": "820b4762f318c7ef39db023f7e05827f4c9b4329064cc754581e8d9796d60d0f",
+      "title": "JGJ 36-2016 宿舍建筑设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-251-JGJ_36-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-251-JGJ_36-2016.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 64-2017 饮食建筑设计标准.pdf",
+      "bytes": 11400048,
+      "sha256": "ee3d4194937edd384a5bc7a4b15ee0d4d421baf3475cd19e54df8df4c712f092",
+      "title": "JGJ 64-2017 饮食建筑设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-252-JGJ_64-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-252-JGJ_64-2017.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 75-2012 夏热冬暖地区居住建筑节能设计标准.pdf",
+      "bytes": 2457316,
+      "sha256": "4fa2db93e98c444a06b75a81191b171ac4d05e2454e52eca4ed5b063e977cff9",
+      "title": "JGJ 75-2012 夏热冬暖地区居住建筑节能设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-253-JGJ_75-2012.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-253-JGJ_75-2012.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ 91-2019 科研建筑设计标准.pdf",
+      "bytes": 20893501,
+      "sha256": "345fd0592d55aac242156be9a288a51dc2f820d1f78ab0475e0e0871a3bddce0",
+      "title": "JGJ 91-2019 科研建筑设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-254-JGJ_91-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-254-JGJ_91-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 14-2011 混凝土小型空心砌块建筑技术规程.pdf",
+      "bytes": 8483741,
+      "sha256": "d2d4bd2a0c8af6708302c43b303ea0184263c74b5f38aa923cfcfb51c1a59533",
+      "title": "JGJ_T 14-2011 混凝土小型空心砌块建筑技术规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-255-JGJ_T_14-2011.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-255-JGJ_T_14-2011.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 17-2020 蒸压加气混凝土制品应用技术标准.pdf",
+      "bytes": 26616605,
+      "sha256": "e7464761a46784dd152a7459c0be0a857cb181b911958fb313fd4de43f3199a8",
+      "title": "JGJ_T 17-2020 蒸压加气混凝土制品应用技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-256-JGJ_T_17-2020.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-256-JGJ_T_17-2020.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 229-2010 民用建筑绿色设计规范.pdf",
+      "bytes": 4398347,
+      "sha256": "b33a5f899acb5967743644956d58b90ffc83de895265f75e60fc756b8b0a98f3",
+      "title": "JGJ_T 229-2010 民用建筑绿色设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-257-JGJ_T_229-2010.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-257-JGJ_T_229-2010.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 235-2011 建筑外墙防水工程技术规程.pdf",
+      "bytes": 2159898,
+      "sha256": "dc7b9290d5d95a66dba66585beee62570de2c26ce3cb6d13b7e8c9fb499b593d",
+      "title": "JGJ_T 235-2011 建筑外墙防水工程技术规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-258-JGJ_T_235-2011.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-258-JGJ_T_235-2011.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 253-2019 无机轻集料砂浆保温系统技术标准.pdf",
+      "bytes": 13983945,
+      "sha256": "bb47486049bd058b819fc2e922587bed84b76a1e885ca118bb408add8393101d",
+      "title": "JGJ_T 253-2019 无机轻集料砂浆保温系统技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-259-JGJ_T_253-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-259-JGJ_T_253-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 261-2011 外墙内保温工程技术规程.pdf",
+      "bytes": 2176513,
+      "sha256": "a8580938c32740209030235454c343d7f51464e6a1dcb2a5da88d6715061db38",
+      "title": "JGJ_T 261-2011 外墙内保温工程技术规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-260-JGJ_T_261-2011.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-260-JGJ_T_261-2011.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 323-2014 自保温混凝土复合砌块墙体应用技术规程.pdf",
+      "bytes": 1761380,
+      "sha256": "920186064cb9d6c92fe027c4cbf86d1cab4f66d8989b419761e968f5ad11d866",
+      "title": "JGJ_T 323-2014 自保温混凝土复合砌块墙体应用技术规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-261-JGJ_T_323-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-261-JGJ_T_323-2014.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 350-2015 保温防火复合板应用技术规程.pdf",
+      "bytes": 2709152,
+      "sha256": "49ed6aecc5b19ab74f12d3c901ef4cea64393205286931363810fdba14b9a89b",
+      "title": "JGJ_T 350-2015 保温防火复合板应用技术规程.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-262-JGJ_T_350-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-262-JGJ_T_350-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 453-2019 金属面夹芯板应用技术标准.pdf",
+      "bytes": 19822592,
+      "sha256": "7a3db60ca66cf27ba22ad02533c994c0c0076070039ffa2cf26079ea10b851ad",
+      "title": "JGJ_T 453-2019 金属面夹芯板应用技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-263-JGJ_T_453-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-263-JGJ_T_453-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 470-2019 建筑防护栏杆技术标准.pdf",
+      "bytes": 9428000,
+      "sha256": "6d993499904707e7de670394a13de9ea6cb9465b6fe6f31ca2c16862b4e48aaf",
+      "title": "JGJ_T 470-2019 建筑防护栏杆技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-264-JGJ_T_470-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-264-JGJ_T_470-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 473-2019 建筑金属围护系统工程技术标准.pdf",
+      "bytes": 31330535,
+      "sha256": "8e158e955f5b628e599894dfae5285d4b4f528e678defa03fc507ff4cd1bf1dc",
+      "title": "JGJ_T 473-2019 建筑金属围护系统工程技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-265-JGJ_T_473-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-265-JGJ_T_473-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 480-2019 岩棉薄抹灰外墙外保温工程技术标准.pdf",
+      "bytes": 20366554,
+      "sha256": "2216c89f4c214fd22b1a370474b1d8f051e24c9cdad96d550cf091e4ccac3f31",
+      "title": "JGJ_T 480-2019 岩棉薄抹灰外墙外保温工程技术标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-266-JGJ_T_480-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-266-JGJ_T_480-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JGJ_T 67-2019 办公建筑设计标准.pdf",
+      "bytes": 10791014,
+      "sha256": "cb508387dc036a41bf76376cc94259636c66f923cf601613aa9210001b5cc0b7",
+      "title": "JGJ_T 67-2019 办公建筑设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-267-JGJ_T_67-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-267-JGJ_T_67-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JG_T 480-2015 外墙保温复合板通用技术要求.pdf",
+      "bytes": 1356784,
+      "sha256": "cd3a97184d50731decdf0135b9601dde15d332225044a76eb19e679ff6fbfc74",
+      "title": "JG_T 480-2015 外墙保温复合板通用技术要求.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-268-JG_T_480-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-268-JG_T_480-2015.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/JG_T 512-2017 建筑外墙涂料通用技术要求.pdf",
+      "bytes": 1717253,
+      "sha256": "c979c221145852665f6f6ce5d7773fe72fae0d2935eec6d9f78bfb1958aa9fe1",
+      "title": "JG_T 512-2017 建筑外墙涂料通用技术要求.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-269-JG_T_512-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-269-JG_T_512-2017.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3006-2012 石油化工控制室设计规范.pdf",
+      "bytes": 5868802,
+      "sha256": "019b8a1387377d0fd81ed6ba3cca2d8c6e30216e2c7d241eaa65e70604e4e208",
+      "title": "SH_T 3006-2012 石油化工控制室设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-270-SH_T_3006-2012.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-270-SH_T_3006-2012.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3014-2012 石油化工储运系统泵区设计规范.pdf",
+      "bytes": 8246781,
+      "sha256": "aec21f6b4bada46e9663a0bffe36034a05b954afd4b9210986c29704ec9e9932",
+      "title": "SH_T 3014-2012 石油化工储运系统泵区设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-271-SH_T_3014-2012.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-271-SH_T_3014-2012.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3017-2013 石油化工生产建筑设计规范.pdf",
+      "bytes": 16373377,
+      "sha256": "be0f30f155d2f90e22b9c0fd5ec09f8995dcc9feff938b1b500baa25b896f05e",
+      "title": "SH_T 3017-2013 石油化工生产建筑设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-272-SH_T_3017-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-272-SH_T_3017-2013.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3047-2021 石油化工企业职业安全卫生设计规范.pdf",
+      "bytes": 3310560,
+      "sha256": "3bd45ecadbe7b6e7eaa52d27635fef61f2dc2a5c6ebbdf72631193f39cd00a88",
+      "title": "SH_T 3047-2021 石油化工企业职业安全卫生设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-273-SH_T_3047-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-273-SH_T_3047-2021.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3103-2019 石油化工中心化验室设计规范.pdf",
+      "bytes": 4055240,
+      "sha256": "e88ef38628f9dd48f73da4e666c6c8dce9d7f0181c673e48ed71cbc27e056aa7",
+      "title": "SH_T 3103-2019 石油化工中心化验室设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-274-SH_T_3103-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-274-SH_T_3103-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3186-2017 石油化工自动化立体仓库设计规范.pdf",
+      "bytes": 18527867,
+      "sha256": "3c42f4e33493aef700249ca3e5196f74482592c6e8db448b3f78248a0ac72507",
+      "title": "SH_T 3186-2017 石油化工自动化立体仓库设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-030-SHT_3186-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-030-SHT_3186-2017.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3196-2017 石油化工企业建筑物分类标准.pdf",
+      "bytes": 20813463,
+      "sha256": "cbee4d5b264c6f5bde07e8bab42080afa61fb57b33b7ba4a6301858a18238727",
+      "title": "SH_T 3196-2017 石油化工企业建筑物分类标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-275-SH_T_3196-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-275-SH_T_3196-2017.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3206-2019 石油化工设计安全检查标准.pdf",
+      "bytes": 33512128,
+      "sha256": "dacd2eb9d8d5a9dbc24c84b8c5fd5bf4ad0b6e118f7f2083e0e6eb9fcbf19b00",
+      "title": "SH_T 3206-2019 石油化工设计安全检查标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-276-SH_T_3206-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-276-SH_T_3206-2019.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3219-2022 石油化工消防泵站设计规范.pdf",
+      "bytes": 2869032,
+      "sha256": "2537a63102157fb7a356b16b475866bf3f2b60eacdf2233861aabde4008e0c7a",
+      "title": "SH_T 3219-2022 石油化工消防泵站设计规范.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-277-SH_T_3219-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-277-SH_T_3219-2022.pdf"
+    },
+    {
+      "path": "data/sources/标准库/行业标准/SH_T 3221-2023 石油化工物料汽车装卸设施设计标准.pdf",
+      "bytes": 6410305,
+      "sha256": "4d4185f2f73cefb35987b9aa1f5ce783d97572bc7d95efe1b3ed88109c64d9f0",
+      "title": "SH_T 3221-2023 石油化工物料汽车装卸设施设计标准.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-278-SH_T_3221-2023.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-278-SH_T_3221-2023.pdf"
+    },
+    {
+      "path": "data/processed/mineru/80080-ED-INS-0000-SPE-017 Rev. 0A.PDF-918cbd04-f077-4d73-a5de-a93307d73fb9/10e10340-cb28-402e-9cb6-e01b24ddfcca_origin.pdf",
+      "bytes": 612470,
+      "sha256": "9c16900c3fcd28ece4e7708de7d4fc3eb50811a3e8c5fd8269de37aefd023aa0",
+      "title": "10e10340-cb28-402e-9cb6-e01b24ddfcca_origin.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-279-10e10340-cb28-402e-9cb6-e01b24ddfcca_origin.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-279-10e10340-cb28-402e-9cb6-e01b24ddfcca_origin.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 50011-2010 建筑抗震设计规范 (附2016年局部修订).pdf-e748700a-f033-456e-835f-12006455be4a/3f59a80f-5508-4ff7-9cb2-7826123561ea_origin.pdf",
+      "bytes": 18940191,
+      "sha256": "01f5278492bf1947cca472807e3663c3e4850db5f4e6a145caa3f2c3eb3826f4",
+      "title": "GB 50011-2010 建筑抗震设计规范 (附2016年局部修订).pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-280-GB_50011-2010_2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-280-GB_50011-2010_2016.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 50016-2014 建筑设计防火规范(2018版).pdf-12b0e085-1ebf-409d-bf07-749ef27fa325/25af267c-0516-4666-9d15-cd3510a953df_origin.pdf",
+      "bytes": 36854451,
+      "sha256": "7c016290abcee2f1e75b8d18e8cc1ec23396816859a76a79e0aa7eabbc1d6d19",
+      "title": "GB 50016-2014 建筑设计防火规范(2018版).pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-281-GB_50016-2014_2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-281-GB_50016-2014_2018.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 50160-2008 石油化工企业设计防火标准（2018年版）.pdf-ce44a3f6-1789-45e5-970f-289d140f9566/e5edb119-a738-4e37-a074-051ef5bb97e7_origin.pdf",
+      "bytes": 12707396,
+      "sha256": "7af625e9f0b423e3897c00c0f6d2e308cc233259b5d4e625b5a7715ba058865a",
+      "title": "GB 50160-2008 石油化工企业设计防火标准（2018年版）.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-282-GB_50160-2008_2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-282-GB_50160-2008_2018.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 50223-2008 建筑工程抗震设防分类标准.pdf-713e9834-3811-43d1-8dff-c3dd5c89d0d7/39583241-174e-4a75-bf8c-6f4b6615e98d_origin.pdf",
+      "bytes": 1395815,
+      "sha256": "abd1f5b203ba174693a9783e1efd849396d7b49e7c5f4a64d3fab26d7e2a0397",
+      "title": "GB 50223-2008 建筑工程抗震设防分类标准.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-283-GB_50223-2008.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-283-GB_50223-2008.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 50453-2008 石油化工建（构）筑物抗震设防分类标准.pdf-06277e0f-fee4-43ca-851a-35da1d0e9e75/3333d54f-cda9-4008-896b-d333dbfa3ccf_origin.pdf",
+      "bytes": 1508943,
+      "sha256": "ab9db78909abdbd00384a2ebc7b6458d4d60279096858f0cb6a34b76ef85e53f",
+      "title": "GB 50453-2008 石油化工建（构）筑物抗震设防分类标准.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-284-GB_50453-2008.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-284-GB_50453-2008.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 51251-2017 建筑防烟排烟系统技术标准.pdf-0cd7b885-2508-4d60-bde8-06cc59c21b6b/e76889c3-6798-4cef-b1bd-114a79953b4b_origin.pdf",
+      "bytes": 23318886,
+      "sha256": "68a7417e1adf79fa86551c62f0ab432050761d2714f7716e0dd5464a1eebb7ef",
+      "title": "GB 51251-2017 建筑防烟排烟系统技术标准.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-285-GB_51251-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-285-GB_51251-2017.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 55015-2021 建筑节能与可再生能源利用通用规范.pdf-70130087-2311-411a-8cc7-d132b75189e3/a4cea63d-27f1-493a-9119-02bc34525f87_origin.pdf",
+      "bytes": 14738087,
+      "sha256": "634c34b606a5dd7a62e4040995307bbab491494c71bf54939e55f9d23210be4c",
+      "title": "GB 55015-2021 建筑节能与可再生能源利用通用规范.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-286-GB_55015-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-286-GB_55015-2021.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 55030-2022 建筑与市政工程防水通用规范.pdf-a90143ed-56bd-4658-a272-189c9287ec2b/5374166b-5a8a-441f-bfa6-5e778c6ad7a5_origin.pdf",
+      "bytes": 5664181,
+      "sha256": "cae0d96c9bf38937dc6d2525d187f89f617f17346c6ae1a43924974bb4a8a0f1",
+      "title": "GB 55030-2022 建筑与市政工程防水通用规范.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-287-GB_55030-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-287-GB_55030-2022.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB 55037-2022 建筑防火通用规范.pdf-24baa351-0473-4d1c-bcc3-4e4619a9b19d/d96151fa-acde-4e23-927c-9dacb97fccad_origin.pdf",
+      "bytes": 66261375,
+      "sha256": "01fbc892564bb4ba1dfca28182f0161fb2dffcfb413ddf4e64c794aca1bbbf06",
+      "title": "GB 55037-2022 建筑防火通用规范.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-288-GB_55037-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-288-GB_55037-2022.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GBT 50378-2019 绿色建筑评价标准（含条文说明）.pdf-34de8904-6173-4f34-9502-4f23bb9191f0/0d8583f2-252f-4ce7-af13-6d5fffee1ad9_origin.pdf",
+      "bytes": 10442116,
+      "sha256": "e1e2ce2a9e342908cd099aeea9e84a827ac5cd36c13909673749794d618f981c",
+      "title": "GBT 50378-2019 绿色建筑评价标准（含条文说明）.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-289-GBT_50378-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-289-GBT_50378-2019.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GBT51366-2019：建筑碳排放计算标准.pdf-0ce654ea-9c0d-45ef-85fb-6a76b959dd61/f3cd47f5-5aec-4299-b87f-3c02e7c41502_origin.pdf",
+      "bytes": 16009729,
+      "sha256": "f3ee4e62ddbe4b6dc9cd75e9741ed2dfde89c30ce1724c21bdf1e7e517010e36",
+      "title": "GBT51366-2019：建筑碳排放计算标准.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-290-GBT51366-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-290-GBT51366-2019.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB_T 50046-2018 工业建筑防腐蚀设计标准.pdf-7a02d16e-8856-4b00-9159-280237d766e5/3027dfd8-b044-4572-9b9e-abffb8bcff56_origin.pdf",
+      "bytes": 29279746,
+      "sha256": "3a07791ab39ab85422c83e7f980bda5ad3d5db74b95e905f994a4cd36be6dcfb",
+      "title": "GB_T 50046-2018 工业建筑防腐蚀设计标准.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-291-GB_T_50046-2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-291-GB_T_50046-2018.pdf"
+    },
+    {
+      "path": "data/processed/mineru/GB_T 50934-2013 石油化工工程防渗技术规范.pdf-3bdc945e-4505-47d1-85e3-ec0a580f3fad/c31bba8b-b9f7-4b7f-bb09-333ea1aa1564_origin.pdf",
+      "bytes": 1508851,
+      "sha256": "8dbb83e8d4b10fe6c1f76f22059093f5821889f8b37a74277c5a32b0aec298cf",
+      "title": "GB_T 50934-2013 石油化工工程防渗技术规范.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-292-GB_T_50934-2013.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-292-GB_T_50934-2013.pdf"
+    },
+    {
+      "path": "data/processed/mineru/IBC 1.pdf-505855b2-c94d-42e4-9301-601c18c4f07f/9ffbd24b-7a29-492d-aefc-182c7df83c83_origin.pdf",
+      "bytes": 2720643,
+      "sha256": "95f0df7f19b420231e94f64623a7195ce5904fc2ac0975421a68a850ef549c93",
+      "title": "IBC 1.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-293-IBC_1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-293-IBC_1.pdf"
+    },
+    {
+      "path": "data/processed/mineru/IBC 2.pdf-cb498701-d979-4831-849d-d2989208648e/ee3dea14-56c3-4a08-ac99-9081c670b555_origin.pdf",
+      "bytes": 3572182,
+      "sha256": "bc20dd43b3bb79ed9e24ce2eefe32afad3cfb9bcfdc7de6e0443a59896d178f2",
+      "title": "IBC 2.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-294-IBC_2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-294-IBC_2.pdf"
+    },
+    {
+      "path": "data/processed/mineru/IBC 3.pdf-d8d8a0f0-d500-409b-9ebb-5b6bd79575da/896e5b42-c7ed-479b-8acb-774da507b681_origin.pdf",
+      "bytes": 14958702,
+      "sha256": "f23803ee568be79a925f4f28ef5091af3677960a1c3a07da745156bb6df0afb0",
+      "title": "IBC 3.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-295-IBC_3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-295-IBC_3.pdf"
+    },
+    {
+      "path": "data/processed/mineru/IBC 4.pdf-a7426fe0-d05a-455a-9c38-697dd432811b/bcc9b3b1-f802-4e7a-b073-4f67048e1069_origin.pdf",
+      "bytes": 2043755,
+      "sha256": "fb50244891b13fede344b8ed05ce475bce981b80909bc964d10d7fde11021340",
+      "title": "IBC 4.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-296-IBC_4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-296-IBC_4.pdf"
+    },
+    {
+      "path": "data/processed/mineru/NFPA 5000 - Building Construction and Safety Code 2021.pdf-0d62f165-bcf6-4ce9-9e51-5161942fb636/6cbf7542-acf3-42cd-800f-6de5a4dd97ca_origin.pdf",
+      "bytes": 13473197,
+      "sha256": "2cf5f4eec1b4ffc8ab229cc4ddfd8fe0e60993c424b870b3ce0229e33dcee67a",
+      "title": "NFPA 5000 - Building Construction and Safety Code 2021.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-297-NFPA_5000_-_Building_Construction_and_Safety_Code_2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-297-NFPA_5000_-_Building_Construction_and_Safety_Code_2021.pdf"
+    },
+    {
+      "path": "data/processed/mineru/NFPA 5000 - Building Construction and Safety Code 2021.pdf-43d1cf43-10bc-4a48-96a9-eaa8bae50a9a/f4e5d403-6ab8-4299-9941-cfbbafb51a29_origin.pdf",
+      "bytes": 14175191,
+      "sha256": "3579e94fcf683d59e4d5dfbf531e9ef38d041d7254c9033c1eace72a375db8aa",
+      "title": "NFPA 5000 - Building Construction and Safety Code 2021.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-298-NFPA_5000_-_Building_Construction_and_Safety_Code_2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-298-NFPA_5000_-_Building_Construction_and_Safety_Code_2021.pdf"
+    },
+    {
+      "path": "data/processed/mineru/NFPA 5000 - Building Construction and Safety Code 2021.pdf-838690a0-83b5-4d19-bec6-092eb07ba5c0/220c1719-81f2-40cb-a94e-550c31ef277f_origin.pdf",
+      "bytes": 18286715,
+      "sha256": "a7df9668fe523fb6c04cf7ce568592b7161727aae12eb9bf8256c80cff5cb596",
+      "title": "NFPA 5000 - Building Construction and Safety Code 2021.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-299-NFPA_5000_-_Building_Construction_and_Safety_Code_2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-299-NFPA_5000_-_Building_Construction_and_Safety_Code_2021.pdf"
+    },
+    {
+      "path": "data/processed/mineru/SHT 3006-2024石油化工控制室设计规范.pdf-2859168e-511d-47ff-be2a-0878fed1ee58/2f146258-2077-4712-8560-78814f18bcea_origin.pdf",
+      "bytes": 2718350,
+      "sha256": "4d1224d5a316d189bf5308db4355db8011682a6399b71c51910dc788084cd754",
+      "title": "SHT 3006-2024石油化工控制室设计规范.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-300-SHT_3006-2024.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-300-SHT_3006-2024.pdf"
+    },
+    {
+      "path": "data/processed/mineru/SHT 3186-2017石油化工自动化立体仓库设计规范.pdf-4774a4fb-0be2-4dde-826f-4e41feb0e99d/7ce0eb4d-2a54-4060-8060-49304c56f3e8_origin.pdf",
+      "bytes": 18523213,
+      "sha256": "15d9d532c41b6b9be7977e4cdca6541e7007cac823d98864bf4b2b004de7f5da",
+      "title": "SHT 3186-2017石油化工自动化立体仓库设计规范.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-301-SHT_3186-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-301-SHT_3186-2017.pdf"
+    },
+    {
+      "path": "data/processed/mineru/Trade credit and the stability of supply chains.pdf-a2fe9638-5f63-46e2-a9ec-fc6a062b5bd8/3014617b-f8db-4da0-9ea9-81d56ca0b549_origin.pdf",
+      "bytes": 630490,
+      "sha256": "d1628f5d1a632515dc9fb6dbf61fffcb0970d994f52dbc2215492c341d15a416",
+      "title": "Trade credit and the stability of supply chains.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-302-Trade_credit_and_the_stability_of_supply_chains.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-302-Trade_credit_and_the_stability_of_supply_chains.pdf"
+    },
+    {
+      "path": "data/processed/mineru/华锦建筑设计总说明.pdf-30c176d7-b16d-4c7d-9527-288ad179afde/a1d0f1a9-d8ce-4352-bbfc-ee5f6adb1f76_origin.pdf",
+      "bytes": 54775664,
+      "sha256": "0ad18b08456d66905c9f49d34f5a34eebbd1e502afd4db604f5951c4439399dc",
+      "title": "华锦建筑设计总说明.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-303-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-303-document.pdf"
+    },
+    {
+      "path": "data/processed/mineru/工业建筑节能设计统一标准.pdf-4fad7c39-7fd5-43af-8ff8-0120eb491480/b7d94ef4-a103-4430-aa81-82510dbee6bb_origin.pdf",
+      "bytes": 7482283,
+      "sha256": "573ed23b67255de5799b182ee0c46c9c9aa33a438671e633b50eedcfa91bd33f",
+      "title": "工业建筑节能设计统一标准.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-304-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-304-document.pdf"
+    },
+    {
+      "path": "data/processed/mineru/建筑模数协调标准.pdf-997d3b4a-c6c7-4718-af53-13b5b30502d3/78afd4c2-9846-4d17-be18-0838de742a69_origin.pdf",
+      "bytes": 1134883,
+      "sha256": "86fcb2b9b77eedd271c2719793c0a8ca2ff050487141d9dcf452e8aa9902d5dd",
+      "title": "建筑模数协调标准.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-305-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-305-document.pdf"
+    },
+    {
+      "path": "data/processed/mineru/建筑设计防火规范.pdf-d03b3095-27e5-40c4-9ef5-c77c74a66936/2992bc0d-d55a-4b4a-a1f0-6f6e0977b75c_origin.pdf",
+      "bytes": 955383,
+      "sha256": "56b5323ce1482325341bbc0b8ad2a98416f9c2e0fd4a6787fb21d0f5331c4654",
+      "title": "建筑设计防火规范.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-306-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-306-document.pdf"
+    },
+    {
+      "path": "data/processed/mineru/民用建筑设计统一标准.pdf-5df1a71b-2e4e-436a-a913-384b5b1e4ae1/cb1280d3-99dd-46f1-a222-7ad77943b602_origin.pdf",
+      "bytes": 666886,
+      "sha256": "8d2f8f70551f422e94f2a1225a1aef196514173336cdd102485f3ff38543c81a",
+      "title": "民用建筑设计统一标准.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-307-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-307-document.pdf"
+    },
+    {
+      "path": "data/processed/mineru/石油化工生产建筑设计规范.pdf-d5486558-d917-4628-905d-9b607015b010/09448484-9ccd-42fb-8772-fdc0fc3f5ed7_origin.pdf",
+      "bytes": 5555879,
+      "sha256": "713a50bff66875d042ae8646c4f9968ac8924280826ba34aba6d969cd8c818e8",
+      "title": "石油化工生产建筑设计规范.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-308-document.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-308-document.pdf"
+    },
+    {
+      "path": "data/processed/mineru/说明书-自控-环氧乙烷罐组  供测试.docx-df09637a-db37-4625-95f5-5fc51470b081/79cea51d-cc62-4dd9-87b1-9e9ec4c8afb3_origin.pdf",
+      "bytes": 1968777,
+      "sha256": "8d3af27f45502c33e6d68a2a779fea728263d5719d38dcc6737edf0e3ef32452",
+      "title": "79cea51d-cc62-4dd9-87b1-9e9ec4c8afb3_origin.pdf",
+      "category": "MinerU 保留原件",
+      "asset_name": "PDF-309-79cea51d-cc62-4dd9-87b1-9e9ec4c8afb3_origin.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-309-79cea51d-cc62-4dd9-87b1-9e9ec4c8afb3_origin.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50017-2017 钢结构设计标准.pdf",
+      "bytes": 190260446,
+      "sha256": "4097df920f83e13f6f4803220793bed7c5c5f71704c6bd85a7abfa2cdde41ce8",
+      "title": "GB 50017-2017 钢结构设计标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-310-GB_50017-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-310-GB_50017-2017.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50025-2018 湿陷性黄土地区建筑标准.pdf",
+      "bytes": 49775444,
+      "sha256": "03ebb5484111e5b905e01540f423426f06bd220bb8ad62a824c5eb7a2a6a12fd",
+      "title": "GB 50025-2018 湿陷性黄土地区建筑标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-311-GB_50025-2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-311-GB_50025-2018.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50041-2020 锅炉房设计标准.pdf",
+      "bytes": 40907810,
+      "sha256": "4888acf42372018f9230fb267f5a0b6dde54a125b25a516a5fd15571e74a0bc3",
+      "title": "GB 50041-2020 锅炉房设计标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-312-GB_50041-2020.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-312-GB_50041-2020.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50072-2021 冷库设计标准.pdf",
+      "bytes": 28744597,
+      "sha256": "239b2127374128cb23747f8516b2a216af90a99c330798780a7ef98dec44462f",
+      "title": "GB 50072-2021 冷库设计标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-313-GB_50072-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-313-GB_50072-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50074-2014 石油库设计规范.pdf",
+      "bytes": 23857145,
+      "sha256": "d18292318c42e5bcbab719bb41fe4542408960924179ce5054e7f59a9a7ed038",
+      "title": "GB 50074-2014 石油库设计规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-314-GB_50074-2014.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-314-GB_50074-2014.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50156-2021 汽车加油加气加氢站技术标准.pdf",
+      "bytes": 52983945,
+      "sha256": "543b30e7ae77a4d167f17ad4351b18fb1a2875b80bf54e23d8030c7d3835b24e",
+      "title": "GB 50156-2021 汽车加油加气加氢站技术标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-315-GB_50156-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-315-GB_50156-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50176-2016 民用建筑热工设计规范.pdf",
+      "bytes": 10957607,
+      "sha256": "00b4f4957508f07154a2461716192adc7398e9c4c75c108c6f8f49cebb68fcad",
+      "title": "GB 50176-2016 民用建筑热工设计规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-316-GB_50176-2016.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-316-GB_50176-2016.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50189-2015 公共建筑节能设计标准.pdf",
+      "bytes": 13085521,
+      "sha256": "b7b7115afcea3a280291859d4bf1d0be0121b62acd4dd87b758cd7b85b515b30",
+      "title": "GB 50189-2015 公共建筑节能设计标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-317-GB_50189-2015.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-317-GB_50189-2015.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50210-2018 建筑装饰装修工程质量验收标准.pdf",
+      "bytes": 21064092,
+      "sha256": "c764fb7e023685103816d4e7ec4f6f7978a5064ee2df1eda86540901c7dbb98f",
+      "title": "GB 50210-2018 建筑装饰装修工程质量验收标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-318-GB_50210-2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-318-GB_50210-2018.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50229-2019 火力发电厂与变电站设计防火标准.pdf",
+      "bytes": 45238084,
+      "sha256": "91c5ddfd89c473a45b920b1fe0ac9756580d37163ae9e770a2fcbcea1bd8ecff",
+      "title": "GB 50229-2019 火力发电厂与变电站设计防火标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-319-GB_50229-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-319-GB_50229-2019.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50325-2020 民用建筑工程室内环境污染控制标准.pdf",
+      "bytes": 16470397,
+      "sha256": "d079b35b00daa560b1bdccda16e2c630f3de1666843f4ff38ec7d11da0ee2b73",
+      "title": "GB 50325-2020 民用建筑工程室内环境污染控制标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-320-GB_50325-2020.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-320-GB_50325-2020.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 50516-2010 加氢站技术规范（2021年版）.pdf",
+      "bytes": 23805337,
+      "sha256": "e0862737352436d49b7e98c52d7933f52cf3ea8bd32fd7ae008007f7212ef05d",
+      "title": "GB 50516-2010 加氢站技术规范（2021年版）.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-321-GB_50516-2010_2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-321-GB_50516-2010_2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 51245-2017 工业建筑节能设计统一标准.pdf",
+      "bytes": 28279460,
+      "sha256": "c4ca7bf56fab613463b5c28fa1c1d9f6b96279dba05590100f81b237f082b259",
+      "title": "GB 51245-2017 工业建筑节能设计统一标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-322-GB_51245-2017.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-322-GB_51245-2017.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 51261-2019 天然气液化工厂设计标准.pdf",
+      "bytes": 26340070,
+      "sha256": "0143157e75f85da1f5104ca7f32cfca4f3e27d6d6c0cfdf31b223e426f2beacc",
+      "title": "GB 51261-2019 天然气液化工厂设计标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-323-GB_51261-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-323-GB_51261-2019.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 51283-2020 精细化工企业工程设计防火标准.pdf",
+      "bytes": 32435887,
+      "sha256": "1e8e9243a423b2a62a7b03020fe859b068a55a37bfe46f1bbe4e92cb7fe919bc",
+      "title": "GB 51283-2020 精细化工企业工程设计防火标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-324-GB_51283-2020.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-324-GB_51283-2020.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 51428-2021 煤化工工程设计防火标准.pdf",
+      "bytes": 34100326,
+      "sha256": "04462667f39960317f03c59ee1c4fc743a2d912e5c79e91d24c3a2099468575c",
+      "title": "GB 51428-2021 煤化工工程设计防火标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-325-GB_51428-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-325-GB_51428-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55001-2021 工程结构通用规范.pdf",
+      "bytes": 15813110,
+      "sha256": "c26591ab8fcc8cb89a663fd2cf4a0b9cefc264211c022136aaa2ad2beaf2ddde",
+      "title": "GB 55001-2021 工程结构通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-326-GB_55001-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-326-GB_55001-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55002-2021 建筑与市政工程抗震通用规范.pdf",
+      "bytes": 28101974,
+      "sha256": "68c5a2fabe793c1d937bd6bfaeecc872741f8dd356843197fc439ca07ac27f14",
+      "title": "GB 55002-2021 建筑与市政工程抗震通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-327-GB_55002-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-327-GB_55002-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55006-2021 钢结构通用规范.pdf",
+      "bytes": 15504117,
+      "sha256": "2a8fadb7554770c8eeef1e064894f8d96a3ad6cfc601e97874dec3c37cd9e47b",
+      "title": "GB 55006-2021 钢结构通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-328-GB_55006-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-328-GB_55006-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55007-2021 砌体结构通用规范.pdf",
+      "bytes": 12726584,
+      "sha256": "739a9c1f9ef3a82766c398ea5b50aaadab53bcaa8c2503c4285fc114f9120e9e",
+      "title": "GB 55007-2021 砌体结构通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-329-GB_55007-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-329-GB_55007-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55019-2021 建筑与市政工程无障碍通用规范.pdf",
+      "bytes": 14954825,
+      "sha256": "f26b303d05f9d4f1bcba098917ce9212138d003e6a2e99967dea8eef15d6c9d1",
+      "title": "GB 55019-2021 建筑与市政工程无障碍通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-330-GB_55019-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-330-GB_55019-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55020-2021 建筑给水排水与节水通用规范.pdf",
+      "bytes": 24739094,
+      "sha256": "ad82ff18ff764412bd414af82f9872266aa22eb0f8ceac6b6319b2c22326b52e",
+      "title": "GB 55020-2021 建筑给水排水与节水通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-331-GB_55020-2021.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-331-GB_55020-2021.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55024-2022 建筑电气与智能化通用规范.pdf",
+      "bytes": 45040299,
+      "sha256": "646f209aea92f791f9be132d7b342b42f8a92fb3b05d15d2cd854ce01e1877d1",
+      "title": "GB 55024-2022 建筑电气与智能化通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-332-GB_55024-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-332-GB_55024-2022.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55031-2022 民用建筑通用规范.pdf",
+      "bytes": 16640637,
+      "sha256": "a4c45201e6983fc56c8761a3faee845324251e77318fe75d32785aac0e61d6e3",
+      "title": "GB 55031-2022 民用建筑通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-333-GB_55031-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-333-GB_55031-2022.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB 55036-2022 消防设施通用规范.pdf",
+      "bytes": 11591293,
+      "sha256": "cad5db3c035bc374d572b8562c4d4b4ccf56940f99d0fa700df348c27ed4af85",
+      "title": "GB 55036-2022 消防设施通用规范.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-334-GB_55036-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-334-GB_55036-2022.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB_T 50034-2024 建筑照明设计标准.pdf",
+      "bytes": 33242105,
+      "sha256": "9836b47c0ed522b12132135c59c2a0da4cb113af3787ecfb72a997f0a138c5bb",
+      "title": "GB_T 50034-2024 建筑照明设计标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-335-GB_T_50034-2024.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-335-GB_T_50034-2024.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB_T 50731-2019 建材工程术语标准.pdf",
+      "bytes": 14714517,
+      "sha256": "a97c8c5ff9125739d7417fd98dd334e952669404c52748388248028b785ea0a9",
+      "title": "GB_T 50731-2019 建材工程术语标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-336-GB_T_50731-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-336-GB_T_50731-2019.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB_T 50779-2022 石油化工建筑物抗爆设计标准.pdf",
+      "bytes": 20163909,
+      "sha256": "d2dd12f509e9db42ff33ee463314fab286acc3bf68ed1b36389f1ad7a441635a",
+      "title": "GB_T 50779-2022 石油化工建筑物抗爆设计标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-337-GB_T_50779-2022.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-337-GB_T_50779-2022.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB_T 51301-2018 建筑信息模型设计交付标准.pdf",
+      "bytes": 16245299,
+      "sha256": "639cc47b0ac6c833469466e91d424b79ae410ef5f03001d6b5d5acde448fb3db",
+      "title": "GB_T 51301-2018 建筑信息模型设计交付标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-338-GB_T_51301-2018.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-338-GB_T_51301-2018.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/GB_T 51368-2019 建筑光伏系统应用技术标准.pdf",
+      "bytes": 18815322,
+      "sha256": "adfadf82aba944ca6a6e199c53288dc3bb1628b16249b51c9257712e396e7947",
+      "title": "GB_T 51368-2019 建筑光伏系统应用技术标准.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-339-GB_T_51368-2019.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-339-GB_T_51368-2019.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/SH_T 3014-2012 石油化工储运系统泵区设计规范.clean.pdf",
+      "bytes": 8556477,
+      "sha256": "689af244686ad6c3eb1ba97800fb631ad02f3e1ab3c48caa13d631dedc7a176c",
+      "title": "SH_T 3014-2012 石油化工储运系统泵区设计规范.clean.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-340-SH_T_3014-2012_.clean.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-340-SH_T_3014-2012_.clean.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/SH_T 3017-2013 石油化工生产建筑设计规范.clean.pdf",
+      "bytes": 14788770,
+      "sha256": "03ade11905dba67d782fec878c2e831f4f6bd0008e03f5b9633218322d087e90",
+      "title": "SH_T 3017-2013 石油化工生产建筑设计规范.clean.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-341-SH_T_3017-2013_.clean.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-341-SH_T_3017-2013_.clean.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/SH_T 3103-2019 石油化工中心化验室设计规范.clean.pdf",
+      "bytes": 13241421,
+      "sha256": "37dd03360237e875eb5439c45666276d5be6c8aeb9bfb8288a1e7a2f18110250",
+      "title": "SH_T 3103-2019 石油化工中心化验室设计规范.clean.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-342-SH_T_3103-2019_.clean.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-342-SH_T_3103-2019_.clean.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/SH_T 3196-2017 石油化工企业建筑物分类标准.clean.pdf",
+      "bytes": 22360145,
+      "sha256": "c941ac7e805523511432872237d9284d2ae1f1750624d5545424e6788159ae64",
+      "title": "SH_T 3196-2017 石油化工企业建筑物分类标准.clean.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-343-SH_T_3196-2017_.clean.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-343-SH_T_3196-2017_.clean.pdf"
+    },
+    {
+      "path": "data/processed/ocr/_merged/SH_T 3206-2019 石油化工设计安全检查标准.clean.pdf",
+      "bytes": 82216897,
+      "sha256": "cdb86788be703e442423f5273da48fbb6f2a7af743e32905b247d570c0a02223",
+      "title": "SH_T 3206-2019 石油化工设计安全检查标准.clean.pdf",
+      "category": "OCR 合并稿",
+      "asset_name": "PDF-344-SH_T_3206-2019_.clean.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-344-SH_T_3206-2019_.clean.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-1.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-1.pdf",
+      "bytes": 262491,
+      "sha256": "272956170bdaccfd36e916e78fb06e54ef946579a4e76b2de0f4ed7728a39b26",
+      "title": "DEP-D-AR1102-2020-1.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-345-DEP-D-AR1102-2020-1.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-345-DEP-D-AR1102-2020-1.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-10.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-10.pdf",
+      "bytes": 335175,
+      "sha256": "8f1d94c7a9afa36d72ed300e970d081dd07a54d8c431528b1c464404341750f1",
+      "title": "DEP-D-AR1102-2020-10.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-346-DEP-D-AR1102-2020-10.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-346-DEP-D-AR1102-2020-10.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-11.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-11.pdf",
+      "bytes": 335806,
+      "sha256": "d5f2b83fcec10a55ee60f2b73b869fc47a15d4313057c6d207cfca7239014f8d",
+      "title": "DEP-D-AR1102-2020-11.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-347-DEP-D-AR1102-2020-11.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-347-DEP-D-AR1102-2020-11.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-12.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-12.pdf",
+      "bytes": 335789,
+      "sha256": "c7029ae95b08ec534a4a48d27ddb5c9f69779d0edcf5514673b0098fc439f256",
+      "title": "DEP-D-AR1102-2020-12.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-348-DEP-D-AR1102-2020-12.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-348-DEP-D-AR1102-2020-12.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-13.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-13.pdf",
+      "bytes": 335924,
+      "sha256": "d1bce996064181809ff23f98c9584e30821126fa551ecd43aafe28420bf321cb",
+      "title": "DEP-D-AR1102-2020-13.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-349-DEP-D-AR1102-2020-13.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-349-DEP-D-AR1102-2020-13.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-14.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-14.pdf",
+      "bytes": 339010,
+      "sha256": "6c97f1d309514649ce2c8a81a5fbfd89dbcf7b876a024b68bb261957a843339d",
+      "title": "DEP-D-AR1102-2020-14.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-350-DEP-D-AR1102-2020-14.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-350-DEP-D-AR1102-2020-14.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-15.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-15.pdf",
+      "bytes": 339141,
+      "sha256": "3fd0de95d7c4e4e747cc74d9cee33959ae026b760b71350b0810f15d155be1fd",
+      "title": "DEP-D-AR1102-2020-15.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-351-DEP-D-AR1102-2020-15.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-351-DEP-D-AR1102-2020-15.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-2.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-2.pdf",
+      "bytes": 266144,
+      "sha256": "60202a7002c3815d0f844371ec8dfa8b63b4eac9870a91d34baee87c5d8718e5",
+      "title": "DEP-D-AR1102-2020-2.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-352-DEP-D-AR1102-2020-2.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-352-DEP-D-AR1102-2020-2.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-3.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-3.pdf",
+      "bytes": 1065829,
+      "sha256": "75f76be55b3f17a4a1b1d66b9e4dd9732455baca2819d6b3f8e257475695b1be",
+      "title": "DEP-D-AR1102-2020-3.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-353-DEP-D-AR1102-2020-3.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-353-DEP-D-AR1102-2020-3.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-4.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-4.pdf",
+      "bytes": 447148,
+      "sha256": "1f38b88e0dec206ebfc96050a488c64b55cb6c11cd801b8211c033d64cb2da51",
+      "title": "DEP-D-AR1102-2020-4.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-354-DEP-D-AR1102-2020-4.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-354-DEP-D-AR1102-2020-4.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-5.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-5.pdf",
+      "bytes": 694969,
+      "sha256": "8f4756ca2e6b1061202a035e869480af042014db9134330146f0446e197f03e1",
+      "title": "DEP-D-AR1102-2020-5.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-355-DEP-D-AR1102-2020-5.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-355-DEP-D-AR1102-2020-5.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-6.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-6.pdf",
+      "bytes": 336821,
+      "sha256": "1205e42bd51d06a082bd8148a7be755a4f673c9fb8269460d33947822e0068a3",
+      "title": "DEP-D-AR1102-2020-6.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-356-DEP-D-AR1102-2020-6.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-356-DEP-D-AR1102-2020-6.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-7.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-7.pdf",
+      "bytes": 337170,
+      "sha256": "402eedbff5913ee46a3c12de901d407eb3b45ec642158ae80a3005f8e1e2a539",
+      "title": "DEP-D-AR1102-2020-7.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-357-DEP-D-AR1102-2020-7.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-357-DEP-D-AR1102-2020-7.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-8.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-8.pdf",
+      "bytes": 337243,
+      "sha256": "f46c7f5f7e88ea7f8275f7a34cc5f632848e3aab3755b6290cbd78c84c4009a6",
+      "title": "DEP-D-AR1102-2020-8.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-358-DEP-D-AR1102-2020-8.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-358-DEP-D-AR1102-2020-8.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-9.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-9.pdf",
+      "bytes": 337200,
+      "sha256": "421ac8e1d84ddce70e5e8965990939948a361d9f9642370c89cb46edd7b635c1",
+      "title": "DEP-D-AR1102-2020-9.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-359-DEP-D-AR1102-2020-9.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-359-DEP-D-AR1102-2020-9.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图111/DEP-D-AR1102-2020-封面.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图111.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝111/DEP-D-AR1102-2020-╖Γ├µ.pdf",
+      "bytes": 230722,
+      "sha256": "fed12d5adbe5abf4059ee0267d4526370a05e270feddfc6fa8b8f31d04262959",
+      "title": "DEP-D-AR1102-2020-封面.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-360-DEP-D-AR1102-2020.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-360-DEP-D-AR1102-2020.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-16.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-16.pdf",
+      "bytes": 339608,
+      "sha256": "d48835bee5280294292a043f112a8576d933784fc49af77293a84572334dd4bf",
+      "title": "DEP-D-AR1102-2020-16.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-361-DEP-D-AR1102-2020-16.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-361-DEP-D-AR1102-2020-16.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-17.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-17.pdf",
+      "bytes": 339791,
+      "sha256": "707a3aa0779b905c0cbab8cac9d834132ee0b2877eababe17a4f7348abf0305a",
+      "title": "DEP-D-AR1102-2020-17.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-362-DEP-D-AR1102-2020-17.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-362-DEP-D-AR1102-2020-17.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-18.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-18.pdf",
+      "bytes": 337651,
+      "sha256": "dc4b7f083b50759656f4c0dc81ddfe3bfc71f0e6fda29ace5b7c508057fda6a2",
+      "title": "DEP-D-AR1102-2020-18.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-363-DEP-D-AR1102-2020-18.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-363-DEP-D-AR1102-2020-18.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-19.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-19.pdf",
+      "bytes": 338674,
+      "sha256": "e671087f953b788569302e304d4c20233600d7a5f444e9f602105d70a68eb575",
+      "title": "DEP-D-AR1102-2020-19.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-364-DEP-D-AR1102-2020-19.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-364-DEP-D-AR1102-2020-19.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-20.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-20.pdf",
+      "bytes": 338449,
+      "sha256": "e7ff44b7d163e1660cba6480789905f8f1dcd82a2afb2b450b0f923d75c5e33c",
+      "title": "DEP-D-AR1102-2020-20.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-365-DEP-D-AR1102-2020-20.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-365-DEP-D-AR1102-2020-20.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-21.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-21.pdf",
+      "bytes": 338601,
+      "sha256": "575a1a50293e0ce5453c5a0368a7b3ba543a1d7ea01a4180e12d3ac5241634e9",
+      "title": "DEP-D-AR1102-2020-21.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-366-DEP-D-AR1102-2020-21.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-366-DEP-D-AR1102-2020-21.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-22.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-22.pdf",
+      "bytes": 273942,
+      "sha256": "bfa20b36036d49f0864aaf5910c15513565b0ed72afafb28e8c9445d7c6a98e1",
+      "title": "DEP-D-AR1102-2020-22.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-367-DEP-D-AR1102-2020-22.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-367-DEP-D-AR1102-2020-22.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-23.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-23.pdf",
+      "bytes": 273361,
+      "sha256": "85098c220ed1147e3ae13ac61e0c367fdad4450bded42de7b289ed4a64ec434b",
+      "title": "DEP-D-AR1102-2020-23.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-368-DEP-D-AR1102-2020-23.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-368-DEP-D-AR1102-2020-23.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-24.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-24.pdf",
+      "bytes": 276802,
+      "sha256": "1fe147954fedf576519184ab427823058dd513e325fb67733da5469b8778010f",
+      "title": "DEP-D-AR1102-2020-24.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-369-DEP-D-AR1102-2020-24.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-369-DEP-D-AR1102-2020-24.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-25.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-25.pdf",
+      "bytes": 276307,
+      "sha256": "9b2a7500ec47148558c192d79507859544f98ee5359d6457c9fe554ffba0fd5a",
+      "title": "DEP-D-AR1102-2020-25.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-370-DEP-D-AR1102-2020-25.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-370-DEP-D-AR1102-2020-25.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-26.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-26.pdf",
+      "bytes": 319767,
+      "sha256": "a3fbb8dc88b91ffde51847e239f68bef42348514aa1597f078fc4c50201f7dbc",
+      "title": "DEP-D-AR1102-2020-26.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-371-DEP-D-AR1102-2020-26.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-371-DEP-D-AR1102-2020-26.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-27.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-27.pdf",
+      "bytes": 348168,
+      "sha256": "953fdd1a0fcdd0ad5d9920f0d514170b354cf572e240c5e1c14a14940bf5f7b9",
+      "title": "DEP-D-AR1102-2020-27.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-372-DEP-D-AR1102-2020-27.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-372-DEP-D-AR1102-2020-27.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-28.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-28.pdf",
+      "bytes": 347047,
+      "sha256": "905805536485b00ff5dc1cd02fb6306be548b5d9e4f039508ab92acd6e3422d7",
+      "title": "DEP-D-AR1102-2020-28.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-373-DEP-D-AR1102-2020-28.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-373-DEP-D-AR1102-2020-28.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-29.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-29.pdf",
+      "bytes": 293094,
+      "sha256": "29f3c1c14b86f936ded777ce2fd13ec525e94ee8a0a8c13d3a24ef9bd3e981ce",
+      "title": "DEP-D-AR1102-2020-29.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-374-DEP-D-AR1102-2020-29.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-374-DEP-D-AR1102-2020-29.pdf"
+    },
+    {
+      "path": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip!/DEP-D-AR1102-2021 建筑抗爆门窗标准图222/DEP-D-AR1102-2020-30.pdf",
+      "container": "data/sources/国内建筑规范/DEP-D-AR1102-2021 建筑抗爆门窗标准图/DEP-D-AR1102-2021 建筑抗爆门窗标准图222.zip",
+      "member": "DEP-D-AR1102-2021 ╜¿╓■┐╣▒¼├┼┤░▒Ω╫╝═╝222/DEP-D-AR1102-2020-30.pdf",
+      "bytes": 283442,
+      "sha256": "e3f3c983c4ed9b4121b463c720554fca70c6aa2b4fc41c09ef1fee0f7fb5af1c",
+      "title": "DEP-D-AR1102-2020-30.pdf",
+      "category": "规范原件",
+      "asset_name": "PDF-375-DEP-D-AR1102-2020-30.pdf",
+      "url": "https://github.com/EXCEED2050/building-code-kb/releases/download/pdfs-2026-10-22/PDF-375-DEP-D-AR1102-2020-30.pdf"
+    }
+  ]
+}

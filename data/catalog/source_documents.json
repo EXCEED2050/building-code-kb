@@ -1,0 +1,29 @@
+{
+  "GB 55037-2022": {
+    "full_pdf_path": "data/processed/reference-pdfs/GB_55037-2022-complete.pdf",
+    "sha256": "e1d0005fbe455a356295d21c28a594a487a54932a2fceab5d4628a888e121029",
+    "source_pdf_sha256": "90b92701fe6988a1c1c7659cd96a68fef92523ae3a2b04168aed937f03c247d0",
+    "page_offset": 8,
+    "mapped_source_pages": 66,
+    "page_count": 136,
+    "parts": [
+      {
+        "path": "data/sources/标准库/国家标准/GB 55037-2022 建筑防火通用规范_部分1.pdf",
+        "sha256": "c12f1771795b03a5904bb00613973d28a70bd1fdf5ca074078767dbda518fc99"
+      },
+      {
+        "path": "data/sources/标准库/国家标准/GB 55037-2022 建筑防火通用规范_部分2.pdf",
+        "sha256": "cad22cf51cc4c08a5c26afd10cdc1a3121fcd8c230f5d2afac3d02de4b254ca2"
+      },
+      {
+        "path": "data/sources/标准库/国家标准/GB 55037-2022 建筑防火通用规范_部分3.pdf",
+        "sha256": "89d1fd5bd0caabb16652662b145a2c3d90b36e951c820175585aab6f69a09f9c"
+      }
+    ],
+    "mapping_check": {
+      "method": "66页缩略图差异计算，关键页视觉核对；扫描版面差异使像素不完全一致，不表示全文校核",
+      "mean_pixel_error": 12.7292,
+      "max_pixel_error": 17.114
+    }
+  }
+}

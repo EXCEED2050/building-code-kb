@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "building-code-kb"
+version = "0.2.0"
+description = "建筑法规条文检索、原文定位与辅助问答"
+requires-python = ">=3.12"
+dynamic = ["dependencies"]
+
+[project.scripts]
+building-kb = "building_kb.__main__:main"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+building_kb = ["web/static/*"]

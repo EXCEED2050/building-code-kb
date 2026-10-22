@@ -1,44 +1,26 @@
-# 凭据与本机配置
+# Local credentials and machine configuration
 .env
 .env.*
 !.env.example
-kb/conf/magic-pdf.json
+/config/magic-pdf.json
 *.pem
 *.key
 
-# Python、编辑器与系统缓存
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.DS_Store
-.pytest_cache/
-*.log
-
-# 原始资料、模型、生成结果；仅保留手工维护的规则表
-/建筑规范/
-/MinerU/
-/knowledge-base/
-/kb/models/
-/kb/review/
-/kb/data/*
-!/kb/data/overrides.tsv
-!/kb/data/tiers.tsv
-!/kb/data/clause_notes.tsv
-
-# 私有协作仓库保留完整切条数据与台账
-!/kb/data/catalog.csv
-!/kb/data/chunks/
-/kb/data/chunks/*
-!/kb/data/chunks/*.jsonl
-!/kb/data/runtime-manifest.json
-!/kb/data/asset-manifest.json
-
-# 本地规划与进度记录
-/PLAN.md
-/进度.html
-
-# 含真实语料的本地协作交付包，按共享范围另行分发
+# Runtime output and large source assets (private Releases)
+/data/sources/
+/data/processed/
+/var/
+/archive/
 /协作交付/
 
-!/kb/data/upload-parts.json
+# Python / editor / operating-system state
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+*.log
+build/
+dist/
