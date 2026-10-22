@@ -140,7 +140,8 @@ def main():
     for row in pdfs:
         result = received[row['sha256']]
         catalog.append({**row, 'title': title_for(row), 'category': category(row),
-                        'asset_name': result['name'], 'url': result['browser_download_url']})
+                        'asset_name': result['name'],
+                        'url': 'https://github.com/EXCEED2050/building-code-kb/releases/download/' + TAG + '/' + quote(result['name'])})
     lines = ['# PDF 目录', '', '点击文件名即可单独下载正常 PDF，无需解压。仓库和文件均保持私有。', '',
              f'共 {len(pdfs)} 个 PDF 来源条目；相同内容共用下载文件，共 {len(unique)} 个独立 PDF。包含不同版本、单页图纸、解析原件和 OCR 合并稿，数量与已切条的 159 本标准不同。', '',
              '[全部 PDF 附件](https://github.com/EXCEED2050/building-code-kb/releases/tag/' + TAG + ') · [ZIP 完整备份与目录恢复](私有资料恢复.md)', '']
