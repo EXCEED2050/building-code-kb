@@ -20,3 +20,25 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 building_kb = ["web/static/*"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["archive", "var", "data", "docs/history"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["building_kb"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version_provider = "pep621"
+tag_format = "v$version"
+major_version_zero = true

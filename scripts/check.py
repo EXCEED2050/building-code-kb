@@ -1,12 +1,15 @@
 """Run the shared checks without model downloads, credentials or PDF assets."""
+
 import os
-from pathlib import Path
 import subprocess
 import sys
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 env = {**os.environ, "KB_DEV": "1", "PYTHONPATH": str(ROOT / "src")}
 commands = [
+    [sys.executable, "-m", "ruff", "check", "src", "tests", "scripts", "run_dev.py"],
+    [sys.executable, "-m", "ruff", "format", "--check", "src", "tests", "scripts", "run_dev.py"],
     [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],
     [sys.executable, "-m", "building_kb", "check-snapshot"],
     [sys.executable, "-m", "building_kb", "export-public", "--check"],

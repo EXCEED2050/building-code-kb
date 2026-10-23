@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -19,4 +21,6 @@ jobs:
           node-version: '22'
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m pip install -e . --no-deps
+      - name: Check new commit messages
+        run: python -m commitizen check --rev-range 3adec2502bc729a3433f7740cb9722c8847b3097..HEAD
       - run: python scripts/check.py
