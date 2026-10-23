@@ -5,12 +5,11 @@
     uvicorn building_kb.web.main:app --host 0.0.0.0 --port 8000
 """
 
+import os
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
-from building_kb import paths  # loads root .env before auth is imported
 
-import os
+sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 os.environ.setdefault("KB_DEV", "1")
 

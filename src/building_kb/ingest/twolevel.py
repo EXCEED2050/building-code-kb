@@ -146,7 +146,7 @@ def _clause_candidates(base: str, last: str) -> list[str]:
     """
     if not last:
         return [f"{base}.1"]
-    floor = base.count(".") + 1   # 条号至少比 base 深一级
+    floor = base.count(".") + 1  # 条号至少比 base 深一级
     parts = [int(x) for x in last.split(".")]
     out = [".".join(map(str, parts + [1]))]
     for d in range(len(parts), floor, -1):
@@ -195,6 +195,7 @@ def parse_toc(texts: list[str]) -> list[tuple[str, str]]:
 # --------------------------------------------------------------------------
 # 正文
 # --------------------------------------------------------------------------
+
 
 @dataclass
 class Item:
@@ -260,11 +261,14 @@ def _heading_at(text: str, num: str, toc_title: str) -> int | None:
     m = re.match(re.escape(num) + r"\s{0,4}(?=[一-龥])", text)
     if not m:
         return None
-    return m.end() if _same_title(text[m.end():], toc_title) else None
+    return m.end() if _same_title(text[m.end() :], toc_title) else None
 
 
 def build_structure(
-    blocks: list[PagedBlock], toc: list[tuple[str, str]], start: int, end: int,
+    blocks: list[PagedBlock],
+    toc: list[tuple[str, str]],
+    start: int,
+    end: int,
     strict: bool = True,
 ) -> tuple[list[Item], dict]:
     """按目次走一遍正文，切出章 / 节 / 条。
@@ -282,14 +286,13 @@ def build_structure(
     """
     toc_nums = [n for n, _ in toc]
     # 某一章在目次里有没有节，决定了「条」落在第几级。见模块 docstring。
-    has_sec = {c: any(n.startswith(c + ".") for n in toc_nums)
-               for c in toc_nums if "." not in c}
+    has_sec = {c: any(n.startswith(c + ".") for n in toc_nums) for c in toc_nums if "." not in c}
 
     items: list[Item] = []
     cur: Item | None = None
-    chapter = section = ""      # 「编号 标题」
+    chapter = section = ""  # 「编号 标题」
     chap_no = sec_no = ""
-    clause_no = ""              # 本章/本节里上一条的条号
+    clause_no = ""  # 本章/本节里上一条的条号
     toc_pos = 0
     in_appendix = False
     in_toc = False
@@ -396,7 +399,7 @@ def build_structure(
             open_item(want, "clause", rest[e:], off)
             # 已经开了新条，块内剩下的文字归它；继续找同一块里的下一条
             rest = cur.text  # type: ignore[union-attr]
-            cur.text = ""    # type: ignore[union-attr]
+            cur.text = ""  # type: ignore[union-attr]
 
     n_clause = sum(1 for it in items if it.kind == "clause")
     chaps = [n for n in toc_nums if "." not in n]
@@ -436,14 +439,11 @@ def _fold_title_clauses(items: list[Item]) -> list[Item]:
     out: list[Item] = []
     for i, it in enumerate(items):
         nxt = items[i + 1] if i + 1 < len(items) else None
-        is_parent = (
-            it.kind == "clause" and nxt is not None
-            and nxt.num.startswith(it.num + ".")
-        )
+        is_parent = it.kind == "clause" and nxt is not None and nxt.num.startswith(it.num + ".")
         title = it.text.strip()
         if is_parent and not it.tables and len(title) <= 30 and not _SENTENCE.search(title):
             head = f"{it.num} {title}".strip()
-            for d in items[i + 1:]:
+            for d in items[i + 1 :]:
                 if not d.num.startswith(it.num + "."):
                     break
                 d.section = f"{d.section} / {head}" if d.section else head

@@ -25,13 +25,11 @@ from docx.text.paragraph import Paragraph
 
 # 目次行：「4 建筑防火……… 3」「1.\t范围\t3」「2引用文件…… 3」
 # 标题与编号间可能无空格，故分隔符允许为空，但那时标题须以汉字开头。
-TOC_RE = re.compile(
-    r"^(\d+(?:\.\d+)*)\s*[.、]?\s*[\t　 ]*([一-龥][^\t]*?)[\s.…·]*(\d{1,3})\s*$"
-)
+TOC_RE = re.compile(r"^(\d+(?:\.\d+)*)\s*[.、]?\s*[\t　 ]*([一-龥][^\t]*?)[\s.…·]*(\d{1,3})\s*$")
 TOC_END_RE = re.compile(r"^前\s*言\s*$")
 SKIP_TITLE_RE = re.compile(r"^(目\s*次|前\s*言|Contents)\s*$")
 # 正文起点：前言之后的第一个目次标题。前言里也会复述章节名
-#（「本标准共分6章，主要内容有：建筑防火、建筑防爆……」），要跳过去。
+# （「本标准共分6章，主要内容有：建筑防火、建筑防爆……」），要跳过去。
 PREFACE_RE = re.compile(r"^前\s*言\s*$")
 
 
@@ -151,14 +149,14 @@ def build_structure(
         stripped = text
         inline_no = ""
         if inline and (m := INLINE_RE.match(text)):
-            inline_no, stripped = m.group(1), text[m.end():]
+            inline_no, stripped = m.group(1), text[m.end() :]
 
         key = _norm(stripped)
         num = toc.get(key)
         if num is None and inline and not inline_no and (m := HEAD_NO_RE.match(text)):
             # 单级章号「1 范围」：剥掉号再问一次目次
-            if (k2 := _norm(text[m.end():])) in toc:
-                inline_no, stripped, key, num = m.group(1), text[m.end():], k2, toc[k2]
+            if (k2 := _norm(text[m.end() :])) in toc:
+                inline_no, stripped, key, num = m.group(1), text[m.end() :], k2, toc[k2]
         # 目次命中且没开过 —— 开新章或新节。限长是因为条文正文偶尔整句等于
         # 某个章节名（「本章规定了建筑防火」），但那种句子都更长。
         if num and key not in seen and len(stripped) <= 30:

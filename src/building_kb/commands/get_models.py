@@ -13,12 +13,12 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import shutil
 import sys
 from pathlib import Path
+
+from building_kb import paths
 
 MODELS = paths.MODELS
 
@@ -37,9 +37,13 @@ SPECS = {
 # 而目录看着是存在的（这正是 `fetch` 末尾那道完整性检查要挡的情况）。
 WEIGHTS = ("model.safetensors", "pytorch_model.bin")
 ALLOW = [
-    "config.json", "configuration.json",
-    "tokenizer.json", "tokenizer_config.json", "special_tokens_map.json",
-    "sentencepiece.bpe.model", "sentence_bert_config.json",
+    "config.json",
+    "configuration.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "special_tokens_map.json",
+    "sentencepiece.bpe.model",
+    "sentence_bert_config.json",
     *WEIGHTS,
 ]
 
@@ -72,8 +76,10 @@ def fetch(key: str, force: bool = False) -> bool:
     # 于是在加载时才炸，而且报的是 transformers 的内部错——
     # 不如在这里说清楚。
     if not _has_weights(dest):
-        print(f"  ! {repo} 下下来了但没有权重文件（{' / '.join(WEIGHTS)}），判定为不完整",
-              file=sys.stderr)
+        print(
+            f"  ! {repo} 下下来了但没有权重文件（{' / '.join(WEIGHTS)}），判定为不完整",
+            file=sys.stderr,
+        )
         return False
     total = sum(f.stat().st_size for f in dest.iterdir() if f.is_file())
     print(f"  -> {dest}（{total / 1e9:.2f} GB）")

@@ -11,10 +11,9 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import sys
-from pathlib import Path
+
+from building_kb import paths
 
 OUT = paths.VAR / "qr"
 
@@ -38,8 +37,10 @@ def main(argv: list[str]) -> int:
 
     # 微信里扫码打开网页有两条硬要求，现在提醒比上线后返工便宜：
     if not url.startswith("https://"):
-        print("! 地址不是 https。微信内置浏览器对 http 页面会拦一道警告，"
-              "同事多半就退出去了。", file=sys.stderr)
+        print(
+            "! 地址不是 https。微信内置浏览器对 http 页面会拦一道警告，同事多半就退出去了。",
+            file=sys.stderr,
+        )
     if "localhost" in url or "127.0.0.1" in url:
         print("! 这是本机地址，只有你这台电脑能打开，扫了也没用。", file=sys.stderr)
 

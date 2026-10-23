@@ -11,8 +11,6 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import csv
 import html
@@ -21,6 +19,8 @@ import re
 from pathlib import Path
 
 import fitz  # PyMuPDF
+
+from building_kb import paths
 
 DPI = 130
 # 校对页会被人拖着滚很久，图太大会卡；130dpi 足够看清表格里的数字
@@ -103,9 +103,7 @@ def suspect_rows(rows: list[list[str]]) -> set[int]:
 def table_html(md: str) -> tuple[str, int]:
     """Markdown 表格转 <table>，返回 (html, 可疑行数)。"""
     rows = [
-        [c.strip() for c in r.strip().strip("|").split("|")]
-        for r in md.splitlines()
-        if r.strip()
+        [c.strip() for c in r.strip().strip("|").split("|")] for r in md.splitlines() if r.strip()
     ]
     if not rows:
         return "", 0
@@ -129,7 +127,7 @@ def render_chunk(c: dict, imgs: dict[int, str]) -> str:
         flags.append('<span class="flag sup">已被修订取代</span>')
 
     basis = (
-        f'<div class=basis>强条依据：{html.escape(c["mandatory_basis"])}</div>'
+        f"<div class=basis>强条依据：{html.escape(c['mandatory_basis'])}</div>"
         if c["mandatory_basis"]
         else ""
     )
@@ -146,15 +144,15 @@ def render_chunk(c: dict, imgs: dict[int, str]) -> str:
     pane = (
         "".join(f'<img loading="lazy" src="{s}">' for s in shots)
         if shots
-        else '<div class=nopage>该条未取到页码，无法比对原页</div>'
+        else "<div class=nopage>该条未取到页码，无法比对原页</div>"
     )
 
-    return f"""<section class=row id="c{html.escape(c['clause_no'])}">
+    return f"""<section class=row id="c{html.escape(c["clause_no"])}">
   <div class=left>
-    <h3>第 {html.escape(c['clause_no'])} 条 {''.join(flags)}
+    <h3>第 {html.escape(c["clause_no"])} 条 {"".join(flags)}
         <span class=page>{page}</span></h3>
-    <div class=path>{html.escape(c['chapter_path'])}</div>
-    <pre>{html.escape(c['text'])}</pre>
+    <div class=path>{html.escape(c["chapter_path"])}</div>
+    <pre>{html.escape(c["text"])}</pre>
     {tables}
     {basis}
   </div>
@@ -204,7 +202,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"找不到切条结果: {src}")
         return 1
 
-    chunks = [json.loads(l) for l in src.open(encoding="utf-8")]
+    chunks = [json.loads(line) for line in src.open(encoding="utf-8")]
     live = [c for c in chunks if not c["superseded"] and c["section_type"] != "条文说明"]
 
     if args.clause:

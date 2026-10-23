@@ -14,9 +14,9 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
+
+from building_kb import paths
 
 from .. import providers
 from ..search.retrieve import Hit, Retriever
@@ -90,12 +90,16 @@ def answer(r: Retriever, question: str, k: int = 8):
     """产出 (检索结果, 流式回答生成器)。检索不到就不调模型。"""
     hits, _ = r.search(question, k)
     if not hits:
+
         def nothing():
             yield "未检索到相关条文。可以试试换个说法，或直接给出规范号和条号。"
+
         return hits, nothing()
     if not any(h.chunk.get("answerable", True) for h in hits):
+
         def unreliable():
             yield "检索到的条文转录存在未解决的问题，暂不能作为作答依据，请打开PDF原件核对。"
+
         return hits, unreliable()
 
     llm = providers.get_llm()

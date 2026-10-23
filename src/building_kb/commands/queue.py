@@ -19,13 +19,13 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import csv
 import re
 from collections import defaultdict
 from pathlib import Path
+
+from building_kb import paths
 
 NORM_RE = re.compile(r"[^A-Za-z0-9]")
 
@@ -54,8 +54,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--chunks", default=str(paths.CHUNKS))
     ap.add_argument("--out", default=str(paths.QUEUES))
     ap.add_argument("--tier", default="", help="只处理某一档")
-    ap.add_argument("--scope", default=SCOPE,
-                    help="只解析路径含此片段的 PDF；传空串表示不限")
+    ap.add_argument("--scope", default=SCOPE, help="只解析路径含此片段的 PDF；传空串表示不限")
     args = ap.parse_args(argv)
 
     rows = list(csv.DictReader(Path(args.catalog).open(encoding="utf-8-sig")))
@@ -102,9 +101,11 @@ def main(argv: list[str] | None = None) -> int:
         f = out_dir / f"ocr_t{tier}.txt"
         f.write_text("".join(f"{p}\n" for _, p in items), encoding="utf-8")
         s = stats[tier]
-        print(f"{f}  {s['n']} 本 / {len(items)} 个文件 / {s['pages']} 页"
-              f"（其中 {s['txt']} 本有文本层，不用 OCR）"
-              f"  预计 {s['pages'] * 10.5 / 3600:.1f} 小时")
+        print(
+            f"{f}  {s['n']} 本 / {len(items)} 个文件 / {s['pages']} 页"
+            f"（其中 {s['txt']} 本有文本层，不用 OCR）"
+            f"  预计 {s['pages'] * 10.5 / 3600:.1f} 小时"
+        )
     if missing:
         print("\n对不上台账的：")
         for tier, code, note in missing:
@@ -114,7 +115,9 @@ def main(argv: list[str] | None = None) -> int:
         # 写成文件，便于事后比对「收窄到底丢了什么」
         rec = out_dir / "ocr_out_of_scope.txt"
         rec.write_text(
-            "".join(f"{tier}\t{code}\t{r['file_path']}\n" for tier, code, rs in outside for r in rs),
+            "".join(
+                f"{tier}\t{code}\t{r['file_path']}\n" for tier, code, rs in outside for r in rs
+            ),
             encoding="utf-8",
         )
         print(f"\n范围外（只在 {args.scope} 之外有 PDF，本次不解析）：{len(outside)} 本 → {rec}")

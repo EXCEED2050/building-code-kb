@@ -18,15 +18,14 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import csv
 import glob
 import hashlib
 import json
-import os
 from functools import lru_cache
 from pathlib import Path
+
+from building_kb import paths
 
 from .ingest.batch import index_mineru, index_word_files, match, norm
 
@@ -53,7 +52,9 @@ def pdf_document(std_code: str) -> tuple[Path, int]:
         return source, 0
     complete = ROOT / record["full_pdf_path"]
     if not complete.is_file():
-        raise FileNotFoundError("完整PDF尚未恢复，请运行 building_kb.commands.build_source_documents；逐页预览仍可用")
+        raise FileNotFoundError(
+            "完整PDF尚未恢复，请运行 building_kb.commands.build_source_documents；逐页预览仍可用"
+        )
     for path, digest in [(source, record["source_pdf_sha256"]), (complete, record["sha256"])]:
         if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
             raise ValueError("PDF指纹变化，完整阅读本的页码映射须重新核对")
@@ -62,8 +63,8 @@ def pdf_document(std_code: str) -> tuple[Path, int]:
 
 @lru_cache(maxsize=1)
 def _tables():
-    by_stem: dict[str, Path] = {}     # 文件名（不含扩展名）-> 路径
-    first_pdf: dict[str, Path] = {}   # 归一编号 -> 台账里第一个 PDF
+    by_stem: dict[str, Path] = {}  # 文件名（不含扩展名）-> 路径
+    first_pdf: dict[str, Path] = {}  # 归一编号 -> 台账里第一个 PDF
     with CATALOG.open(encoding="utf-8-sig") as fh:
         for r in csv.DictReader(fh):
             fp = r["file_path"]
@@ -73,7 +74,13 @@ def _tables():
             by_stem.setdefault(Path(fp).stem, p)
             if r["std_code"].strip() and p.exists():
                 first_pdf.setdefault(norm(r["std_code"]), p)
-    return by_stem, first_pdf, index_word_files(WORD_DIR), index_mineru(MINERU_DIR), index_mineru(OCR_DIR)
+    return (
+        by_stem,
+        first_pdf,
+        index_word_files(WORD_DIR),
+        index_mineru(MINERU_DIR),
+        index_mineru(OCR_DIR),
+    )
 
 
 def _book_dir_name(content_list: Path, base: Path) -> str:
@@ -91,7 +98,11 @@ def resolve(std_code: str) -> Path | None:
     o = match(std_code, ocrs)
     p: Path | None = None
     if w is not None:
-        p = by_stem.get(_book_dir_name(m, MINERU_DIR)) if m is not None else first_pdf.get(norm(std_code))
+        p = (
+            by_stem.get(_book_dir_name(m, MINERU_DIR))
+            if m is not None
+            else first_pdf.get(norm(std_code))
+        )
     elif o is not None:
         name = _book_dir_name(o, OCR_DIR)
         p = OCR_DIR / "_merged" / f"{name}.pdf"

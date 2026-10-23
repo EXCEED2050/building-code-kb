@@ -23,8 +23,6 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import json
 import re
@@ -38,6 +36,8 @@ from docx.document import Document as DocxDocument
 from docx.oxml.ns import qn
 from docx.table import Table
 from docx.text.paragraph import Paragraph
+
+from building_kb import paths
 
 from . import depdoc, mdblocks, twolevel
 
@@ -106,10 +106,13 @@ def announced_mandatory(blocks: list[tuple[str, object, str]], body_start: int) 
             out.update(CLAUSE_NUM_RE.findall(m.group(1)))
     return out
 
+
 # GB 55xxx 系列为工程建设通用规范，全文强制，且文件内不含条文说明
 UNIVERSAL_CODE_RE = re.compile(r"^GB\s*55\d{3}")
 
-FRONT_MATTER_RE = re.compile(r"^(中华人民共和国.*公告|住房城乡建设部.*公告|前\s*言|目\s*次|Contents)\s*$")
+FRONT_MATTER_RE = re.compile(
+    r"^(中华人民共和国.*公告|住房城乡建设部.*公告|前\s*言|目\s*次|Contents)\s*$"
+)
 # 条文说明标题的写法不一：GB 50011 是「条文说明」，GB 55015 是「四、条文说明」
 # 「条文说明」大标题。必须整行匹配，否则目次里的「条文说明……38」也会算数。
 # 但 OCR 源要多兜一层：MinerU 常把页眉的规范号跟标题并进同一个块，
@@ -211,6 +214,7 @@ class Chunk:
 # Word 读取：python-docx 默认把段落和表格分成两个列表，会丢失它们的相对位置。
 # 表格必须挂到它所跟随的条文上，所以这里按 XML body 顺序遍历。
 # --------------------------------------------------------------------------
+
 
 def iter_block_items(doc: DocxDocument):
     """按文档实际顺序产出 ('p', Paragraph) / ('t', Table)。"""
@@ -324,6 +328,7 @@ class _TcWrapper:
 # 区段划分
 # --------------------------------------------------------------------------
 
+
 @dataclass
 class Region:
     kind: SectionType
@@ -366,7 +371,9 @@ def split_regions(blocks: list[tuple[str, object, str]]) -> list[Region]:
             for a, b in zip(bounds, bounds[1:])
         ]
         body_start = max(density)[1]
-    heads = [(i, t) for i, t in enumerate(texts) if i in set(notes_idx) or COVER_RE.match(t.strip())]
+    heads = [
+        (i, t) for i, t in enumerate(texts) if i in set(notes_idx) or COVER_RE.match(t.strip())
+    ]
     notes_start = draft_start(heads, body_start, notes_start)
 
     regions: list[Region] = []
@@ -389,6 +396,7 @@ def split_regions(blocks: list[tuple[str, object, str]]) -> list[Region]:
 # --------------------------------------------------------------------------
 # 切条
 # --------------------------------------------------------------------------
+
 
 def confirms(
     blocks: list[tuple[str, object, str]], start: int, end: int, num: list[int], window: int = 60
@@ -481,11 +489,16 @@ def chunk_region(
         # 于是下一段「3术语和定义」被当成续行吞掉，第 3、4 章连同整章条文
         # 全挂到了第 2 章名下。章节标题有 confirms() 背书，比悬空引用更可信。
         heading = not chapter.startswith("附录") and (
-            ((m := CHAPTER_RE.match(text)) and int(m.group(1)) > chap_no
-             and confirms(blocks, i + 1, region.end, [int(m.group(1))]))
-            or ((m := SECTION_RE.match(text)) and int(m.group(1)) == chap_no
-                and confirms(blocks, i + 1, region.end,
-                             [int(m.group(1)), int(m.group(2))]))
+            (
+                (m := CHAPTER_RE.match(text))
+                and int(m.group(1)) > chap_no
+                and confirms(blocks, i + 1, region.end, [int(m.group(1))])
+            )
+            or (
+                (m := SECTION_RE.match(text))
+                and int(m.group(1)) == chap_no
+                and confirms(blocks, i + 1, region.end, [int(m.group(1)), int(m.group(2))])
+            )
         )
 
         # 上一段以悬空引用收尾，本段必是续行，不能当作新条文/新附录开头
@@ -504,8 +517,11 @@ def chunk_region(
             # 章/节标题同样开占位块：SH/T 3006 的「3术语和定义 / 3.1控制室」这类
             # 段落下面是不编条号的定义正文，没有占位块就会整章游离。
             # 占位块若立刻被条文顶掉，会在 flush 里丢弃。
-            if (m := CHAPTER_RE.match(text)) and int(m.group(1)) > chap_no \
-                    and confirms(blocks, i + 1, region.end, [int(m.group(1))]):
+            if (
+                (m := CHAPTER_RE.match(text))
+                and int(m.group(1)) > chap_no
+                and confirms(blocks, i + 1, region.end, [int(m.group(1))])
+            ):
                 flush()
                 chap_no = int(m.group(1))
                 chapter = f"{chap_no} {TOC_PAGE_RE.sub('', m.group(2).strip())}"
@@ -513,8 +529,10 @@ def chunk_region(
                 cur = new_chunk(str(chap_no), text)
                 shell = True
                 continue
-            if (m := SECTION_RE.match(text)) and int(m.group(1)) == chap_no and confirms(
-                blocks, i + 1, region.end, [int(m.group(1)), int(m.group(2))]
+            if (
+                (m := SECTION_RE.match(text))
+                and int(m.group(1)) == chap_no
+                and confirms(blocks, i + 1, region.end, [int(m.group(1)), int(m.group(2))])
             ):
                 flush()
                 section = f"{m.group(1)}.{m.group(2)} {TOC_PAGE_RE.sub('', m.group(3).strip())}"
@@ -556,6 +574,7 @@ def chunk_region(
 # --------------------------------------------------------------------------
 # 页码回填 & 修订优先
 # --------------------------------------------------------------------------
+
 
 def load_page_map(path: Path) -> tuple[dict[str, list[int]], int, int]:
     """从 MinerU content_list.json 建 条号 -> [出现过的页码]，并定位区段页界。
@@ -611,8 +630,7 @@ def load_page_map(path: Path) -> tuple[dict[str, list[int]], int, int]:
     if cands:
         bounds = [*cands, notes_start_page]
         rev_end_page = max(
-            (sum(1 for p in clause_pages if a <= p < b), a)
-            for a, b in zip(bounds, bounds[1:])
+            (sum(1 for p in clause_pages if a <= p < b), a) for a, b in zip(bounds, bounds[1:])
         )[1]
     notes_start_page = draft_start(notes_heads, rev_end_page, notes_start_page)
 
@@ -677,17 +695,21 @@ def apply_mandatory(
         return 0, "推荐性标准，无强制性条文"
 
     declared = {
-        c.clause_no
-        for c in chunks
-        if c.section_type == "条文说明" and MANDATORY_RE.search(c.text)
+        c.clause_no for c in chunks if c.section_type == "条文说明" and MANDATORY_RE.search(c.text)
     }
     listed = announced or set()
     n = 0
     for c in chunks:
         if c.section_type == "条文说明":
             continue
-        src = [s for s, ok in (("发布公告列明", c.clause_no in listed),
-                               ("条文说明声明", c.clause_no in declared)) if ok]
+        src = [
+            s
+            for s, ok in (
+                ("发布公告列明", c.clause_no in listed),
+                ("条文说明声明", c.clause_no in declared),
+            )
+            if ok
+        ]
         if src:
             c.is_mandatory = True
             c.mandatory_basis = " + ".join(src)
@@ -764,6 +786,7 @@ def apply_revision_priority(chunks: list[Chunk]) -> int:
 
 # --------------------------------------------------------------------------
 
+
 def build_dep(
     blocks: list[tuple[str, object, str]], meta: dict, quiet: bool = False
 ) -> tuple[list[Chunk], dict]:
@@ -785,7 +808,8 @@ def build_dep(
         if n := by_idx.get(i):
             cur = Chunk(
                 chunk_id=f"{meta['std_code']}#正文#{n.number}".replace(" ", "_"),
-                std_code=meta["std_code"], std_name=meta["std_name"],
+                std_code=meta["std_code"],
+                std_name=meta["std_name"],
                 version=meta["version"],
                 # 编号不可信时留空：引用里写错条号，比不写条号危害大得多
                 clause_no=n.number if diag["trusted"] else "",
@@ -801,8 +825,10 @@ def build_dep(
 
     if not quiet:
         src = "正文自带" if diag["inline"] else "按自动编号重建"
-        print(f"  企标结构: 目次 {diag['toc']} 章节，命中 {diag['toc_hit']}，条文号{src}"
-              f"（{'可信' if diag['trusted'] else '存疑，已置空条号'}）")
+        print(
+            f"  企标结构: 目次 {diag['toc']} 章节，命中 {diag['toc_hit']}，条文号{src}"
+            f"（{'可信' if diag['trusted'] else '存疑，已置空条号'}）"
+        )
         print(f"  -> {len(chunks)} 条")
     return chunks, diag
 
@@ -829,9 +855,11 @@ def build_twolevel(content_list: Path, meta: dict) -> list[Chunk]:
     regions = split_regions([(k, o, t) for k, o, t, _ in blocks])
     items, diag = twolevel.build(blocks, [(r.kind, r.start, r.end) for r in regions])
 
-    print(f"  两级体例: 目次 {diag['toc']} 条目（{diag.get('toc_chapters', 0)} 章），"
-          f"正文命中 {diag.get('chapters_hit', 0)} 章，切出 {diag.get('clauses', 0)} 条"
-          f"（{'与目次相符' if diag['trusted'] else '与目次不符'}）")
+    print(
+        f"  两级体例: 目次 {diag['toc']} 条目（{diag.get('toc_chapters', 0)} 章），"
+        f"正文命中 {diag.get('chapters_hit', 0)} 章，切出 {diag.get('clauses', 0)} 条"
+        f"（{'与目次相符' if diag['trusted'] else '与目次不符'}）"
+    )
     if not diag["trusted"]:
         raise ValueError(
             f"{meta['std_code']} 两级体例切条未通过目次交叉验证："
@@ -847,25 +875,28 @@ def build_twolevel(content_list: Path, meta: dict) -> list[Chunk]:
     for kind, it in items:
         key = f"{meta['std_code']}#{kind}#{it.num}".replace(" ", "_")
         seen[key] += 1
-        chunks.append(Chunk(
-            chunk_id=key if seen[key] == 1 else f"{key}~{seen[key]}",
-            std_code=meta["std_code"], std_name=meta["std_name"],
-            version=meta["version"], clause_no=it.num,
-            chapter_path=" / ".join(x for x in (it.chapter, it.section) if x),
-            section_type=kind,
-            text=it.text.strip(),
-            tables=it.tables,
-            page_idx=it.page,
-            status=meta.get("status", ""),
-        ))
+        chunks.append(
+            Chunk(
+                chunk_id=key if seen[key] == 1 else f"{key}~{seen[key]}",
+                std_code=meta["std_code"],
+                std_name=meta["std_name"],
+                version=meta["version"],
+                clause_no=it.num,
+                chapter_path=" / ".join(x for x in (it.chapter, it.section) if x),
+                section_type=kind,
+                text=it.text.strip(),
+                tables=it.tables,
+                page_idx=it.page,
+                status=meta.get("status", ""),
+            )
+        )
 
     n_mand, basis = apply_mandatory(chunks, meta["std_code"])
     n_fix = repair_chapter_paths(chunks)
     lost = sum(len(t) for t in diag["orphan"])
     kept = sum(len(c.text) for c in chunks if c.section_type == "正文")
     print(f"  区段: {diag['regions']}（前置 {diag['front']} 段未入库）")
-    print(f"  正文游离 {len(diag['orphan'])} 段 / {lost} 字"
-          f"（{lost / max(kept + lost, 1):.1%}）")
+    print(f"  正文游离 {len(diag['orphan'])} 段 / {lost} 字（{lost / max(kept + lost, 1):.1%}）")
     for k, n in (diag.get("other_orphan") or {}).items():
         if n:
             print(f"  {k}区游离 {n} 字")
@@ -900,7 +931,8 @@ def build(docx_path: Path, mineru_path: Path | None, meta: dict) -> list[Chunk]:
     # 于是条文都归到了上一个看得见的标题底下。
     body = [c for c in chunks if c.section_type == "正文" and c.clause_no[:1].isdigit()]
     askew = sum(
-        1 for c in body
+        1
+        for c in body
         if (s := c.chapter_path.split(" / ")[0]) and s.split(" ")[0] != c.clause_no.split(".")[0]
     )
     if lost0 / max(kept0 + lost0, 1) > 0.05 or askew > max(5, 0.1 * len(body)):
@@ -909,13 +941,14 @@ def build(docx_path: Path, mineru_path: Path | None, meta: dict) -> list[Chunk]:
         # 清单的取舍本就不同（AR2106 企标 6232 字 vs 国标 6759 字），
         # 但企标那边 45 条章节全对，国标那边 37 条里有 34 条挂错章。
         if diag["trusted"] and sum(len(c.text) for c in alt) >= 0.9 * kept0:
-            print(f"  国标路径游离 {lost0 / max(kept0 + lost0, 1):.1%}、"
-                  f"章号错位 {askew} 条，改用企标路径")
+            print(
+                f"  国标路径游离 {lost0 / max(kept0 + lost0, 1):.1%}、"
+                f"章号错位 {askew} 条，改用企标路径"
+            )
             return alt
 
     body = next((r.start for r in regions if r.kind == "正文"), 0)
-    return _finish(chunks, orphan, regions, mineru_path, meta,
-                   announced_mandatory(blocks, body))
+    return _finish(chunks, orphan, regions, mineru_path, meta, announced_mandatory(blocks, body))
 
 
 # 书末的两样附件：「本规范用词说明」「引用标准名录」。
@@ -923,7 +956,9 @@ def build(docx_path: Path, mineru_path: Path | None, meta: dict) -> list[Chunk]:
 # 09-24 实测 35 本书、每本正好一块中招。那一条的向量被一大段套话冲淡，
 # 查「应」「宜」「可」这类用词时还会被当成相关条文顶上来。
 # 必须整行匹配：条文里「按本规范用词说明执行」之类的句子不能误截。
-BACK_MATTER_RE = re.compile(r"(?:^|\n)\s*(?:附[:：]?\s*)?(?:本(?:规范|标准|规程|规定)用词说明|引用标准名录)\s*(?=\n|$)")
+BACK_MATTER_RE = re.compile(
+    r"(?:^|\n)\s*(?:附[:：]?\s*)?(?:本(?:规范|标准|规程|规定)用词说明|引用标准名录)\s*(?=\n|$)"
+)
 
 
 def cut_back_matter(chunks: list[Chunk]) -> int:
@@ -960,8 +995,10 @@ def _finish(
     if announced:
         body_nos = {c.clause_no for c in chunks if c.section_type == "正文"}
         if lost := sorted(announced - body_nos):
-            print(f"  ! 公告列为强条、但正文里没切出来：{'、'.join(lost)}"
-                  f"（{len(lost)}/{len(announced)} 条）")
+            print(
+                f"  ! 公告列为强条、但正文里没切出来：{'、'.join(lost)}"
+                f"（{len(lost)}/{len(announced)} 条）"
+            )
     n_sup = apply_revision_priority(chunks)
     n_fix = repair_chapter_paths(chunks)
 
@@ -999,8 +1036,7 @@ def build_from_mineru(content_list: Path, meta: dict) -> list[Chunk]:
     for r in regions:
         chunks.extend(chunk_region(blocks, r, meta, orphan if r.kind == "正文" else None))
     body = next((r.start for r in regions if r.kind == "正文"), 0)
-    chunks = _finish(chunks, orphan, regions, content_list, meta,
-                     announced_mandatory(blocks, body))
+    chunks = _finish(chunks, orphan, regions, content_list, meta, announced_mandatory(blocks, body))
 
     # 混合体例：有的章用三级条号，有的章用两级（SH/T 3103 第 5、11 章是
     # 5.2.1.1 / 11.1.1，第 4、6～10 章却是 4.1、8.1）。三级路径在前一种章里
@@ -1024,8 +1060,10 @@ def build_from_mineru(content_list: Path, meta: dict) -> list[Chunk]:
             print(f"  ! 两级路径不可信，保留三级路径结果：{exc}")
             return chunks
         if lost := uncovered(chunks, alt):
-            print(f"  ! 两级路径会丢掉三级路径切得出的 {len(lost)} 条"
-                  f"（{'、'.join(lost[:6])}{'…' if len(lost) > 6 else ''}），保留三级路径结果")
+            print(
+                f"  ! 两级路径会丢掉三级路径切得出的 {len(lost)} 条"
+                f"（{'、'.join(lost[:6])}{'…' if len(lost) > 6 else ''}），保留三级路径结果"
+            )
             return chunks
         return alt
     return chunks
@@ -1040,7 +1078,8 @@ def uncovered(old: list[Chunk], new: list[Chunk]) -> list[str]:
     have = [c.clause_no for c in new if c.section_type == "正文"]
     got = set(have)
     return [
-        n for n in dict.fromkeys(c.clause_no for c in old if c.section_type == "正文")
+        n
+        for n in dict.fromkeys(c.clause_no for c in old if c.section_type == "正文")
         if n not in got and not any(h.startswith(n + ".") for h in have)
     ]
 
