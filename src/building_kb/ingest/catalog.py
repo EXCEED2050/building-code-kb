@@ -10,18 +10,18 @@ status 与 superseded_by 留空，必须人工核对后填写。
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import csv
 import hashlib
 import re
 import sys
 from collections import defaultdict
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 import fitz  # PyMuPDF
+
+from building_kb import paths
 
 DOC_SUFFIXES = {".pdf", ".doc", ".docx"}
 
@@ -42,12 +42,12 @@ CODE_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
         "标准",
         re.compile(
             r"\b(GBZ|GB|JGJ|JG|SH|CJJ|CJ|CECS|TCECS|HG|SY|AQ)"  # 标准体系
-            r"(?:[\s_+-]*[/_]?[\s_+-]*T)?"              # 可选的 /T 推荐性标记
+            r"(?:[\s_+-]*[/_]?[\s_+-]*T)?"  # 可选的 /T 推荐性标记
             # 序号短到一位的真实存在（GBZ 1、JGJ 25）；「.1」是分部标准
             # （GB 15763.1/.2/.3 是防火玻璃/钢化玻璃/夹层玻璃三本不同的标准，
             #   丢掉这一位会把三本并成一本）
-            r"[\s_+-]*(\d{1,5}(?:\.\d{1,2})?)"          # 标准序号
-            r"(?:[\s_+-]*(\d{4}))?",                    # 可选年号
+            r"[\s_+-]*(\d{1,5}(?:\.\d{1,2})?)"  # 标准序号
+            r"(?:[\s_+-]*(\d{4}))?",  # 可选年号
             re.I,
         ),
     ),
@@ -79,15 +79,15 @@ class Record:
     std_code: str = ""
     std_name: str = ""
     version_year: str = ""
-    status: str = ""          # 人工填：现行 / 废止 / 被代替
-    superseded_by: str = ""   # 人工填
+    status: str = ""  # 人工填：现行 / 废止 / 被代替
+    superseded_by: str = ""  # 人工填
     category: str = ""
     has_clause_notes: str = ""
     is_scanned: str = ""
     page_count: str = ""
     sha256: str = ""
-    dup_group: str = ""       # 同一 sha256 的文件共用一个组号
-    issue: str = ""           # 自动发现的问题：DRM 加密、无法打开等
+    dup_group: str = ""  # 同一 sha256 的文件共用一个组号
+    issue: str = ""  # 自动发现的问题：DRM 加密、无法打开等
     note: str = ""
 
 
@@ -126,7 +126,7 @@ def parse_code(filename: str) -> tuple[str, str, str]:
             return m.group(1).upper(), "", "图集"
         system, serial, year = m.group(1), m.group(2), m.group(3) or ""
         # 判断是否推荐性标准：编号段里出现独立的 T
-        head = filename[m.start(): m.end()]
+        head = filename[m.start() : m.end()]
         recommended = bool(re.search(r"[/_\s+-]T\b|[A-Z]T[\s_+-]*\d", head, re.I))
         code = normalize_code(system, serial, year, recommended)
         return code, year, CATEGORY_BY_SYSTEM.get(system.upper(), "其他")
@@ -223,8 +223,9 @@ def load_overrides(path: Path) -> dict[str, dict[str, str]]:
             key = (row.get("file") or "").strip()
             if not key or key.startswith("#"):
                 continue
-            out[key] = {k: v.strip() for k, v in row.items()
-                        if k and k != "file" and (v or "").strip()}
+            out[key] = {
+                k: v.strip() for k, v in row.items() if k and k != "file" and (v or "").strip()
+            }
     return out
 
 
@@ -255,7 +256,9 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="生成规范台账 catalog.csv")
     ap.add_argument("--roots", nargs="+", required=True, help="待扫描的目录，可多个")
     ap.add_argument("--out", default=str(paths.CATALOG))
-    ap.add_argument("--overrides", default=str(paths.CATALOG_DIR / "overrides.tsv"), help="人工订正表")
+    ap.add_argument(
+        "--overrides", default=str(paths.CATALOG_DIR / "overrides.tsv"), help="人工订正表"
+    )
     args = ap.parse_args(argv)
 
     roots = [Path(r).expanduser().resolve() for r in args.roots]

@@ -1,15 +1,12 @@
 """核对校订记录与原始条文/PDF的指纹、页序；不代替内容视觉核对。"""
 
-
-from building_kb import paths
 import hashlib
 import json
-from pathlib import Path
 
 import fitz
 
+from building_kb import paths, source_pdf
 from building_kb.verification import fingerprint
-from building_kb import source_pdf
 
 
 def main():
@@ -24,7 +21,10 @@ def main():
     lengths = {}
     for code, book in review["books"].items():
         path = root / book["pdf_path"]
-        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != book["pdf_sha256"]:
+        if (
+            not path.is_file()
+            or hashlib.sha256(path.read_bytes()).hexdigest() != book["pdf_sha256"]
+        ):
             errors.append(f"{code}: PDF缺失或指纹变化")
             continue
         with fitz.open(path) as pdf:
@@ -53,15 +53,26 @@ def main():
             with fitz.open(path) as pdf:
                 if len(pdf) != record["page_count"] or not 0 <= offset < len(pdf):
                     errors.append(f"{code}: 完整阅读本页数或偏移无效")
-                if record["mapped_source_pages"] != lengths.get(code) or offset + record["mapped_source_pages"] > len(pdf):
+                if record["mapped_source_pages"] != lengths.get(code) or offset + record[
+                    "mapped_source_pages"
+                ] > len(pdf):
                     errors.append(f"{code}: 原定位副本页数与完整本不匹配")
         except (FileNotFoundError, ValueError) as exc:
             errors.append(f"{code}: {exc}")
-    print(json.dumps({"verification": "FAIL" if errors else "PASS",
-                      "reviewed_chunks": len(review["chunks"]),
-                      "corrected_chunks": sum(bool(r.get("replace")) for r in review["chunks"].values()),
-                      "blocked_chunks": sum(r.get("block_answer", False) for r in review["chunks"].values()),
-                      "errors": errors}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {
+                "verification": "FAIL" if errors else "PASS",
+                "reviewed_chunks": len(review["chunks"]),
+                "corrected_chunks": sum(bool(r.get("replace")) for r in review["chunks"].values()),
+                "blocked_chunks": sum(
+                    r.get("block_answer", False) for r in review["chunks"].values()
+                ),
+                "errors": errors,
+            },
+            ensure_ascii=False,
+        )
+    )
     return int(bool(errors))
 
 

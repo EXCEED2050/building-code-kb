@@ -34,8 +34,6 @@ chunker.py 一行不用改，也不用重新验证切条逻辑。这是选它而
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import hashlib
 import io
@@ -49,6 +47,7 @@ from pathlib import Path
 
 import requests
 
+from building_kb import paths
 from building_kb.ingest.ocr import group_parts, merge, preclean  # noqa: E402  需要先把根目录放进 path
 
 BASE = "https://mineru.net/api/v4"
@@ -69,6 +68,7 @@ LIVE = ("waiting-file", "pending", "running", "converting")
 # --------------------------------------------------------------------------
 # 令牌
 # --------------------------------------------------------------------------
+
 
 def _token() -> str:
     """从 .env 读 MINERU_TOKEN。
@@ -98,6 +98,7 @@ def _headers(token: str) -> dict:
 # 进度台账
 # --------------------------------------------------------------------------
 
+
 def load_manifest() -> dict:
     if MANIFEST.exists():
         return json.loads(MANIFEST.read_text(encoding="utf-8"))
@@ -122,6 +123,7 @@ def seg_id(name: str, i: int) -> str:
 # 备料：拼本 → 去水印 → 按页数切段
 # --------------------------------------------------------------------------
 
+
 def prepare(name: str, parts: list[Path], out_root: Path, work: Path) -> list[dict]:
     """把一本书变成若干个可以直接上传的 PDF 段。产物已存在就返回空。
 
@@ -141,8 +143,9 @@ def prepare(name: str, parts: list[Path], out_root: Path, work: Path) -> list[di
         total = doc.page_count
 
     if total <= SEG_PAGES and pdf.stat().st_size <= MAX_BYTES:
-        return [{"name": name, "seg": 0, "nsegs": 1, "page_offset": 0,
-                 "pages": total, "file": str(pdf)}]
+        return [
+            {"name": name, "seg": 0, "nsegs": 1, "page_offset": 0, "pages": total, "file": str(pdf)}
+        ]
 
     # 超限的要切开。切完页码要能拼回去，所以每段记住自己从第几页起——
     # chunker 是按 page_idx 定位条文出处的，页码错了，引用就指错地方。
@@ -163,8 +166,16 @@ def prepare(name: str, parts: list[Path], out_root: Path, work: Path) -> list[di
             if dst.stat().st_size > MAX_BYTES:
                 ok = False
                 break
-            segs.append({"name": name, "seg": i, "nsegs": len(bounds),
-                         "page_offset": a, "pages": b - a, "file": str(dst)})
+            segs.append(
+                {
+                    "name": name,
+                    "seg": i,
+                    "nsegs": len(bounds),
+                    "page_offset": a,
+                    "pages": b - a,
+                    "file": str(dst),
+                }
+            )
         if ok:
             return segs
         # 页数没超但字节数超了（扫描件分辨率高），再对半切。
@@ -172,7 +183,8 @@ def prepare(name: str, parts: list[Path], out_root: Path, work: Path) -> list[di
         # 「切到 3 页还超」，实际失败的是 7 页那次，照着排查会找错方向。
         if step // 2 < 8:
             raise RuntimeError(
-                f"{name}: 每段切到 {step} 页仍有超 {MAX_BYTES // 1024 // 1024}MB 的，先手工处理")
+                f"{name}: 每段切到 {step} 页仍有超 {MAX_BYTES // 1024 // 1024}MB 的，先手工处理"
+            )
         step //= 2
 
 
@@ -180,25 +192,27 @@ def prepare(name: str, parts: list[Path], out_root: Path, work: Path) -> list[di
 # 提交
 # --------------------------------------------------------------------------
 
+
 def submit(segs: list[dict], token: str, model: str, m: dict) -> None:
     """按 50 个一批申请上传链接、上传。上传完系统自动建解析任务，不用再调一次。"""
     for i in range(0, len(segs), BATCH_FILES):
-        chunk = segs[i: i + BATCH_FILES]
+        chunk = segs[i : i + BATCH_FILES]
         body = {
             "model_version": model,
             "language": "ch",
             "enable_table": True,
             "files": [
-                {"name": f"{seg_id(s['name'], s['seg'])}.pdf",
-                 "data_id": seg_id(s["name"], s["seg"]),
-                 # 规范基本都是扫描件；有文本层的那批早就在本地走 txt 模式切完了，
-                 # 不在这个队列里，所以这里直接要 OCR。
-                 "is_ocr": True}
+                {
+                    "name": f"{seg_id(s['name'], s['seg'])}.pdf",
+                    "data_id": seg_id(s["name"], s["seg"]),
+                    # 规范基本都是扫描件；有文本层的那批早就在本地走 txt 模式切完了，
+                    # 不在这个队列里，所以这里直接要 OCR。
+                    "is_ocr": True,
+                }
                 for s in chunk
             ],
         }
-        r = requests.post(f"{BASE}/file-urls/batch", headers=_headers(token),
-                          json=body, timeout=60)
+        r = requests.post(f"{BASE}/file-urls/batch", headers=_headers(token), json=body, timeout=60)
         r.raise_for_status()
         res = r.json()
         if res.get("code") != 0:
@@ -213,11 +227,12 @@ def submit(segs: list[dict], token: str, model: str, m: dict) -> None:
         # 宁可留下「记了但没传成」的记录：那种情况下面会标成 upload-failed，看得见。
         for s in chunk:
             sid = seg_id(s["name"], s["seg"])
-            m["segs"][sid] = {k: s[k] for k in
-                              ("name", "seg", "nsegs", "page_offset", "pages")}
+            m["segs"][sid] = {k: s[k] for k in ("name", "seg", "nsegs", "page_offset", "pages")}
             m["segs"][sid].update(state="waiting-file", zip=None, batch=batch_id)
-        m["batches"][batch_id] = {"submitted": time.strftime("%Y-%m-%d %H:%M:%S"),
-                                  "segs": [seg_id(s["name"], s["seg"]) for s in chunk]}
+        m["batches"][batch_id] = {
+            "submitted": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "segs": [seg_id(s["name"], s["seg"]) for s in chunk],
+        }
         save_manifest(m)
 
         for s, url in zip(chunk, urls):
@@ -232,9 +247,12 @@ def submit(segs: list[dict], token: str, model: str, m: dict) -> None:
                 save_manifest(m)
                 print(f"  ! {s['name']} 第{s['seg'] + 1}段 上传失败：{exc}"[:160], flush=True)
                 continue
-            print(f"  ↑ {s['name']}"
-                  + (f"  第{s['seg'] + 1}/{s['nsegs']}段" if s["nsegs"] > 1 else "")
-                  + f"  {s['pages']} 页", flush=True)
+            print(
+                f"  ↑ {s['name']}"
+                + (f"  第{s['seg'] + 1}/{s['nsegs']}段" if s["nsegs"] > 1 else "")
+                + f"  {s['pages']} 页",
+                flush=True,
+            )
         save_manifest(m)
         print(f"  批次 {batch_id} 已提交（{len(chunk)} 段）", flush=True)
 
@@ -243,15 +261,19 @@ def submit(segs: list[dict], token: str, model: str, m: dict) -> None:
 # 轮询
 # --------------------------------------------------------------------------
 
+
 def poll(token: str, m: dict) -> None:
     """刷新所有还没完成的批次状态。"""
-    pending = {b for b, v in m["batches"].items()
-               if any(m["segs"].get(s, {}).get("state") not in (DONE, FAILED)
-                      for s in v["segs"])}
+    pending = {
+        b
+        for b, v in m["batches"].items()
+        if any(m["segs"].get(s, {}).get("state") not in (DONE, FAILED) for s in v["segs"])
+    }
     for b in pending:
         try:
-            r = requests.get(f"{BASE}/extract-results/batch/{b}",
-                             headers=_headers(token), timeout=60)
+            r = requests.get(
+                f"{BASE}/extract-results/batch/{b}", headers=_headers(token), timeout=60
+            )
             r.raise_for_status()
             data = r.json().get("data", {})
         except Exception as exc:  # noqa: BLE001 - 查不到就下轮再查，别把整批中断
@@ -281,6 +303,7 @@ def poll(token: str, m: dict) -> None:
 # 取回
 # --------------------------------------------------------------------------
 
+
 def _pick(zf: zipfile.ZipFile, suffix: str) -> str | None:
     for n in zf.namelist():
         if n.endswith(suffix) and not n.startswith("__MACOSX"):
@@ -300,8 +323,7 @@ def fetch(m: dict, out_root: Path) -> int:
         if (dst / f"{name}_content_list.json").exists():
             continue
         segs.sort(key=lambda s: s["seg"])
-        if len(segs) != segs[0]["nsegs"] or any(s["state"] != DONE or not s["zip"]
-                                                for s in segs):
+        if len(segs) != segs[0]["nsegs"] or any(s["state"] != DONE or not s["zip"] for s in segs):
             continue
 
         merged: list[dict] = []
@@ -331,18 +353,23 @@ def fetch(m: dict, out_root: Path) -> int:
             continue
 
         (dst / f"{name}_content_list.json").write_text(
-            json.dumps(merged, ensure_ascii=False, indent=1), encoding="utf-8")
+            json.dumps(merged, ensure_ascii=False, indent=1), encoding="utf-8"
+        )
         (dst / f"{name}.md").write_text("\n\n".join(md), encoding="utf-8")
         got += 1
         pages = sum(s["pages"] for s in segs)
-        print(f"  ✓ {name}  {pages} 页 / {len(merged)} 块"
-              + (f"（{len(segs)} 段拼合）" if len(segs) > 1 else ""), flush=True)
+        print(
+            f"  ✓ {name}  {pages} 页 / {len(merged)} 块"
+            + (f"（{len(segs)} 段拼合）" if len(segs) > 1 else ""),
+            flush=True,
+        )
     return got
 
 
 # --------------------------------------------------------------------------
 # 台面
 # --------------------------------------------------------------------------
+
 
 def status(m: dict) -> None:
     c = Counter(s["state"] for s in m["segs"].values())
@@ -370,11 +397,19 @@ def _preview(segs: list[dict]) -> None:
     kind = Counter()
     for s in segs:
         n = s["name"]
-        k = ("GB 国标" if n.startswith("GB") else
-             "JGJ 行标" if n.startswith("JGJ") else
-             "SH 行标" if n.startswith("SH") else
-             "Q/SH 企标" if n.startswith(("Q/SH", "Q_SH")) else
-             "DEP 企标" if n.startswith("DEP") else "其他")
+        k = (
+            "GB 国标"
+            if n.startswith("GB")
+            else "JGJ 行标"
+            if n.startswith("JGJ")
+            else "SH 行标"
+            if n.startswith("SH")
+            else "Q/SH 企标"
+            if n.startswith(("Q/SH", "Q_SH"))
+            else "DEP 企标"
+            if n.startswith("DEP")
+            else "其他"
+        )
         kind[k] += s["pages"]
     books = len({s["name"] for s in segs})
     total = sum(s["pages"] for s in segs)
@@ -390,8 +425,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--list", nargs="*", default=[], help="清单文件，可给多个")
     ap.add_argument("--out", default=str(paths.OCR_DIR))
     ap.add_argument("--work", default=str(paths.OCR_DIR / "_merged"))
-    ap.add_argument("--model", default="vlm", choices=("vlm", "pipeline"),
-                    help="vlm 是他们较新的模型，扫描件上通常更稳")
+    ap.add_argument(
+        "--model",
+        default="vlm",
+        choices=("vlm", "pipeline"),
+        help="vlm 是他们较新的模型，扫描件上通常更稳",
+    )
     ap.add_argument("--limit", type=int, default=0, help="只提交前 N 本，先小批试水")
     ap.add_argument("--status", action="store_true", help="只看进度")
     ap.add_argument("--fetch", action="store_true", help="只取回已完成的")
@@ -417,12 +456,14 @@ def main(argv: list[str] | None = None) -> int:
 
     # 1) 备料。已在云端排队的、已经有产物的，都不再提交。
     if args.list:
-        paths: list[Path] = []
+        pdf_paths: list[Path] = []
         for f in args.list:
-            paths += [Path(l.strip()) for l in
-                      Path(f).read_text(encoding="utf-8").splitlines()
-                      if l.strip() and not l.startswith("#")]
-        missing = [p for p in paths if not p.exists()]
+            pdf_paths += [
+                Path(line.strip())
+                for line in Path(f).read_text(encoding="utf-8").splitlines()
+                if line.strip() and not line.startswith("#")
+            ]
+        missing = [p for p in pdf_paths if not p.exists()]
         for p in missing[:5]:
             print(f"清单里这个路径不存在，跳过：{p}", file=sys.stderr)
         # 有段失败的书要重来，但只重传失败的那几段——已完成的段落在云端，
@@ -430,8 +471,11 @@ def main(argv: list[str] | None = None) -> int:
         failed = {sid for sid, s in m["segs"].items() if s["state"] == FAILED}
         retry = {m["segs"][sid]["name"] for sid in failed}
         queued = {s["name"] for s in m["segs"].values()} - retry
-        todo = [(n, ps) for n, ps in group_parts([p for p in paths if p.exists()]).items()
-                if n not in queued]
+        todo = [
+            (n, ps)
+            for n, ps in group_parts([p for p in pdf_paths if p.exists()]).items()
+            if n not in queued
+        ]
         if args.limit:
             todo = todo[: args.limit]
 
@@ -468,8 +512,11 @@ def main(argv: list[str] | None = None) -> int:
         if not left:
             break
         done = sum(1 for s in m["segs"].values() if s["state"] == DONE)
-        print(f"  [{time.strftime('%H:%M:%S')}] 完成 {done} 段，"
-              f"在跑/排队 {len(left)} 段（{sum(s['pages'] for s in left)} 页）", flush=True)
+        print(
+            f"  [{time.strftime('%H:%M:%S')}] 完成 {done} 段，"
+            f"在跑/排队 {len(left)} 段（{sum(s['pages'] for s in left)} 页）",
+            flush=True,
+        )
         time.sleep(args.interval)
 
     print()

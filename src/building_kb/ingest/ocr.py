@@ -17,8 +17,6 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import os
 import re
@@ -26,6 +24,8 @@ import sys
 import time
 import warnings
 from pathlib import Path
+
+from building_kb import paths
 
 warnings.filterwarnings("ignore")
 
@@ -36,8 +36,7 @@ os.environ.setdefault("TQDM_DISABLE", "1")
 os.environ.setdefault("LOGURU_LEVEL", "WARNING")
 # 配置放进仓库而不是 ~/magic-pdf.json：解析参数（device-mode、要不要跑公式模型）
 # 直接决定入库文本长什么样，属于工程的一部分，不该藏在某台机器的 home 目录里。
-os.environ.setdefault(
-    "MINERU_TOOLS_CONFIG_JSON", str(paths.CONFIG / "magic-pdf.json"))
+os.environ.setdefault("MINERU_TOOLS_CONFIG_JSON", str(paths.CONFIG / "magic-pdf.json"))
 
 PART_RE = re.compile(r"[_\s-]*部分(\d+)$")
 
@@ -91,8 +90,7 @@ def _patch_ocr_det() -> str:
     import importlib
     import os
 
-    pp = importlib.import_module(
-        "magic_pdf.model.sub_modules.ocr.paddleocr2pytorch.pytorch_paddle")
+    pp = importlib.import_module("magic_pdf.model.sub_modules.ocr.paddleocr2pytorch.pytorch_paddle")
     from magic_pdf.libs.config_reader import get_local_models_dir
 
     det_dir = os.path.join(get_local_models_dir(), "OCR", "paddleocr_torch")
@@ -178,8 +176,8 @@ def merge(parts: list[Path], dst: Path) -> Path:
 # 处理后整页文字可读。
 # --------------------------------------------------------------------------
 
-COLOR_SAT = 30      # max(R,G,B)-min(R,G,B) 超过它就算「有颜色」
-KEEP_DARK = 80      # 亮度低于它的不动——那是压在印章下面的字
+COLOR_SAT = 30  # max(R,G,B)-min(R,G,B) 超过它就算「有颜色」
+KEEP_DARK = 80  # 亮度低于它的不动——那是压在印章下面的字
 STAMP_RATIO = 0.02  # 整页彩色像素超过 2% 才认为盖了章
 
 
@@ -230,10 +228,13 @@ def preclean(src: Path, dst: Path) -> tuple[Path, int]:
     try:
         for page in doc:
             pm = page.get_pixmap(dpi=_page_dpi(page))
-            a = (np.frombuffer(pm.samples, np.uint8)
-                 .reshape(pm.height, pm.width, pm.n)[:, :, :3].astype(np.int16))
+            a = (
+                np.frombuffer(pm.samples, np.uint8)
+                .reshape(pm.height, pm.width, pm.n)[:, :, :3]
+                .astype(np.int16)
+            )
             sat = a.max(2) - a.min(2)
-            g = a.mean(2)          # 亮度，float64；400dpi 一页 124 MB，只算一次
+            g = a.mean(2)  # 亮度，float64；400dpi 一页 124 MB，只算一次
             mask = (sat > COLOR_SAT) & (g > KEEP_DARK)
             if mask.mean() > STAMP_RATIO:
                 hit += 1
@@ -244,7 +245,7 @@ def preclean(src: Path, dst: Path) -> tuple[Path, int]:
             new.insert_image(new.rect, stream=buf.getvalue())
             n += 1
 
-        if hit / max(1, n) < 0.1:   # 零星几页有色块，多半是插图，不值当重排
+        if hit / max(1, n) < 0.1:  # 零星几页有色块，多半是插图，不值当重排
             flag.parent.mkdir(parents=True, exist_ok=True)
             flag.touch()
             return src, 0
@@ -286,21 +287,26 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="本地跑 OCR（MinerU），可中断可续跑")
     ap.add_argument("--list", required=True, help="每行一个 PDF 路径的清单")
     ap.add_argument("--out", default=str(paths.OCR_DIR))
-    ap.add_argument("--work", default=str(paths.OCR_DIR / "_merged"), help="拼接后的整本 PDF 放这儿")
+    ap.add_argument(
+        "--work", default=str(paths.OCR_DIR / "_merged"), help="拼接后的整本 PDF 放这儿"
+    )
     ap.add_argument("--limit", type=int, default=0, help="只跑前 N 本，用来先探速度")
     ap.add_argument("--force", action="store_true", help="已有产物也重跑（调参数时用）")
     args = ap.parse_args(argv)
 
-    paths = [Path(l.strip()) for l in Path(args.list).read_text(encoding="utf-8").splitlines()
-             if l.strip() and not l.startswith("#")]
-    missing = [p for p in paths if not p.exists()]
+    pdf_paths = [
+        Path(line.strip())
+        for line in Path(args.list).read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.startswith("#")
+    ]
+    missing = [p for p in pdf_paths if not p.exists()]
     if missing:
         print(f"清单里有 {len(missing)} 个路径不存在，先看一眼：", file=sys.stderr)
         for p in missing[:5]:
             print("   ", p, file=sys.stderr)
         return 1
 
-    groups = group_parts(paths)
+    groups = group_parts(pdf_paths)
     # 按清单里的顺序跑，不排序。清单是 building_kb.commands.queue 按档位表生成的，
     # 而档位表是按「翻开它的频率」排的——排序等于把这个排法扔掉。
     # 原先用 sorted() 排字母序，结果 GB 55xxx 那五本全文强制的通用规范
@@ -344,12 +350,17 @@ def main(argv: list[str] | None = None) -> int:
         done += 1
         pages += n
         secs += t
-        print(f"{tag}  {n} 页 / {t:.0f}s（{t / n:.1f} s/页）"
-              f"  累计 {pages:.0f} 页 {secs / 60:.0f} 分钟", flush=True)
+        print(
+            f"{tag}  {n} 页 / {t:.0f}s（{t / n:.1f} s/页）"
+            f"  累计 {pages:.0f} 页 {secs / 60:.0f} 分钟",
+            flush=True,
+        )
 
-    print(f"\n完成 {done} 本，跳过 {skipped} 本，共 {pages:.0f} 页，"
-          f"用时 {(time.time() - t_all) / 60:.1f} 分钟"
-          + (f"，均速 {secs / pages:.1f} s/页" if pages else ""))
+    print(
+        f"\n完成 {done} 本，跳过 {skipped} 本，共 {pages:.0f} 页，"
+        f"用时 {(time.time() - t_all) / 60:.1f} 分钟"
+        + (f"，均速 {secs / pages:.1f} s/页" if pages else "")
+    )
     return 0
 
 

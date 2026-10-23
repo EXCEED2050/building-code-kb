@@ -2,7 +2,7 @@
 
 在手机、微信或电脑浏览器里按规范号、条文号及关键词查建筑规范，查看条文与 PDF 原页；配置模型后可进行带出处的 AI 解读和追问。
 
-这是两人协作的私有项目。主分支包含 **159 本规范、43,813 个原始条文块**，其中 **28,440 块进入检索池**；这些是开发快照，版本效力、转录与工程适用性仍需核对。原件和解析资料保存在私有 Release，真实密钥与运行缓存保存在各自电脑上。
+这是用于共同开发的公开项目。主分支包含 **159 本规范、43,813 个原始条文块**，其中 **28,440 块进入检索池**；这些是开发快照，版本效力、转录与工程适用性仍需核对。原件和解析资料保存在本仓库的 Release，真实密钥与运行缓存保存在各自电脑上。
 
 [逐份 PDF 下载](docs/data/PDF目录.md) · [完整资料恢复](docs/data/私有资料恢复.md) · [项目架构](docs/architecture/项目结构.md) · [协作开发](docs/development/协作开发.md)
 
@@ -73,8 +73,11 @@ building-kb check-reviews
 
 ```sh
 python -m pip install -r requirements-dev.txt
+python scripts/setup_dev.py
 python scripts/check.py
 ```
+
+开发与提交须遵循 [贡献规范](CONTRIBUTING.md)：采用 Conventional Commits 提交格式，Ruff 统一 Python 格式和静态检查；配置脚本会启用本仓库的提交钩子。
 
 共同检查覆盖 Python 回归、完整快照、公开子集、30 题检索预检和页面引用/表格处理；GitHub 每次推送和 PR 自动执行。人工验收题与核对结论见 [试用验收](docs/acceptance/广州试用验收题-20261022.md)。检索预检不替代真实模型与工程人员验收。
 

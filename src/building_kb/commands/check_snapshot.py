@@ -1,20 +1,25 @@
 """核验私有协作条文快照：python -m building_kb.commands.check_snapshot。"""
-from __future__ import annotations
 
-from building_kb import paths
+from __future__ import annotations
 
 import csv
 import hashlib
 import json
 from pathlib import Path
 
+from building_kb import paths
+
 ROOT = paths.ROOT
 
 
 def check(root: Path = ROOT) -> dict:
-    manifest = json.loads((root / "data/manifests/runtime-manifest.json").read_text(encoding="utf-8"))
+    manifest = json.loads(
+        (root / "data/manifests/runtime-manifest.json").read_text(encoding="utf-8")
+    )
     expected = {r["path"] for r in manifest["files"]}
-    actual = {p.relative_to(root).as_posix() for p in (root / "data/chunks").glob("*") if p.is_file()}
+    actual = {
+        p.relative_to(root).as_posix() for p in (root / "data/chunks").glob("*") if p.is_file()
+    }
     if actual != {p for p in expected if p.startswith("data/chunks/")}:
         raise ValueError("条文文件与快照清单不一致")
     ids, books = set(), set()
@@ -35,11 +40,19 @@ def check(root: Path = ROOT) -> dict:
             ids.add(record["chunk_id"])
             books.add(record["std_code"])
             count += 1
-            pool += not record["superseded"] and record["status"] != "废止" and record["section_type"] != "条文说明"
+            pool += (
+                not record["superseded"]
+                and record["status"] != "废止"
+                and record["section_type"] != "条文说明"
+            )
     with (root / "data/catalog/catalog.csv").open(encoding="utf-8-sig", newline="") as stream:
         catalog_records = sum(1 for _ in csv.DictReader(stream))
-    result = {"books": len(books), "raw_chunks": count, "retrieval_chunks": pool,
-              "catalog_records": catalog_records}
+    result = {
+        "books": len(books),
+        "raw_chunks": count,
+        "retrieval_chunks": pool,
+        "catalog_records": catalog_records,
+    }
     if any(result[k] != manifest[k] for k in result):
         raise ValueError("实际数据数量与快照摘要不一致")
     return {"verification": "PASS", **result}

@@ -1,12 +1,11 @@
 """从已核对指纹的分卷重建完整阅读本，保持原始页码定位副本。"""
 
-
-from building_kb import paths
 import hashlib
 import json
-from pathlib import Path
 
 import fitz
+
+from building_kb import paths
 
 
 def main():

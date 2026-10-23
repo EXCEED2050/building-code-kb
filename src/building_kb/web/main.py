@@ -20,8 +20,6 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import glob
 import json
 import os
@@ -30,19 +28,32 @@ from pathlib import Path
 from urllib.parse import urlencode
 
 from fastapi import Cookie, FastAPI, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response, StreamingResponse
+from fastapi.responses import (
+    FileResponse,
+    JSONResponse,
+    RedirectResponse,
+    Response,
+    StreamingResponse,
+)
 from pydantic import BaseModel, Field
 
+from building_kb import paths, providers, source_pdf
 from building_kb.qa import answer as answer_mod
-from building_kb import providers, source_pdf
-from building_kb.search.retrieve import CLAUSE_RE, CLAUSE2_RE, STD_RE, Retriever, parse_query, tokenize
+from building_kb.search.retrieve import (
+    CLAUSE2_RE,
+    CLAUSE_RE,
+    STD_RE,
+    Retriever,
+    parse_query,
+    tokenize,
+)
 
 from . import auth
 
 STATIC = Path(__file__).resolve().parent / "static"
 CHUNKS = str(paths.CHUNKS)
 PAGE_CACHE = paths.PAGE_CACHE
-PAGE_ZOOM = 1.6   # 72 dpi × 1.6 ≈ 115 dpi：手机上看清五号字够了，灰度 JPEG 一页 100 多 KB
+PAGE_ZOOM = 1.6  # 72 dpi × 1.6 ≈ 115 dpi：手机上看清五号字够了，灰度 JPEG 一页 100 多 KB
 
 app = FastAPI(title="建筑规范知识库", docs_url=None, redoc_url=None)
 
@@ -92,8 +103,8 @@ async def login(req: Request) -> JSONResponse:
         auth.COOKIE,
         auth.issue(),
         max_age=auth.TTL,
-        httponly=True,          # JS 读不到，页面上有 XSS 也偷不走
-        samesite="lax",         # 别的站点发起的请求不带上它
+        httponly=True,  # JS 读不到，页面上有 XSS 也偷不走
+        samesite="lax",  # 别的站点发起的请求不带上它
         secure=bool(os.environ.get("KB_HTTPS")),
     )
     return resp
@@ -140,7 +151,7 @@ def _brief(h) -> dict:
         "mandatory_basis": c["mandatory_basis"],
         "caveat": c.get("caveat", ""),
         "status": c.get("status", ""),
-        "section_type": c.get("section_type", ""),   # 「修订」要在卡片上标出来
+        "section_type": c.get("section_type", ""),  # 「修订」要在卡片上标出来
         "source_review": c.get("source_review", ""),
         "answerable": c.get("answerable", True),
         "mandatory_historical": c.get("mandatory_historical", False),
@@ -159,23 +170,32 @@ def _explanation(chunk_id: str) -> dict | None:
         return None
     if _explanations is None:
         from collections import defaultdict
+
         index: dict[tuple[str, str], list[dict]] = defaultdict(list)
         for filename in glob.glob(str(Path(CHUNKS) / "*.jsonl")):
             with open(filename, encoding="utf-8") as source:
                 for line in source:
                     c = json.loads(line)
-                    if (c.get("section_type") == "条文说明"
-                        and not c.get("superseded") and c.get("status") != "废止"):
+                    if (
+                        c.get("section_type") == "条文说明"
+                        and not c.get("superseded")
+                        and c.get("status") != "废止"
+                    ):
                         index[(c["std_code"], c["clause_no"])].append(c)
         _explanations = index
     matches = _explanations.get((main["std_code"], main["clause_no"]), [])
     if len(matches) != 1:
         return None
     c = matches[0]
-    return {"text": c["text"], "tables": c.get("tables", []),
-            "page": c["page_idx"] + 1 if c.get("page_idx") is not None else None,
-            "status": c.get("status", ""), "std_code": c["std_code"],
-            "std_name": c["std_name"], "clause_no": c["clause_no"]}
+    return {
+        "text": c["text"],
+        "tables": c.get("tables", []),
+        "page": c["page_idx"] + 1 if c.get("page_idx") is not None else None,
+        "status": c.get("status", ""),
+        "std_code": c["std_code"],
+        "std_name": c["std_name"],
+        "clause_no": c["clause_no"],
+    }
 
 
 _books: list[dict] | None = None
@@ -187,9 +207,15 @@ def books_payload() -> dict:
     if _books is None:
         agg: dict[str, dict] = {}
         for c in retriever().pool:
-            b = agg.setdefault(c["std_code"], {
-                "std_code": c["std_code"], "std_name": c["std_name"], "n": 0, "mandatory": 0,
-            })
+            b = agg.setdefault(
+                c["std_code"],
+                {
+                    "std_code": c["std_code"],
+                    "std_name": c["std_name"],
+                    "n": 0,
+                    "mandatory": 0,
+                },
+            )
             b["n"] += 1
             b["mandatory"] += int(bool(c["is_mandatory"]))
         _books = sorted(agg.values(), key=lambda b: b["std_code"])
@@ -234,14 +260,26 @@ def ask(
         try:
             r = retriever()
             hits, parsed = r.search(q, k)
-            yield _sse("hits", {"hits": [_brief(h) for h in hits], "parsed": parsed,
-                                "keywords": _highlight_terms(q)})
+            yield _sse(
+                "hits",
+                {
+                    "hits": [_brief(h) for h in hits],
+                    "parsed": parsed,
+                    "keywords": _highlight_terms(q),
+                },
+            )
             if not hits or not llm:
                 yield _sse("done", {"answered": False})
                 return
             if not any(h.chunk.get("answerable", True) for h in hits):
-                yield _sse("done", {"answered": False, "reason": "unreliable_sources",
-                                    "message": "本轮未找到可用于作答的可靠转录；已发现的错误条文暂停用于AI，请打开PDF核对。"})
+                yield _sse(
+                    "done",
+                    {
+                        "answered": False,
+                        "reason": "unreliable_sources",
+                        "message": "本轮未找到可用于作答的可靠转录；已发现的错误条文暂停用于AI，请打开PDF核对。",
+                    },
+                )
                 return
             try:
                 model = providers.get_llm()
@@ -251,9 +289,7 @@ def ask(
                 return
             for piece in model.stream(
                 answer_mod.SYSTEM,
-                answer_mod.USER_TMPL.format(
-                    context=answer_mod.format_context(hits), question=q
-                ),
+                answer_mod.USER_TMPL.format(context=answer_mod.format_context(hits), question=q),
             ):
                 yield _sse("delta", piece)
             yield _sse("done", {"answered": True})
@@ -284,7 +320,11 @@ def followup_query(r: Retriever, body: FollowupRequest) -> tuple[str, str | None
     p = parse_query(question)
     if p["std_codes"] or r.resolve_names(question):
         return question, None
-    refers_back = bool(p["clause_nos"]) or len(question) <= 12 or question.startswith(("那", "它", "这些", "上述", "这个"))
+    refers_back = (
+        bool(p["clause_nos"])
+        or len(question) <= 12
+        or question.startswith(("那", "它", "这些", "上述", "这个"))
+    )
     if not refers_back:
         return question, None
     by_id = {c["chunk_id"]: c for c in r.pool}
@@ -327,21 +367,53 @@ def followup(body: FollowupRequest, kb_session: str | None = Cookie(None)) -> St
             r = retriever()
             search_q, reason = followup_query(r, body)
             if reason:
-                yield _sse("hits", {"hits": [], "parsed": parse_query(question),
-                                    "search_query": search_q, "keywords": _highlight_terms(question)})
-                yield _sse("done", {"answered": False, "reason": reason,
-                                    "message": "本轮规范范围不明确，未检索。请补充规范号；不会沿用此前条文作答。"})
+                yield _sse(
+                    "hits",
+                    {
+                        "hits": [],
+                        "parsed": parse_query(question),
+                        "search_query": search_q,
+                        "keywords": _highlight_terms(question),
+                    },
+                )
+                yield _sse(
+                    "done",
+                    {
+                        "answered": False,
+                        "reason": reason,
+                        "message": "本轮规范范围不明确，未检索。请补充规范号；不会沿用此前条文作答。",
+                    },
+                )
                 return
             hits, parsed = r.search(search_q, 8)
-            yield _sse("hits", {"hits": [_brief(h) for h in hits], "parsed": parsed,
-                                "search_query": search_q, "keywords": _highlight_terms(question)})
+            yield _sse(
+                "hits",
+                {
+                    "hits": [_brief(h) for h in hits],
+                    "parsed": parsed,
+                    "search_query": search_q,
+                    "keywords": _highlight_terms(question),
+                },
+            )
             if not hits:
-                yield _sse("done", {"answered": False, "reason": "no_hits",
-                                    "message": "本轮未找到相关条文，无法据此作答。请补充规范号或条号。"})
+                yield _sse(
+                    "done",
+                    {
+                        "answered": False,
+                        "reason": "no_hits",
+                        "message": "本轮未找到相关条文，无法据此作答。请补充规范号或条号。",
+                    },
+                )
                 return
             if not any(h.chunk.get("answerable", True) for h in hits):
-                yield _sse("done", {"answered": False, "reason": "unreliable_sources",
-                                    "message": "本轮未找到可用于作答的可靠转录；请打开PDF原件核对。"})
+                yield _sse(
+                    "done",
+                    {
+                        "answered": False,
+                        "reason": "unreliable_sources",
+                        "message": "本轮未找到可用于作答的可靠转录；请打开PDF原件核对。",
+                    },
+                )
                 return
             model = providers.get_llm()
             for piece in model.stream(
@@ -416,7 +488,9 @@ def page_response(code: str, page: int) -> FileResponse:
 
         f.parent.mkdir(parents=True, exist_ok=True)
         with fitz.open(p) as d:
-            pm = d[page - 1].get_pixmap(matrix=fitz.Matrix(PAGE_ZOOM, PAGE_ZOOM), colorspace=fitz.csGRAY)
+            pm = d[page - 1].get_pixmap(
+                matrix=fitz.Matrix(PAGE_ZOOM, PAGE_ZOOM), colorspace=fitz.csGRAY
+            )
             Image.frombytes("L", (pm.width, pm.height), pm.samples).save(f, "JPEG", quality=72)
     headers = {"X-Page-Count": str(n), "Cache-Control": "private, max-age=86400"}
     try:
@@ -434,8 +508,9 @@ def pdf_response(code: str) -> FileResponse:
         raise HTTPException(404, str(exc)) from exc
     except ValueError as exc:
         raise HTTPException(409, str(exc)) from exc
-    return FileResponse(p, media_type="application/pdf", filename=p.name,
-                        content_disposition_type="inline")
+    return FileResponse(
+        p, media_type="application/pdf", filename=p.name, content_disposition_type="inline"
+    )
 
 
 @app.get("/api/page")
@@ -445,7 +520,9 @@ def page(code: str, page: int, kb_session: str | None = Cookie(None)) -> FileRes
 
 
 @app.get("/api/pdf")
-def pdf(code: str, source_page: int | None = None, kb_session: str | None = Cookie(None)) -> Response:
+def pdf(
+    code: str, source_page: int | None = None, kb_session: str | None = Cookie(None)
+) -> Response:
     guard(kb_session)
     if source_page is not None:
         _, n = _source(code)
@@ -457,5 +534,7 @@ def pdf(code: str, source_page: int | None = None, kb_session: str | None = Cook
             raise HTTPException(404, str(exc)) from exc
         except ValueError as exc:
             raise HTTPException(409, str(exc)) from exc
-        return RedirectResponse("/api/pdf?" + urlencode({"code": code}) + f"#page={source_page + offset}")
+        return RedirectResponse(
+            "/api/pdf?" + urlencode({"code": code}) + f"#page={source_page + offset}"
+        )
     return pdf_response(code)

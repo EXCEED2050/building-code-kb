@@ -12,20 +12,22 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import re
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
 
+from building_kb import paths
 from building_kb.ingest.ocr import group_parts
 
 
 def snapshot(queue: Path, out: Path) -> dict:
-    paths = [Path(l.strip()) for l in queue.read_text(encoding="utf-8").splitlines()
-             if l.strip() and not l.startswith("#")]
+    paths = [
+        Path(line.strip())
+        for line in queue.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.startswith("#")
+    ]
     groups = group_parts(paths)
     import fitz
 
@@ -46,8 +48,12 @@ def snapshot(queue: Path, out: Path) -> dict:
         else:
             todo_books.append((name, n))
             todo_pages += n
-    return {"done": done_books, "todo": todo_books,
-            "done_pages": done_pages, "todo_pages": todo_pages}
+    return {
+        "done": done_books,
+        "todo": todo_books,
+        "done_pages": done_pages,
+        "todo_pages": todo_pages,
+    }
 
 
 DONE_RE = re.compile(r"(\d+) 页 / (\d+(?:\.\d+)?)s")
@@ -68,15 +74,15 @@ def pressure() -> tuple[float, float]:
 
     free, used = -1.0, -1.0
     try:
-        out = subprocess.run(["memory_pressure"], capture_output=True,
-                             text=True, timeout=10).stdout
+        out = subprocess.run(["memory_pressure"], capture_output=True, text=True, timeout=10).stdout
         if m := re.search(r"free percentage:\s*(\d+)%", out):
             free = float(m.group(1))
     except Exception:  # noqa: BLE001 - 看不到就不显示，不该影响进度查询
         pass
     try:
-        out = subprocess.run(["sysctl", "vm.swapusage"], capture_output=True,
-                             text=True, timeout=5).stdout
+        out = subprocess.run(
+            ["sysctl", "vm.swapusage"], capture_output=True, text=True, timeout=5
+        ).stdout
         if m := SWAP_RE.search(out):
             used = float(m.group(2)) / 1024
     except Exception:  # noqa: BLE001 - 同上
@@ -111,7 +117,11 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
 
     queue = Path(args.list)
-    log = Path(args.log) if args.log else (paths.VAR / "logs") / f"ocr_{queue.stem.split('_')[-1]}.log"
+    log = (
+        Path(args.log)
+        if args.log
+        else (paths.VAR / "logs") / f"ocr_{queue.stem.split('_')[-1]}.log"
+    )
 
     while True:
         s = snapshot(queue, Path(args.out))
@@ -120,10 +130,13 @@ def main(argv: list[str] | None = None) -> int:
         r = rate(log)
         left = timedelta(seconds=int(s["todo_pages"] * r))
         pct = 100 * s["done_pages"] / tp if tp else 100
-        print(f"\n{queue.name}  {len(s['done'])}/{total} 本 · "
-              f"{s['done_pages']}/{tp} 页 · {pct:.0f}%")
-        print(f"实测 {r:.1f} s/页 · 剩余 {s['todo_pages']} 页 ≈ {left} · "
-              f"预计 {(datetime.now() + left):%m-%d %H:%M} 完成")
+        print(
+            f"\n{queue.name}  {len(s['done'])}/{total} 本 · {s['done_pages']}/{tp} 页 · {pct:.0f}%"
+        )
+        print(
+            f"实测 {r:.1f} s/页 · 剩余 {s['todo_pages']} 页 ≈ {left} · "
+            f"预计 {(datetime.now() + left):%m-%d %H:%M} 完成"
+        )
         if s["todo"]:
             # 正在跑的这本必须单独报，还要报「安静了多久」。
             # magic-pdf 的模型推理阶段一行日志都不打（tqdm 关掉了），
@@ -132,14 +145,22 @@ def main(argv: list[str] | None = None) -> int:
             name, pages = s["todo"][0]
             quiet = time.time() - log.stat().st_mtime if log.exists() else 0
             need = pages * r
-            print(f"在跑：{name}（{pages}p，约 {timedelta(seconds=int(need))}）· "
-                  f"日志已静默 {timedelta(seconds=int(quiet))}"
-                  + ("   ← 超出该本预计用时" if quiet > need * 1.5 + 300 else "（推理阶段不打日志，正常）"))
+            print(
+                f"在跑：{name}（{pages}p，约 {timedelta(seconds=int(need))}）· "
+                f"日志已静默 {timedelta(seconds=int(quiet))}"
+                + (
+                    "   ← 超出该本预计用时"
+                    if quiet > need * 1.5 + 300
+                    else "（推理阶段不打日志，正常）"
+                )
+            )
             free, used = pressure()
             if 0 <= free < 50:
-                print(f"内存吃紧：系统空闲 {free:.0f}%，交换区已用 {used:.1f} GB"
-                      f"——慢下来多半是这个。先看 OCR 进程自己涨到多大"
-                      f"（ps -p <pid> -o rss=），再考虑关应用")
+                print(
+                    f"内存吃紧：系统空闲 {free:.0f}%，交换区已用 {used:.1f} GB"
+                    f"——慢下来多半是这个。先看 OCR 进程自己涨到多大"
+                    f"（ps -p <pid> -o rss=），再考虑关应用"
+                )
             if len(s["todo"]) > 1:
                 nxt = ", ".join(f"{n}({p}p)" for n, p in s["todo"][1:4])
                 print(f"接下来：{nxt}")

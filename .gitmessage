@@ -1,0 +1,7 @@
+# type(scope): 简要说明本次变更
+#
+# type: feat / fix / docs / style / refactor / perf / test / build / ci / chore / revert
+# scope 可省略，例如 search、web、ingest、data、dev。
+# 空一行后写清问题、修改后的行为、验证方法。
+# 一个提交只做一件事。说明可用中文或英文。
+# 不兼容的变更使用 type(scope)!:，并说明迁移方法。

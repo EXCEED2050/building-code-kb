@@ -3,30 +3,33 @@
 从项目根目录运行：building-kb restore /附件文件夹 [--check-only]。
 各 ZIP 为独立资料卷，可以仅下载所需卷；已有文件不一致时拒绝覆盖。
 """
+
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
-from contextlib import contextmanager
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
 import stat
 import tempfile
 import zipfile
+from contextlib import contextmanager
+from pathlib import Path, PurePosixPath
+
+from building_kb import paths
 
 ROOT = paths.ROOT
 
 
 def canonical_path(relative: str) -> str:
     """Map the published 2026-10-20 archives into the current workspace layout."""
-    for before, after in (("建筑规范/", "data/sources/"),
-                          ("MinerU/", "data/processed/mineru/"),
-                          ("kb/data/ocr/", "data/processed/ocr/")):
+    for before, after in (
+        ("建筑规范/", "data/sources/"),
+        ("MinerU/", "data/processed/mineru/"),
+        ("kb/data/ocr/", "data/processed/ocr/"),
+    ):
         if relative.startswith(before):
-            return after + relative[len(before):]
+            return after + relative[len(before) :]
     return relative
 
 
@@ -41,10 +44,16 @@ def digest(path: Path) -> str:
 def destination(root: Path, relative: str) -> Path:
     relative = canonical_path(relative)
     name = PurePosixPath(relative)
-    if (name.is_absolute() or ".." in name.parts or "\\" in relative
-            or not any(relative.startswith(prefix) for prefix in (
-                "data/sources/", "data/processed/mineru/", "data/processed/ocr/"))
-            or any(p.startswith(".env") for p in name.parts)):
+    if (
+        name.is_absolute()
+        or ".." in name.parts
+        or "\\" in relative
+        or not any(
+            relative.startswith(prefix)
+            for prefix in ("data/sources/", "data/processed/mineru/", "data/processed/ocr/")
+        )
+        or any(p.startswith(".env") for p in name.parts)
+    ):
         raise ValueError(f"附件中存在越界路径：{relative}")
     target = root.joinpath(*name.parts)
     if not target.resolve().is_relative_to(root.resolve()):
@@ -61,7 +70,13 @@ def assembled_downloads(folder: Path):
     assets = {a["file"]: a for a in manifest["assets"]}
 
     def safe_name(name):
-        if not isinstance(name, str) or not name or Path(name).name != name or "\\" in name or name in {".", ".."}:
+        if (
+            not isinstance(name, str)
+            or not name
+            or Path(name).name != name
+            or "\\" in name
+            or name in {".", ".."}
+        ):
             raise ValueError("传输片段名称不能包含目录")
         return name
 
@@ -114,8 +129,14 @@ def restore(folder: Path, root: Path, check_only: bool = False) -> dict:
     expected = {r.get("archive_path", r["path"]): r for r in manifest["files"]}
     if len(expected) != len(manifest["files"]):
         raise ValueError("总清单包含重复归档路径")
-    result = {"checked_archives": 0, "checked_files": 0, "restored": 0, "unchanged": 0,
-              "missing_archives": [], "check_only": check_only}
+    result = {
+        "checked_archives": 0,
+        "checked_files": 0,
+        "restored": 0,
+        "unchanged": 0,
+        "missing_archives": [],
+        "check_only": check_only,
+    }
     for asset in manifest["assets"]:
         if Path(asset["file"]).name != asset["file"]:
             raise ValueError("附件名称不能包含目录")
@@ -131,15 +152,21 @@ def restore(folder: Path, root: Path, check_only: bool = False) -> dict:
             records = embedded["files"]
             if len(records) != asset["files"] or len({r["path"] for r in records}) != len(records):
                 raise ValueError("卷内文件数或唯一性不符合清单")
-            if (len(z.namelist()) != len(records) + 1
-                    or set(z.namelist()) != {embedded_name, *(r["path"] for r in records)}):
+            if len(z.namelist()) != len(records) + 1 or set(z.namelist()) != {
+                embedded_name,
+                *(r["path"] for r in records),
+            }:
                 raise ValueError("ZIP 中包含清单外文件")
             for row in records:
                 current = expected.get(row["path"])
                 archived = {"path": row["path"], "bytes": row["bytes"], "sha256": row["sha256"]}
-                if (current is None or row != archived
-                        or current["bytes"] != row["bytes"] or current["sha256"] != row["sha256"]
-                        or canonical_path(current["path"]) != canonical_path(row["path"])):
+                if (
+                    current is None
+                    or row != archived
+                    or current["bytes"] != row["bytes"]
+                    or current["sha256"] != row["sha256"]
+                    or canonical_path(current["path"]) != canonical_path(row["path"])
+                ):
                     raise ValueError("卷内清单与总清单不一致")
                 target = destination(root, current["path"])
                 entry = z.getinfo(row["path"])
@@ -194,7 +221,9 @@ def restore(folder: Path, root: Path, check_only: bool = False) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("folder", type=Path)
-    parser.add_argument("--root", type=Path, default=ROOT, help="项目根目录，默认为当前工具所属项目")
+    parser.add_argument(
+        "--root", type=Path, default=ROOT, help="项目根目录，默认为当前工具所属项目"
+    )
     parser.add_argument("--check-only", action="store_true", help="只核验，不写入项目文件")
     args = parser.parse_args()
     print(json.dumps(restore(args.folder, args.root, args.check_only), ensure_ascii=False))

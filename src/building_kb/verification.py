@@ -6,8 +6,9 @@ from pathlib import Path
 
 
 def fingerprint(chunk: dict) -> str:
-    content = json.dumps({k: chunk[k] for k in ("text", "tables", "page_idx")},
-                         ensure_ascii=False, sort_keys=True)
+    content = json.dumps(
+        {k: chunk[k] for k in ("text", "tables", "page_idx")}, ensure_ascii=False, sort_keys=True
+    )
     return hashlib.sha256(content.encode()).hexdigest()
 
 

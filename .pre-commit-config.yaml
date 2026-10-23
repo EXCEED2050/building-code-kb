@@ -1,0 +1,29 @@
+minimum_pre_commit_version: '4.7.0'
+default_install_hook_types: [pre-commit, commit-msg]
+exclude: ^(archive|var|data|docs/history)/
+
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: Python lint
+        entry: ruff check
+        language: python
+        additional_dependencies: [ruff==0.17.2]
+        types: [python]
+        files: ^(src/|tests/|scripts/|run_dev\.py$)
+        stages: [pre-commit]
+      - id: ruff-format
+        name: Python format
+        entry: ruff format --check
+        language: python
+        additional_dependencies: [ruff==0.17.2]
+        types: [python]
+        files: ^(src/|tests/|scripts/|run_dev\.py$)
+        stages: [pre-commit]
+      - id: conventional-commit
+        name: Conventional Commit message
+        entry: cz check --allow-abort --commit-msg-file
+        language: python
+        additional_dependencies: [commitizen==4.19.2]
+        stages: [commit-msg]

@@ -16,8 +16,6 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import glob
 import json
@@ -28,6 +26,8 @@ from pathlib import Path
 
 import jieba
 from rank_bm25 import BM25Okapi
+
+from building_kb import paths
 
 from .. import providers
 from ..verification import apply_review, load_reviews
@@ -46,7 +46,8 @@ COLLECTION = "clauses"
 # 前缀对不上台账里的「Q/SH 0841-2022」，整本企标的条号直达全部失效
 # （实测 Q/SH 0841、Q/SH 0705 两本都查不到）。
 STD_RE = re.compile(
-    r"\b((?:Q\s*/\s*SH|GB|JGJ|CJJ|SH|HG|SY|TSG|DL|NB|CECS)(?:\s*/\s*T)?)\s*-?\s*(\d{3,5})(?!\d)(?:\s*[-—－]\s*(\d{4})(?!\d))?", re.I
+    r"\b((?:Q\s*/\s*SH|GB|JGJ|CJJ|SH|HG|SY|TSG|DL|NB|CECS)(?:\s*/\s*T)?)\s*-?\s*(\d{3,5})(?!\d)(?:\s*[-—－]\s*(\d{4})(?!\d))?",
+    re.I,
 )
 # 条文号：5.5.17 / 5.5.17A / A.0.1。两级（5.5）在这里不认——三级条号本身就够独特，
 # 裸写也不会跟别的数字混。
@@ -65,9 +66,13 @@ CLAUSE2_RE = re.compile(
 # 用户问「强条」「强制性条文」时只给强条
 MANDATORY_RE = re.compile(r"强制性条文|强条|必须执行")
 # 表格类提问，命中则让带表的条文加权
-TABLE_RE = re.compile(r"表|多少|几米|限值|数值|不应(?:小于|大于|少于|超过)|最大|最小|间距|宽度|高度|面积")
+TABLE_RE = re.compile(
+    r"表|多少|几米|限值|数值|不应(?:小于|大于|少于|超过)|最大|最小|间距|宽度|高度|面积"
+)
 
-STOP = set("的了是在和及与或对其为以按应该本条等这那要可将由于从到上下中之所对于如果并且但是一个进行")
+STOP = set(
+    "的了是在和及与或对其为以按应该本条等这那要可将由于从到上下中之所对于如果并且但是一个进行"
+)
 
 # 比对规范名时用：把空格、顿号、书名号、括号一类的差异抹平
 SQUASH_RE = re.compile(r"[\s　、，,．.·（）()／/《》〈〉【】\[\]\-—－_]+")
@@ -91,8 +96,10 @@ class Hit:
 
 def parse_query(q: str) -> dict:
     """从自然语言里抠出可以精确过滤的东西。"""
-    stds = ["{} {}".format(re.sub(r"\s+", "", a.upper()), b) + (f"-{year}" if year else "")
-            for a, b, year in STD_RE.findall(q)]
+    stds = [
+        "{} {}".format(re.sub(r"\s+", "", a.upper()), b) + (f"-{year}" if year else "")
+        for a, b, year in STD_RE.findall(q)
+    ]
     # 归一成台账里的写法："GB/T" + 空格 + 数字
     stds = [re.sub(r"\s+", " ", s).strip() for s in stds]
     # 两级放在后面：同一句里三级条号更明确，让它先命中
@@ -119,7 +126,8 @@ def tokenize(text: str) -> list[str]:
     这正是需要的：用户写「疏散宽度」而规范写「疏散总净宽度」时还能对上。
     """
     return [
-        t for t in jieba.cut_for_search(text)
+        t
+        for t in jieba.cut_for_search(text)
         if t.strip() and t not in STOP and not re.fullmatch(r"[\W_]+", t)
     ]
 
@@ -127,6 +135,7 @@ def tokenize(text: str) -> list[str]:
 # --------------------------------------------------------------------------
 # 检索器
 # --------------------------------------------------------------------------
+
 
 class Retriever:
     def __init__(self, chunks_dir: str = str(paths.CHUNKS), chroma_dir: str = CHROMA_DIR):
@@ -224,7 +233,8 @@ class Retriever:
             else:
                 hits.extend(
                     Hit(c, 1.0, "条号直达（未指定规范）")
-                    for (_, cn), c in self.by_key.items() if cn == no
+                    for (_, cn), c in self.by_key.items()
+                    if cn == no
                 )
         return hits
 
@@ -232,15 +242,15 @@ class Retriever:
         """把（可能不带年号的）编号前缀展开成语料里的具体编号。None 表示不限。"""
         if not p["std_codes"]:
             return None
-        return {sc for sc in self.idx_by_code
-                if any(code_matches(sc, c) for c in p["std_codes"])}
+        return {sc for sc in self.idx_by_code if any(code_matches(sc, c) for c in p["std_codes"])}
 
     def keyword(self, q: str, k: int, allow: set[str] | None = None) -> list[Hit]:
         scores = self.bm25.get_scores(tokenize(q))
         # 限定了规范就只在那本里排名次。若只是照常取全库前 k 再过滤，
         # 「建筑设计技术规定里卫生间的做法」会因为那本一条都没挤进前 30 而颗粒无收。
-        idx = (range(len(scores)) if allow is None
-               else [i for c in allow for i in self.idx_by_code[c]])
+        idx = (
+            range(len(scores)) if allow is None else [i for c in allow for i in self.idx_by_code[c]]
+        )
         order = sorted(idx, key=lambda i: -scores[i])[:k]
         return [Hit(self.pool[i], float(scores[i]), "BM25") for i in order if scores[i] > 0]
 
@@ -251,7 +261,9 @@ class Retriever:
                 return []
             vec = self._embed().embed([q])[0]
             r = coll.query(
-                query_embeddings=[vec], n_results=k, include=["metadatas", "distances"],
+                query_embeddings=[vec],
+                n_results=k,
+                include=["metadatas", "distances"],
                 **({"where": {"std_code": {"$in": sorted(allow)}}} if allow else {}),
             )
         except Exception as exc:  # noqa: BLE001 - 向量层挂了要能退回 BM25
@@ -298,7 +310,9 @@ class Retriever:
             key = (h.chunk["std_code"], h.chunk["clause_no"])
             if key in seen:
                 continue
-            if p["std_codes"] and not any(code_matches(h.chunk["std_code"], c) for c in p["std_codes"]):
+            if p["std_codes"] and not any(
+                code_matches(h.chunk["std_code"], c) for c in p["std_codes"]
+            ):
                 continue
             if p["mandatory_only"] and not h.chunk["is_mandatory"]:
                 continue
@@ -364,8 +378,12 @@ def rrf(lists: list[list[Hit]], k: int = 60) -> list[Hit]:
     out = []
     for key, s in ordered:
         h = keep[key]
-        routes = {l[i].route for l in lists for i in range(len(l))
-                  if (l[i].chunk["std_code"], l[i].chunk["clause_no"]) == key}
+        routes = {
+            hit.route
+            for results in lists
+            for hit in results
+            if (hit.chunk["std_code"], hit.chunk["clause_no"]) == key
+        }
         out.append(Hit(h.chunk, s, "+".join(sorted(routes))))
     return out
 
@@ -373,6 +391,7 @@ def rrf(lists: list[list[Hit]], k: int = 60) -> list[Hit]:
 # --------------------------------------------------------------------------
 # CLI
 # --------------------------------------------------------------------------
+
 
 def show(hits: list[Hit], p: dict) -> None:
     if not hits:

@@ -1,2 +1,5 @@
 -r requirements.txt
 httpx>=0.28,<1
+ruff==0.17.2
+commitizen==4.19.2
+pre-commit==4.7.0

@@ -85,7 +85,7 @@ def table_markdown(html: str) -> str:
     p = _TableParser()
     p.feed(html or "")
     p.close()
-    if p._row and any(p._row):          # 最后一行没闭合 </tr> 的情况
+    if p._row and any(p._row):  # 最后一行没闭合 </tr> 的情况
         p.rows.append(p._row)
     return p.markdown()
 
@@ -133,17 +133,56 @@ def load(content_list: Path) -> list[Block]:
 # --------------------------------------------------------------------------
 
 _GREEK = {
-    "alpha": "α", "beta": "β", "gamma": "γ", "delta": "δ", "Delta": "Δ",
-    "epsilon": "ε", "zeta": "ζ", "eta": "η", "theta": "θ", "lambda": "λ",
-    "mu": "μ", "nu": "ν", "xi": "ξ", "pi": "π", "rho": "ρ", "sigma": "σ",
-    "tau": "τ", "phi": "φ", "Phi": "Φ", "chi": "χ", "psi": "ψ", "omega": "ω",
-    "Omega": "Ω", "Sigma": "Σ", "varphi": "φ", "varepsilon": "ε",
+    "alpha": "α",
+    "beta": "β",
+    "gamma": "γ",
+    "delta": "δ",
+    "Delta": "Δ",
+    "epsilon": "ε",
+    "zeta": "ζ",
+    "eta": "η",
+    "theta": "θ",
+    "lambda": "λ",
+    "mu": "μ",
+    "nu": "ν",
+    "xi": "ξ",
+    "pi": "π",
+    "rho": "ρ",
+    "sigma": "σ",
+    "tau": "τ",
+    "phi": "φ",
+    "Phi": "Φ",
+    "chi": "χ",
+    "psi": "ψ",
+    "omega": "ω",
+    "Omega": "Ω",
+    "Sigma": "Σ",
+    "varphi": "φ",
+    "varepsilon": "ε",
 }
 _SYMBOL = {
-    "times": "×", "cdot": "·", "sim": "~", "approx": "≈", "pm": "±",
-    "leqslant": "≤", "leq": "≤", "le": "≤", "geqslant": "≥", "geq": "≥", "ge": "≥",
-    "neq": "≠", "ll": "≪", "gg": "≫", "infty": "∞", "prime": "′",
-    "sum": "Σ", "prod": "Π", "int": "∫", "partial": "∂", "%": "%", "&": " ",
+    "times": "×",
+    "cdot": "·",
+    "sim": "~",
+    "approx": "≈",
+    "pm": "±",
+    "leqslant": "≤",
+    "leq": "≤",
+    "le": "≤",
+    "geqslant": "≥",
+    "geq": "≥",
+    "ge": "≥",
+    "neq": "≠",
+    "ll": "≪",
+    "gg": "≫",
+    "infty": "∞",
+    "prime": "′",
+    "sum": "Σ",
+    "prod": "Π",
+    "int": "∫",
+    "partial": "∂",
+    "%": "%",
+    "&": " ",
 }
 _SUP = {"0": "⁰", "1": "¹", "2": "²", "3": "³"}
 
@@ -164,16 +203,16 @@ def _delatex(s: str) -> str:
     # 必须赶在 \sim → ~ 之前替掉，否则分不清哪个 ~ 是数值区间的意思。
     s = s.replace("~", " ")
     s = _SPACES.sub(" ", s)
-    for _ in range(3):                       # \mathrm{\mathbf{x}} 这类嵌套
+    for _ in range(3):  # \mathrm{\mathbf{x}} 这类嵌套
         s2 = _BRACED.sub(r"\2", s)
         if s2 == s:
             break
         s = s2
-    s = _DEGREE.sub("°", s)                  # 130^{\circ}C → 130°C
+    s = _DEGREE.sub("°", s)  # 130^{\circ}C → 130°C
     s = _FRAC.sub(r"\1/\2", s)
     s = _SQRT.sub(r"√(\1)", s)
-    s = _SUB.sub(r"\1", s)                   # B_{2} → B2
-    s = _SUPER.sub(lambda m: _SUP.get(m.group(1), "^" + m.group(1)), s)   # m^{2} → m²
+    s = _SUB.sub(r"\1", s)  # B_{2} → B2
+    s = _SUPER.sub(lambda m: _SUP.get(m.group(1), "^" + m.group(1)), s)  # m^{2} → m²
     s = re.sub(r"\^(\d)", lambda m: _SUP.get(m.group(1), "^" + m.group(1)), s)
     s = re.sub(r"_(\w)", r"\1", s)
     s = _CMD.sub(lambda m: _GREEK.get(m.group(1), _SYMBOL.get(m.group(1), m.group(0))), s)
@@ -219,7 +258,7 @@ def tidy(blocks: list[Block]) -> list[Block]:
         if kind == "p":
             text = delatex(text)
             if m := _SPACED_NO.match(text):
-                text = f"{m.group(1)}.{m.group(2)}.{m.group(3)}{m.group(4)}" + text[m.end():]
+                text = f"{m.group(1)}.{m.group(2)}.{m.group(3)}{m.group(4)}" + text[m.end() :]
             for piece in split_inline(text):
                 out.append((kind, obj, piece))
             continue

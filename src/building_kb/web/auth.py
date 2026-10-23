@@ -42,8 +42,11 @@ def passcode() -> str:
     if os.environ.get("KB_DEV") == "1":
         if not _DEV_CODE:
             _DEV_CODE = secrets.token_hex(4)
-            print(f"\n[本地开发] 本次访问口令：{_DEV_CODE}\n"
-                  f"[本地开发] 仅供本机验证，正式部署必须设 KB_PASSCODE\n", flush=True)
+            print(
+                f"\n[本地开发] 本次访问口令：{_DEV_CODE}\n"
+                f"[本地开发] 仅供本机验证，正式部署必须设 KB_PASSCODE\n",
+                flush=True,
+            )
         return _DEV_CODE
 
     raise NoPasscode(

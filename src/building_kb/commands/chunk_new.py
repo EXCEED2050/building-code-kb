@@ -15,8 +15,6 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import csv
 import glob
@@ -26,6 +24,7 @@ import sys
 import time
 from pathlib import Path
 
+from building_kb import paths
 from building_kb.ingest.batch import index_mineru, index_word_files, match, norm
 
 ROOT = paths.ROOT
@@ -47,7 +46,7 @@ def pending(catalog: Path, ocr_dir: Path, word_dir: Path, chunks: Path) -> tuple
         if match(code, ocrs) is None or norm(code) in done:
             continue
         if match(code, words) is not None:
-            skipped.append((code, r["std_name"]))   # 有 Word 源，交给 batch 会走范围外的路
+            skipped.append((code, r["std_name"]))  # 有 Word 源，交给 batch 会走范围外的路
         else:
             todo.append((code, r["std_name"]))
     return todo, skipped
@@ -82,13 +81,16 @@ def main(argv: list[str] | None = None) -> int:
     if args.wait_pid:
         print(f"等 pid {args.wait_pid} 退出（最多 {args.wait_limit / 3600:.1f} 小时）…", flush=True)
         if not wait_for(args.wait_pid, args.wait_limit):
-            print(f"! 等到超时，pid {args.wait_pid} 还活着。"
-                  f"OCR 可能又卡在换页上了，先去看它，别急着切。")
+            print(
+                f"! 等到超时，pid {args.wait_pid} 还活着。"
+                f"OCR 可能又卡在换页上了，先去看它，别急着切。"
+            )
             return 2
         print("OCR 进程已退出。\n", flush=True)
 
-    todo, skipped = pending(Path(args.catalog), Path(args.ocr_dir),
-                            Path(args.word_dir), Path(args.chunks))
+    todo, skipped = pending(
+        Path(args.catalog), Path(args.ocr_dir), Path(args.word_dir), Path(args.chunks)
+    )
     if skipped:
         print(f"跳过 {len(skipped)} 本（有 Word 源，走 batch 会用到范围外文件）：")
         for c, n in skipped:
@@ -105,10 +107,23 @@ def main(argv: list[str] | None = None) -> int:
         print("\n（没加 --run，只是看看）")
         return 0
 
-    cmd = [sys.executable, "-m", "building_kb.ingest.batch",
-           "--catalog", args.catalog, "--word-dir", args.word_dir,
-           "--mineru-dir", args.mineru_dir, "--ocr-dir", args.ocr_dir,
-           "--out", args.chunks, "--only", ",".join(c for c, _ in todo)]
+    cmd = [
+        sys.executable,
+        "-m",
+        "building_kb.ingest.batch",
+        "--catalog",
+        args.catalog,
+        "--word-dir",
+        args.word_dir,
+        "--mineru-dir",
+        args.mineru_dir,
+        "--ocr-dir",
+        args.ocr_dir,
+        "--out",
+        args.chunks,
+        "--only",
+        ",".join(c for c, _ in todo),
+    ]
     print("\n" + " ".join(cmd) + "\n", flush=True)
     return subprocess.call(cmd, cwd=ROOT)
 

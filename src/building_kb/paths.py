@@ -3,6 +3,7 @@
 KB_HOME selects a data workspace when the package is installed elsewhere.
 Relative environment overrides are always relative to that workspace, not cwd.
 """
+
 from __future__ import annotations
 
 import os

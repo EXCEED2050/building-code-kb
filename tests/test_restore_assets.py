@@ -1,10 +1,11 @@
 """Published legacy archives must restore into the new layout without data loss."""
+
 import hashlib
 import json
-from pathlib import Path
 import tempfile
 import unittest
 import zipfile
+from pathlib import Path
 
 from building_kb.commands.restore_assets import destination, restore
 
@@ -21,19 +22,29 @@ class RestoreTests(unittest.TestCase):
 
     def archive(self, modern_manifest=False, member="建筑规范/pdf/test.pdf"):
         content = b"original PDF bytes"
-        record = {"path": member, "bytes": len(content),
-                  "sha256": hashlib.sha256(content).hexdigest()}
+        record = {
+            "path": member,
+            "bytes": len(content),
+            "sha256": hashlib.sha256(content).hexdigest(),
+        }
         archive = self.downloads / "originals-part01.zip"
         with zipfile.ZipFile(archive, "w") as z:
             z.writestr(member, content)
-            z.writestr("ASSET_MANIFEST_" + archive.name + ".json",
-                       json.dumps({"files": [record]}))
+            z.writestr("ASSET_MANIFEST_" + archive.name + ".json", json.dumps({"files": [record]}))
         current = dict(record)
         if modern_manifest:
             current.update(path="data/sources/pdf/test.pdf", archive_path=member)
-        self.manifest = {"files": [current], "assets": [{"file": archive.name,
-            "files": 1, "bytes": archive.stat().st_size,
-            "sha256": hashlib.sha256(archive.read_bytes()).hexdigest()}]}
+        self.manifest = {
+            "files": [current],
+            "assets": [
+                {
+                    "file": archive.name,
+                    "files": 1,
+                    "bytes": archive.stat().st_size,
+                    "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
+                }
+            ],
+        }
         self.write_manifest()
         return content
 
@@ -75,8 +86,14 @@ class RestoreTests(unittest.TestCase):
         self.assertEqual(list(self.root.iterdir()), [])
 
     def test_traversal_secrets_and_outside_symlinks_are_rejected(self):
-        for relative in ["../escape", "/tmp/escape", "建筑规范/../../escape",
-                         "data/sources/.env", "data/chunks/a.jsonl", "kb/data/ocr/../.env"]:
+        for relative in [
+            "../escape",
+            "/tmp/escape",
+            "建筑规范/../../escape",
+            "data/sources/.env",
+            "data/chunks/a.jsonl",
+            "kb/data/ocr/../.env",
+        ]:
             with self.subTest(relative=relative), self.assertRaises(ValueError):
                 destination(self.root, relative)
         (self.root / "data").symlink_to(self.base)
@@ -84,7 +101,9 @@ class RestoreTests(unittest.TestCase):
             destination(self.root, "建筑规范/pdf/test.pdf")
 
     def test_all_three_published_source_roots_are_mapped(self):
-        for old, new in [("建筑规范/a.pdf", "data/sources/a.pdf"),
-                         ("MinerU/a.json", "data/processed/mineru/a.json"),
-                         ("kb/data/ocr/a.json", "data/processed/ocr/a.json")]:
+        for old, new in [
+            ("建筑规范/a.pdf", "data/sources/a.pdf"),
+            ("MinerU/a.json", "data/processed/mineru/a.json"),
+            ("kb/data/ocr/a.json", "data/processed/ocr/a.json"),
+        ]:
             self.assertEqual(destination(self.root, old), self.root / new)

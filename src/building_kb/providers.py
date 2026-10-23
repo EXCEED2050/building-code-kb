@@ -30,13 +30,13 @@ commands/ocr_cloud.py 也出网（把扫描件传给 MinerU 云端做 OCR）。
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import os
 from pathlib import Path
 from typing import Protocol
 
 import requests
+
+from building_kb import paths
 
 _ENV_FILE = paths.ROOT / ".env"
 _env_loaded = False
@@ -63,10 +63,10 @@ def _load_env() -> None:
         os.environ.setdefault(k.strip(), v.strip().strip("'\""))
 
 
-SILICONFLOW ="https://api.siliconflow.cn/v1"
+SILICONFLOW = "https://api.siliconflow.cn/v1"
 DEEPSEEK = "https://api.deepseek.com/v1"
 
-EMBED_MODEL = "BAAI/bge-m3"          # 1024 维，硅基流动当前免费
+EMBED_MODEL = "BAAI/bge-m3"  # 1024 维，硅基流动当前免费
 RERANK_MODEL = "BAAI/bge-reranker-v2-m3"
 CHAT_MODEL = "deepseek-chat"
 
@@ -93,6 +93,7 @@ class LLM(Protocol):
 # 硅基流动（公有云）
 # --------------------------------------------------------------------------
 
+
 class SiliconFlowEmbedder:
     def __init__(self, key: str, model: str = EMBED_MODEL, base: str = SILICONFLOW):
         self.key, self.model, self.base = key, model, base
@@ -101,7 +102,7 @@ class SiliconFlowEmbedder:
         out: list[list[float]] = []
         # 接口对单次条数和总 token 都有限制，分批发
         for i in range(0, len(texts), 32):
-            batch = texts[i: i + 32]
+            batch = texts[i : i + 32]
             r = requests.post(
                 f"{self.base}/embeddings",
                 headers={"Authorization": f"Bearer {self.key}"},
@@ -276,8 +277,9 @@ def _retry_oom(fn, group: list, torch, device: str) -> list:
             raise
         _release(torch, device)
         mid = len(group) // 2
-        return (_retry_oom(fn, group[:mid], torch, device)
-                + _retry_oom(fn, group[mid:], torch, device))
+        return _retry_oom(fn, group[:mid], torch, device) + _retry_oom(
+            fn, group[mid:], torch, device
+        )
 
 
 def _run(m, group: list) -> list:
@@ -338,14 +340,17 @@ class NativeEmbedder:
         self.tok = AutoTokenizer.from_pretrained(str(model_dir))
         self.model = (
             AutoModel.from_pretrained(str(model_dir), dtype=_dtype(torch, self.device))
-            .to(self.device).eval()
+            .to(self.device)
+            .eval()
         )
 
     def _forward(self, group: list[str]) -> list[list[float]]:
         enc = self.tok(
             group,
-            padding=True, truncation=True,
-            max_length=self.max_len, return_tensors="pt",
+            padding=True,
+            truncation=True,
+            max_length=self.max_len,
+            return_tensors="pt",
         ).to(self.device)
         with self._torch.no_grad():
             # bge-m3 的 dense 向量取 CLS（第 0 个 token），再 L2 归一化。
@@ -378,14 +383,19 @@ class NativeReranker:
         self.tok = AutoTokenizer.from_pretrained(str(model_dir))
         self.model = (
             AutoModelForSequenceClassification.from_pretrained(
-                str(model_dir), dtype=_dtype(torch, self.device))
-            .to(self.device).eval()
+                str(model_dir), dtype=_dtype(torch, self.device)
+            )
+            .to(self.device)
+            .eval()
         )
 
     def _forward(self, pairs: list[list[str]]) -> list[float]:
         enc = self.tok(
-            pairs, padding=True, truncation=True,
-            max_length=self.max_len, return_tensors="pt",
+            pairs,
+            padding=True,
+            truncation=True,
+            max_length=self.max_len,
+            return_tensors="pt",
         ).to(self.device)
         with self._torch.no_grad():
             return self.model(**enc).logits.view(-1).float().cpu().tolist()
@@ -412,6 +422,7 @@ def _native(cls, path: Path, what: str):
 # 工厂
 # --------------------------------------------------------------------------
 
+
 def _key(name: str) -> str:
     _load_env()
     v = os.environ.get(name, "").strip()
@@ -437,9 +448,7 @@ def _mode(component: str, default: str) -> str:
     """
     _load_env()
     return (
-        os.environ.get(f"KB_{component}_PROVIDER")
-        or os.environ.get("KB_PROVIDER")
-        or default
+        os.environ.get(f"KB_{component}_PROVIDER") or os.environ.get("KB_PROVIDER") or default
     ).strip()
 
 

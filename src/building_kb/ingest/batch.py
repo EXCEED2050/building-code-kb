@@ -11,8 +11,6 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import csv
 import json
@@ -20,6 +18,8 @@ import re
 from collections import Counter
 from dataclasses import asdict
 from pathlib import Path
+
+from building_kb import paths
 
 from . import pagefind
 from .chunker import build, build_from_mineru, cut_back_matter
@@ -95,7 +95,9 @@ def load_notes(path: Path) -> dict[tuple[str, str], str]:
     return out
 
 
-def apply_notes(chunks: list, code: str, notes: dict[tuple[str, str], str]) -> tuple[int, list[str]]:
+def apply_notes(
+    chunks: list, code: str, notes: dict[tuple[str, str], str]
+) -> tuple[int, list[str]]:
     """把提醒挂到条文上，并报告哪些条号没挂上。
 
     挂不上一般是条号写错或那本还没入库。必须报出来——
@@ -135,9 +137,14 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--catalog", default=str(paths.CATALOG))
     ap.add_argument("--word-dir", default=str(paths.WORD_DIR))
     ap.add_argument("--mineru-dir", default=str(paths.MINERU_DIR))
-    ap.add_argument("--ocr-dir", default=str(paths.OCR_DIR),
-                    help="building_kb.ingest.ocr 的产物目录；没有 Word 源的规范从这里走 OCR 路径")
-    ap.add_argument("--notes", default=str(paths.CATALOG_DIR / "clause_notes.tsv"), help="单条条文的引用提醒")
+    ap.add_argument(
+        "--ocr-dir",
+        default=str(paths.OCR_DIR),
+        help="building_kb.ingest.ocr 的产物目录；没有 Word 源的规范从这里走 OCR 路径",
+    )
+    ap.add_argument(
+        "--notes", default=str(paths.CATALOG_DIR / "clause_notes.tsv"), help="单条条文的引用提醒"
+    )
     ap.add_argument("--out", default=str(paths.CHUNKS))
     ap.add_argument("--only", default="", help="逗号分隔的规范编号，留空则处理全部有编号的")
     args = ap.parse_args(argv)
@@ -152,8 +159,10 @@ def main(argv: list[str] | None = None) -> int:
     for r in rows:
         if r["file_path"].lower().endswith(".pdf") and (p := root / r["file_path"]).exists():
             pdfs.setdefault(norm(r["std_code"]), p)
-    print(f"Word 索引 {len(words)} 项，MinerU 索引 {len(minerus)} 项，"
-          f"OCR 索引 {len(ocrs)} 项，PDF {len(pdfs)} 项\n")
+    print(
+        f"Word 索引 {len(words)} 项，MinerU 索引 {len(minerus)} 项，"
+        f"OCR 索引 {len(ocrs)} 项，PDF {len(pdfs)} 项\n"
+    )
 
     wanted = {norm(c) for c in args.only.split(",") if c.strip()}
 

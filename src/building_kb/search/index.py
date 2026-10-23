@@ -16,12 +16,10 @@
 
 from __future__ import annotations
 
-from building_kb import paths
-
 import argparse
 import hashlib
-import json
-from pathlib import Path
+
+from building_kb import paths
 
 from .. import providers
 from .retrieve import CHROMA_DIR, COLLECTION, Retriever
@@ -67,8 +65,10 @@ def main(argv: list[str] | None = None) -> int:
     try:
         embedder = providers.get_embedder()
     except providers.ProviderUnavailable as exc:
-        print(f"无法建立向量索引：\n{exc}\n\n"
-              "在此之前检索会自动退回纯 BM25，仍可正常使用（python -m building_kb.search.retrieve）。")
+        print(
+            f"无法建立向量索引：\n{exc}\n\n"
+            "在此之前检索会自动退回纯 BM25，仍可正常使用（python -m building_kb.search.retrieve）。"
+        )
         return 1
 
     import chromadb
@@ -98,7 +98,7 @@ def main(argv: list[str] | None = None) -> int:
         coll.delete(ids=list(stale))
 
     for i in range(0, len(todo), args.batch):
-        batch = todo[i: i + args.batch]
+        batch = todo[i : i + args.batch]
         docs = [doc_of(c) for c in batch]
         vecs = embedder.embed(docs)
         coll.upsert(
